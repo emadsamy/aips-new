@@ -1,0 +1,107 @@
+.program-header-details {
+  background-color: #370F76 !important;
+}
+.benefits-widget {
+  display: flex;
+  margin: 70px 0;
+}
+.benefits-widget-details {
+  padding: 115px 50px;
+  background-color: #D0D877;
+  width: 47%;
+}
+.overline {
+  position: relative;
+  line-height: 1;
+  font-size: 38px;
+  font-weight: bolder;
+}
+.overline:after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  height: 5px;
+  width: 50px;
+}
+.benefits-widget-details .title {
+  color: #1B1464;
+}
+.benefits-widget-details .title:after {
+  background-color: #370F76;
+}
+.benefits-widget-view {
+  width: 53%;
+  background-size: cover;
+  background-position: center center;
+}
+.benefits-content ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.benefit-title {
+  width: 48%;
+  font-size: 16px;
+  color: #585858;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.benefit-title:after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 0;
+  border-radius: 50%;
+  border: 1px solid #4F17A8;
+  width: 8px;
+  height: 8px;
+}
+.ti-widget {
+  flex-direction: row-reverse;
+}
+.tra-inst-widget {
+  display: flex;
+}
+.tra-inst-widget > div {
+  width: 50%;
+}
+.ti-widget-details .title{
+  color: #1B1464
+}
+.ti-widget .benefits-widget-details {
+  background-color: #E6E6E6;
+}
+.certificate-types {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.certificate-type {
+  border: 1px solid #C7C7C7;
+  padding: 23px 26px;
+  width: calc(33.3% - 17px);
+  margin-bottom: 34px;
+}
+.certificate-title {
+  font-size: 30px;
+  font-weight: normal;
+  color: #1B1464;
+}
+.certificate-title sup {
+  font-size: 15px;
+}
+.application-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.became-a {
+  width: 130px;
+}
+.became-a .title {
+  line-height: 1;
+  text-transform: uppercase;
+}

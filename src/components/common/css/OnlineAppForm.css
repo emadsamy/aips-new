@@ -1,0 +1,126 @@
+.online-app-header {
+  height: 230px;
+  display: flex;
+}
+.online-app-details {
+  background-color: #370F76;
+  width: 58%;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+}
+.online-app-details .title {
+  font-size: 40px;
+  font-weight: bolder;
+  text-transform: uppercase;
+  line-height: 1
+}
+.online-app-details .description-type {
+  font-size: 27px;
+}
+.online-app-view {
+  width: 42%;
+}
+.online-app-view {
+  background-size: cover;
+}
+.online-app-container {
+  padding: 60px 0;
+}
+.online-app-data {
+  width: calc(100% - 240px);
+}
+.online-app-avatar {
+  width: 200px;
+}
+.online-app-avatar img {
+  border: 1px solid;
+}
+.upload-avatar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 13px 0;
+}
+.icon-drag {
+  font-size: 40px;
+}
+.upload-text {
+  font-size: 16px;
+  color: #666666;
+  padding-left: 15px;
+}
+.alert-text-checkbox {
+  background-color: #F0F0F0;
+  padding: 15px 18px;
+}
+.alert-checkbox {
+  display: flex;
+  align-items: center;
+}
+.alert-text {
+  font-size: 15px;
+}
+.alert-checkbox label {
+  margin-bottom: 0;
+  margin-left: 8px;
+  cursor: pointer;
+}
+.small-text {
+  font-size: 15px;
+  color: #4D4D4D;
+}
+.small-title {
+  font-weight: 600;
+}
+.form-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.form-group {
+  border: 1px solid #666666;
+  padding: 8px 13px;
+  width: 48%;
+  margin-bottom: 15px;
+}
+.form-control {
+  padding: 0;
+}
+.form-control::placeholder,
+.form-control {
+  color: #333333;
+}
+.form-note {
+  color: #4D4D4D;
+  font-weight: 600;
+  font-size: 13px;
+}
+.add-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-link > div {
+  width: 48%;
+}
+.video-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 19px 20px;
+  background-color: #F0F0F0
+}
+.video-link input {
+  background-color: #FFF;
+  padding: 2px 12px;
+  border: 1px solid #BEBEBE;
+  width: calc(100% - 45px);
+}
+.video-link .icon-url {
+  font-size: 31px;
+}
+.main-btn-backdrop {
+  padding: 2px 37px;
+  font-size: 19px
+}

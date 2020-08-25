@@ -1,0 +1,167 @@
+.certificate-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.dropdown {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 53px;
+  height: 53px;
+  border-radius: 50%;
+}
+.title {
+  font-size: 20px;
+  margin-left: 10px
+}
+.main-certificate {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+.main-certificate > div {
+  margin-bottom: 40px
+}
+.main-certificate-detials {
+  width: 500px;
+  padding-top: 40px;
+}
+.main-certificate-view {
+  width: calc(100% - 550px);
+  text-align: right;
+}
+.main-certificate-view img {
+  height: 100%
+}
+.main-certificate-container {
+  height: calc(100% - 143px);
+}
+.main-certificate {
+  height: 100%;
+}
+.verfication {
+  font-weight: bolder;
+  font-size: 20px;
+  margin-bottom: 14px;
+  color: #000
+}
+.bg-title {
+  font-size: 69px;
+  font-weight: bolder;
+  color: #5018A8;
+  margin-bottom: 25px
+}
+.form-group {
+  border: 1.5px solid #4F17A8;
+  width: 430px;
+  max-width: 100%;
+  margin-bottom: 50px;
+}
+.form-control::placeholder {
+  color: #797979;
+}
+.form-control {
+  color: #000
+}
+.verfication.text {
+  font-weight: 600
+}
+.verify-links {
+  padding-top: 140px;
+}
+.links a {
+  color: #909090;
+  font-size: 17px;
+  font-weight: 600;
+  margin-right: 50px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .main-certificate-view img {
+    height: auto;
+    width: 100%;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .main-certificate-view img {
+    height: auto;
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .main-certificate {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .container-fluid {
+    padding: 0;
+  }
+  .main-certificate > div {
+    width: 100%;
+  }
+  .main-certificate-container {
+    height: auto
+  }
+  .main-certificate-view {
+    width: 100%;
+  }
+  .main-certificate-detials {
+    padding: 0 15px;
+  }
+  .bg-title {
+    font-size: 48px;
+  }
+  .verify-links {
+    margin-bottom: 15px;
+    padding-top: 40px;
+  }
+  .links a {
+    margin-right: 20px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main-certificate-detials {
+    width: 362px;
+  }
+  .main-certificate-view {
+    width: calc(100% - 382px);
+    display: flex;
+    align-items: center;
+  }
+  .main-certificate-view img {
+    height: auto;
+    width: 100%;
+  }
+  .bg-title {
+    font-size: 48px;
+  }
+  .verify-links {
+    padding-top: 90px;
+  }
+  .links a {
+    margin-right: 20px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .verify-links {
+    padding-top: 70px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
