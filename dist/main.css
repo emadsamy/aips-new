@@ -24,34 +24,34 @@ html {
 /* Dubai Font */
 @font-face {
   font-family: "Arabic Dubai";
-  src: url("../fonts/dubai_fonts/DubaiW23-Regular.eot") format("eot");
-  src: url("../fonts/dubai_fonts/DubaiW23-Regular.ttf") format("ttf");
-  src: url("../fonts/dubai_fonts/DubaiW23-Regular.woff") format("woff");
-  src: url("../fonts/dubai_fonts/DubaiW23-Regular.woff2") format("woff2");
+  src: url("fonts/dubai_fonts/DubaiW23-Regular.eot") format("eot");
+  src: url("fonts/dubai_fonts/DubaiW23-Regular.ttf") format("ttf");
+  src: url("fonts/dubai_fonts/DubaiW23-Regular.woff") format("woff");
+  src: url("fonts/dubai_fonts/DubaiW23-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal; }
 @font-face {
   font-family: "Arabic Dubai";
-  src: url("../fonts/dubai_fonts/DubaiW23-Medium.eot") format("eot");
-  src: url("../fonts/dubai_fonts/DubaiW23-Medium.ttf") format("ttf");
-  src: url("../fonts/dubai_fonts/DubaiW23-Medium.woff") format("woff");
-  src: url("../fonts/dubai_fonts/DubaiW23-Medium.woff2") format("woff2");
+  src: url("fonts/dubai_fonts/DubaiW23-Medium.eot") format("eot");
+  src: url("fonts/dubai_fonts/DubaiW23-Medium.ttf") format("ttf");
+  src: url("fonts/dubai_fonts/DubaiW23-Medium.woff") format("woff");
+  src: url("fonts/dubai_fonts/DubaiW23-Medium.woff2") format("woff2");
   font-weight: 600;
   font-style: normal; }
 @font-face {
   font-family: "Arabic Dubai";
-  src: url("../fonts/dubai_fonts/DubaiW23-Bold.eot") format("eot");
-  src: url("../fonts/dubai_fonts/DubaiW23-Bold.ttf") format("ttf");
-  src: url("../fonts/dubai_fonts/DubaiW23-Bold.woff") format("woff");
-  src: url("../fonts/dubai_fonts/DubaiW23-Bold.woff2") format("woff2");
+  src: url("fonts/dubai_fonts/DubaiW23-Bold.eot") format("eot");
+  src: url("fonts/dubai_fonts/DubaiW23-Bold.ttf") format("ttf");
+  src: url("fonts/dubai_fonts/DubaiW23-Bold.woff") format("woff");
+  src: url("fonts/dubai_fonts/DubaiW23-Bold.woff2") format("woff2");
   font-weight: bold;
   font-style: normal; }
 @font-face {
   font-family: "Arabic Dubai";
-  src: url("../fonts/dubai_fonts/DubaiW23-Light.eot") format("eot");
-  src: url("../fonts/dubai_fonts/DubaiW23-Light.ttf") format("ttf");
-  src: url("../fonts/dubai_fonts/DubaiW23-Light.woff") format("woff");
-  src: url("../fonts/dubai_fonts/DubaiW23-Light.woff2") format("woff2");
+  src: url("fonts/dubai_fonts/DubaiW23-Light.eot") format("eot");
+  src: url("fonts/dubai_fonts/DubaiW23-Light.ttf") format("ttf");
+  src: url("fonts/dubai_fonts/DubaiW23-Light.woff") format("woff");
+  src: url("fonts/dubai_fonts/DubaiW23-Light.woff2") format("woff2");
   font-weight: 500;
   font-style: italic; }
 .fas,
