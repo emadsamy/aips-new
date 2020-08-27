@@ -1,0 +1,190 @@
+/* Profile */
+.profile {
+  border: 1px solid #E6E6E6;
+  height: 100%;
+  border-radius: 8px;
+  padding: 50px 40px; }
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  position: relative;
+}
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; }
+  .avatar .change-avatar {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: #F2F2F2;
+    border: 1px solid #B3B3B3;
+    font-size: 13px;
+    display: inline-block;
+    text-align: center;
+    line-height: 23px;
+    border-radius: 50%;
+    bottom: 0;
+    right: 0
+     }
+
+.username {
+  margin-left: 20px; }
+  .username .icon-edit {
+    margin-left: 8px; }
+  .username .edit-text {
+    font-size: 14px;
+    font-weight: 600; }
+
+.profile-links,
+.profile-info {
+  border: 1px solid #E6E6E6;
+  border-radius: 8px;
+  padding: 25px 25px;
+  height: 100%; }
+
+.profile-links.nav {
+  display: block !important;
+  -ms-flex-wrap: wrap;
+  flex-wrap: auto !important;
+  padding-right: 0 !important;
+  margin-bottom: 0 !important;
+  list-style: none !important;
+  height: auto !important;
+  padding-right: 25px !important; }
+
+.profile-info {
+  padding-left: 50px;
+  padding-right: 50px; }
+
+.balance-num {
+  font-size: 40px; }
+
+.profile-orders .order-item-header {
+  margin-bottom: 20px;
+  padding: 0 15px; }
+.profile-orders .order-item-img-flex {
+  height: 90px; }
+.profile-orders .order-item-img {
+  height: 100%; }
+.profile-orders .order-item-row > div {
+  width: 13%; }
+.profile-orders .print-number {
+  margin-bottom: 9px; }
+.profile-orders .order-item-row {
+  border: 1px solid #D6D6D6; }
+.profile-orders .order-item-data {
+  width: 87% !important; }
+  .profile-orders .order-item-data > div {
+    width: 16.8%; }
+.profile-orders .order-status-icon {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 15px; }
+.profile-orders .order-status-text {
+  line-height: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: #666; }
+.profile-orders .status-correct {
+  color: #2ecc71; }
+.profile-orders .status-wrong {
+  color: #f00; }
+.profile-orders .order-copies-counter {
+  border: 1px solid #D6D6D6; }
+.profile-orders .order-item-border {
+  border-bottom: none;
+  margin-bottom: 30px; }
+.profile-orders .or-price {
+  font-weight: 600; }
+.profile-orders .order-item-timestamps div {
+  font-weight: 600; }
+
+.profile-edit-head {
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #E6E6E6 !important; }
+  .profile-edit-head .title {
+    color: #009DDC; }
+  .profile-edit-head .edit-text {
+    font-size: 15px;
+    margin-top: 3px;
+    font-weight: 600;
+    margin-right: 10px;
+    color: #666666; }
+  .profile-edit-head .icon {
+    color: #666666;
+    font-size: 20px; }
+
+.profile-link-content {
+  border-bottom: 1px solid #E6E6E6;
+  padding-bottom: 18px;
+  margin-bottom: 16px; }
+  .profile-link-content:hover .profile-link-text {
+    color: #009DDC; }
+  .profile-link-content:last-of-type {
+    border: none;
+    padding: 0;
+    margin: 0; }
+  .profile-link-content .profile-link-text {
+    font-size: 18px;
+    color: #4D4D4D; }
+  .profile-link-content .icon {
+    font-size: 27px;
+    color: #666666;
+    display: inline-block; }
+
+.profile-link-content.active .profile-link-text,
+.profile-link-content.active .icon {
+  color: #009DDC !important; }
+
+.profile-link-balance {
+  font-weight: 600;
+  color: #4D4D4D; }
+
+.profile-edit-action:hover span {
+  color: #009DDC; }
+
+.profile-form .form-group {
+  border: none;
+  margin-bottom: 13px; }
+  .profile-form .form-group:last-of-type {
+    margin-bottom: 0; }
+  .profile-form .form-group label {
+    color: #1A1A1A;
+    font-size: 18px;
+    width: 130px;
+    margin-right: 20px; }
+  .profile-form .form-group input {
+    width: 330px;
+    border: 1px solid #00000016;
+    border-radius: 8px;
+    padding: 8px 12px; }
+
+.profile-welcome-msg {
+  height: 100%; }
+  .profile-welcome-msg > div {
+    font-size: 23px;
+    font-weight: 600; }
+  .profile-welcome-msg .hello {
+    margin-left: 13px;
+    margin-right: 15px; }
+
+.user-data {
+  font-size: 19px;
+  color: #1A1A1A;
+  height: 38px; }
+
+.user-data-number {
+  direction: ltr; }
+
+.user-head {
+  padding-left: 15px;
+  padding-right: 15px; }
+  .user-head .fullname {
+    font-size: 22px;
+    font-weight: 600; }
+
+/* Profile */

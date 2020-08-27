@@ -84,6 +84,7 @@ export default {
             localStorage.setItem('access_token', res.data.access_token);
             localStorage.setItem('user_image', res.data.user.image);
             localStorage.setItem('user_name', res.data.user.first_name);
+            localStorage.setItem('last_name', res.data.user.last_name);
             localStorage.setItem('user_id', res.data.user.id);
             this.$router.push({ name: 'Home' });
 

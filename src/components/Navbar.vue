@@ -22,6 +22,7 @@
                     <div v-if="authenticated" class="showDropdown">
                         <Avatar />
                         <div class="dropdown-container">
+                            <router-link to="/profile">Profile</router-link>
                             <router-link to="/logout">Logout</router-link>
                         </div>
                     </div>

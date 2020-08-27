@@ -6,6 +6,7 @@ import Register from '../views/Register.vue';
 import Program from '../views/Program.vue';
 import Entre from '../views/Entre.vue';
 import OnlineApplication from '../views/OnlineApplication.vue';
+import OnlineApplicationMembership from '../views/OnlineApplicationMembership.vue';
 import Certificate1 from '../views/Certificate1.vue';
 import Instructor from '../views/Instructor.vue';
 import Experience from '../views/Experience.vue';
@@ -24,6 +25,7 @@ import ContactUs from '../views/ContactUs.vue';
 import VerficationAccount from '../views/VerficationAccount.vue';
 import OnlineTraining from '../views/OnlineTraining.vue';
 import Events from '../views/Events.vue';
+import Profile from '../views/Profile.vue';
 import Logout from '../views/Logout.vue';
 
 const routes = [
@@ -59,6 +61,11 @@ const routes = [
     path: '/online-application',
     name: 'OnlineApplication',
     component: OnlineApplication
+  },
+  {
+    path: '/online-application-membership',
+    name: 'OnlineApplicationMembership',
+    component: OnlineApplicationMembership
   },
   {
     path: '/certificate1',
@@ -144,6 +151,11 @@ const routes = [
     path: '/online-training',
     name: 'OnlineTraining',
     component: OnlineTraining
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: Profile
   },
   {
     path: '/events',

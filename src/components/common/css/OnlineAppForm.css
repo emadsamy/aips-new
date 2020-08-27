@@ -60,6 +60,7 @@
 }
 .alert-text {
   font-size: 15px;
+  font-weight: 600;
 }
 .alert-checkbox label {
   margin-bottom: 0;
@@ -78,10 +79,12 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.form-inputs > div {
+  width: 48%;
+}
 .form-group {
   border: 1px solid #666666;
   padding: 8px 13px;
-  width: 48%;
   margin-bottom: 15px;
 }
 .form-control {
@@ -123,4 +126,60 @@
 .main-btn-backdrop {
   padding: 2px 37px;
   font-size: 19px
+}
+.form-group-upload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.ic-upload {
+  font-size: 20px;
+}
+.with-underline {
+  border-bottom: 1px solid #00000016;
+  padding-bottom: 15px;
+}
+.label-addition {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.form-addition {
+  margin-bottom: 30px;
+}
+.add-btn {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #666;
+  line-height: 1
+}
+.add-btn .ic-plus {
+  font-weight: bolder;
+  font-size: 9px;
+  margin-right: 8px;
+}
+.ic-plus:after {
+  color: #666
+}
+.form-addition-multiple {
+  display: flex;
+  justify-content: space-between;
+}
+.form-addition-multiple > div:first-of-type {
+  width: 48%;
+}
+.form-addition-multiple > div:nth-of-type(2) {
+  width: 24%;
+}
+.form-addition-multiple > div:last-of-type {
+  width: 24%;
+}
+.form-select {
+  padding: 6px;
+}
+.selectbox {
+  width: 100%;
+  bordeR: none;
 }
