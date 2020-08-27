@@ -7,7 +7,7 @@ import Program from '../views/Program.vue';
 import Entre from '../views/Entre.vue';
 import OnlineApplication from '../views/OnlineApplication.vue';
 import OnlineApplicationMembership from '../views/OnlineApplicationMembership.vue';
-import Certificate1 from '../views/Certificate1.vue';
+import OurCertificate from '../views/OurCertificate.vue';
 import Instructor from '../views/Instructor.vue';
 import Experience from '../views/Experience.vue';
 import TrainingCenter from '../views/TrainingCenter.vue';
@@ -69,9 +69,9 @@ const routes = [
     component: OnlineApplicationMembership
   },
   {
-    path: '/certificate1',
-    name: 'Certificate1',
-    component: Certificate1
+    path: '/our-certificate',
+    name: 'ourCertificate',
+    component: OurCertificate
   },
   {
     path: '/i-am-instructor',

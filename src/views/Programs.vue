@@ -54,7 +54,7 @@
                                           Certification <br />
                                           Types
                                       </div>
-                                      <router-link to="/certificate1" class="read-more white-btn mt-5">
+                                      <router-link to="/our-certificate" class="read-more white-btn mt-5">
                                           <div>
                                               Read More <span class="icon-back"></span>
                                           </div>
