@@ -22,6 +22,8 @@ import MainCertificate from '../views/MainCertificate.vue';
 import CertificateAchievement from '../views/CertificateAchievement.vue';
 import ContactUs from '../views/ContactUs.vue';
 import VerficationAccount from '../views/VerficationAccount.vue';
+import OnlineTraining from '../views/OnlineTraining.vue';
+import Events from '../views/Events.vue';
 import Logout from '../views/Logout.vue';
 
 const routes = [
@@ -137,6 +139,16 @@ const routes = [
     path: '/verify',
     name: 'VerficationAccount',
     component: VerficationAccount
+  },
+  {
+    path: '/online-training',
+    name: 'OnlineTraining',
+    component: OnlineTraining
+  },
+  {
+    path: '/events',
+    name: 'Events',
+    component: Events
   },
   {
     path: '/login',
