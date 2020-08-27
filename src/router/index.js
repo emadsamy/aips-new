@@ -16,6 +16,7 @@ import Accreditation from '../views/Accreditation.vue';
 import Accrediation2 from '../views/Accrediation2.vue';
 import Accreditation3 from '../views/Accreditation3.vue';
 import Accreditation4 from '../views/Accreditation4.vue';
+import Corporate from '../views/Corporate.vue';
 import News from '../views/News.vue';
 import MainCertificate from '../views/MainCertificate.vue';
 import CertificateAchievement from '../views/CertificateAchievement.vue';
@@ -121,6 +122,11 @@ const routes = [
     path: '/main-certificate-achievement',
     name: 'CertificateAchievement',
     component: CertificateAchievement
+  },
+  {
+    path: '/corporate-training',
+    name: 'Corporate',
+    component: Corporate
   },
   {
     path: '/contact',

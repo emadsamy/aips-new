@@ -39,7 +39,7 @@ import Search from '@/components/Search.vue';
 import axios from 'axios';
 
 export default {
-  name: 'Login',
+  name: 'Verifcation',
   components: {
     Search
   },
@@ -56,13 +56,13 @@ export default {
     sendCode: function () {
       this.btnLoading = true;
       const data = {
-          code: this.user.code
+          verification: this.user.code
       }
       axios.post(window.baseURL + '/auth/verification', data)
           .then(res => {
               this.btnLoading = false;
               console.log(res);
-              // this.$router.push({ name: 'Home' });
+              this.$router.push({ name: 'Login' });
           })
           .catch(err => {
               this.btnLoading = false;
