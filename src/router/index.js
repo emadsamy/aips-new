@@ -25,6 +25,7 @@ import ContactUs from '../views/ContactUs.vue';
 import VerficationAccount from '../views/VerficationAccount.vue';
 import OnlineTraining from '../views/OnlineTraining.vue';
 import Events from '../views/Events.vue';
+import Faq from '../views/Faq.vue';
 import Profile from '../views/Profile.vue';
 import Logout from '../views/Logout.vue';
 
@@ -171,6 +172,11 @@ const routes = [
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/faq',
+    name: 'Faq',
+    component: Faq
   },
   {
     path: '/logout',

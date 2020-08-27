@@ -87,7 +87,6 @@ export default {
             localStorage.setItem('last_name', res.data.user.last_name);
             localStorage.setItem('user_id', res.data.user.id);
             this.$router.push({ name: 'Home' });
-
         })
         .catch(err => {
             this.btnLoading = false;
