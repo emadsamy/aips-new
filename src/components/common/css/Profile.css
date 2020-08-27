@@ -107,7 +107,7 @@
   margin-bottom: 20px;
   border-bottom: 1px solid #E6E6E6 !important; }
   .profile-edit-head .title {
-    color: #009DDC; }
+    color: #1B1464; }
   .profile-edit-head .edit-text {
     font-size: 15px;
     margin-top: 3px;
@@ -123,29 +123,31 @@
   padding-bottom: 18px;
   margin-bottom: 16px; }
   .profile-link-content:hover .profile-link-text {
-    color: #009DDC; }
+    color: #1B1464; }
   .profile-link-content:last-of-type {
     border: none;
     padding: 0;
     margin: 0; }
   .profile-link-content .profile-link-text {
-    font-size: 18px;
-    color: #4D4D4D; }
+    font-size: 19px;
+    color: #4D4D4D;
+    font-weight: 600
+  }
   .profile-link-content .icon {
-    font-size: 27px;
+    font-size: 25px;
     color: #666666;
     display: inline-block; }
 
 .profile-link-content.active .profile-link-text,
 .profile-link-content.active .icon {
-  color: #009DDC !important; }
+  color: #1B1464 !important; }
 
 .profile-link-balance {
   font-weight: 600;
   color: #4D4D4D; }
 
 .profile-edit-action:hover span {
-  color: #009DDC; }
+  color: #1B1464; }
 
 .profile-form .form-group {
   border: none;
@@ -156,7 +158,9 @@
     color: #1A1A1A;
     font-size: 18px;
     width: 130px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    font-weight: 600;
+   }
   .profile-form .form-group input {
     width: 330px;
     border: 1px solid #00000016;
@@ -186,5 +190,31 @@
   .user-head .fullname {
     font-size: 22px;
     font-weight: 600; }
-
+.co-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 18px;
+}
+.co-row:last-of-type {
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+}
+.co-view {
+  width: 90px;
+}
+.co-title {
+  font-weight: 600;
+  color: #666;
+  font-size: 19px;
+  margin-bottom: 3px;
+}
+.co-code {
+  color: #666;
+  font-weight: 500;
+}
 /* Profile */
