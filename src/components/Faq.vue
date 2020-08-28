@@ -13,7 +13,7 @@
         </router-link>
     </div>
     <div class="bg-title mb-3">
-      Became An Accredited
+      Become An Accredited
       <br />
       Training Center
     </div>

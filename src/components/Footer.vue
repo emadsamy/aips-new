@@ -1,10 +1,16 @@
 <template>
   <footer class="footer">
-      <div class="container-fluid d-flex justify-content-between">
+      <div v-bind:class="[containerFluidHome ? 'containerFluidHome' : '']" class="container-fluid d-flex justify-content-between">
         <div class="footer-copyright d-flex">
             <div class="mr-3">American  Institute of Professional Studies </div>
             <div>2021 All Rights Reserved  © AIPS</div>
         </div>
+        <!-- <div class="footer-links">
+            <router-link to="/privacy" class="footer-link">Privacy Policy</router-link>
+            <router-link to="/events" class="footer-link">Events & Conferences</router-link>
+            <router-link to="/online-training" class="footer-link">Online Training</router-link>
+            <router-link to="/news" class="footer-link">News</router-link>
+        </div> -->
         <div class="footer-social">
             <div class="text">Follow Us</div>
             <a class="facebook-icon social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -17,8 +23,15 @@
 </template>
 
 <style scoped>
+.containerFluidHome {
+  padding: 0;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+
+}
+
+@media (max-width: 767.98px) {
   .footer-copyright > div {
     font-size: 12px
   }
@@ -29,7 +42,6 @@
     font-size: 13px;
     margin-right: 2px;
   }
-
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -58,6 +70,7 @@ export default {
   name: 'Footer',
   components: {
 
-  }
+  },
+  props: ['has_links', 'containerFluidHome'],
 }
 </script>

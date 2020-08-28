@@ -9,6 +9,10 @@
             </div>
         </div>
 
+        <div class="search-navbar-sm">
+            <Navbar />
+        </div>
+
         <div class="search-container">
             <div class="container-fluid">
                 <div class="search-content">
@@ -32,55 +36,13 @@
                               <span class="icon-back"></span>
                             </router-link>
                         </div>
-
-                        <!-- <div class="search-link">
-                            <a href="#" class="link">I am Instructor  <span class="icon-back"></span></a>
-                        </div>
-
-                        <div class="search-link">
-                            <a href="#" class="link">I am Instructor  <span class="icon-back"></span></a>
-                        </div>
-
-                        <div class="search-link">
-                            <a href="#" class="link">Membership <small>Become a Member </small> <span class="icon-back"></span></a>
-                        </div>
-
-                        <div class="search-link">
-                            <a href="#" class="link">Training Center <span class="icon-back"></span></a>
-                        </div>
-
-                        <div class="search-link">
-                            <a href="#" class="link">Programs  & Certifications <span class="icon-back"></span></a>
-                        </div>
-
-                        <div class="search-link">
-                            <a href="#" class="link">My Certificate <small>Verify your certificate </small> <span class="icon-back"></span></a>
-                        </div>
-
-                        <div class="search-link">
-                            <a href="#" class="link">About AIPS <span class="icon-back"></span></a>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="search-footer">
-          <div class="container-fluid">
-            <footer class="footer">
-                <div class="footer-copyright d-flex">
-                    <div class="mr-3">American  Institute of Professional Studies </div>
-                    <div>2021 All Rights Reserved  © AIPS</div>
-                </div>
-                <div class="footer-social">
-                    <div class="text">Follow Us</div>
-                    <a class="facebook-icon social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="youtube-icon social-icon" href="#"><i class="fab fa-youtube"></i></a>
-                    <a class="linkedin-icon social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="facebook-icon social-icon" href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </footer>
-          </div>
+          <Footer />
         </div>
       </div>
   </div>
@@ -96,7 +58,9 @@
   width: 100%;
   height: 100%;
   display: block; }
-
+.search-navbar-sm {
+  display: none
+}
 .fluid-search.active {
   display: block !important; }
 
@@ -186,15 +150,98 @@
 .search-container-content {
   height: 100%;
 }
+
+.search-container-content {
+  overflow: auto;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .search-content {
+    width: 100%;
+  }
+  .search-navbar {
+    display: none;
+  }
+  .search-navbar-sm {
+    display: block
+  }
+  .search-link {
+    width: 100%
+  }
+  .search-content .title {
+    font-size: 41px;
+    text-align: center;
+  }
+  .search-content .title:after {
+    content: none;
+  }
+  .search-link:last-of-type {
+    margin-bottom: 30px;
+  }
+  .search-input .icon-search {
+    width: 35px;
+    font-size: 30px;
+  }
+  .search-links {
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  .search-container {
+    min-height: calc(100% - 125px);
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .search-content {
+    width: 100%;
+  }
+  .search-navbar {
+    display: none;
+  }
+  .search-navbar-sm {
+    display: block
+  }
+  .search-content .title:after {
+    content: none;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .search-navbar {
+    display: none;
+  }
+  .search-navbar-sm {
+    display: block
+  }
+  .search-content .title:after {
+    content: none;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
 </style>
 
 <script>
 import axios from 'axios';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 export default {
   name: 'Search',
   components: {
-
+    Navbar: Navbar,
+    Footer: Footer
   },
   data(){
       return {

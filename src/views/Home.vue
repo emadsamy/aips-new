@@ -9,7 +9,8 @@
                 </a>
             </div>
             <div class="sidebar-link">
-                <router-link @click.prevent="toggleSearch = !toggleSearch" to="/popular-search" class="link active">Popular Searches</router-link>
+                <!-- @click.prevent="toggleSearch = !toggleSearch" -->
+                <router-link to="/popular-search" class="link active">Popular Searches</router-link>
             </div>
             <div class="sidebar-link" v-for="(link, index) in homeSidebar"  :key="index">
                 <router-link :to="'/' + link.slug" class="link">
@@ -32,7 +33,7 @@
       <!-- Content -->
       <div class="multi-columns">
           <!-- Navbar -->
-          <div class="nav">
+          <!-- <div class="nav">
             <div class="apis-navbar">
                 <div class="nav-links">
                   <router-link to="/accreditation" class="nav-link">Accreditation</router-link>
@@ -59,7 +60,8 @@
                     </button>
                 </div>
             </div>
-          </div>
+          </div> -->
+          <Navbar :containerFluid="true" :hiddenLogo="true" />
           <!-- Navbar -->
 
           <!-- Content -->
@@ -79,7 +81,7 @@
           <!-- Content -->
 
           <!-- Footer -->
-          <footer class="footer">
+          <!-- <footer class="footer">
               <div class="footer-links">
                   <router-link to="/privacy" class="footer-link">Privacy Policy</router-link>
                   <router-link to="/events" class="footer-link">Events & Conferences</router-link>
@@ -93,11 +95,11 @@
                   <a class="linkedin-icon social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
                   <a class="facebook-icon social-icon" href="#"><i class="fab fa-twitter"></i></a>
               </div>
-          </footer>
+          </footer> -->
+          <Footer :containerFluidHome="true" />
           <!-- Footer -->
       </div>
       <!-- Content -->
-      <Search v-if="toggleSearch" />
   </div>
 </template>
 
@@ -181,22 +183,89 @@
 .nav-links {
   padding-left: 40px;
 }
+.page-multi-columns .nav .container-fluid {
+  padding: 0;
+}
+.containerFluid {
+  padding: 0
+}
+.content-multi {
+  min-height: auto;
+  height: calc(100% - 57px) !important;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .multi-sidebar {
+    display: none;
+  }
+  .multi-columns {
+    width: 100%;
+  }
+  .home-background {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+  }
+  .home-widget-explore {
+    width: 310px;
+    left: 15px;
+    padding: 35px;
+    max-width: calc(100% - 25px)
+  }
+  .home-widget-explore .title {
+    font-size: 38px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  .home-widget-explore {
+    position: absolute;
+    top: auto;
+    bottom: 120px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
 </style>
 
 <script>
-import Search from '@/components/Search.vue';
+// import Search from '@/components/Search.vue';
 import Avatar from '@/components/Avatar.vue';
+import Navbar from '@/components/Navbar.vue';
+import Footer from '@/components/Footer.vue';
 import axios from 'axios';
 
 export default {
   name: 'Home',
   components: {
-    Search,
-    Avatar
+    // Search,
+    Avatar,
+    Navbar,
+    Footer
   },
   data(){
       return {
-          toggleSearch: false,
+          // toggleSearch: false,
           widget: [],
           homeSidebar: [],
           home: null,

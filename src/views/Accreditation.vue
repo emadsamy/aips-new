@@ -10,7 +10,7 @@
               <div class="program-header main-program-header">
                   <div class="program-header-details">
                       <div class="align-center">
-                          <div class="title">
+                          <div class="title title-line">
                               AIPS Accreditation
                           </div>
                       </div>

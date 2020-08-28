@@ -267,7 +267,7 @@ small {
 
 .footer-copyright > div {
   color: #555555;
-  font-size: 13px; }
+  font-size: 14px; }
   .footer-copyright > div:first-of-type {
     font-weight: bold; }
 
@@ -452,8 +452,10 @@ small {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 16px 0;
-  align-items: center; }
+  padding: 21px 0;
+  align-items: center;
+  line-height: 1
+}
   .footer .text {
     color: #555555;
     font-size: 14px;
@@ -721,9 +723,12 @@ small {
    }
   .program-download .download-btn {
     border: 1px solid #1B1464;
-    padding: 0 12px;
+    padding: 5px 12px;
     text-align: center;
-    font-size: 14px; }
+    font-size: 14px;
+    display: inline-block;
+    line-height: 1
+  }
     .program-download .download-btn:hover {
       background: #4F17A8;
       color: #FFF;
@@ -983,14 +988,17 @@ small {
   margin-bottom: 20px; }
 
 /* Entrepreneurship */
-
 /** Media Queries **/
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   /* Global */
-  .container-fluid {
+  .container-fluid,
+  .page-multi-columns {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .page-container {
+    padding-top: 76.6px;
   }
   /* Global */
 }

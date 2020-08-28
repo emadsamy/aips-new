@@ -1,8 +1,8 @@
 <template>
   <div class="nav">
-      <div class="container-fluid">
+      <div v-bind:class="[containerFluid ? 'containerFluid' : '']" class="container-fluid">
           <div class="apis-navbar">
-              <div class="nav-logo">
+              <div class="nav-logo" v-bind:class="[hiddenLogo ? 'hiddenLogo' : '']"> <!--  v-if="has_logo" -->
                   <router-link class="d-flex" to="/">
                       <img src="../assets/logo.svg" class="img-fluid" alt="Logo" />
                       <!-- <div class="logo-title">
@@ -10,7 +10,7 @@
                       </div> -->
                   </router-link>
               </div>
-              <div class="nav-links">
+              <div v-bind:class="[isActive ? 'active' : '']" class="nav-links">
                   <router-link to="/accreditation" class="nav-link">Accreditation</router-link>
                   <router-link to="/programs" class="nav-link">Programs</router-link>
                   <router-link to="/membership" class="nav-link">Membership</router-link>
@@ -18,7 +18,7 @@
                   <router-link to="/contact" class="nav-link">Contact Us</router-link>
               </div>
               <div class="nav-actions d-flex align-items-center">
-                  <button type="button" name="button" class="navbar-action">
+                  <button v-bind:class="[isActive ? 'hiddenAction' : '']" type="button" name="button" class="navbar-action">
                     <div v-if="authenticated" class="showDropdown">
                         <Avatar />
                         <div class="dropdown-container">
@@ -28,12 +28,12 @@
                     </div>
                     <router-link v-else to="/login" class="navbar-action"><span class="icon-user icon"></span></router-link>
                   </button>
-                  <div class="horizontal-divider"></div>
-                  <button @click="toggleSearch = !toggleSearch" class="navbar-action">
+                  <div  v-bind:class="[isActive ? 'hiddenAction' : '']" class="horizontal-divider"></div>
+                  <button v-bind:class="[isActive ? 'hiddenAction' : '']" @click="toggleSearch = !toggleSearch" class="navbar-action">
                       <span class="icon-close icon" v-if="toggleSearch"></span>
                       <span class="icon-search icon" v-else="toggleSearch"></span>
                   </button>
-                  <button id="menuBar" class="menu-bar-a" @click="toggleNavbar()">
+                  <button v-bind:class="[isActive ? 'active' : '']" id="menuBar" class="menu-bar-a" @click="toggleNavbar()">
                       <div class="menu-bar">
                           <div class="child-bar-1"></div>
                           <div class="child-bar-2"></div>
@@ -111,7 +111,9 @@
     height: 3px;
     width: 100%;
     border-radius: 0;
-    background: #000000; }
+    background: #2d0958;
+    transition: all 0.3s ease-in-out;
+   }
   .menu-bar > div:first-of-type {
     top: 0;
     width: 100%; }
@@ -135,8 +137,19 @@
     font-weight: bold;
     color: #1B1464;
 }
+.containerFluid {
+  padding: 0
+}
+.hiddenLogo {
+  display: none;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 767.98px) {
   .nav-links {
     position: fixed;
     top: 73px;
@@ -149,6 +162,8 @@
     align-items: inherit;
     display: none;
     padding: 0 20px;
+    z-index: 1000;
+    overflow-y: auto;
   }
   .nav-links.active {
     display: block
@@ -164,6 +179,21 @@
   #menuBar {
     display: block;
   }
+  .nav {
+    padding: 18px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 100
+  }
+  .hiddenLogo {
+    display: block;
+  }
+  .hiddenAction {
+    display: none;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -173,7 +203,17 @@
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-
+  .nav-links {
+    margin-right: 0;
+    padding-left: 0;
+  }
+  .nav-logo img {
+    transform: none;
+  }
+  .nav-link {
+    padding: 0.5rem 0.5rem;
+    font-size: 17px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -196,6 +236,7 @@ export default {
     Avatar: Avatar,
     Search: Search
   },
+  props: ['has_logo', 'containerFluid', 'hiddenLogo'],
   data() {
     return {
       toggleSearch: false,
