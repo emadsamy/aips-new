@@ -144,7 +144,7 @@
                                 <div class="form-inputs">
                                     <div class="form-addition">
                                         <div class="form-addition-content">
-                                            <label class="label-addition">Education</label>
+                                            <label class="label-addition">Educational and Qualification</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" value="" />
                                             </div>
@@ -156,21 +156,21 @@
 
                                     <div class="form-addition form-addition-multiple">
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">University / College</label>
                                           <div class="form-group">
                                               <input type="text" class="form-control" value="" />
                                           </div>
                                       </div>
 
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">GPA / Grade</label>
                                           <div class="form-group">
                                               <input type="text" class="form-control" value="" />
                                           </div>
                                       </div>
 
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">Year</label>
                                           <div class="form-group form-select">
                                               <select class="selectbox">
                                                   <option value="">test</option>
@@ -181,7 +181,7 @@
 
                                     <div class="form-addition">
                                         <div class="form-addition-content">
-                                            <label class="label-addition">Education</label>
+                                            <label class="label-addition">Courses Attended</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" value="" />
                                             </div>
@@ -193,30 +193,30 @@
 
                                     <div class="form-addition form-addition-multiple">
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">Institute / Training center</label>
                                           <div class="form-group">
                                               <input type="text" class="form-control" value="" />
                                           </div>
                                       </div>
 
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">Duration</label>
                                           <div class="form-group">
                                               <input type="text" class="form-control" value="" />
                                           </div>
                                       </div>
 
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">Date</label>
                                           <div class="form-group">
-                                              
+
                                           </div>
                                       </div>
                                     </div>
 
                                     <div class="form-addition">
                                         <div class="form-addition-content">
-                                            <label class="label-addition">Education</label>
+                                            <label class="label-addition">Languages</label>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" value="" />
                                             </div>
@@ -228,7 +228,7 @@
 
                                     <div class="form-addition">
                                       <div class="form-addition-content">
-                                          <label class="label-addition">Education</label>
+                                          <label class="label-addition">Level of Proficiency</label>
                                           <div class="form-group form-select">
                                               <select class="selectbox" name="">
                                                   <option value="">test</option>
@@ -315,8 +315,8 @@
   </div>
 </template>
 
-<style scoped>
-@import '../components/common/css/OnlineAppForm.css';
+<style scoped src='../components/common/css/OnlineAppForm.css'>
+
 </style>
 
 <script>

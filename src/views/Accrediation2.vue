@@ -11,7 +11,7 @@
                   <div class="program-header-details">
                       <div class="align-center">
                           <div class="title">
-                              Why You <br /> Should Choose <br /> Our <br /> Accreditation
+                              Why You <br /> Should Choose <br /> AIPS <br /> Accreditation
                           </div>
                       </div>
                   </div>

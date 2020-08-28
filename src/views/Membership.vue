@@ -98,7 +98,7 @@
                                 Procedures for membership attainment
                             </div>
                             <div class="membership-attainment-steps">
-                                <div class="" v-for="(step, index) in steps" key="step">
+                                <div class="req-bullet" v-for="(step, index) in steps" key="step">
                                     {{ step.title }}
                                 </div>
                             </div>
@@ -108,8 +108,8 @@
                       <div class="became-a">
                           <div class="title mb-3">
                             Become
-                            a Certified
-                            Trainer
+                            a Member
+                            today
                           </div>
                           <router-link to="/online-application" class="read-more">
                               <div>

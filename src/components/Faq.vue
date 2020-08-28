@@ -19,7 +19,7 @@
     </div>
     <router-link to="/" class="read-more">
         <div>
-            Read More <span class="icon-back"></span>
+            Apply Now <span class="icon-back"></span>
         </div>
     </router-link>
   </div>

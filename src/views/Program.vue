@@ -24,7 +24,7 @@
                   <div class="program-row">
                       <div class="program-sidebar">
                           <div class="sidebar-link" v-for="(link, index) in sidebarLinks"  :key="index">
-                              <router-link :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {slug: link.slug } }" class="link">{{ link.title }}</router-link>
+                              <router-link :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {slug: link.slug, title: link.title } }" class="link">{{ link.title }}</router-link>
                           </div>
                       </div>
                       <div class="program-content">
@@ -47,9 +47,7 @@
                                   <div class="description">
                                       {{ program.subtitle }}
                                   </div>
-                                  <div class="text">
-                                      {{ program.short_body }}
-                                  </div>
+                                  <div class="text" v-html="program.short_body"></div>
                                   <!-- /programs/sectors/products/enterprenenurship -->
                                   <router-link :to="{path: '/programs/sectors/products/:slug', name: 'Entre', params: {slug: program.slug}}" class="read-more">
                                     <!-- :to="{path: '/programs/sectors/:slug/products', name: 'Entre', params: {body: sector.body, slug: sector.slug } }" -->

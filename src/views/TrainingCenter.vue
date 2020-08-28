@@ -136,7 +136,7 @@
   </div>
 </template>
 
-<style scoped src="@/components/common/css/Eit.css"></style>
+<style scoped src="../components/common/css/Eit.css"></style>
 <style scoped>
 .program-header-details {
   background: #D0D877 !important
@@ -154,26 +154,6 @@
 .text {
   font-size: 16px;
   color: #6E6D76;
-}
-.widget-img-text {
-  display: flex;
-  justify-content: space-between;
-}
-.widget-img-text:last-of-type {
-  flex-direction: row-reverse;
-}
-.widget-img-text > div {
-  width: 47%;
-}
-.widget-img-text .title {
-  font-size: 31px;
-  font-weight: bold;
-  line-height: 1.1;
-  margin-bottom: 20px
-}
-.widget-img-text .text {
-  font-size: 18px;
-  line-height: 1.5
 }
 </style>
 

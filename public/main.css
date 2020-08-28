@@ -716,7 +716,9 @@ small {
     font-size: 16px;
     text-transform: uppercase;
     padding: 10px 0;
-    line-height: 1.2; }
+    line-height: 1.2;
+    font-weight: bold
+   }
   .program-download .download-btn {
     border: 1px solid #1B1464;
     padding: 0 12px;

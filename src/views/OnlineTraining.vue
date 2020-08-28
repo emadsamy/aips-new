@@ -37,28 +37,8 @@
                                   Online Trainging
                               </div>
                               <div class="description-about">
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
+                                Online or digital training is a modern educational process performed by a trainer and a trainee through a computer and networking technology regardless of place and time. This process is different from the traditional training method, which requires a direct relationship between a trainer and a trainee in a specific place and at specific times within courses that are prepared in advance.
+                                With the pace of technological progress, many companies and professional individuals specialize in online training. There has been a rise in the number of training applicants who prefer to enroll in important courses from their homes and offices instead of traveling to attend the courses that complement their businesses.
                               </div>
                           </div>
 
@@ -74,28 +54,7 @@
                                 </div>
                             </div>
                             <div class="description-about">
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
-                              2021 All Rights Reserved © AIPS
+                              We provide a training provider and trainer accreditation service to those who provide this kind of important training in all of its forms, whether online, digital, or distance learning, due to the importance and benefit of this education as one of the training types in the world. Furthermore, we accredit the electronic and photographed courses that contain registered materials.
                             </div>
                           </div>
 
@@ -104,28 +63,7 @@
                                   Online Trainging Advantages
                               </div>
                               <div class="description-about">
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
-                                2021 All Rights Reserved © AIPS
+                                Online training has several advantages, including but not limited to low cost, no need to travel, flexible schedules, the opportunity to take control and interact with users, and wide variety in terms of the use of interactive courses and videos and the ability to host consultants and specialists via a direct conference call because it is easily applicable and ensures trainees’ constant development.
                               </div>
                           </div>
                       </div>
