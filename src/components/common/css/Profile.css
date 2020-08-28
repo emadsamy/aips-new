@@ -23,7 +23,7 @@
     font-size: 13px;
     display: inline-block;
     text-align: center;
-    line-height: 23px;
+    line-height: 21px;
     border-radius: 50%;
     bottom: 0;
     right: 0
@@ -151,7 +151,7 @@
 
 .profile-form .form-group {
   border: none;
-  margin-bottom: 13px; }
+  margin-bottom: 5px; }
   .profile-form .form-group:last-of-type {
     margin-bottom: 0; }
   .profile-form .form-group label {
@@ -170,7 +170,7 @@
 .profile-welcome-msg {
   height: 100%; }
   .profile-welcome-msg > div {
-    font-size: 23px;
+    font-size: 26px;
     font-weight: 600; }
   .profile-welcome-msg .hello {
     margin-left: 13px;
@@ -179,6 +179,7 @@
 .user-data {
   font-size: 19px;
   color: #1A1A1A;
+
   height: 38px; }
 
 .user-data-number {
@@ -216,5 +217,8 @@
 .co-code {
   color: #666;
   font-weight: 500;
+}
+.icon-quality {
+  font-size: 32px !important;
 }
 /* Profile */

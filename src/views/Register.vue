@@ -26,12 +26,12 @@
                   <div class="input-group mb-4">
                       <input v-model="user.password" type="password" class="form-control" name="password" placeholder="Password" required  />
                   </div>
-                  <div class="input-group mb-4">
+                  <div class="input-group d-flex justify-content-between mb-4">
+                      <label class="cc-label">Country</label>
                       <select v-model="user.country" class="select-country" name="country">
-                          <option selected>Country</option>
+                          <option selected>United States</option>
                           <option v-for="(country, index) in countries"  :key="index" :value="country.value">{{ country.value }}</option>
                       </select>
-                      <small @click="user.country = 'United States'">United States</small>
                   </div>
                   <button :disabled="btnLoading" @click="register()" class="btn main-btn-backdrop" type="button" name="button">
                       <img src="../assets/loader.svg" class="sm-loader" alt="" v-if="btnLoading" />
@@ -39,7 +39,7 @@
                   </button>
               </div>
               <div class="dont-have-text">
-                  Already have a AIPS username and password? <router-link to="/login">Log in</router-link>
+                  Already have a AIPS email and password? <router-link to="/login">Log in</router-link>
               </div>
           </div>
       </div>
@@ -69,7 +69,7 @@ export default {
         last_name: null,
         email: null,
         password: null,
-        country: 'Country'
+        country: 'United States'
       },
       btnLoading: false,
       countries: [],

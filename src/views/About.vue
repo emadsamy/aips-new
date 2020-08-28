@@ -115,55 +115,73 @@
                               </div>
 
                               <div id="whatWeDo" class="program-about-article">
-                                  <div class="about-article-box">
+                                  <div class="aab">
                                       <div class="program-about-article-title mb-5">
                                           What We Do
                                       </div>
-                                      <div class="program-about-article-text">
-                                          <div class="medium-title">Accreditation</div>
-                                          Accredited Training Organizations that display the AIPS-accredited badge inspire confidence in prospective candidates that they are in expert hands.
-                                          <br />
-                                          <br />
-                                          <a href="#" class="read-more">
-                                              <div>
-                                                  Read More <span class="icon-back"></span>
+                                      <div class="about-arts">
+                                          <div class="aa-row">
+                                              <div class="details">
+                                                  <div class="medium-title">Accreditation</div>
+                                                  <div class="description mb-40">
+                                                      Accredited Training Organizations that display the AIPS-accredited badge inspire confidence in prospective candidates that they are in expert hands.
+                                                  </div>
+                                                  <router-link to="/accreditation" class="read-more">
+                                                      <div>
+                                                          Read More <span class="icon-back"></span>
+                                                      </div>
+                                                  </router-link>
                                               </div>
-                                          </a>
-                                          <br />
-                                          <br />
-                                          <br />
-                                          <div class="medium-title">Certification</div>
-                                          Accredited Training Organizations that display the AIPS-accredited badge inspire confidence in prospective candidates that they are in expert hands.
-                                          <br />
-                                          <br />
-                                          <a href="#" class="read-more">
-                                              <div>
-                                                  Read More <span class="icon-back"></span>
+                                              <div class="view">
+                                                  <img :src="require('../assets/img/we-do.jpg')" class="img-fluid" alt="" />
                                               </div>
-                                          </a>
-                                          <br />
-                                          <br />
-                                          <br />
-                                          <div class="medium-title">Corporate Training and Consultation </div>
-                                          Accredited Training Organizations that display the AIPS-accredited badge inspire confidence in prospective candidates that they are in expert hands.
-                                          <br />
-                                          <br />
-                                          <a href="#" class="read-more">
-                                              <div>
-                                                  Read More <span class="icon-back"></span>
+                                          </div>
+
+                                          <div class="aa-row">
+                                              <div class="details">
+                                                  <div class="medium-title">Certification</div>
+                                                  <div class="description mb-40">
+                                                      Accredited Training Organizations that display the AIPS-accredited badge inspire confidence in prospective candidates that they are in expert hands.
+                                                  </div>
+                                                  <router-link to="/accreditation" class="read-more">
+                                                      <div>
+                                                          Read More <span class="icon-back"></span>
+                                                      </div>
+                                                  </router-link>
                                               </div>
-                                          </a>
+                                              <div class="view">
+                                                  <img :src="require('../assets/img/we-do.jpg')" class="img-fluid" alt="" />
+                                              </div>
+                                          </div>
+
+                                          <div class="aa-row">
+                                              <div class="details">
+                                                  <div class="medium-title">Corporate Training and Consultation</div>
+                                                  <div class="description mb-40">
+                                                      Accredited Training Organizations that display the AIPS-accredited badge inspire confidence in prospective candidates that they are in expert hands.
+                                                  </div>
+                                                  <router-link to="/accreditation" class="read-more">
+                                                      <div>
+                                                          Read More <span class="icon-back"></span>
+                                                      </div>
+                                                  </router-link>
+                                              </div>
+                                              <div class="view">
+                                                  <img :src="require('../assets/img/we-do.jpg')" class="img-fluid" alt="" />
+                                              </div>
+                                          </div>
                                       </div>
                                   </div>
 
                                   <div class="about-article-box">
                                       <div class="about-article-box-media mt-5">
-                                          <img :src="require('../assets/img/we-do.jpg')" class="img-fluid" alt="" />
+
                                       </div>
                                   </div>
                               </div>
                           </div>
                       </div>
+                      <DownloadCatalog />
                   </div>
               </div>
           </div>
@@ -177,7 +195,12 @@
 </template>
 
 <style scoped>
-
+.title {
+  color: #d9e549 !important
+}
+.title-line:after {
+  background-color: #4bb3ff !important
+}
 </style>
 
 <script>

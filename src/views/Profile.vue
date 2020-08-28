@@ -64,15 +64,16 @@
                                 <div id="tabTitle" class="title">
                                     My Profile
                                 </div>
-                                <button class="profile-edit-action d-flex justify-content-between align-items-center">
-                                    <span class="edit-text">Edit</span>
+                                <button @click="switchProfileBtn()" class="profile-edit-action d-flex justify-content-between align-items-center">
+                                    <span class="edit-text" v-if="switchProfileSetting">Save</span>
+                                    <span class="edit-text" v-else>Edit</span>
                                     <span class="icon-edit icon"></span>
                                 </button>
                             </div>
                             <div class="profile-form tab-content">
                                 <!-- Profile Data -->
                                 <div id="myInfo" class="profile-data tab-pane active">
-                                    <form class="" action="index.html" method="post">
+                                    <form v-if="!switchProfileSetting" action="index.html" method="post">
                                         <div class="form-group d-flex align-items-center">
                                             <label for="name" class="d-flex justify-content-between">Name<span>:</span></label>
                                             <div class="user-data text-capitalize">
@@ -94,7 +95,7 @@
                                         <div class="form-group d-flex align-items-center">
                                             <label for="job" class="d-flex justify-content-between">Country <span>:</span></label>
                                             <div class="user-data">
-                                                Art Director
+                                                {{ country }}
                                             </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center">
@@ -102,6 +103,29 @@
                                             <div class="user-data">
                                                 Kaizens.com
                                             </div>
+                                        </div>
+                                    </form>
+
+                                    <form v-if="switchProfileSetting" action="index.html" method="post">
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="name" class="d-flex justify-content-between">Name<span>:</span></label>
+                                            <input type="text" id="name" />
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="phone" class="d-flex justify-content-between">Tel<span>:</span></label>
+                                            <input type="text" id="phone" />
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="company" class="d-flex justify-content-between">Company <span>:</span></label>
+                                            <input type="text" id="company" />
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="job" class="d-flex justify-content-between">Country<span>:</span></label>
+                                            <input type="text" id="job" />
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="website" class="d-flex justify-content-between">Website<span>:</span></label>
+                                            <input type="text" id="website" />
                                         </div>
                                     </form>
                                 </div>
@@ -160,6 +184,7 @@ export default {
     return {
       firstName: '',
       lastName: '',
+      country: '',
       certificates: [
         {
           title: 'Professional Certificate in Human Resources',
@@ -176,12 +201,19 @@ export default {
           code: 'Dip/USA/108TMR99830',
           image: require('../assets/img/Certificate-of-Diploma.png')
         }
-      ]
+      ],
+      switchProfileSetting: false
+    }
+  },
+  methods: {
+    switchProfileBtn: function () {
+      this.switchProfileSetting = !this.switchProfileSetting;
     }
   },
   created() {
     this.firstName = localStorage.getItem('user_name');
     this.lastName = localStorage.getItem('last_name');
+    this.country = localStorage.getItem('country');
     // Check Auth
     if (!localStorage.getItem('access_token')) {
       this.$router.push({ name: 'Login' });
