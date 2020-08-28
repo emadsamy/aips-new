@@ -8,7 +8,6 @@
                   </router-link>
 
                   <router-link to="/profile" class="dropdown">
-                      <!-- <img src="../assets/user.png" class="avatar img-fluid" alt="Avatar" /> -->
                       <Avatar />
                       <div class="title">
                           {{ username }}

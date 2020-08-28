@@ -129,7 +129,7 @@
   </div>
 </template>
 
-<style scoped src="@/components/common/css/Eit.css">
+<style scoped src="../components/common/css/Eit.css">
 
 </style>
 <style scoped>
@@ -228,6 +228,52 @@
   color: #6E6D76;
   font-size: 17px;
   margin-bottom: 20px
+}
+@media (max-width: 575.98px)  {
+
+}
+
+@media (max-width: 767.98px) {
+  .became-a,
+  .requirements-widget,
+  .beneficiaries-widget,
+  .corporate-widget,
+  .membership-proof,
+  .membership-attainment {
+    display: none !important
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px)  {
+  .corporate-widget {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+  }
+  .corporate-widget > div {
+    width: 100%;
+    /* height: 300px; */
+  }
+  .corporate-widget-view {
+    display: none;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .program-header-details {
+    width: 330px !important;
+  }
+  .program-header.main-program-header .title:after {
+    height: 10px;
+  }
+  .corporate-widget > div {
+    width: 100%;
+  }
+  .corporate-widget-view {
+    display: none
+  }
 }
 </style>
 

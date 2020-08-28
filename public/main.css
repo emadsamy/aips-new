@@ -163,9 +163,9 @@ input[type="file"] {
   top: 50%;
   transform: translateY(-50%);
   width: 80%;
-  height: 13px;
+  height: 10px;
   background-color: #4F17A8;
-  left: 120%; }
+  left: 105%; }
 
 .divider {
   position: relative;
@@ -991,7 +991,6 @@ small {
 /** Media Queries **/
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-  /* Global */
   .container-fluid,
   .page-multi-columns {
     padding-left: 15px;
@@ -1000,7 +999,44 @@ small {
   .page-container {
     padding-top: 76.6px;
   }
-  /* Global */
+  div[class*="col-"] {
+    padding: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+
+  .program-sidebar {
+    display: none
+  }
+  .program-content {
+    width: 100%;
+  }
+  .program-header .title-line:after {
+    content: none;
+  }
+  .program-header  {
+    flex-direction: row-reverse;
+    height: 400px;
+    position: relative;
+  }
+  .program-header .program-header-details {
+    height: auto;
+    width: auto !important;
+    max-width: 400px;
+    position: absolute;
+    bottom: -48px;
+    left: -15px;
+    padding: 30px;
+  }
+  .program-header .program-header-view {
+    width: calc(100% + 30px) !important;
+    height: 100%;
+    margin: 0 -15px
+  }
+  .program-header .title {
+      font-size: 38px !important;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -1019,23 +1055,61 @@ small {
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  /* Global */
   .container-fluid,
   .page-multi-columns {
     padding-left: 20px;
     padding-right: 20px;
   }
-  /* Global */
+  .program-sidebar {
+    width: 180px;
+  }
+  .program-content {
+      width: calc(100% - 210px);
+  }
+  .sidebar-link .link {
+    font-size: 16px !important;
+  }
+  .became-a {
+    display: none
+  }
+  .program-header .title-line:after {
+    content: none;
+  }
+  .program-header  {
+    flex-direction: row-reverse;
+    height: 400px;
+    position: relative;
+  }
+  .program-header .program-header-details {
+    height: auto;
+    width: calc(100% - 50px) !important;
+    max-width: 400px;
+    position: absolute;
+    bottom: -48px;
+    left: 15px;
+    padding: 30px;
+  }
+  .program-header .program-header-view {
+    width: calc(100%) !important;
+    height: 100%;
+  }
+  .program-header .title {
+      font-size: 38px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  /* Global */
   .container-fluid {
     padding-left: 20px;
     padding-right: 20px;
   }
-  /* Global */
+  .program-header .title {
+    font-size: 40px;
+  }
+  .title-line:after {
+    left: 105%;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

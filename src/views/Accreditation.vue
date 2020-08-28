@@ -73,7 +73,56 @@
 </style>
 
 <style scoped>
+.main-program-header .program-header-details {
+  width: 500px;
+}
+.main-program-header .program-header-details .title-line:after {
+  left: 100%;
+}
+.main-program-header .program-header-view {
+  width: calc(100% - 500px);
+}
 
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+
+}
+
+/* Max Width 768px(767.98px) */
+@media (max-width: 767.98px) {
+  .program-content {
+    width: 100%;
+  }
+  .accrediation-became {
+    display: none
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .accrediation-became {
+    display: none
+  }
+  .program-content {
+      width: calc(100% - 210px);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
 </style>
 
 <script>

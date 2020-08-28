@@ -34,7 +34,7 @@
                                   Explore AIPS Sectors
                               </div>
                               <div class="row">
-                                  <div class="col-lg-4" v-for="(sector, index) in sectors" :key="index">
+                                  <div class="col-lg-4 col-sm-6" v-for="(sector, index) in sectors" :key="index">
                                       <div class="program-sector-card">
                                           <img v-if="sector.image" :src="sector.image" class="program-sector-card-view width-fluid" alt="Bussines" />
                                           <img v-else :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
@@ -49,9 +49,9 @@
                               <div class="program-certification-widget">
                                   <div class="program-certification-details">
                                       <div class="text">
-                                          Explore <br />
-                                          Our <br />
-                                          Certification <br />
+                                          Explore
+                                          Our
+                                          Certification
                                           Types
                                       </div>
                                       <router-link to="/our-certificate" class="read-more white-btn mt-5">
@@ -85,6 +85,56 @@
 }
 .program-header-view {
   background-position: center;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .program-box-col {
+    width: 100%;
+  }
+  .program-sector-card {
+    padding: 0 15px;
+  }
+}
+
+/* Max Width 768px(767.98px) */
+@media (max-width: 767.98px) {
+  .program-certification-details {
+    width: 100%;
+  }
+  .program-certification-view {
+    display: none
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .program-certification-details {
+    width: 100%;
+  }
+  .program-certification-view {
+    display: none
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .program-certification-details {
+    width: 100%;
+  }
+  .program-certification-view {
+    display: none
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
 </style>
 

@@ -20,7 +20,7 @@
               <div class="contactus-container">
                   <div class="container">
                       <div class="row">
-                          <div class="col-lg-8">
+                          <div class="col-lg-8 col-md-8">
                               <div class="contact-form">
                                   <div class="program-title">
                                     We Would Love
@@ -28,10 +28,10 @@
                                     to Hear from You.
                                   </div>
                                   <div class="description-type mb-40">
-                                      To learn more about AIPS’s accreditation, certification and services, or for queries regarding partnership - please contact us using the form below or call us on +1 (407) 543 7098.
+                                      To learn more about AIPS’s accreditation, certification and services, or for queries regarding<br /> partnership - please contact us using the form below or call us on +1 (407) 543 7098.
                                   </div>
 
-                                  <div class="title">
+                                  <div class="title paleMainColor">
                                       Careers
                                   </div>
                                   <div class="description-type">
@@ -39,29 +39,10 @@
                                     <br />
                                     career@aips.us
                                   </div>
-
-                                  <div class="form-content">
-                                      <div class="form-title">
-                                          Send a Message
-                                      </div>
-                                      <form class="" action="index.html" method="post">
-                                          <div class="form-group">
-                                              <input type="text" class="form-control" name="name" placeholder="Name" />
-                                          </div>
-                                          <div class="form-group">
-                                              <input type="text" class="form-control" name="email" placeholder="Email" />
-                                          </div>
-                                          <div class="form-group mb-3">
-                                              <textarea type="text" class="form-control" name="subject" placeholder="Subject"></textarea>
-                                          </div>
-                                          <div class="form-group form-group-btn">
-                                              <button class="btn main-btn-backdrop" type="button" name="button">Submit</button>
-                                          </div>
-                                      </form>
-                                  </div>
                               </div>
                           </div>
-                          <div class="col-lg-4">
+
+                          <div class="col-lg-4 col-md-4">
                               <div class="contact-address">
                                   <div class="contact-title">
                                       United States of America
@@ -86,6 +67,28 @@
                                   </div>
                               </div>
                           </div>
+
+                          <div class="col-lg-5 col-md-7">
+                              <div class="form-content">
+                                  <div class="form-title">
+                                      Send a Message
+                                  </div>
+                                  <form class="" action="index.html" method="post">
+                                      <div class="form-group">
+                                          <input type="text" class="form-control" name="name" placeholder="Name" />
+                                      </div>
+                                      <div class="form-group">
+                                          <input type="text" class="form-control" name="email" placeholder="Email" />
+                                      </div>
+                                      <div class="form-group mb-3">
+                                          <textarea type="text" class="form-control" name="subject" placeholder="Subject"></textarea>
+                                      </div>
+                                      <div class="form-group form-group-btn">
+                                          <button class="btn main-btn-backdrop" type="button" name="button">Submit</button>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
                       </div>
                   </div>
               </div>
@@ -105,7 +108,8 @@
   padding-bottom: 50px;
 }
 .main-program-header div.program-header-details {
-  width: 600px
+  width: 600px;
+  background-color: #370F76
 }
 .main-program-header {
   height: 380px
@@ -124,7 +128,7 @@
   font-size: 18px;
 }
 .form-content {
-  padding-top: 80px;
+  padding-top: 70px;
   margin-bottom: 15px;
 }
 .form-title {
@@ -136,7 +140,6 @@
 .form-content .form-group {
   margin-bottom: 8px;
   border: 1px solid #808080;
-  width: 58%;
   max-width: 100%;
 }
 .form-control {
@@ -166,7 +169,46 @@
 }
 .icon-back:before {
   margin-left: 10px;
-  font-size: 15px
+  font-size: 25px
+}
+.contact-address {
+  padding-top: 50px
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .form-content .form-group {
+    width: 100%;
+    max-width: 350px;
+  }
+  .contact-address {
+    margin-top: 40px
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .main-program-header div.program-header-details {
+    width: 370px;
+  }
+  .program-header.main-program-header .program-header-view {
+        width: calc(100% - 370px);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
 }
 </style>
 

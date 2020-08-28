@@ -164,7 +164,12 @@ We provide credibility by means of accreditation and authentication <br /> throu
 </style>
 
 <style scoped>
-
+.main-program-header .program-header-details {
+  width: 450px;
+}
+.main-program-header .program-header-view {
+  width: calc(100% - 450px);
+}
 </style>
 
 <script>
