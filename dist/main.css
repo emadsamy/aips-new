@@ -48,10 +48,10 @@ html {
   font-style: normal; }
 @font-face {
   font-family: "Arabic Dubai";
-  src: url("fonts/dubai_fonts/DubaiW23-Light.eot") format("eot");
-  src: url("fonts/dubai_fonts/DubaiW23-Light.ttf") format("ttf");
-  src: url("fonts/dubai_fonts/DubaiW23-Light.woff") format("woff");
-  src: url("fonts/dubai_fonts/DubaiW23-Light.woff2") format("woff2");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.eot") format("eot");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.ttf") format("ttf");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.woff") format("woff");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.woff2") format("woff2");
   font-weight: 500;
   font-style: italic; }
 .fas,
@@ -716,7 +716,9 @@ small {
     font-size: 16px;
     text-transform: uppercase;
     padding: 10px 0;
-    line-height: 1.2; }
+    line-height: 1.2;
+    font-weight: bold
+   }
   .program-download .download-btn {
     border: 1px solid #1B1464;
     padding: 0 12px;
@@ -835,13 +837,6 @@ small {
 /* About Program */
 .about-title {
   font-size: 25px; }
-
-.program-header-view-about {
-  background-image: url("../img/about-program.png") !important; }
-
-.program-content-about {
-  width: calc(100% - 270px); }
-
 .program-articles-rows {
   padding-top: 60px; }
 
@@ -851,10 +846,6 @@ small {
   margin-bottom: 65px;
   display: flex;
   justify-content: space-between; }
-  .program-about-article > div:first-of-type {
-    width: calc(60% - 40px); }
-  .program-about-article > div:last-of-type {
-    width: calc(40% - 40px); }
   .program-about-article .small-title,
   .program-about-article .medium-title {
     font-weight: bold;
@@ -863,7 +854,30 @@ small {
     font-size: 23px;
     color: #1B1464;
     margin-bottom: 8px; }
-
+.aa-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #00000016;
+}
+.about-article-box {
+  width: 48%;
+}
+.aa-row:last-of-type {
+  padding-bottom: 0;
+  border: none;
+}
+.aa-row .details {
+  width: 56%;
+}
+.aa-row .view {
+  width: 36%;
+}
+.aa-row .view img {
+  width: 100%
+}
 .about-article-box-media {
   position: relative; }
   .about-article-box-media video, .about-article-box-media img {
