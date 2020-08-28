@@ -7,6 +7,9 @@
               </router-link>
           </div>
       </div>
+      <div class="navbar-auth-sm">
+          <Navbar />
+      </div>
       <div class="auth center-vertically">
           <div class="auth-content">
               <div class="title">Create an Account</div>
@@ -55,12 +58,14 @@
 
 <script>
 import Search from '@/components/Search.vue';
+import Navbar from '@/components/Navbar.vue';
 import axios from 'axios';
 
 export default {
   name: 'Register',
   components: {
-    Search
+    Search,
+    Navbar
   },
   data() {
     return {

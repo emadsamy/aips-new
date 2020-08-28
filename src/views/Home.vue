@@ -61,7 +61,7 @@
                 </div>
             </div>
           </div> -->
-          <Navbar :containerFluid="true" :hiddenLogo="true" />
+          <Navbar :containerFluidHome="true" :hiddenLogo="true" />
           <!-- Navbar -->
 
           <!-- Content -->
@@ -189,13 +189,13 @@
 .containerFluid {
   padding: 0
 }
-.content-multi {
-  min-height: auto;
-  height: calc(100% - 57px) !important;
-}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+
+}
+
+@media (max-width: 767.98px) {
   .multi-sidebar {
     display: none;
   }
@@ -204,7 +204,7 @@
   }
   .home-background {
     background-size: cover;
-    background-position: center;
+    background-position: top;
     height: 100%;
     width: calc(100% + 30px);
     margin: 0 -15px;
@@ -212,7 +212,7 @@
   .home-widget-explore {
     width: 310px;
     left: 15px;
-    padding: 35px;
+    padding: 23px 30px;
     max-width: calc(100% - 25px)
   }
   .home-widget-explore .title {
@@ -225,6 +225,10 @@
     top: auto;
     bottom: 120px;
   }
+  .content-multi {
+    min-height: auto;
+    height: calc(100% - 57px) !important;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -235,6 +239,21 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
 
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .multi-sidebar {
+    display: none;
+  }
+  .multi-columns {
+    width: 100%;
+  }
+  .content-multi {
+    height: calc(100% - 127px) !important;
+  }
+  .home-widget-explore {
+    padding: 30px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */

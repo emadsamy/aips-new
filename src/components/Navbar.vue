@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-      <div v-bind:class="[containerFluid ? 'containerFluid' : '']" class="container-fluid">
+      <div v-bind:class="[containerFluidHome ? 'containerFluidHome' : '']" class="container-fluid">
           <div class="apis-navbar">
               <div class="nav-logo" v-bind:class="[hiddenLogo ? 'hiddenLogo' : '']"> <!--  v-if="has_logo" -->
                   <router-link class="d-flex" to="/">
@@ -137,8 +137,8 @@
     font-weight: bold;
     color: #1B1464;
 }
-.containerFluid {
-  padding: 0
+.containerFluidHome .nav-links {
+  padding-left: 40px
 }
 .hiddenLogo {
   display: none;
@@ -180,19 +180,24 @@
     display: block;
   }
   .nav {
-    padding: 18px 15px;
+    padding: 18px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #fff;
-    z-index: 100
+    z-index: 100;
+    // padding-left: 0;
+    // padding-right: 0;
   }
   .hiddenLogo {
     display: block;
   }
   .hiddenAction {
     display: none;
+  }
+  .containerFluidHome .nav-links {
+    padding: 0 20px;
   }
 }
 
@@ -214,16 +219,23 @@
     padding: 0.5rem 0.5rem;
     font-size: 17px;
   }
+  .containerFluidHome .nav-logo {
+    display: block
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-
+  .containerFluidHome .nav-logo {
+    display: block
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
+  .containerFluidHome {
+    padding: 0
+  }
 }
 </style>
 
@@ -236,7 +248,7 @@ export default {
     Avatar: Avatar,
     Search: Search
   },
-  props: ['has_logo', 'containerFluid', 'hiddenLogo'],
+  props: ['has_logo', 'containerFluidHome', 'hiddenLogo'],
   data() {
     return {
       toggleSearch: false,

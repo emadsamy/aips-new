@@ -190,6 +190,9 @@
   .search-container {
     min-height: calc(100% - 125px);
   }
+  .fluid-search {
+    padding-top: 76.6px;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */

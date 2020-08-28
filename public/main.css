@@ -1006,9 +1006,13 @@ small {
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   /* Global */
-  .container-fluid {
+  .container-fluid,
+  .page-multi-columns {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .page-container {
+    padding-top: 76.6px;
   }
   /* Global */
 }
@@ -1016,7 +1020,8 @@ small {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   /* Global */
-  .container-fluid {
+  .container-fluid,
+  .page-multi-columns {
     padding-left: 20px;
     padding-right: 20px;
   }
