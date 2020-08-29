@@ -163,9 +163,9 @@ input[type="file"] {
   top: 50%;
   transform: translateY(-50%);
   width: 80%;
-  height: 13px;
+  height: 10px;
   background-color: #4F17A8;
-  left: 120%; }
+  left: 105%; }
 
 .divider {
   position: relative;
@@ -267,7 +267,7 @@ small {
 
 .footer-copyright > div {
   color: #555555;
-  font-size: 13px; }
+  font-size: 14px; }
   .footer-copyright > div:first-of-type {
     font-weight: bold; }
 
@@ -452,8 +452,10 @@ small {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 16px 0;
-  align-items: center; }
+  padding: 21px 0;
+  align-items: center;
+  line-height: 1
+}
   .footer .text {
     color: #555555;
     font-size: 14px;
@@ -684,7 +686,9 @@ small {
 
 .program-row {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
 .program-sidebar {
   width: 210px;
@@ -721,9 +725,12 @@ small {
    }
   .program-download .download-btn {
     border: 1px solid #1B1464;
-    padding: 0 12px;
+    padding: 5px 12px;
     text-align: center;
-    font-size: 14px; }
+    font-size: 14px;
+    display: inline-block;
+    line-height: 1
+  }
     .program-download .download-btn:hover {
       background: #4F17A8;
       color: #FFF;
@@ -983,46 +990,128 @@ small {
   margin-bottom: 20px; }
 
 /* Entrepreneurship */
-
 /** Media Queries **/
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-  /* Global */
-  .container-fluid {
+  .container-fluid,
+  .page-multi-columns {
     padding-left: 15px;
     padding-right: 15px;
   }
-  /* Global */
+  .page-container {
+    padding-top: 76.6px;
+  }
+  /* div[class*="col-"] {
+    padding: 0;
+  } */
+}
+
+@media (max-width: 767.98px) {
+
+  .program-sidebar {
+    display: none
+  }
+  .program-content {
+    width: 100%;
+  }
+  .program-header .title-line:after {
+    content: none;
+  }
+  .program-header  {
+    flex-direction: row-reverse;
+    height: 400px;
+    position: relative;
+  }
+  .program-header .program-header-details {
+    height: auto;
+    width: auto !important;
+    max-width: 400px;
+    position: absolute;
+    bottom: -48px;
+    left: -15px;
+    padding: 30px;
+  }
+  .program-header .program-header-view {
+    width: calc(100% + 30px) !important;
+    height: 100%;
+    margin: 0 -15px
+  }
+  .program-header .title {
+      font-size: 38px !important;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   /* Global */
-  .container-fluid {
+  .container-fluid,
+  .page-multi-columns {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .page-container {
+    padding-top: 76.6px;
   }
   /* Global */
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  /* Global */
-  .container-fluid {
+  .container-fluid,
+  .page-multi-columns {
     padding-left: 20px;
     padding-right: 20px;
   }
-  /* Global */
+  .program-sidebar {
+    width: 180px;
+  }
+  .program-content {
+      width: calc(100% - 210px);
+  }
+  .sidebar-link .link {
+    font-size: 16px !important;
+  }
+  .became-a {
+    display: none
+  }
+  .program-header .title-line:after {
+    content: none;
+  }
+  .program-header  {
+    flex-direction: row-reverse;
+    height: 400px;
+    position: relative;
+  }
+  .program-header .program-header-details {
+    height: auto;
+    width: calc(100% - 50px) !important;
+    max-width: 400px;
+    position: absolute;
+    bottom: -48px;
+    left: 15px;
+    padding: 30px;
+  }
+  .program-header .program-header-view {
+    width: calc(100%) !important;
+    height: 100%;
+  }
+  .program-header .title {
+      font-size: 38px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  /* Global */
   .container-fluid {
     padding-left: 20px;
     padding-right: 20px;
   }
-  /* Global */
+  .program-header .title {
+    font-size: 40px;
+  }
+  .title-line:after {
+    left: 105%;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
