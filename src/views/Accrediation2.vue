@@ -52,7 +52,7 @@
 
                           <div class="acc-widget mb-70">
                               <div class="row">
-                                  <div class="col-lg-4">
+                                  <div class="col-lg-4 col-sm-6">
                                       <div class="acc-box">
                                           <div class="sm-title">
                                               Individuals and organizations
@@ -63,7 +63,7 @@
                                       </div>
                                   </div>
 
-                                  <div class="col-lg-4">
+                                  <div class="col-lg-4 col-sm-6">
                                       <div class="acc-box">
                                           <div class="sm-title">
                                             Accredited Individuals
@@ -75,7 +75,7 @@
                                       </div>
                                   </div>
 
-                                  <div class="col-lg-4">
+                                  <div class="col-lg-4 col-sm-6">
                                       <div class="acc-box">
                                           <div class="sm-title">
                                             Accredited Providers

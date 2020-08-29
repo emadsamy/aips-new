@@ -686,7 +686,9 @@ small {
 
 .program-row {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
 
 .program-sidebar {
   width: 210px;
@@ -999,9 +1001,9 @@ small {
   .page-container {
     padding-top: 76.6px;
   }
-  div[class*="col-"] {
+  /* div[class*="col-"] {
     padding: 0;
-  }
+  } */
 }
 
 @media (max-width: 767.98px) {
