@@ -18,7 +18,10 @@
                           </div>
                       </div>
                   </div>
-                  <div class="online-app-view" :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"></div>
+                  <div class="online-app-view" 
+                  :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}">
+                    
+                  </div>
               </div>
           </div>
 
@@ -28,9 +31,12 @@
                       <div class="online-app-flex d-flex justify-content-between">
                         <div class="online-app-avatar">
                             <!-- <Avatar /> -->
-                            <img :src="require('../assets/img/avatar.jpg')" class="img-fluid" alt="">
+                            <img :src="(row.preview) 
+                                  ? row.preview 
+                                  : require('../assets/img/avatar.jpg')" 
+                                  class="img-fluid" alt="">
                             <div class="upload-avatar">
-                                <input type="file" name="avatar" />
+                                <input type="file" name="avatar" @change="onImageChange"/>
                                 <span class="icon-drag"></span>
                                 <div class="upload-text">
                                     Upload your photo
@@ -39,6 +45,8 @@
                         </div>
                         <div class="online-app-data">
                             <div class="alert-text-checkbox mb-4">
+                                
+
                                 <div class="alert-text mb-2">
                                     CONFIDENTIALITY OF INFORMATION: AMI will hold this information in its database. This information may be accessed, reviewed and used for administrative purposes only.
                                 </div>
@@ -63,35 +71,35 @@
 
                             <div class="form-inputs">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="first_name" placeholder="First Name" value="" />
+                                    <input type="text" class="form-control" placeholder="First Name" v-model="row.first_name" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="nationality" placeholder="Nationality" value="" />
+                                    <input type="text" class="form-control" placeholder="Nationality" v-model="row.nationality" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="middle_name" placeholder="Middle Name" value="" />
+                                    <input type="text" class="form-control" placeholder="Middle Name" v-model="row.middle_name" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="residential_address" placeholder="Residential Address" value="" />
+                                    <input type="text" class="form-control"  placeholder="Residential Address" v-model="row.residential_address" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="" />
+                                    <input type="text" class="form-control" placeholder="Last Name" v-model="row.last_name" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="tel" placeholder="Telephone No" value="" />
+                                    <input type="text" class="form-control" placeholder="Telephone No" v-model="row.telephone_no" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control" name="full_name" placeholder="Full Name" value="" />
+                                    <input type="text" class="form-control" placeholder="Full Name" v-model="row.full_name" required="" />
                                 </div>
 
                                 <div class="form-group">
-                                    <input type="email" class="form-control" name="email" placeholder="E-mail Address" value="" />
+                                    <input type="email" class="form-control" placeholder="E-mail Address" v-model="row.email_address" required="" />
                                 </div>
                             </div>
 
@@ -130,7 +138,7 @@
                                   </div>
                                   <div class="video-link">
                                       <span class="icon-url"></span>
-                                      <input type="text" name="" value="" placeholder="Video link here" />
+                                      <input type="text" v-model="row.video_url" placeholder="Video link here" />
                                   </div>
                                 </div>
                             </div>
@@ -159,7 +167,20 @@
                                 </div>
                             </div>
 
-                            <router-link to="/" class="main-btn-backdrop">Apply</router-link>
+
+                             <button class="btn main-btn-backdrop" type="button" @click="apply" style="height: 50px;width: 200px">
+                                <img src="../assets/loader.svg" class="sm-loader" alt="" v-if="btnLoading" />
+                                <span v-else>Create an Account</span>
+                            </button>
+                            <p><br/></p>
+                            <div v-if="errors" class="alert alert-danger text-left">
+                                    {{ errors }}
+                                </div>
+
+                                <div v-if="success" class="alert alert-success text-left">
+                                    {{ success }}
+                                </div>
+
                         </div>
                       </div>
                   </form>
@@ -187,22 +208,94 @@ import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
 // import DownloadCatalog from '../components/DownloadCatalog.vue';
 import Avatar from '../components/Avatar.vue';
-export default {
-  name: 'OnlineApplication',
-  components: {
-    Navbar: Navbar,
-    Footer: Footer,
-    Avatar: Avatar,
-    // DownloadCatalog: DownloadCatalog
-  },
-  data() {
+import axios from 'axios';
 
-  },
-  created() {
-    // Check Auth
-    // if (!localStorage.getItem('access_token')) {
-    //   this.$router.push({ name: 'Login' });
-    // }
+
+  export default {
+    name: 'OnlineApplicaiton',
+    components: {
+      Navbar: Navbar,
+      Footer: Footer,
+      Avatar: Avatar,
+    },
+    data(){
+      return {
+        row: {
+            preview: '',
+            base64Image: '',
+            first_name: '',
+            middle_name: '',
+            last_name: '',
+            full_name: '',
+            nationality: '',
+            residential_address: '',
+            telephone_no: '',
+            email_address: '',
+            video_url: '',
+        },
+        errors: false,
+        success: false,
+        btnLoading: false,
+      }
+    },
+    mounted() {},
+    computed: {},
+    created() {
+        //
+    },
+    methods: {
+
+        apply() {
+          this.btnLoading = true;
+          axios.defaults.headers.common = {
+            'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
+          };
+          const options = {
+            url: window.baseURL+'/members-applications',
+            method: 'POST',
+            data: {
+                  base64Image: this.row.base64Image,
+                  first_name: this.row.first_name,
+                  middle_name: this.row.middle_name,
+                  last_name: this.row.last_name,
+                  full_name: this.row.full_name,
+                  nationality: this.row.nationality,
+                  residential_address: this.row.residential_address,
+                  telephone_no: this.row.telephone_no,
+                  email_Address: this.row.email_address,
+                  video_url: this.row.video_url
+                }
+              }
+             axios(options)
+              .then(() => {
+                  this.btnLoading = false;
+                  this.errors = false;
+                  this.success = 'Application Completed Successfully.';
+              })
+              .catch(err => {
+                  this.btnLoading = false;
+                  this.success = false;
+                  this.errors = (err.response) ? err.response.data.message : ''+err;
+              })
+              .finally(() => {})
+      },
+
+
+      // Upload Featured image
+      onImageChange(e){
+          const file = e.target.files[0];
+          this.row.preview = URL.createObjectURL(file);
+          this.createBase64Image(file);
+      },
+      createBase64Image(fileObject){
+        const reader = new FileReader();
+        reader.readAsDataURL(fileObject);
+        reader.onload = e =>{
+          this.row.base64Image = e.target.result;
+        };
+      },
+
+    }
+    
   }
-}
 </script>

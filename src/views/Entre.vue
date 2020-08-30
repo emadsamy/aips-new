@@ -8,10 +8,10 @@
       <div class="content">
           <div class="container-fluid">
               <div class="program-header entrepreneurship-header main-program-header">
-                  <div class="program-header-details">
+                  <div class="program-header-details" :style="'background:'+row.bgColor+'!important'">
                       <div class="align-center">
                           <div class="title">
-                              {{ pageTitle }}
+                              {{ row.bgTitle }}
                           </div>
                           <div class="description-type goldColor">
                               Programs
@@ -42,7 +42,7 @@
                       </div>
                       <div class="program-content">
                           <div class="description-about">
-                              Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful learning and engagement with instructors, classmates, and course material using many of the tools we’re already using every day to communicate, gather information, and manage our lives.
+                              {{ row.short_body }}
                           </div>
                           <div class="program-view-head-text">
                             <div class="title">
@@ -61,34 +61,19 @@
                                       <div class="medium-entre-title">
                                           Program Overview
                                       </div>
-                                      <div class="text mb-4">
-                                        Entrepreneurship is an interdisciplinary course designed to teach students how to think and act entrepreneurial. Students learn how to start-up and operate a business while in school, thus turning their learning into earning. The course will build on cross-curricular academic skills, by integrating inquiry-based learning and business tools that will enable students to analyze, create, develop and pilot small businesses in a safe campus environment.
-                                        <br />
-                                        <br />
-                                        Those who manage and operate a small business will bring their products directly to the consumer via the local marketplace or present venture to potential investors for financing. Concepts and skills are reinforced by a strong emphasis on hands-on experiences. Applications to society, individuals, and the utilization of technology are included. The context of this course is in conjunction with the Network for Teaching Entrepreneurship, (NFTE).
-                                      </div>
+                                      <div class="text mb-4" v-html="row.body1"></div>
 
                                       <div class="apply-border-bottom">
                                           <div class="medium-entre-title">
                                               What You’ll Learn
                                           </div>
-                                          <div class="text mb-5">
-                                              <div>- Startup Creation Process and Entrepreneurial Ecosystem</div>
-                                              <div>- Entrepreneurship and Business Opportunities</div>
-                                              <div>- New Venture Business Planning, Small and Family Business</div>
-                                              <div>- Accounting & Finance for Entrepreneurs</div>
-                                              <div>- Strategic Management</div>
-                                              <div>- Marketing Planning</div>
-                                              <div>- Advanced Effective Sales Negotiation & Intercultural Communication</div>
-                                          </div>
+                                          <div class="text mb-5" v-html="row.body2"></div>
                                       </div>
 
                                       <div class="medium-entre-title">
                                           Who Should Apply?
                                       </div>
-                                      <div class="text mb-5">
-                                          Entrepreneurship Essentials introduces you to the entrepreneurial journey from finding an idea, to gaining traction in the marketplace, to raising capital for your venture. This course explains how entrepreneurs run structured experiments to validate ideas and refine business strategy. You will dive deep into the numbers behind how entrepreneurs and their investors make financial decisions to create value and grow their operations.
-                                      </div>
+                                      <div class="text mb-5" v-html="row.body3"></div>
                                   </div>
                                   <div class="program-entre-application">
                                       <div class="apply-border-bottom">
@@ -105,20 +90,13 @@
                                           <div class="medium-entre-title">
                                               Entry Requirements
                                           </div>
-                                          <div class="text mb-3">
-                                              Bachelor-level <br />
-                                              undergraduate degree in <br />
-                                              any subject. Fluency in English
-                                          </div>
+                                          <div class="text mb-3" v-html="row.body4"></div>
                                       </div>
                                       <div>
                                           <div class="medium-entre-title">
                                               Price
                                           </div>
-                                          <div class="text mb-3">
-                                              Member: US$800.00 <br />
-                                              Non-member: US$1,000.00
-                                          </div>
+                                          <div class="text mb-3" v-html="row.body5"></div>
                                       </div>
                                   </div>
                               </div>
@@ -170,7 +148,7 @@ export default {
   },
   data() {
     return {
-      row: '',
+      row: [],
       pageTitle: '',
       pageImage: '',
       pageBody: '',
@@ -180,22 +158,34 @@ export default {
       sector_slug: this.$route.params.slug
     }
   },
+  watch: {
+    $route() {
+        this.fetchRow();
+    }
+  },
   created() {
-    const url = window.baseURL + '/programs/sectors/' + this.$route.params.slug + '/products';
-    axios.get(url)
-      .then(res => {
-        var data = res.data.row;
-        this.row = res.data.row;
-        this.programs = data.programs;
-        this.pageTitle = data.title;
-        this.pageImage = data.image;
-        this.pageBody = data.body;
-        this.imageHeader = data.image;
-        console.log(data.image);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      
+      this.fetchRow();
+  },
+  methods: {
+
+    fetchRow() {
+        const url = window.baseURL + '/programs/sectors/products/' + this.$route.params.pro;
+      axios.get(url)
+        .then(res => {
+          var data = res.data.row;
+          this.row = res.data.row;
+          this.programs = res.data.related;
+          this.pageTitle = data.title;
+          this.pageImage = data.image;
+          this.pageBody = data.body;
+          this.imageHeader = data.image;
+          console.log(data.image);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
   }
 }
 </script>

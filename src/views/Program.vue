@@ -19,7 +19,7 @@
                       </div>
                   </div>
                   <div class="program-header-view" 
-                    :style="{backgroundImage:`url(${require('../assets/img/program.jpg')})`}">
+                    :style="{backgroundImage:`url(`+ imageHeader +`)`}">
                   </div> 
               </div>
               <div class="program-container">
@@ -167,8 +167,19 @@ export default {
       sector_slug: this.$route.params.slug
     }
   },
+  watch: {
+    $route() {
+        this.fetchRow();
+    }
+  },
   created() {
-    // Get Sidebar Links
+      
+      this.fetchRow();
+  },
+  methods: {
+    
+    fetchRow() {
+    
     axios.get('https://api.mazadak.net/api/v1/programs')
       .then(res => {
         var data = res.data.rows;
@@ -195,7 +206,7 @@ export default {
         .catch(err => {
           console.log(err);
         });
-
+    },
         // Check Auth
         // if (!localStorage.getItem('access_token')) {
         //   this.$router.push({ name: 'Login' });
