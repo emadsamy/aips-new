@@ -20,7 +20,7 @@
                   </div>
                   <!-- imageHeader -->
                   <div class="program-header-view" 
-                    :style="{backgroundImage:`url(`+imageHeader+`)`}">
+                    :style="{backgroundImage:`url(`+imageHeader+`) !important`}">
                   </div>
               </div>
               <div class="program-container">
@@ -40,9 +40,7 @@
                           </div>
                       </div>
                       <div class="program-content">
-                          <div class="description-about">
-                              {{ row.short_body }}
-                          </div>
+                          <div class="description-about" v-html="row.short_body"></div>
                           <div class="program-view-head-text">
                             <div class="title">
                                 {{ pageTitle }}

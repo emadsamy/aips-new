@@ -16,7 +16,7 @@
                       </div>
                   </div>
                   <div class="program-header-view" 
-                    :style="{backgroundImage:`url(`+imageHeader+`)`}">
+                    :style="{backgroundImage:`url(`+imageHeader+`) !important`}">
                   </div>
               </div>
               <div class="program-container">

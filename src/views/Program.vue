@@ -19,7 +19,7 @@
                       </div>
                   </div>
                   <div class="program-header-view" 
-                    :style="{backgroundImage:`url(`+ imageHeader +`)`}">
+                    :style="{backgroundImage:`url(`+ imageHeader +`) !important`}">
                   </div> 
               </div>
               <div class="program-container">
@@ -39,9 +39,7 @@
                           </div> -->
                       </div>
                       <div class="program-content">
-                          <div class="description-about">
-                              Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful learning and engagement with instructors, classmates, and course material using many of the tools we’re already using every day to communicate, gather information, and manage our lives.
-                          </div>
+                          <div class="description-about" v-html="pageBody"></div>
                           <div class="program-view-head-text">
                             <div class="title">
                                 {{ pageTitle }}
@@ -163,6 +161,7 @@ export default {
       sidebarLinks: [],
       articles: [],
       imageHeader: '',
+      pageBody: '',
 
       sector_slug: this.$route.params.slug
     }
@@ -177,7 +176,7 @@ export default {
       this.fetchRow();
   },
   methods: {
-    
+
     fetchRow() {
     
     axios.get('https://api.mazadak.net/api/v1/programs')
@@ -199,6 +198,7 @@ export default {
         .then(res => {
           var data = res.data.row;
           this.pageTitle = data.title;
+          this.pageBody = data.body;
           this.programs = data.programs;
           this.imageHeader = data.image;
           // console.log(data.image);
