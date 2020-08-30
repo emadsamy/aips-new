@@ -18,19 +18,25 @@
                           </div>
                       </div>
                   </div>
-                  <div class="program-header-view" :style="{backgroundImage:`url(${require('../assets/img/program.jpg')})`}"></div> <!-- imageHeader -->
+                  <div class="program-header-view" 
+                    :style="{backgroundImage:`url(${require('../assets/img/program.jpg')})`}">
+                  </div> 
               </div>
               <div class="program-container">
                   <div class="program-row">
                       <div class="program-sidebar">
-                          <!-- <div class="sidebar-link" v-for="(link, index) in sidebarLinks"  :key="index">
-                              <router-link :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {slug: link.slug, title: link.title } }" class="link">{{ link.title }}</router-link>
-                          </div> -->
-                          <div class="sidebar-link">
+                          <div class="sidebar-link" 
+                            v-for="(link, index) in sidebarLinks"  :key="index">
+                              <router-link :to="{ name: 'Program', 
+                                params: {slug: link.slug, title: link.title } }" 
+                                class="link">{{ link.title }}
+                              </router-link>
+                          </div>
+                          <!-- <div class="sidebar-link">
                               <router-link to="/" class="link">Business Adminstration</router-link>
                               <router-link to="/" class="link">Healthcare Managment</router-link>
                               <router-link to="/" class="link">Languages</router-link>
-                          </div>
+                          </div> -->
                       </div>
                       <div class="program-content">
                           <div class="description-about">
@@ -61,23 +67,26 @@
                                   <!-- </router-link> -->
                               <!-- </div> -->
 
-                              <div class="program-box-col">
+                              <div class="program-box-col" 
+                                v-for="(program, index) in programs" key="index">
                                   <div class="title">
-                                      Entrepreneurship
+                                      {{ program.title }}
                                   </div>
                                   <div class="description">
-                                      Professional Certificate in Business Administration
+                                      {{ program.subtitle }}
                                   </div>
-                                  <div class="text">
-                                      Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful
-                                  </div>
-                                  <router-link to="/entre" class="read-more">
-                                    <!-- :to="{path: '/programs/sectors/:slug/products', name: 'Entre', params: {body: sector.body, slug: sector.slug } }" -->
+                                  <div class="text" v-html="program.short_body"></div>
+                                  <router-link :to="{name: 'program-detail', 
+                                        params: {slug: sector_slug, pro: program.slug}}" class="read-more">
                                       <div>
                                           Read More <span class="icon-back"></span>
                                       </div>
                                   </router-link>
                               </div>
+
+
+
+
                           </div>
                       </div>
                       <DownloadCatalog />
@@ -153,7 +162,9 @@ export default {
       pageTitle: '',
       sidebarLinks: [],
       articles: [],
-      imageHeader: ''
+      imageHeader: '',
+
+      sector_slug: this.$route.params.slug
     }
   },
   created() {

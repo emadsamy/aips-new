@@ -15,15 +15,17 @@
                           </div>
                       </div>
                   </div>
-                  <div class="program-header-view" :style="{backgroundImage:`url(${require('../assets/img/programs.jpg')})`}"></div> <!-- imageHeader -->
+                  <div class="program-header-view" 
+                    :style="{backgroundImage:`url(${require('../assets/img/programs.jpg')})`}">
+                  </div>
               </div>
               <div class="program-container">
                   <div class="program-row">
                       <div class="program-sidebar">
-                          <!-- <div class="sidebar-link" v-for="(link, index) in sidebarLinks" key="index">
+                          <div class="sidebar-link" v-for="(link, index) in sidebarLinks" key="index">
                               <a :href="'#'+link.slug" class="link">{{ link.title }}</a>
-                          </div> -->
-                          <div class="sidebar-link">
+                          </div>
+                         <!--  <div class="sidebar-link">
                               <a href="#" class="link">Overview</a>
                           </div>
                           <div class="sidebar-link">
@@ -34,23 +36,23 @@
                           </div>
                           <div class="sidebar-link">
                               <a href="#" class="link">Business Administration</a>
-                          </div>
+                          </div> -->
                       </div>
                       <div class="program-content">
                           <div class="program-title">
-                              <!-- {{ overview.title }} -->
-                              Overview
+                              {{ overview.title }}
+                              <!-- Overview -->
                           </div>
-                          <!-- <div class="description-about" v-html="overview.body"></div> -->
-                          <div class="description-about">
+                          <div class="description-about" v-html="overview.body"></div>
+                         <!--  <div class="description-about">
                               Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful learning and engagement with instructors, classmates, and course material using many of the tools we’re already using every day to communicate, gather information, and manage our lives.
-                          </div>
+                          </div> -->
                           <div class="program-sectors">
                               <div class="sectors-title">
                                   Explore AIPS Sectors
                               </div>
                               <!-- dynamic Only -->
-                              <!-- <div class="row">
+                              <div class="row">
                                   <div class="col-lg-4 col-sm-6" v-for="(sector, index) in sectors" :key="index">
                                       <div class="program-sector-card">
                                           <img v-if="sector.image" :src="sector.image" class="program-sector-card-view width-fluid" alt="Bussines" />
@@ -59,48 +61,51 @@
                                               {{ sector.title }}
                                           </div>
                                           <div>
-                                            <router-link :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {body: sector.body, slug: sector.slug } }" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div> -->
-
-                              <!-- Staticcccccccccccccc Only -->
-                              <div class="row">
-                                  <div class="col-lg-4 col-sm-6">
-                                      <div class="program-sector-card">
-                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
-                                          <div class="program-sector-card-title">
-                                              Bussines Managment
-                                          </div>
-                                          <div>
-                                            <router-link to="/program" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-4 col-sm-6">
-                                      <div class="program-sector-card">
-                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
-                                          <div class="program-sector-card-title">
-                                              Bussines Managment
-                                          </div>
-                                          <div>
-                                            <router-link to="/program" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-lg-4 col-sm-6">
-                                      <div class="program-sector-card">
-                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
-                                          <div class="program-sector-card-title">
-                                              Bussines Managment
-                                          </div>
-                                          <div>
-                                            <router-link to="/program" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                            <router-link 
+                                            :to="{name: 'Program', 
+                                              params: {slug: sector.slug } }" 
+                                              class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
                                           </div>
                                       </div>
                                   </div>
                               </div>
+
+                              <!-- Staticcccccccccccccc Only -->
+                              <!-- <div class="row">
+                                  <div class="col-lg-4 col-sm-6">
+                                      <div class="program-sector-card">
+                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
+                                          <div class="program-sector-card-title">
+                                              Bussines Managment
+                                          </div>
+                                          <div>
+                                            <router-link to="/program" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-4 col-sm-6">
+                                      <div class="program-sector-card">
+                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
+                                          <div class="program-sector-card-title">
+                                              Bussines Managment
+                                          </div>
+                                          <div>
+                                            <router-link to="/program" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-lg-4 col-sm-6">
+                                      <div class="program-sector-card">
+                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
+                                          <div class="program-sector-card-title">
+                                              Bussines Managment
+                                          </div>
+                                          <div>
+                                            <router-link to="/program" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div> -->
 
                               <div class="program-certification-widget">
                                   <div class="program-certification-details">
@@ -228,34 +233,34 @@ export default {
     }
   },
   created() {
-    // axios.get(window.baseURL + '/programs')
-    //   .then(res => {
-    //     console.log(res.data.rows);
-    //     // console.log(res.data.rows[0]);
-    //     this.sidebarLinks = res.data.rows;
-    //     var data = res.data.rows;
-    //     this.imageHeader = data[0].image;
-    //     console.log(data[0].image);
-    //
-    //     // Get Sectors
-    //     for (var i = 0; i < data.length; i++) {
-    //       if (data[i].sectors != '') {
-    //         this.sectors = data[i].sectors;
-    //       }
-    //     }
-    //
-    //     // Get Overview Body
-    //     this.overview = res.data.rows[0];
-    //     console.log(this.overview);
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
+    axios.get(window.baseURL + '/programs')
+      .then(res => {
+        console.log(res.data.rows);
+        // console.log(res.data.rows[0]);
+        this.sidebarLinks = res.data.rows;
+        var data = res.data.rows;
+        this.imageHeader = data[0].image;
+        console.log(data[0].image);
+    
+        // Get Sectors
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].sectors != '') {
+            this.sectors = data[i].sectors;
+          }
+        }
+    
+        // Get Overview Body
+        this.overview = res.data.rows[0];
+        console.log(this.overview);
+      })
+      .catch(err => {
+        console.log(err);
+      });
 
       // Check Auth
-      // if (!localStorage.getItem('access_token')) {
-      //   this.$router.push({ name: 'Login' });
-      // }
+      if (!localStorage.getItem('access_token')) {
+        this.$router.push({ name: 'Login' });
+      }
   }
 }
 </script>

@@ -19,17 +19,24 @@
                       </div>
                   </div>
                   <!-- imageHeader -->
-                  <div class="program-header-view" :style="{backgroundImage:`url(${require('../assets/img/enter.jpg')}) !important`} "></div>
+                  <div class="program-header-view" 
+                  :style="{backgroundImage:`url(${require('../assets/img/enter.jpg')}) !important`} ">
+                    
+                  </div>
               </div>
               <div class="program-container">
                   <div class="program-row">
                       <div class="program-sidebar program-sidebar-bullet">
                           <div class="sidebar-link-bullet">
-                              <a href="#" class="link mb-3">Business Administration</a>
+                              <a href="#" class="link mb-3">{{ row.title }}</a>
                               <ul class="list-unstyled bullets-items">
-                                  <li><router-link to="/" class="bullet-link">Entrepreneurship</router-link></li>
-                                  <li><router-link to="/" class="bullet-link">Entrepreneurship</router-link></li>
-                                  <li><router-link to="/" class="bullet-link">Entrepreneurship</router-link></li>
+                                  <li v-for="(pro, index) in programs">
+                                    <router-link :to="{name: 'program-detail', 
+                                        params: {slug: sector_slug, pro: pro.slug}}" 
+                                        class="bullet-link">
+                                      {{ pro.title }}
+                                    </router-link>
+                                  </li>
                               </ul>
                           </div>
                       </div>
@@ -163,17 +170,23 @@ export default {
   },
   data() {
     return {
+      row: '',
       pageTitle: '',
       pageImage: '',
       pageBody: '',
-      imageHeader: ''
+      imageHeader: '',
+      programs: [],
+
+      sector_slug: this.$route.params.slug
     }
   },
   created() {
-    const url = window.baseURL + '/programs/sectors/products/' + this.$route.params.slug;
+    const url = window.baseURL + '/programs/sectors/' + this.$route.params.slug + '/products';
     axios.get(url)
       .then(res => {
         var data = res.data.row;
+        this.row = res.data.row;
+        this.programs = data.programs;
         this.pageTitle = data.title;
         this.pageImage = data.image;
         this.pageBody = data.body;

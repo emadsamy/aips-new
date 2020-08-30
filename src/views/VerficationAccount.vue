@@ -14,14 +14,15 @@
           <div class="auth-content">
               <div class="title">Verify your email</div>
               <div class="auth-box">
-                  <!-- <div v-if="errors.length" class="alert alert-danger text-left">
+                  <div v-if="errors.length" class="alert alert-danger text-left">
                       {{ errors }}
-                  </div> -->
-                  <div class="input-group mb-4">
-                      <input v-model="user.code" type="email" class="form-control" name="" placeholder="Your Code" />
                   </div>
-                  <!--  :disabled="btnLoading" @click="sendCode()" -->
-                  <button class="btn main-btn-backdrop" type="button" name="button">
+                  <div class="input-group mb-4">
+                      <input v-model="user.code" type="text" class="form-control" placeholder="Your Code" />
+                  </div>
+                  <!--   -->
+                  <button :disabled="btnLoading" @click="sendCode()" 
+                      class="btn main-btn-backdrop" type="button" name="button">
                       <img src="../assets/loader.svg" class="sm-loader" alt="" v-if="btnLoading" />
                       <span v-else>Send code to verify</span>
                   </button>
@@ -59,25 +60,25 @@ export default {
     }
   },
   methods: {
-    // sendCode: function () {
-    //   this.btnLoading = true;
-    //   const data = {
-    //       verification: this.user.code
-    //   }
-    //   axios.post(window.baseURL + '/auth/verification', data)
-    //       .then(res => {
-    //           this.btnLoading = false;
-    //           console.log(res);
-    //           this.$router.push({ name: 'Login' });
-    //       })
-    //       .catch(err => {
-    //           this.btnLoading = false;
-    //           let errors = err.response.data.message;
-    //           this.errors = errors;
-    //           console.log(errors);
-    //       });
-    //       // .finally(() => {});
-    //   }
+    sendCode: function () {
+      this.btnLoading = true;
+      const data = {
+          verification: this.user.code
+      }
+      axios.post(window.baseURL + '/auth/verification', data)
+          .then(res => {
+              this.btnLoading = false;
+              console.log(res);
+              this.$router.push({ name: 'Login' });
+          })
+          .catch(err => {
+              this.btnLoading = false;
+              let errors = err.response.data.message;
+              this.errors = errors;
+              console.log(errors);
+          });
+          // .finally(() => {});
+      }
   },
   created() {
     // Check Auth

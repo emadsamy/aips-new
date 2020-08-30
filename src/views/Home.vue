@@ -81,18 +81,18 @@
           <!-- Navbar -->
 
           <!-- Content -->
-          <div class="content-multi home-background" :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}"> <!-- home -->
+         <!--  <div class="content-multi home-background" 
+              :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}">  --><!-- home -->
+          <div class="content-multi home-background" 
+            :style="{ backgroundImage: `url(`+widget.image+`)`}">    
+            
               <div class="home-widget-explore">
-                  <div class="title">
-                      Explore AIPS
-                  </div>
+                  <div class="title">{{ widget.title }} </div>
                   <div class="description mb-4">
-                      American Institute of Professional studies (AIPS) is One of the world’s premier professional studies and research institutions, (AIPS) has driven new ways of thinking since our 1998 founding.
+                    <span v-html="widget.body"></span>
                   </div>
                   <router-link to="/about" class="read-more">
-                      <div>
-                          Read More <span class="icon-back"></span>
-                      </div>
+                    <div>{{ widget.button }} <span class="icon-back"></span></div>
                   </router-link>
               </div>
           </div>
