@@ -194,13 +194,13 @@
     margin: 0 -15px;
   }
   .home-widget-explore {
-    width: 310px;
+    width: 240px;
     left: 15px;
     padding: 23px 30px;
     max-width: calc(100% - 25px)
   }
   .home-widget-explore .title {
-    font-size: 38px;
+    font-size: 30px;
     margin-bottom: 20px;
     padding-bottom: 20px;
   }
@@ -211,7 +211,7 @@
   }
   .content-multi {
     min-height: auto;
-    height: calc(100% - 57px) !important;
+    height: calc(100% - 54px) !important;
   }
 }
 

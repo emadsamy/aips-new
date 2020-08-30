@@ -71,7 +71,12 @@
 }
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-
+  .containerFluidHome .footer-copyright {
+    display: block !important;
+  }
+  .containerFluidHome .footer-links {
+    display: none !important
+  }
 }
 
 @media (max-width: 767.98px) {
