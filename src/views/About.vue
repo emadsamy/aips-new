@@ -201,6 +201,126 @@
 .title-line:after {
   background-color: #4bb3ff !important
 }
+
+/* About Program */
+.about-title {
+  font-size: 25px; }
+.program-articles-rows {
+  padding-top: 60px; }
+
+.program-about-article {
+  border-top: 1px solid #00000016;
+  padding-top: 27px;
+  margin-bottom: 65px;
+  display: flex;
+  justify-content: space-between; }
+  .program-about-article .small-title,
+  .program-about-article .medium-title {
+    font-weight: bold;
+    font-size: 17px; }
+  .program-about-article .medium-title {
+    font-size: 23px;
+    color: #1B1464;
+    margin-bottom: 8px; }
+.aa-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #00000016;
+  flex-wrap: wrap;
+}
+.about-article-box {
+  width: 48%;
+}
+.aa-row:last-of-type {
+  padding-bottom: 0;
+  border: none;
+}
+.aa-row .details {
+  width: 56%;
+}
+.aa-row .view {
+  width: 36%;
+}
+.aa-row .view img {
+  width: 100%
+}
+.about-article-box-media {
+  position: relative; }
+  .about-article-box-media video, .about-article-box-media img {
+    width: 100%;
+    height: 100%;
+    display: block; }
+  .about-article-box-media .overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .about-article-box-media .overlay .icon-seek {
+      color: #fff;
+      font-size: 50px; }
+
+.program-about-article-title {
+  position: relative;
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #1B1464;
+  display: inline-block; }
+  .program-about-article-title:after {
+    content: "";
+    position: absolute;
+    top: -28.5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4F17A8; }
+
+.program-about-article-text {
+  color: #6E6D76;
+  font-size: 17px; }
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .program-about-article {
+    display: block;
+  }
+  .about-article-box {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  div.aa-row {
+    flex-direction: column-reverse;
+    padding-top: 0;
+  }
+  div.aa-row > div {
+    width: 100% !important;
+  }
+  div.aa-row .view {
+    margin-bottom: 15px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
 </style>
 
 <script>
