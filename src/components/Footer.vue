@@ -5,12 +5,12 @@
             <div class="mr-3">American  Institute of Professional Studies </div>
             <div>2021 All Rights Reserved  © AIPS</div>
         </div>
-        <!-- <div class="footer-links">
+        <div class="footer-links">
             <router-link to="/privacy" class="footer-link">Privacy Policy</router-link>
             <router-link to="/events" class="footer-link">Events & Conferences</router-link>
             <router-link to="/online-training" class="footer-link">Online Training</router-link>
             <router-link to="/news" class="footer-link">News</router-link>
-        </div> -->
+        </div>
         <div class="footer-social">
             <div class="text">Follow Us</div>
             <a class="facebook-icon social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -23,8 +23,51 @@
 </template>
 
 <style scoped>
+.footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+  align-items: center;
+  line-height: 1
+}
+  .footer .text {
+    color: #555555;
+    font-size: 14px;
+    margin-right: 13px;
+    line-height: 1;
+    font-weight: 600; }
+
+.footer-social {
+  display: flex;
+  align-items: center; }
+
+.social-icon {
+  font-size: 13.5px;
+  color: #555;
+  margin-left: 13px;
+  line-height: 1; }
+  .social-icon:hover {
+    color: #4F17A8; }
+
+.footer-link {
+  color: #555555;
+  font-size: 14px;
+  margin-right: 30px;
+  font-weight: 600; }
+  .footer-link:hover {
+    color: #4F17A8; }
+.footer-links {
+  display: none;
+}
 .containerFluidHome {
   padding: 0;
+}
+.containerFluidHome .footer-copyright {
+  display: none !important;
+}
+.containerFluidHome .footer-links {
+  display: block !important
 }
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

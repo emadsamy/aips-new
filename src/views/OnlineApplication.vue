@@ -27,6 +27,7 @@
                   <form class="" action="index.html" method="post">
                       <div class="online-app-flex d-flex justify-content-between">
                         <div class="online-app-avatar">
+                            <!-- <Avatar /> -->
                             <img :src="require('../assets/img/avatar.jpg')" class="img-fluid" alt="">
                             <div class="upload-avatar">
                                 <input type="file" name="avatar" />
@@ -173,29 +174,35 @@
   </div>
 </template>
 
+<style scoped src='../components/common/css/OnlineAppForm.css'>
+
+</style>
+
 <style scoped>
-@import '../components/common/css/OnlineAppForm.css';
+
 </style>
 
 <script>
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
-import DownloadCatalog from '../components/DownloadCatalog.vue';
+// import DownloadCatalog from '../components/DownloadCatalog.vue';
+import Avatar from '../components/Avatar.vue';
 export default {
   name: 'OnlineApplication',
   components: {
     Navbar: Navbar,
     Footer: Footer,
-    DownloadCatalog: DownloadCatalog
+    Avatar: Avatar,
+    // DownloadCatalog: DownloadCatalog
   },
   data() {
 
   },
   created() {
     // Check Auth
-    if (!localStorage.getItem('access_token')) {
-      this.$router.push({ name: 'Login' });
-    }
+    // if (!localStorage.getItem('access_token')) {
+    //   this.$router.push({ name: 'Login' });
+    // }
   }
 }
 </script>

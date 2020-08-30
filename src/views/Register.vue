@@ -50,21 +50,16 @@
 </template>
 
 <style scoped src="../components/common/css/Auth.css">
-.goto {
-  font-weight: 600;
-  text-decoration: underline;
-}
+
 </style>
 
 <script>
-import Search from '@/components/Search.vue';
 import Navbar from '@/components/Navbar.vue';
 import axios from 'axios';
 
 export default {
   name: 'Register',
   components: {
-    Search,
     Navbar
   },
   data() {

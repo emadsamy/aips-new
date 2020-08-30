@@ -183,3 +183,129 @@
   width: 100%;
   bordeR: none;
 }
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .online-app-avatar,
+    .online-app-data {
+      width: 100%;
+    }
+    .online-app-avatar img {
+      width: 100px;
+    }
+    .icon-drag {
+      font-size: 26px;
+    }
+    .upload-text {
+      font-size: 14px;
+    }
+    .online-app-details .title {
+      font-size: 24px;
+    }
+    .online-app-details .description-type {
+      font-size: 20px;
+    }
+    .online-app-flex {
+      display: block !important
+    }
+}
+
+@media (max-width: 767.98px) {
+  .online-app-header {
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+    position: relative;
+    height: 300px;
+  }
+  .online-app-view {
+    width: 100%;
+  }
+  .online-app-details {
+    position: absolute;
+    bottom: -40px;
+    width: auto;
+    /* max-width: 350px; */
+  }
+
+  .form-inputs > div,
+  .add-link > div {
+    width: 100%;
+  }
+  .add-link {
+    display: block;
+  }
+  .small-text {
+    margin-bottom: 15px;
+  }
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .online-app-details .title {
+    font-size: 30px;
+  }
+  .online-app-avatar {
+    width: 100px;
+  }
+  .upload-avatar {
+    justify-content: center;
+  }
+  .upload-text {
+    display: none
+  }
+  .online-app-data {
+    width: calc(100% - 115px);
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .add-link {
+    display: block
+  }
+  .small-text {
+    margin-bottom: 15px;
+  }
+  .add-link > div {
+    width: 100%;
+  }
+  .online-app-data {
+    width: calc(100% - 220px);
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .online-app-header {
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+    position: relative;
+    height: 300px;
+  }
+  .online-app-view {
+    width: 100%;
+  }
+  .online-app-details {
+    position: absolute;
+    bottom: -40px;
+    width: auto;
+    /* max-width: 350px; */
+  }
+  .online-app-details .title {
+    font-size: 30px;
+  }
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .online-app-details .title {
+    font-size: 30px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}

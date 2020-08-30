@@ -9,7 +9,6 @@
                 </a>
             </div>
             <div class="sidebar-link">
-                <!-- @click.prevent="toggleSearch = !toggleSearch" -->
                 <router-link to="/popular-search" class="link active">Popular Searches</router-link>
             </div>
             <div class="sidebar-link" v-for="(link, index) in homeSidebar"  :key="index">
@@ -81,21 +80,6 @@
           <!-- Content -->
 
           <!-- Footer -->
-          <!-- <footer class="footer">
-              <div class="footer-links">
-                  <router-link to="/privacy" class="footer-link">Privacy Policy</router-link>
-                  <router-link to="/events" class="footer-link">Events & Conferences</router-link>
-                  <router-link to="/online-training" class="footer-link">Online Training</router-link>
-                  <router-link to="/news" class="footer-link">News</router-link>
-              </div>
-              <div class="footer-social">
-                  <div class="text">Follow Us</div>
-                  <a class="facebook-icon social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a class="youtube-icon social-icon" href="#"><i class="fab fa-youtube"></i></a>
-                  <a class="linkedin-icon social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
-                  <a class="facebook-icon social-icon" href="#"><i class="fab fa-twitter"></i></a>
-              </div>
-          </footer> -->
           <Footer :containerFluidHome="true" />
           <!-- Footer -->
       </div>
@@ -269,7 +253,7 @@
 
 <script>
 // import Search from '@/components/Search.vue';
-import Avatar from '@/components/Avatar.vue';
+// import Avatar from '@/components/Avatar.vue';
 import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 import axios from 'axios';
@@ -278,7 +262,7 @@ export default {
   name: 'Home',
   components: {
     // Search,
-    Avatar,
+    // Avatar,
     Navbar,
     Footer
   },

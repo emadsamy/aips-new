@@ -41,10 +41,27 @@
                                           <div class="program-sector-card-title">
                                               {{ sector.title }}
                                           </div>
-                                          <router-link :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {body: sector.body, slug: sector.slug } }" class="program-sector-card-btn"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                          <div>
+                                            <router-link :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {body: sector.body, slug: sector.slug } }" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                          </div>
                                       </div>
                                   </div>
                               </div>
+
+                              <!-- Staticcccccccccccccc Only -->
+                              <!-- <div class="row">
+                                  <div class="col-lg-4 col-sm-6">
+                                      <div class="program-sector-card">
+                                          <img :src="require('../assets/img/sector.jpg')" class="program-sector-card-view width-fluid" alt="Bussines" />
+                                          <div class="program-sector-card-title">
+                                              Bussines Managment
+                                          </div>
+                                          <div>
+                                            <router-link to="/" class="read-more"><div class="d-flex align-items-center">Read More <span class="icon-back"></span></div></router-link>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div> -->
 
                               <div class="program-certification-widget">
                                   <div class="program-certification-details">
@@ -83,6 +100,9 @@
 .program-sector-card-view {
   height: 130px;
 }
+.program-sector-card {
+  padding: 0
+}
 .program-header-view {
   background-position: center;
 }
@@ -93,7 +113,15 @@
     width: 100%;
   }
   .program-sector-card {
-    padding: 0 15px;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .program-sector-card-title {
+    padding: 20px 10px 20px 0;
+    width: calc(100% - 115px);
   }
 }
 
