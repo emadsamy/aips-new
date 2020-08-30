@@ -7,10 +7,10 @@
       <!-- Content -->
       <div class="content">
           <div class="container-fluid">
-              <div class="program-header">
+              <div class="program-header  main-program-header">
                   <div class="program-header-details">
                       <div class="align-center">
-                          <div class="title title-line">
+                          <div class="title">
                               {{ pageTitle }}
                           </div>
                           <div class="description-type">
