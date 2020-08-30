@@ -267,7 +267,7 @@ small {
 
 .footer-copyright > div {
   color: #555555;
-  font-size: 14px; }
+  font-size: 13px; }
   .footer-copyright > div:first-of-type {
     font-weight: bold; }
 
@@ -447,43 +447,6 @@ small {
   transform: scale(1.1);
 }
 /* Main Navbar */
-/* Footer */
-.footer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 21px 0;
-  align-items: center;
-  line-height: 1
-}
-  .footer .text {
-    color: #555555;
-    font-size: 14px;
-    margin-right: 13px;
-    line-height: 1;
-    font-weight: 600; }
-
-.footer-social {
-  display: flex;
-  align-items: center; }
-
-.social-icon {
-  font-size: 13.5px;
-  color: #555;
-  margin-left: 13px;
-  line-height: 1; }
-  .social-icon:hover {
-    color: #4F17A8; }
-
-.footer-link {
-  color: #555555;
-  font-size: 14px;
-  margin-right: 30px;
-  font-weight: 600; }
-  .footer-link:hover {
-    color: #4F17A8; }
-
-/* Footer */
 /* Sidebar */
 .sidebar-link a {
   border-bottom: 1px solid #00000016;
@@ -841,85 +804,6 @@ small {
   background-position: right; }
 
 /* Program */
-/* About Program */
-.about-title {
-  font-size: 25px; }
-.program-articles-rows {
-  padding-top: 60px; }
-
-.program-about-article {
-  border-top: 1px solid #00000016;
-  padding-top: 27px;
-  margin-bottom: 65px;
-  display: flex;
-  justify-content: space-between; }
-  .program-about-article .small-title,
-  .program-about-article .medium-title {
-    font-weight: bold;
-    font-size: 17px; }
-  .program-about-article .medium-title {
-    font-size: 23px;
-    color: #1B1464;
-    margin-bottom: 8px; }
-.aa-row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  border-bottom: 1px solid #00000016;
-}
-.about-article-box {
-  width: 48%;
-}
-.aa-row:last-of-type {
-  padding-bottom: 0;
-  border: none;
-}
-.aa-row .details {
-  width: 56%;
-}
-.aa-row .view {
-  width: 36%;
-}
-.aa-row .view img {
-  width: 100%
-}
-.about-article-box-media {
-  position: relative; }
-  .about-article-box-media video, .about-article-box-media img {
-    width: 100%;
-    height: 100%;
-    display: block; }
-  .about-article-box-media .overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-    .about-article-box-media .overlay .icon-seek {
-      color: #fff;
-      font-size: 50px; }
-
-.program-about-article-title {
-  position: relative;
-  font-weight: 600;
-  font-size: 26px;
-  margin-bottom: 15px;
-  color: #1B1464;
-  display: inline-block; }
-  .program-about-article-title:after {
-    content: "";
-    position: absolute;
-    top: -28.5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #4F17A8; }
-
-.program-about-article-text {
-  color: #6E6D76;
-  font-size: 17px; }
-
-/* About Program */
 /* Entrepreneurship */
 .entrepreneurship-header .program-header-details {
   width: 540px !important; }
