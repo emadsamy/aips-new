@@ -16,7 +16,7 @@
                       </div>
                   </div>
                   <div class="program-header-view" 
-                    :style="{backgroundImage:`url(${require('../assets/img/programs.jpg')})`}">
+                    :style="{backgroundImage:`url(`+imageHeader+`)`}">
                   </div>
               </div>
               <div class="program-container">

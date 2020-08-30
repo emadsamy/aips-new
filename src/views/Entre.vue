@@ -20,8 +20,7 @@
                   </div>
                   <!-- imageHeader -->
                   <div class="program-header-view" 
-                  :style="{backgroundImage:`url(${require('../assets/img/enter.jpg')}) !important`} ">
-                    
+                    :style="{backgroundImage:`url(`+imageHeader+`)`}">
                   </div>
               </div>
               <div class="program-container">
