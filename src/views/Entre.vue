@@ -20,7 +20,7 @@
                   </div>
                   <!-- imageHeader -->
                   <div class="program-header-view" 
-                    :style="{backgroundImage:`url(`+ imageHeader +`) !important`}">
+                    :style="{backgroundImage:`url(`+ imageHeader +`) !important`}" >
                   </div>
               </div>
               <div class="program-container">
