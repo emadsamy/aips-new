@@ -49,12 +49,12 @@ const routes = [
     component: Programs
   },
   {
-    path: '/programs/sectors/:slug/products',
+    path: '/program',
     name: 'Program',
     component: Program
   },
   {
-    path: '/programs/sectors/products/:slug',
+    path: '/program-details',
     name: 'Entre',
     component: Entre
   },

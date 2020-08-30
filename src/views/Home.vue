@@ -11,14 +11,31 @@
             <div class="sidebar-link">
                 <router-link to="/popular-search" class="link active">Popular Searches</router-link>
             </div>
-            <div class="sidebar-link" v-for="(link, index) in homeSidebar"  :key="index">
+            <div class="sidebar-link">
+                <router-link to="/popular-search" class="link active">I am Instructor</router-link>
+            </div>
+            <div class="sidebar-link">
+                <router-link to="/popular-search" class="link active">Corporate Training</router-link>
+            </div>
+            <div class="sidebar-link">
+                <router-link to="/popular-search" class="link active">I Have Experience</router-link>
+            </div>
+            <div class="sidebar-link">
+                <router-link to="/popular-search" class="link active">
+                  My Certificate
+                  <div>
+                    <small>You can view and print your certificate</small>
+                  </div>
+                </router-link>
+            </div>
+            <!-- <div class="sidebar-link" v-for="(link, index) in homeSidebar"  :key="index">
                 <router-link :to="'/' + link.slug" class="link">
                   {{ link.title }}
                   <div v-if="link.slug == 'my-certificate'">
                     <small>You can view and print your certificate</small>
                   </div>
                 </router-link>
-            </div>
+            </div> -->
           </div>
           <div class="sidebar-bottom">
               <div class="footer-copyright">
@@ -67,12 +84,14 @@
           <div class="content-multi home-background" :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}"> <!-- home -->
               <div class="home-widget-explore">
                   <div class="title">
-                      {{ widget.title }}
+                      Explore AIPS
                   </div>
-                  <div class="description mb-4" v-html="widget.body"></div>
+                  <div class="description mb-4">
+                      American Institute of Professional studies (AIPS) is One of the world’s premier professional studies and research institutions, (AIPS) has driven new ways of thinking since our 1998 founding.
+                  </div>
                   <router-link to="/about" class="read-more">
                       <div>
-                          {{ widget.button }} <span class="icon-back"></span>
+                          Read More <span class="icon-back"></span>
                       </div>
                   </router-link>
               </div>

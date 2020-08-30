@@ -33,7 +33,7 @@
                               </ul>
                           </div>
                       </div>
-                      <!-- <div class="program-content">
+                      <div class="program-content">
                           <div class="description-about">
                               Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful learning and engagement with instructors, classmates, and course material using many of the tools we’re already using every day to communicate, gather information, and manage our lives.
                           </div>
@@ -117,8 +117,8 @@
                               </div>
                           </div>
                       </div>
-                      <DownloadCatalog /> -->
-                      <div style="width: calc(100% - 300px)" class="program-content" v-html="pageBody"></div>
+                      <DownloadCatalog />
+                      <!-- <div style="width: calc(100% - 300px)" class="program-content" v-html="pageBody"></div> -->
                   </div>
               </div>
           </div>
