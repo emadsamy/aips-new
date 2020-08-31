@@ -1,17 +1,19 @@
 <template>
   <div class="page-container page-multi-columns">
-      <!-- Sidebar -->
-      <div class="multi-sidebar">
-          <div class="sidebar-top">
-            <div class="big-logo-box mb-5">
-                <a href="#" class="big-logo">
-                    <img src="../assets/big-logo.svg" alt="Big Logo" />
-                </a>
-            </div>
-            <div class="sidebar-link">
-                <router-link to="/popular-search" class="link active">Popular Searches</router-link>
-            </div>
-            <div class="sidebar-link">
+    <!-- Sidebar -->
+    <div class="multi-sidebar">
+      <div class="sidebar-top">
+        <div class="big-logo-box mb-5">
+          <a href="#" class="big-logo">
+            <img src="../assets/big-logo.svg" alt="Big Logo" />
+          </a>
+        </div>
+        <div class="sidebar-link">
+          <router-link to="/popular-search" class="link active"
+            >Popular Searches</router-link
+          >
+        </div>
+        <!-- <div class="sidebar-link">
                 <router-link to="/popular-search" class="link active">I am Instructor</router-link>
             </div>
             <div class="sidebar-link">
@@ -27,29 +29,33 @@
                     <small>You can view and print your certificate</small>
                   </div>
                 </router-link>
-            </div>
-            <!-- <div class="sidebar-link" v-for="(link, index) in homeSidebar"  :key="index">
-                <router-link :to="'/' + link.slug" class="link">
-                  {{ link.title }}
-                  <div v-if="link.slug == 'my-certificate'">
-                    <small>You can view and print your certificate</small>
-                  </div>
-                </router-link>
             </div> -->
-          </div>
-          <div class="sidebar-bottom">
-              <div class="footer-copyright">
-                  <div>American  Institute of Professional Studies </div>
-                  <div>2021 All Rights Reserved  © AIPS</div>
-              </div>
-          </div>
+        <div
+          class="sidebar-link"
+          v-for="(link, index) in homeSidebar"
+          :key="index"
+        >
+          <router-link :to="'/' + link.slug" class="link">
+            {{ link.title }}
+            <div v-if="link.slug == 'my-certificate'">
+              <small>You can view and print your certificate</small>
+            </div>
+          </router-link>
+        </div>
       </div>
-      <!-- Sidebar -->
+      <div class="sidebar-bottom">
+        <div class="footer-copyright">
+          <div>American Institute of Professional Studies</div>
+          <div>2021 All Rights Reserved © AIPS</div>
+        </div>
+      </div>
+    </div>
+    <!-- Sidebar -->
 
-      <!-- Content -->
-      <div class="multi-columns">
-          <!-- Navbar -->
-          <!-- <div class="nav">
+    <!-- Content -->
+    <div class="multi-columns">
+      <!-- Navbar -->
+      <!-- <div class="nav">
             <div class="apis-navbar">
                 <div class="nav-links">
                   <router-link to="/accreditation" class="nav-link">Accreditation</router-link>
@@ -77,32 +83,33 @@
                 </div>
             </div>
           </div> -->
-          <Navbar :containerFluidHome="true" :hiddenLogo="true" />
-          <!-- Navbar -->
+      <Navbar :containerFluidHome="true" :hiddenLogo="true" />
+      <!-- Navbar -->
 
-          <!-- Content -->
-          <div class="content-multi home-background" :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}"> <!-- home -->
-              <div class="home-widget-explore">
-                  <div class="title">
-                      Explore AIPS
-                  </div>
-                  <div class="description mb-4">
-                      American Institute of Professional studies (AIPS) is One of the world’s premier professional studies and research institutions, (AIPS) has driven new ways of thinking since our 1998 founding.
-                  </div>
-                  <router-link to="/about" class="read-more">
-                      <div>
-                          Read More <span class="icon-back"></span>
-                      </div>
-                  </router-link>
-              </div>
+      <!-- Content -->
+      <!--  <div class="content-multi home-background" 
+              :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}">  --><!-- home -->
+      <div
+        class="content-multi home-background"
+        :style="{ backgroundImage: `url(` + home + `)` }"
+      >
+        <div class="home-widget-explore">
+          <div class="title">{{ widget.title }}</div>
+          <div class="description mb-4">
+            <span v-html="widget.body"></span>
           </div>
-          <!-- Content -->
-
-          <!-- Footer -->
-          <Footer :containerFluidHome="true" />
-          <!-- Footer -->
+          <router-link to="/about" class="read-more">
+            <div>{{ widget.button }} <span class="icon-back"></span></div>
+          </router-link>
+        </div>
       </div>
       <!-- Content -->
+
+      <!-- Footer -->
+      <Footer :containerFluidHome="true" />
+      <!-- Footer -->
+    </div>
+    <!-- Content -->
   </div>
 </template>
 
@@ -126,7 +133,7 @@
 }
 .dropdown-container {
   position: absolute;
-  background: #FFF;
+  background: #fff;
   padding: 5px 0;
   z-index: 20;
   min-width: 120px;
@@ -134,7 +141,7 @@
   transform: translateX(-50%);
   top: 46px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(3,27,78,.1);
+  box-shadow: 0 2px 4px rgba(3, 27, 78, 0.1);
   display: none;
 }
 .showDropdown:hover:after {
@@ -147,18 +154,18 @@
   display: block;
   text-align: left;
   padding: 7px 17px;
-  line-height: 1
+  line-height: 1;
 }
 .dropdown-container a:hover {
-  background: #eee
+  background: #eee;
 }
 .home-widget-explore {
   padding: 40px;
-  background-color: #FFF;
+  background-color: #fff;
   display: inline-block;
   position: relative;
   top: 98px;
-  width: 360px
+  width: 360px;
 }
 
 .home-widget-explore .title {
@@ -167,7 +174,7 @@
   padding-bottom: 31px;
   font-size: 45px;
   font-weight: bold;
-  color: #1B1464;
+  color: #1b1464;
 }
 
 .home-widget-explore .title:after {
@@ -177,11 +184,11 @@
   bottom: 0;
   width: 150px;
   height: 7px;
-  background-color: #C9DD5D;
+  background-color: #c9dd5d;
 }
 
 .home-widget-explore .description {
-  color: #6E6D76;
+  color: #6e6d76;
 }
 .nav-links {
   padding-left: 40px;
@@ -190,12 +197,11 @@
   padding: 0;
 }
 .containerFluid {
-  padding: 0
+  padding: 0;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-
 }
 
 @media (max-width: 767.98px) {
@@ -216,7 +222,7 @@
     width: 240px;
     left: 15px;
     padding: 23px 30px;
-    max-width: calc(100% - 25px)
+    max-width: calc(100% - 25px);
   }
   .home-widget-explore .title {
     font-size: 30px;
@@ -236,12 +242,10 @@
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-
 }
 
 @media (min-width: 768px) and (max-width: 1199.98px) {
@@ -261,71 +265,71 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
 }
 </style>
 
 <script>
 // import Search from '@/components/Search.vue';
 // import Avatar from '@/components/Avatar.vue';
-import Navbar from '@/components/Navbar.vue';
-import Footer from '@/components/Footer.vue';
-import axios from 'axios';
+import Navbar from "@/components/Navbar.vue";
+import Footer from "@/components/Footer.vue";
+import axios from "axios";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     // Search,
     // Avatar,
     Navbar,
-    Footer
+    Footer,
   },
-  data(){
-      return {
-          // toggleSearch: false,
-          widget: [],
-          homeSidebar: [],
-          home: null,
-          authenticated: false
-      }
+  data() {
+    return {
+      // toggleSearch: false,
+      widget: [],
+      homeSidebar: [],
+      home: null,
+      authenticated: false,
+    };
   },
   created() {
     // Get Articles In Setors
-    axios.get(window.baseURL + '/home')
-      .then(res => {
+    axios
+      .get(window.baseURL + "/home")
+      .then((res) => {
         var data = res.data.row;
         this.widget = data;
         this.home = data.image;
         console.log(data);
         console.log(data.image);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
 
-      // Get Links
-      axios.get(window.baseURL + '/popularSearch')
-        .then(res => {
-          var data = res.data.rows;
-          console.log(data);
-          this.homeSidebar = res.data.rows;
-        })
-        .catch(err => {
-          console.log(err);
-        });
+    // Get Links
+    axios
+      .get(window.baseURL + "/popularSearch")
+      .then((res) => {
+        var data = res.data.rows;
+        console.log(data);
+        this.homeSidebar = res.data.rows;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-        // Check Auth
-        if (!localStorage.getItem('access_token')) {
-          this.authenticated = false;
-          // this.$router.push({ name: 'Login' });
-        } else {
-          this.authenticated = true;
-        }
-  }
-}
+    // Check Auth
+    if (!localStorage.getItem("access_token")) {
+      this.authenticated = false;
+      // this.$router.push({ name: 'Login' });
+    } else {
+      this.authenticated = true;
+    }
+  },
+};
 </script>

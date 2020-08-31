@@ -2,34 +2,34 @@
   width: 200px;
 }
 .program-content {
-  width: calc(100% - 495px)
+  width: calc(100% - 495px);
 }
 .md-title {
   font-size: 21px;
-  color: #1B1464;
+  color: #1b1464;
   font-weight: bold;
-  margin-bottom: 15px
+  margin-bottom: 15px;
 }
 .program-header-details .title {
-  color: #E0EA79
+  color: #e0ea79;
 }
 .sm-title {
   font-weight: 600;
   font-size: 16px;
-  color: #4F17A8;
+  color: #4f17a8;
   margin-bottom: 8px;
 }
 .extra-font {
   font-weight: bolder;
   font-size: 20px;
-  color: #1B1464;
+  color: #1b1464;
   margin-bottom: 8px;
 }
 .widget-accreditation {
   padding-bottom: 60px;
   margin-bottom: 55px;
   border-bottom: 1px solid #707070;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 .widget-accreditation > div {
   width: 46%;
@@ -51,7 +51,7 @@
   position: absolute;
   left: 7px;
   top: 10px;
-  border: 1px solid #1B1464;
+  border: 1px solid #1b1464;
   border-radius: 50%;
   width: 8px;
   height: 8px;
@@ -59,7 +59,7 @@
 .title-jumbo {
   font-weight: bolder;
   font-size: 40px;
-  color: #4F17A8;
+  color: #4f17a8;
 }
 .widget-moving-accred {
   display: flex;
@@ -74,7 +74,7 @@
   object-fit: cover;
 }
 .wm-details {
-  background-color: #4F17A8;
+  background-color: #4f17a8;
   padding: 40px;
   position: relative;
   /* display: flex; */
@@ -82,7 +82,7 @@
   transform: translateY(40px);
 }
 .wm-details .title {
-  color: #FFF;
+  color: #fff;
   text-transform: uppercase;
   font-size: 39px;
   line-height: 1.1;
@@ -97,7 +97,7 @@
   top: 40px;
   width: 60%;
   height: 8px;
-  background: #E0EA79;
+  background: #e0ea79;
 }
 .wm-bullets {
   flex-wrap: wrap;
@@ -119,18 +119,18 @@
 }
 .widget-step {
   display: flex;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   padding: 50px 30px;
   min-height: 280px;
-  border: 1px solid #F1F1F1;
+  border: 1px solid #f1f1f1;
   margin-bottom: 220px;
 }
 .widget-step:nth-of-type(even) {
-  background-color: #FFF;
+  background-color: #fff;
   transform: translateY(100%);
 }
 .steps-counter {
-  color: #B6B6BC;
+  color: #b6b6bc;
   font-weight: bolder;
   font-size: 73px;
   padding-right: 70px;
@@ -144,15 +144,15 @@
   width: 6px;
   min-height: 170px;
   max-height: 100%;
-  background-color: #E0EA79;
+  background-color: #e0ea79;
 }
 .steps-details .title {
-  color: #1B1464;
+  color: #1b1464;
   font-weight: bold;
   margin-bottom: 15px;
 }
 .title {
-  color: #E0EA79
+  color: #e0ea79;
 }
 .acc-box {
   margin-bottom: 30px;
@@ -165,23 +165,26 @@
   }
   .widgets-steps > div {
     width: 100%;
-    margin-bottom: 30px
+    margin-bottom: 30px;
   }
   .widget-step:nth-of-type(even) {
-    transform: none
+    transform: none;
   }
   .steps-counter:after {
-    content: none
+    content: none;
   }
   .program-header div.program-header-details {
-    width: auto !important
+    width: auto !important;
   }
   div.program-header-view {
-    width: calc(100% + 30px) !important
+    width: calc(100% + 30px) !important;
   }
   .acc-widget {
-    margin-top: 70px;
+    margin-top: 40px;
     margin-bottom: 40px;
+  }
+  .widgets-steps {
+    margin-bottom: 70px;
   }
 }
 
@@ -191,7 +194,7 @@
     width: 100%;
   }
   .accrediation-became {
-    display: none
+    /* display: none; */
   }
   .widget-accreditation > div {
     width: 100%;
@@ -201,18 +204,18 @@
   }
   .widget-accreditation {
     padding-bottom: 30px;
-    border: none
+    border: none;
   }
   .title-jumbo {
     font-size: 30px;
-    margin-bottom: 0
+    margin-bottom: 0;
   }
   .widget-moving-accred .wm-details {
     width: 100%;
   }
   .wm-bullets li {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
   }
   .wm-view {
     display: none;
@@ -221,10 +224,10 @@
     word-wrap: break-word;
   }
   .wm-details {
-      padding: 30px;
+    padding: 30px;
   }
   .wm-details:after {
-    left: 30px
+    left: 30px;
   }
 }
 
@@ -234,33 +237,33 @@
     display: block;
   }
   .widget-step:nth-of-type(even) {
-    transform: none
+    transform: none;
   }
   .steps-counter:after {
-    content: none
+    content: none;
   }
   .widgets-steps > div {
-    margin-bottom: 30px
+    margin-bottom: 30px;
   }
   .acc-widget {
     margin-top: 40px;
     margin-bottom: 40px;
   }
   .program-header div.program-header-details {
-    width: auto !important
+    width: auto !important;
   }
   div.program-header-view {
-    width: calc(100% + 30px) !important
+    width: calc(100% + 30px) !important;
   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .accrediation-became {
-    display: none
+    display: none;
   }
   .program-content {
-      width: calc(100% - 210px);
+    width: calc(100% - 210px);
   }
   .widget-step {
     display: block;
@@ -276,7 +279,7 @@
     max-width: 500px;
   }
   div.program-header-view {
-    width: calc(100% + 30px) !important
+    width: calc(100% + 30px) !important;
   }
 }
 
@@ -301,5 +304,4 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
 }

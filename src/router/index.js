@@ -49,13 +49,13 @@ const routes = [
     component: Programs
   },
   {
-    path: '/program',
+    path: '/program/sectors/:slug',
     name: 'Program',
     component: Program
   },
   {
-    path: '/program-details',
-    name: 'Entre',
+    path: '/program/sectors/:slug/in/:pro',
+    name: 'program-detail',
     component: Entre
   },
   {
@@ -187,6 +187,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  base: '/', // defeind baseUrl
   routes
 })
 
