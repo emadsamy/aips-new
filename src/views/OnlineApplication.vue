@@ -71,14 +71,21 @@
                     />
                   </div>
 
-                  <div class="form-group">
-                    <input
+                  <div class="form-group d-flex justify-content-between">
+                    <!-- <input
                       type="text"
                       class="form-control"
                       placeholder="Nationality"
                       v-model="row.nationality"
                       required
-                    />
+                    />-->
+                    <label class="cc-label">Country</label>
+                    <select v-model="row.nationality" class="select-country" name="country">
+                      <option
+                        v-for="(country, index) in countries"
+                        :value="country.value"
+                      >{{ country.value }}</option>
+                    </select>
                   </div>
 
                   <div class="form-group">
@@ -251,7 +258,7 @@ export default {
         middle_name: "",
         last_name: "",
         full_name: "",
-        nationality: "",
+        nationality: "United States",
         residential_address: "",
         telephone_no: "",
         email_address: "",
@@ -260,13 +267,12 @@ export default {
       errors: false,
       success: false,
       btnLoading: false,
+      country: "United States",
+      countries: [],
     };
   },
   mounted() {},
   computed: {},
-  created() {
-    //
-  },
   methods: {
     apply() {
       this.btnLoading = true;
@@ -303,6 +309,27 @@ export default {
         .finally(() => {});
     },
 
+    // fetchCountries
+    fetchCountries() {
+      this.countryLoading = true;
+      axios.defaults.headers.common = {
+        "X-Requested-With": "XMLHttpRequest", // security to prevent CSRF attacks
+      };
+      const options = {
+        url: window.baseURL + "/countries",
+        method: "GET",
+        data: {},
+        params: {},
+      };
+      axios(options)
+        .then((res) => {
+          // this.countryLoading = false;
+          this.countries = res.data.rows.countries;
+        })
+        .catch(() => {})
+        .finally(() => {});
+    },
+
     // Upload Featured image
     onImageChange(e) {
       const file = e.target.files[0];
@@ -316,6 +343,9 @@ export default {
         this.row.base64Image = e.target.result;
       };
     },
+  },
+  created() {
+    this.fetchCountries();
   },
 };
 </script>

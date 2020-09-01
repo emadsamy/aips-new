@@ -180,6 +180,18 @@
   width: 100%;
   border: none;
 }
+.select-country {
+  border: none;
+  min-width: 20%;
+  padding-bottom: 0;
+  color: #8d8d8d;
+  font-size: 15px;
+  font-weight: 600;
+  position: relative;
+}
+.cc-label {
+  margin-bottom: 0;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

@@ -14,9 +14,7 @@
       <div class="auth-content">
         <div class="title">Create an Account</div>
         <div class="auth-box">
-          <div v-if="errors.length" class="alert alert-danger text-left">
-            {{ errors }}
-          </div>
+          <div v-if="errors.length" class="alert alert-danger text-left">{{ errors }}</div>
           <div class="input-group mb-4">
             <input
               v-model="user.first_name"
@@ -60,26 +58,15 @@
           </div>
           <div class="input-group d-flex justify-content-between mb-4">
             <label class="cc-label">Country</label>
-            <select
-              v-model="user.country"
-              class="select-country"
-              name="country"
-            >
+            <select v-model="user.country" class="select-country" name="country">
               <option
                 v-for="(country, index) in countries"
                 :value="country.value"
-              >
-                {{ country.value }}
-              </option>
+              >{{ country.value }}</option>
             </select>
           </div>
           <button class="btn main-btn-backdrop" type="button" @click="register">
-            <img
-              src="../assets/loader.svg"
-              class="sm-loader"
-              alt=""
-              v-if="btnLoading"
-            />
+            <img src="../assets/loader.svg" class="sm-loader" alt v-if="btnLoading" />
             <span v-else>Create an Account</span>
           </button>
         </div>
