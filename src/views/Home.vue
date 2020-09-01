@@ -9,9 +9,7 @@
           </a>
         </div>
         <div class="sidebar-link">
-          <router-link to="/popular-search" class="link active"
-            >Popular Searches</router-link
-          >
+          <a href="javascript:void(0)" class="link active">Popular Searches</a>
         </div>
         <!-- <div class="sidebar-link">
                 <router-link to="/popular-search" class="link active">I am Instructor</router-link>
@@ -29,12 +27,8 @@
                     <small>You can view and print your certificate</small>
                   </div>
                 </router-link>
-            </div> -->
-        <div
-          class="sidebar-link"
-          v-for="(link, index) in homeSidebar"
-          :key="index"
-        >
+        </div>-->
+        <div class="sidebar-link" v-for="(link, index) in homeSidebar" :key="index">
           <router-link :to="'/' + link.slug" class="link">
             {{ link.title }}
             <div v-if="link.slug == 'my-certificate'">
@@ -82,24 +76,25 @@
                     </button>
                 </div>
             </div>
-          </div> -->
+      </div>-->
       <Navbar :containerFluidHome="true" :hiddenLogo="true" />
       <!-- Navbar -->
 
       <!-- Content -->
       <!--  <div class="content-multi home-background" 
-              :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}">  --><!-- home -->
-      <div
-        class="content-multi home-background"
-        :style="{ backgroundImage: `url(` + home + `)` }"
-      >
+      :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}">-->
+      <!-- home -->
+      <div class="content-multi home-background" :style="{ backgroundImage: `url(` + home + `)` }">
         <div class="home-widget-explore">
           <div class="title">{{ widget.title }}</div>
           <div class="description mb-4">
             <span v-html="widget.body"></span>
           </div>
           <router-link to="/about" class="read-more">
-            <div>{{ widget.button }} <span class="icon-back"></span></div>
+            <div>
+              {{ widget.button }}
+              <span class="icon-back"></span>
+            </div>
           </router-link>
         </div>
       </div>
@@ -219,13 +214,13 @@
     margin: 0 -15px;
   }
   .home-widget-explore {
-    width: 240px;
+    width: 320px;
     left: 15px;
     padding: 23px 30px;
     max-width: calc(100% - 25px);
   }
   .home-widget-explore .title {
-    font-size: 30px;
+    font-size: 22px;
     margin-bottom: 20px;
     padding-bottom: 20px;
   }
@@ -233,6 +228,9 @@
     position: absolute;
     top: auto;
     bottom: 120px;
+  }
+  .home-widget-explore .description p {
+    font-size: 13px;
   }
   .content-multi {
     min-height: auto;

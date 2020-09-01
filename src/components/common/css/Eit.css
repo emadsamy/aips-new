@@ -1,13 +1,14 @@
 .program-header-details {
-  background-color: #370F76 !important;
+  background-color: #370f76 !important;
 }
 .benefits-widget {
   display: flex;
+  flex-wrap: wrap;
   margin: 70px 0;
 }
 .benefits-widget-details {
   padding: 115px 50px;
-  background-color: #D0D877;
+  background-color: #d0d877;
   width: 47%;
 }
 .overline {
@@ -25,10 +26,10 @@
   width: 50px;
 }
 .benefits-widget-details .title {
-  color: #1B1464;
+  color: #1b1464;
 }
 .benefits-widget-details .title:after {
-  background-color: #370F76;
+  background-color: #370f76;
 }
 .benefits-widget-view {
   width: 53%;
@@ -54,7 +55,7 @@
   top: 9px;
   left: 0;
   border-radius: 50%;
-  border: 1px solid #4F17A8;
+  border: 1px solid #4f17a8;
   width: 8px;
   height: 8px;
 }
@@ -67,11 +68,11 @@
 .tra-inst-widget > div {
   width: 50%;
 }
-.ti-widget-details .title{
-  color: #1B1464
+.ti-widget-details .title {
+  color: #1b1464;
 }
 .ti-widget .benefits-widget-details {
-  background-color: #E6E6E6;
+  background-color: #e6e6e6;
 }
 .certificate-types {
   display: flex;
@@ -80,7 +81,7 @@
   margin-bottom: 50px;
 }
 .certificate-type {
-  border: 1px solid #C7C7C7;
+  border: 1px solid #c7c7c7;
   padding: 23px 26px;
   width: calc(33.3% - 17px);
   margin-bottom: 34px;
@@ -88,7 +89,7 @@
 .certificate-title {
   font-size: 30px;
   font-weight: normal;
-  color: #1B1464;
+  color: #1b1464;
 }
 .certificate-title sup {
   font-size: 15px;
@@ -100,7 +101,6 @@
 }
 .became-a {
   width: 130px;
-  
 }
 .became-a .title {
   line-height: 1.2;
@@ -112,11 +112,12 @@
   top: -50px;
   font-weight: bold;
   font-size: 18px;
-  color: #1B1464;
+  color: #1b1464;
 }
 .widget-img-text {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .widget-img-text:nth-of-type(even) {
   flex-direction: row-reverse;
@@ -129,9 +130,132 @@
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 20px;
-  color: #370F76 !important
+  color: #370f76 !important;
 }
 .widget-img-text .text {
   font-size: 18px;
-  line-height: 1.5
+  line-height: 1.5;
+}
+.tc-box {
+  margin-bottom: 35px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .benefit-title {
+    width: 100%;
+  }
+  .certificate-type {
+    width: 100%;
+  }
+  .tc-container {
+    margin-bottom: 30px;
+  }
+  .tc-box {
+    margin-bottom: 50px;
+  }
+  .tc-title {
+    padding-top: 25px !important;
+    line-height: 1;
+    font-size: 22px !important;
+  }
+  .tc-box .text {
+    font-size: 15px;
+  }
+  .widget-img-text > div {
+    width: 100%;
+  }
+  .widget-img-text .title {
+    font-size: 26px;
+    padding-top: 35px;
+  }
+  .widget-img-text .text {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .application-link {
+    margin-bottom: 35px;
+  }
+  .benefits-widget {
+    width: calc(100% + 30px);
+    margin: 0 -15px;
+  }
+  .description-about {
+    margin-bottom: 30px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .benefit-title {
+    width: 48%;
+  }
+  .certificate-type {
+    width: 48%;
+  }
+  .tc-box {
+    margin-bottom: 50px;
+  }
+  .tc-title {
+    padding-top: 25px !important;
+    line-height: 1;
+    font-size: 25px !important;
+  }
+  .tc-box .text {
+    font-size: 15px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .certificate-type {
+    width: 48%;
+  }
+}
+
+@media (max-width: 991.98px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .certificate-type {
+    width: 48%;
+  }
+  .tc-title {
+    font-size: 21px !important;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .benefits-widget {
+    height: 330px;
+    position: relative;
+    margin-bottom: 80px;
+  }
+  .benefits-widget-details {
+    position: absolute;
+    bottom: -35px;
+    width: 100%;
+    padding: 45px 30px 20px;
+  }
+  .benefits-widget-view {
+    width: 100%;
+    height: 100%;
+  }
+  .benefits-widget-details .overline {
+    font-size: 30px;
+  }
+  .benefits-widget-details .overline:after {
+    top: -19px;
+    height: 4px;
+  }
+  .relative-sm-title {
+    top: -32px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
 }

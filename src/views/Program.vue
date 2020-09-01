@@ -58,7 +58,7 @@
                 <!-- </router-link> -->
                 <!-- </div> -->
 
-                <div class="program-box-col" v-for="(program, index) in programs" key="index">
+                <div class="program-box-col" v-for="(program, index) in programs" :key="index">
                   <div class="title">{{ program.title }}</div>
                   <div class="description">{{ program.subtitle }}</div>
                   <div class="text" v-html="program.short_body"></div>
