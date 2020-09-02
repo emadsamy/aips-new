@@ -21,7 +21,7 @@
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" key="index">
+              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
                 <a :href="'#'+link.slug" class="link">{{ link.title }}</a>
               </div>
               <!--  <div class="sidebar-link">

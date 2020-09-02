@@ -22,7 +22,7 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  
+  res
 }
 
 @media (max-width: 1199.98px) {

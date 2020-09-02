@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer">
+  <footer class="footer" v-bind:class="[footerNavbar ? 'footerNavbar' : '']">
     <div
       v-bind:class="[containerFluidHome ? 'containerFluidHome' : '']"
       class="container-fluid d-flex justify-content-between"
@@ -95,14 +95,19 @@
 .containerFluidHome .footer-links {
   display: block !important;
 }
+.footerNavbar {
+  padding: 13px 0;
+}
+.footerNavbar .container-fluid {
+  padding: 0;
+}
+.footerNavbar .footer-copyright > div,
+.footerNavbar .text,
+.footerNavbar i {
+  color: #999;
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-  .containerFluidHome .footer-copyright {
-    display: block !important;
-  }
-  .containerFluidHome .footer-links {
-    display: none !important;
-  }
 }
 
 @media (max-width: 767.98px) {
@@ -115,6 +120,12 @@
   .footer .text {
     font-size: 13px;
     margin-right: 2px;
+  }
+  .containerFluidHome .footer-copyright {
+    display: block !important;
+  }
+  .containerFluidHome .footer-links {
+    display: none !important;
   }
 }
 
@@ -145,7 +156,7 @@ export default {
       rows: [],
     };
   },
-  props: ["has_links", "containerFluidHome"],
+  props: ["has_links", "containerFluidHome", "footerNavbar"],
   created() {
     axios
       .get(window.baseURL + "/socials")

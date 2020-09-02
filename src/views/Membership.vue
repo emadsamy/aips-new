@@ -21,18 +21,18 @@
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link">
-                <a href="#requirements" class="link">Membership Requirements</a>
+              <div class="sidebar-link" v-for="(link, index) in rows" :key="index">
+                <a :href="'#' + link.slug" class="link">{{ link.title }}</a>
               </div>
-              <div class="sidebar-link">
+              <!-- <div class="sidebar-link">
                 <a href="#beneficiaries" class="link active">Membership degree beneficiaries</a>
               </div>
               <div class="sidebar-link">
                 <a href="/" class="link">Membership benefits</a>
-              </div>
+              </div>-->
             </div>
             <div class="program-content">
-              <div class="widget-text mb-70">
+              <!-- <div class="widget-text mb-70">
                 <div class="program-title">AIPS Membership</div>
                 <div class="description-about">
                   Professional membership is a degree that is awarded to the candidates who are leaders in their businesses and to the trainers and speakers to the public who provide distinguished services to the communities and make effective and efficient contributions.
@@ -106,6 +106,9 @@
                     :key="index"
                   >{{ step.title }}</div>
                 </div>
+              </div>-->
+              <div class="mb-70" v-for="(row, index) in rows" :key="index">
+                <div v-html="row.body"></div>
               </div>
             </div>
 
@@ -287,6 +290,7 @@
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
 import DownloadCatalog from "../components/DownloadCatalog.vue";
+import axios from "axios";
 export default {
   name: "Program",
   components: {
@@ -375,6 +379,7 @@ export default {
             "A congratulatory letter will be sent to the candidate in the event of an agreement to award a membership certificate by the assigned committee.",
         },
       ],
+      rows: [],
     };
   },
   created() {
@@ -382,6 +387,16 @@ export default {
     // if (!localStorage.getItem('access_token')) {
     //   this.$router.push({ name: 'Login' });
     // }
+    axios
+      .get(window.baseURL + "/memberships")
+      .then((res) => {
+        const data = res.data.rows;
+        console.log(data);
+        this.rows = data;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   },
 };
 </script>

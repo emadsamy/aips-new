@@ -29,7 +29,7 @@
                 <a href="#" class="link active">Popular Searches</a>
               </div>
 
-              <div class="search-link" v-for="(search, index) in popularSearch" :key="index">
+              <div class="search-link" v-for="(search, index) in links" :key="index">
                 <router-link :to="'/' + search.slug" class="link">
                   {{ search.title }}
                   <small v-if="search.title == 'Membership'">Become a Member</small>
@@ -271,7 +271,7 @@ export default {
   data() {
     return {
       searchToggle: false,
-      popularSearch: [],
+      links: [],
     };
   },
   created() {
@@ -281,7 +281,7 @@ export default {
       .then((res) => {
         var data = res.data.rows;
         console.log(data);
-        this.popularSearch = res.data.rows;
+        this.links = res.data.rows;
       })
       .catch((err) => {
         console.log(err);
