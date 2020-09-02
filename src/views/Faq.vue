@@ -13,24 +13,31 @@
               <div class="faq-title">
                 <div class="faq-title-bg text-uppercase">faq</div>
                 <div class="faq-title-sm">
-                  Frequently Asked
-                  Questions
+                  Frequently Asked Questions
                 </div>
               </div>
             </div>
           </div>
           <div
             class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/faq.jpg')})`}"
+            :style="{
+              backgroundImage: `url(${require('../assets/img/faq.jpg')})`,
+            }"
           ></div>
           <!-- imageHeader -->
         </div>
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
+              <div
+                class="sidebar-link"
+                v-for="(link, index) in sidebarLinks"
+                :key="index"
+              >
                 <!-- :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {slug: link.slug } }" -->
-                <a href="javascript:void(0)" class="link active">{{ link.title }}</a>
+                <a href="javascript:void(0)" class="link active">{{
+                  link.title
+                }}</a>
               </div>
             </div>
             <div class="program-content">
@@ -60,6 +67,7 @@
 }
 .program-header-view {
   width: calc(100% - 540px);
+  background-position: center;
 }
 .faq-title {
   display: flex;

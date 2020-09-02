@@ -114,6 +114,15 @@
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
+  .entrepreneurship-header .program-header-details {
+    width: 400px !important;
+  }
+  .program-header.main-program-header .program-header-view {
+    width: calc(100% - 400px) !important;
+  }
+  .program-header.main-program-header .title {
+    font-size: 40px;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */

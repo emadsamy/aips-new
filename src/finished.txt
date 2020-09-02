@@ -1,15 +1,3 @@
-1- Our Certificate
-2- Home
-3- Search
-4- Login
-5- Create Account
-6- Verify
-7- Profile
-8- About
-9- All Programs
-10- Iam Instructor
-11- Training Center
-12- contact
-
-stay
-1- instractor, experience, corporate
+1- Accreditation
+2- Faq
+3- 
