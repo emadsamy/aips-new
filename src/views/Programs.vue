@@ -303,9 +303,9 @@ export default {
       });
 
     // Check Auth
-    if (!localStorage.getItem("access_token")) {
-      this.$router.push({ name: "Login" });
-    }
+    // if (!localStorage.getItem("access_token")) {
+    //   this.$router.push({ name: "Login" });
+    // }
   },
 };
 </script>

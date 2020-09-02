@@ -9,17 +9,17 @@
           </router-link>
         </div>
         <div v-bind:class="[isActive ? 'active' : '']" class="nav-links">
+          <router-link to="/accreditation" class="nav-link">Accreditation</router-link>
+          <router-link to="/programs" class="nav-link">Programs</router-link>
+          <router-link to="/membership" class="nav-link">Membership</router-link>
+          <router-link to="/about" class="nav-link">About</router-link>
+          <router-link to="/contact" class="nav-link">Contact Us</router-link>
           <router-link
             v-for="(nav, index) in navbar"
             :to="{name: 'NavbarPage', params: {slug: nav.slug } }"
             class="nav-link"
             :key="index"
           >{{ nav.title }}</router-link>
-          <!-- <router-link to="/accreditation" class="nav-link">Accreditation</router-link>
-          <router-link to="/programs" class="nav-link">Programs</router-link>
-          <router-link to="/membership" class="nav-link">Membership</router-link>
-          <router-link to="/about" class="nav-link">About</router-link>
-          <router-link to="/contact" class="nav-link">Contact Us</router-link>-->
           <router-link
             v-for="(link, index) in links"
             :key="index"
