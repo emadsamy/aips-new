@@ -26,7 +26,7 @@
               <div class="sidebar-link-bullet">
                 <a href="#" class="link mb-3">{{ row.title }}</a>
                 <ul class="list-unstyled bullets-items">
-                  <li v-for="(pro, index) in programs">
+                  <li v-for="(pro, index) in programs" :key="index">
                     <router-link
                       :to="{name: 'program-detail', 
                                         params: {slug: sector_slug, pro: pro.slug}}"

@@ -73,7 +73,7 @@
 }
 
 .search-container {
-  min-height: calc(100% - 171px);
+  min-height: calc(100% - 175px);
 }
 
 .search-content {
@@ -192,7 +192,6 @@
   }
   .search-content .title {
     font-size: 41px;
-    text-align: center;
   }
   .search-content .title:after {
     content: none;

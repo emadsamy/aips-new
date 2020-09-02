@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div v-bind:class="[certificatePage ? 'certificatePage' : '']" class="nav">
     <div v-bind:class="[containerFluidHome ? 'containerFluidHome' : '']" class="container-fluid">
       <div class="apis-navbar">
         <div class="nav-logo" v-bind:class="[hiddenLogo ? 'hiddenLogo' : '']">
@@ -134,7 +134,7 @@
   height: 3px;
   width: 100%;
   border-radius: 0;
-  background: #fff;
+  background: #000;
   transition: all 0.3s ease-in-out;
 }
 .menu-bar > div:first-of-type {
@@ -173,6 +173,9 @@
   display: none;
 }
 .hiddenBgSize {
+  display: none;
+}
+.certificatePage {
   display: none;
 }
 /* Extra small devices (portrait phones, less than 576px) */
@@ -233,6 +236,9 @@
   .hiddenBgSize {
     display: block;
   }
+  .certificatePage {
+    display: block;
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -287,7 +293,7 @@ export default {
     Search: Search,
     Footer: Footer,
   },
-  props: ["has_logo", "containerFluidHome", "hiddenLogo"],
+  props: ["has_logo", "containerFluidHome", "hiddenLogo", "certificatePage"],
   data() {
     return {
       toggleSearch: false,

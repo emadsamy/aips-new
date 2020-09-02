@@ -14,15 +14,15 @@
 }
 .title {
   font-size: 20px;
-  margin-left: 10px
+  margin-left: 10px;
 }
 .main-certificate {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap
+  flex-wrap: wrap;
 }
 .main-certificate > div {
-  margin-bottom: 40px
+  margin-bottom: 40px;
 }
 .main-certificate-detials {
   width: 500px;
@@ -33,7 +33,7 @@
   text-align: right;
 }
 .main-certificate-view img {
-  height: 100%
+  height: 100%;
 }
 .main-certificate-container {
   height: calc(100% - 143px);
@@ -45,16 +45,16 @@
   font-weight: bolder;
   font-size: 20px;
   margin-bottom: 14px;
-  color: #000
+  color: #000;
 }
 .bg-title {
   font-size: 69px;
   font-weight: bolder;
-  color: #5018A8;
-  margin-bottom: 25px
+  color: #5018a8;
+  margin-bottom: 25px;
 }
 .form-group {
-  border: 1.5px solid #4F17A8;
+  border: 1.5px solid #4f17a8;
   width: 430px;
   max-width: 100%;
   margin-bottom: 50px;
@@ -63,10 +63,10 @@
   color: #797979;
 }
 .form-control {
-  color: #000
+  color: #000;
 }
 .verfication.text {
-  font-weight: 600
+  font-weight: 600;
 }
 .verify-links {
   padding-top: 140px;
@@ -80,20 +80,26 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-  .main-certificate-view img {
+  /* .main-certificate-view img {
     height: auto;
     width: 100%;
+  } */
+  .main-certificate-view {
+    height: 330px;
   }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .main-certificate-view img {
+  /* .main-certificate-view img {
     height: auto;
     max-width: 450px;
     width: 100%;
     margin: 0 auto;
     display: block;
+  } */
+  .main-certificate-view {
+    height: 400px;
   }
 }
 
@@ -109,7 +115,7 @@
     width: 100%;
   }
   .main-certificate-container {
-    height: auto
+    height: auto;
   }
   .main-certificate-view {
     width: 100%;
@@ -126,6 +132,13 @@
   }
   .links a {
     margin-right: 20px;
+  }
+  .certificate-nav {
+    display: none;
+  }
+  .main-certificate-view {
+    background-position: center !important;
+    margin-top: 30px;
   }
 }
 
@@ -163,5 +176,4 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-
 }
