@@ -53,10 +53,10 @@ html {
 }
 @font-face {
   font-family: "Arabic Dubai";
-  src: url("fonts/dubai_fonts/DubaiW23-Light.eot") format("eot");
-  src: url("fonts/dubai_fonts/DubaiW23-Light.ttf") format("ttf");
-  src: url("fonts/dubai_fonts/DubaiW23-Light.woff") format("woff");
-  src: url("fonts/dubai_fonts/DubaiW23-Light.woff2") format("woff2");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.eot") format("eot");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.ttf") format("ttf");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.woff") format("woff");
+  src: url("../fonts/dubai_fonts/DubaiW23-Light.woff2") format("woff2");
   font-weight: 500;
   font-style: italic;
 }
