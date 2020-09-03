@@ -69,7 +69,6 @@
   height: 50px;
 }
 .main-certificate-view {
-  /* background-image: url("../assets/img/Certificate-of-Achievement.png"); */
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
