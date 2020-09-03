@@ -84,6 +84,7 @@
                       <option
                         v-for="(country, index) in countries"
                         :value="country.value"
+                        :key="index"
                       >{{ country.value }}</option>
                     </select>
                   </div>

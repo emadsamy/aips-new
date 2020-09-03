@@ -77,6 +77,11 @@
   font-weight: 600;
   margin-right: 50px;
 }
+.verify-btn {
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
