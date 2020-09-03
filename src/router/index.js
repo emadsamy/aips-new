@@ -14,7 +14,7 @@ import TrainingCenter from "../views/TrainingCenter.vue";
 import Membership from "../views/Membership.vue";
 import Privacy from "../views/Privacy.vue";
 import Accreditation from "../views/Accreditation.vue";
-import Accrediation2 from "../views/Accrediation2.vue";
+import Accreditation2 from "../views/Accreditation2.vue";
 import Accreditation3 from "../views/Accreditation3.vue";
 import Accreditation4 from "../views/Accreditation4.vue";
 import Corporate from "../views/Corporate.vue";
@@ -101,19 +101,14 @@ const routes = [
     component: Privacy,
   },
   {
-    path: "/accreditation",
+    path: "/what-is-accreditation",
     name: "Accreditation",
     component: Accreditation,
   },
   {
-    path: "/should-choose-accreditation",
-    name: "Accrediation2",
-    component: Accrediation2,
-  },
-  {
-    path: "/pages/:slug",
-    name: "NavbarPage",
-    component: NavbarPage,
+    path: "/why-you-should-choose-our-accreditation",
+    name: "Accreditation2",
+    component: Accreditation2,
   },
   {
     path: "/accreditation-benefits",
@@ -121,9 +116,14 @@ const routes = [
     component: Accreditation3,
   },
   {
-    path: "/accreditation-procedures",
+    path: "/accreditation-procedures-for-training-provider--instructors",
     name: "Accreditation4",
     component: Accreditation4,
+  },
+  {
+    path: "/pages/:slug",
+    name: "NavbarPage",
+    component: NavbarPage,
   },
   {
     path: "/news",

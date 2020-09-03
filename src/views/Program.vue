@@ -160,7 +160,7 @@ export default {
   methods: {
     fetchRow() {
       axios
-        .get("https://api.mazadak.net/api/v1/programs")
+        .get(window.baseURL + "/programs")
         .then((res) => {
           var data = res.data.rows;
           for (var i = 0; i < data.length; i++) {
