@@ -21,8 +21,20 @@
               <br />looking for?
             </div>
             <div class="search-input d-flex">
-              <input type="search" name="search" placeholder="Start Searching.. " />
+              <input
+                @keyup="searchChange()"
+                v-model="search"
+                type="search"
+                placeholder="Start Searching.. "
+              />
               <div class="icon-search icon"></div>
+              <div v-if="searchOutput" class="search-output">
+                <div class="search-output-content">
+                  <div v-for="(item, index) in filteredItems" :key="index">
+                    <router-link to="/test" class="search-link-dropdown">{{item.name}}</router-link>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="search-links">
               <div class="search-link">
@@ -106,7 +118,37 @@
   border-radius: 50px;
   margin: 45px 0 25px;
   padding: 10px 10px 10px 20px;
+  position: relative;
 }
+.search-output {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /* min-height: 130px; */
+  /* background: #fff; */
+  top: 51px;
+  z-index: 39;
+}
+.search-output-content {
+  background: #fff;
+  padding: 5px 0;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.search-link-dropdown {
+  padding: 8px 15px;
+  display: block;
+  width: 100% !important;
+  height: auto;
+}
+.search-link-dropdown:hover {
+  background: #eee;
+}
+.search-link-dropdown:active {
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+}
+
 .search-input input {
   width: calc(100% - 40px);
 }
@@ -121,13 +163,11 @@
 .search-input .icon-search:before {
   color: #737077;
 }
-
 .search-links {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .search-link {
   width: 47%;
 }
@@ -271,16 +311,53 @@ export default {
     return {
       searchToggle: false,
       links: [],
+      keyword: "",
+      search: "",
+      searchOutput: false,
+      noResults: false,
+      items: [
+        { name: "Stackoverflow", type: "development" },
+        { name: "same of shrones", type: "serie" },
+        { name: "jon snow", type: "actor" },
+      ],
     };
+  },
+  methods: {
+    searchChange: function () {
+      if (this.search.length > 0) {
+        this.searchOutput = true;
+      } else {
+        this.searchOutput = false;
+      }
+    },
+  },
+  computed: {
+    filteredItems() {
+      this.searchOutput = true;
+      return this.items.filter((item) => {
+        return item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+      });
+    },
   },
   created() {
     // Get Linkss
     axios
       .get(window.baseURL + "/popularSearch")
       .then((res) => {
-        var data = res.data.rows;
+        var data = res;
         console.log(data);
         this.links = res.data.rows;
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // Search
+    axios
+      .get(window.baseURL + "/popularSearch/search")
+      .then((res) => {
+        var data = res;
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
