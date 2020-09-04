@@ -197,6 +197,9 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
+  .home-widget-explore .description span {
+    font-size: 14.5px;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -220,7 +223,7 @@
     max-width: calc(100% - 25px);
   }
   .home-widget-explore .title {
-    font-size: 22px;
+    font-size: 21px;
     margin-bottom: 20px;
     padding-bottom: 20px;
   }

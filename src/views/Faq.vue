@@ -12,9 +12,7 @@
             <div class="align-center">
               <div class="faq-title">
                 <div class="faq-title-bg text-uppercase">faq</div>
-                <div class="faq-title-sm">
-                  Frequently Asked Questions
-                </div>
+                <div class="faq-title-sm">Frequently Asked Questions</div>
               </div>
             </div>
           </div>
@@ -29,22 +27,20 @@
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div
-                class="sidebar-link"
-                v-for="(link, index) in sidebarLinks"
-                :key="index"
-              >
+              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
                 <!-- :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {slug: link.slug } }" -->
-                <a href="javascript:void(0)" class="link active">{{
+                <a href="javascript:void(0)" class="link active">
+                  {{
                   link.title
-                }}</a>
+                  }}
+                </a>
               </div>
             </div>
             <div class="program-content">
               <div class="faq-container mb-90 pr-5">
                 <div class="faq-row" v-for="(row, index) in rows" :key="index">
                   <div class="program-title mb-30">{{ row.title }}</div>
-                  <div class="description">{{ row.body }}</div>
+                  <div class="description" v-html="row.body"></div>
                 </div>
               </div>
             </div>

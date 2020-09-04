@@ -72,13 +72,6 @@
                   </div>
 
                   <div class="form-group d-flex justify-content-between">
-                    <!-- <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Nationality"
-                      v-model="row.nationality"
-                      required
-                    />-->
                     <label class="cc-label">Country</label>
                     <select v-model="row.nationality" class="select-country" name="country">
                       <option

@@ -8,15 +8,12 @@
     <div class="content">
       <div class="container-fluid">
         <div class="program-header main-program-header">
-          <div class="program-header-details">
+          <div class="program-header-details" :style="{backgroundColor:`${bgColor} !important`}">
             <div class="align-center">
               <div class="title title-line">Contact us</div>
             </div>
           </div>
-          <div
-            class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/contact.jpg')})`}"
-          ></div>
+          <div class="program-header-view" :style="{backgroundImage:`url(${bgImage})`}"></div>
         </div>
         <div class="contactus-container">
           <div class="container">
@@ -24,7 +21,7 @@
               <div class="col-lg-8 col-md-8">
                 <div class="contact-form">
                   <div class="program-title" v-html="body.body"></div>
-                  <div class="description-type mb-40">
+                  <!-- <div class="description-type mb-40">
                     To learn more about AIPS’s accreditation, certification and services, or for queries regarding
                     <br />partnership - please contact us using the form below or call us on +1 (407) 543 7098.
                   </div>
@@ -33,7 +30,7 @@
                   <div class="description-type">
                     For job opportunities please visit our Careers page.
                     <br />career@aips.us
-                  </div>
+                  </div>-->
                 </div>
               </div>
 
@@ -234,6 +231,10 @@ export default {
       success: false,
       btnLoading: false,
       body: "",
+      bgImage: "",
+      bgColor: "",
+      bgTitle: "",
+      body1: "",
     };
   },
   methods: {
@@ -273,6 +274,7 @@ export default {
         const data = res.data.row;
         console.log(data);
         this.body = data;
+        this.bgImage = data.image;
       })
       .catch((err) => {
         this.btnLoading = false;

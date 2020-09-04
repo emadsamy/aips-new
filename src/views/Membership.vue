@@ -8,30 +8,22 @@
     <div class="content">
       <div class="container-fluid">
         <div class="program-header main-program-header">
-          <div class="program-header-details">
+          <div class="program-header-details" :style="{backgroundColor:`${bgColor} !important`}">
             <div class="align-center">
-              <div class="title title-line">Membership</div>
+              <div class="title title-line">{{ bgTitle }}</div>
             </div>
           </div>
-          <div
-            class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
-          ></div>
+          <div class="program-header-view" :style="{backgroundImage:`url(${bgImage})`}"></div>
         </div>
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link" v-for="(link, index) in rows" :key="index">
+              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
                 <a :href="'#' + link.slug" class="link">{{ link.title }}</a>
               </div>
-              <!-- <div class="sidebar-link">
-                <a href="#beneficiaries" class="link active">Membership degree beneficiaries</a>
-              </div>
-              <div class="sidebar-link">
-                <a href="/" class="link">Membership benefits</a>
-              </div>-->
             </div>
             <div class="program-content">
+              <div class="widget-text mb-70" v-html="body1"></div>
               <!-- <div class="widget-text mb-70">
                 <div class="program-title">AIPS Membership</div>
                 <div class="description-about">
@@ -39,7 +31,7 @@
                   <br />
                   <br />Professional membership is a combination of the acquired skills, understanding, and personal characteristics that give their owner a recognition of proficiency to play his or her role integrally and confidently. It gives such individuals the official recognition they deserve to show their compliance, knowledge, and experience, and it provides them with a career in which they can make constant progress, which is a clear indicator of their compliance with the development of their personal and professional performance.
                 </div>
-              </div>
+              </div>-->
 
               <div id="requirements" class="requirements-widget pt-4 mb-90">
                 <div class="program-title mb-3">Membership Requirements</div>
@@ -106,10 +98,10 @@
                     :key="index"
                   >{{ step.title }}</div>
                 </div>
-              </div>-->
-              <div class="mb-70" v-for="(row, index) in rows" :key="index">
-                <div v-html="row.body"></div>
               </div>
+              <!-- <div class="mb-70" v-for="(row, index) in rows" :key="index">
+                <div v-html="row.body"></div>
+              </div>-->
             </div>
 
             <div class="became-a">
@@ -118,7 +110,7 @@
                 a Member
                 today
               </div>
-              <router-link to="/online-application" class="read-more">
+              <router-link to="/online-app-membership" class="read-more">
                 <div>
                   Apply Now
                   <span class="icon-back"></span>
@@ -380,23 +372,53 @@ export default {
         },
       ],
       rows: [],
+      bgImage: "",
+      bgColor: "",
+      bgTitle: "",
+      title: "",
+      body1: "",
+      body2: "",
+      body3: "",
+      body4: "",
+      body5: "",
+      content1: [],
+      has_faq: false,
+      has_training: false,
+      sidebarLinks: [],
     };
   },
+  methods: {
+    fetchRow() {
+      axios
+        .get(window.baseURL + "/memberships")
+        .then((res) => {
+          const data = res.data.rows;
+          const data1 = res.data.rows[0];
+          this.bgImage = data1.image;
+          this.bgColor = data1.bgColor;
+          this.bgTitle = data1.bgTitle;
+          this.content = data.content;
+
+          this.body1 = data1.body1;
+          this.title = data.title;
+          this.body2 = data.body2;
+          this.body3 = data.body3;
+          this.body4 = data.body4;
+          this.body5 = data.body5;
+          this.has_faq = data.has_faq;
+          this.has_training = data.has_training;
+          this.sidebarLinks = data;
+          console.log(data);
+          // console.log(data);
+          // console.log(defaultData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
   created() {
-    // Check Auth
-    // if (!localStorage.getItem('access_token')) {
-    //   this.$router.push({ name: 'Login' });
-    // }
-    axios
-      .get(window.baseURL + "/memberships")
-      .then((res) => {
-        const data = res.data.rows;
-        console.log(data);
-        this.rows = data;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.fetchRow();
   },
 };
 </script>

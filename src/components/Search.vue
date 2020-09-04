@@ -248,7 +248,7 @@
     margin: 0 auto;
   }
   .search-container {
-    min-height: calc(100% - 125px);
+    min-height: calc(100vh - 130px);
   }
   .fluid-search {
     padding-top: 76.6px;
@@ -316,9 +316,9 @@ export default {
       searchOutput: false,
       noResults: false,
       items: [
-        { name: "Stackoverflow", type: "development" },
-        { name: "same of shrones", type: "serie" },
-        { name: "jon snow", type: "actor" },
+        { name: "Accreditation", type: "development" },
+        { name: "Programs", type: "serie" },
+        { name: "Test", type: "actor" },
       ],
     };
   },

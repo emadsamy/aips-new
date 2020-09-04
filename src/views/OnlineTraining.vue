@@ -8,65 +8,59 @@
     <div class="content">
       <div class="container-fluid">
         <div class="program-header main-program-header">
-          <div class="program-header-details">
+          <div
+            class="program-header-details"
+            :style="{backgroundColor:`${data0.bgColor} !important`}"
+          >
             <div class="align-center">
-              <div class="title title-line">
-                Online
-                <br />Training
-              </div>
+              <div class="title title-line">{{ data0.bgTitle }}</div>
             </div>
           </div>
-          <div
-            class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
-          ></div>
+          <div class="program-header-view" :style="{backgroundImage:`url(${data0.image})`}"></div>
         </div>
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link">
-                <a href="#overview" class="link">Overview</a>
+              <div class="sidebar-link" v-for="(row, index) in rows" :key="index">
+                <a :href="'#' + row.slug" class="link">{{ row.title }}</a>
               </div>
-              <div class="sidebar-link">
+              <!-- <div class="sidebar-link">
                 <a href="#onlineTraining" class="link">AIPS Online Training</a>
               </div>
               <div class="sidebar-link">
                 <a href="#advantages" class="link">Online Training advantages</a>
-              </div>
+              </div>-->
             </div>
             <div class="program-content">
-              <div id="overview" class="widget-text pt-2 mb-80">
+              <!-- <div id="overview" class="widget-text pt-2 mb-80">
                 <div class="bg-title text-uppercase">Online Trainging</div>
                 <div class="description-about">
                   Online or digital training is a modern educational process performed by a trainer and a trainee through a computer and networking technology regardless of place and time. This process is different from the traditional training method, which requires a direct relationship between a trainer and a trainee in a specific place and at specific times within courses that are prepared in advance.
                   With the pace of technological progress, many companies and professional individuals specialize in online training. There has been a rise in the number of training applicants who prefer to enroll in important courses from their homes and offices instead of traveling to attend the courses that complement their businesses.
                 </div>
-              </div>
+              </div>-->
+              <div :id="data0.slug" class="widget-text pt-2 mb-80" v-html="data0.body"></div>
 
-              <div id="onlineTraining" class="pt-4 mb-60">
+              <div :id="data1.slug" class="pt-4 mb-60">
                 <div class="widget-online-training mb-60">
-                  <div class="wot-details">
-                    <div class="title text-uppercase">
-                      AIPS Online
-                      <br />Training
-                    </div>
+                  <div class="wot-details" :style="{backgroundColor:`${data1.bgColor} !important`}">
+                    <div class="title text-uppercase">{{ data1.title }}</div>
                   </div>
-                  <div
-                    class="wot-view"
-                    :style="{backgroundImage:`url(${require('../assets/img/training.jpg')})`}"
-                  ></div>
+                  <div class="wot-view" :style="{backgroundImage:`url(${data1.image})`}"></div>
                 </div>
-                <div
+                <div class="description-about" v-html="data1.body"></div>
+                <!-- <div
                   class="description-about"
-                >We provide a training provider and trainer accreditation service to those who provide this kind of important training in all of its forms, whether online, digital, or distance learning, due to the importance and benefit of this education as one of the training types in the world. Furthermore, we accredit the electronic and photographed courses that contain registered materials.</div>
+                >We provide a training provider and trainer accreditation service to those who provide this kind of important training in all of its forms, whether online, digital, or distance learning, due to the importance and benefit of this education as one of the training types in the world. Furthermore, we accredit the electronic and photographed courses that contain registered materials.</div>-->
               </div>
 
-              <div id="advantages" class="widget-text pt-4 mb-100">
+              <div :id="data2.slug" class="widget-text pt-4 mb-100" v-html="data2.body"></div>
+              <!-- <div id="advantages" class="widget-text pt-4 mb-100">
                 <div class="title mb-20 paleMainColor">Online Trainging Advantages</div>
                 <div
                   class="description-about"
                 >Online training has several advantages, including but not limited to low cost, no need to travel, flexible schedules, the opportunity to take control and interact with users, and wide variety in terms of the use of interactive courses and videos and the ability to host consultants and specialists via a direct conference call because it is easily applicable and ensures trainees’ constant development.</div>
-              </div>
+              </div>-->
             </div>
 
             <DownloadCatalog />
@@ -145,7 +139,7 @@
   left: 0;
 }
 .wot-view {
-  width: calc(100% - 200px);
+  width: calc(100% - 330px);
   background-size: cover;
   background-position: center;
 }
@@ -216,6 +210,7 @@
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
 import DownloadCatalog from "../components/DownloadCatalog.vue";
+import axios from "axios";
 export default {
   name: "OnlineTraining",
   components: {
@@ -224,7 +219,34 @@ export default {
     DownloadCatalog: DownloadCatalog,
   },
   data() {
-    return {};
+    return {
+      data0: [],
+      data1: [],
+      data2: [],
+    };
+  },
+  methods: {
+    fetchRow() {
+      axios
+        .get(window.baseURL + "/online-trainings")
+        .then((res) => {
+          const rows = res.data.rows;
+          this.rows = rows;
+          const data0 = res.data.rows[0];
+          const data1 = res.data.rows[1];
+          const data2 = res.data.rows[2];
+          this.data0 = data0;
+          this.data1 = data1;
+          this.data2 = data2;
+          // console.log(data1);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  created() {
+    this.fetchRow();
   },
 };
 </script>
