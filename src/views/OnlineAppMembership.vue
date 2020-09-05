@@ -16,7 +16,9 @@
           </div>
           <div
             class="online-app-view"
-            :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
+            :style="{
+              backgroundImage: `url(${require('../assets/img/online-app.jpg')})`,
+            }"
           ></div>
         </div>
       </div>
@@ -27,9 +29,11 @@
             <div class="online-app-flex d-flex justify-content-between">
               <div class="online-app-avatar">
                 <img
-                  :src="(row.preview) 
-                    ? row.preview 
-                    : require('../assets/img/avatar.jpg')"
+                  :src="
+                    row.preview
+                      ? row.preview
+                      : require('../assets/img/avatar.jpg')
+                  "
                   class="img-fluid"
                   alt
                 />
@@ -41,11 +45,19 @@
               </div>
               <div class="online-app-data">
                 <div class="alert-text-checkbox mb-4">
-                  <div
-                    class="alert-text mb-2"
-                  >CONFIDENTIALITY OF INFORMATION: AMI will hold this information in its database. This information may be accessed, reviewed and used for administrative purposes only.</div>
+                  <div class="alert-text mb-2">
+                    CONFIDENTIALITY OF INFORMATION: AMI will hold this
+                    information in its database. This information may be
+                    accessed, reviewed and used for administrative purposes
+                    only.
+                  </div>
                   <div class="alert-checkbox">
-                    <input id="agreeNote" type="checkbox" name="Agree" value="1" />
+                    <input
+                      id="agreeNote"
+                      type="checkbox"
+                      name="Agree"
+                      value="1"
+                    />
                     <label for="agreeNote">I Agree</label>
                   </div>
                 </div>
@@ -53,8 +65,12 @@
                 <div class="small-text mb-5">
                   Tips for completing this form:
                   <br />
-                  <br />1- Hand-write your information cleary in blue or black ink onto a printed form and submit it by postal mail.
-                  <br />2- Type your information into the PDF. If you have PDF-editing software like Adobe© Acrobat© or Foxit© Reader, you can save your data. Otherwise, you will only be able to type your information, then print out the form and send it to AMI.
+                  <br />1- Hand-write your information cleary in blue or black
+                  ink onto a printed form and submit it by postal mail. <br />2-
+                  Type your information into the PDF. If you have PDF-editing
+                  software like Adobe© Acrobat© or Foxit© Reader, you can save
+                  your data. Otherwise, you will only be able to type your
+                  information, then print out the form and send it to AMI.
                 </div>
 
                 <div class="small-title mb-3">Personal Information</div>
@@ -71,12 +87,17 @@
 
                   <div class="form-group d-flex justify-content-between">
                     <label class="cc-label">Country</label>
-                    <select v-model="row.nationality" class="select-country" name="country">
+                    <select
+                      v-model="row.nationality"
+                      class="select-country"
+                      name="country"
+                    >
                       <option
                         v-for="(country, index) in countries"
                         :value="country.value"
                         :key="index"
-                      >{{ country.value }}</option>
+                        >{{ country.value }}</option
+                      >
                     </select>
                   </div>
 
@@ -110,7 +131,7 @@
                     />
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
@@ -118,6 +139,10 @@
                       v-model="row.telephone_no"
                       required
                     />
+                  </div> -->
+
+                  <div class="form-group">
+                    <VueInput></VueInput>
                   </div>
 
                   <div class="form-group">
@@ -141,7 +166,9 @@
                   </div>
                 </div>
 
-                <div class="form-note mb-5">As you want it to appear on your membership certificate</div>
+                <div class="form-note mb-5">
+                  As you want it to appear on your membership certificate
+                </div>
 
                 <!-- <div class="online-form-upload mb-40">
                   <div class="small-title mb-3">Documents</div>
@@ -180,12 +207,16 @@
                 </div>-->
 
                 <div class="online-form-addition mb-40">
-                  <div class="small-title with-underline mb-4">Academic Qualifications</div>
+                  <div class="small-title with-underline mb-4">
+                    Academic Qualifications
+                  </div>
 
                   <div class="form-inputs">
                     <div class="form-addition">
                       <div class="form-addition-content">
-                        <label class="label-addition">Educational and Qualification</label>
+                        <label class="label-addition"
+                          >Educational and Qualification</label
+                        >
                         <div class="form-group">
                           <input type="text" class="form-control" value />
                         </div>
@@ -197,7 +228,9 @@
 
                     <div class="form-addition form-addition-multiple">
                       <div class="form-addition-content">
-                        <label class="label-addition">University / College</label>
+                        <label class="label-addition"
+                          >University / College</label
+                        >
                         <div class="form-group">
                           <input type="text" class="form-control" value />
                         </div>
@@ -214,7 +247,12 @@
                         <label class="label-addition">Year</label>
                         <div class="form-group form-select">
                           <select class="selectbox">
-                            <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+                            <option
+                              v-for="year in years"
+                              :key="year"
+                              :value="year"
+                              >{{ year }}</option
+                            >
                           </select>
                         </div>
                       </div>
@@ -234,7 +272,9 @@
 
                     <div class="form-addition form-addition-multiple">
                       <div class="form-addition-content">
-                        <label class="label-addition">Institute / Training center</label>
+                        <label class="label-addition"
+                          >Institute / Training center</label
+                        >
                         <div class="form-group">
                           <input type="text" class="form-control" value />
                         </div>
@@ -257,9 +297,21 @@
 
                     <div class="form-addition">
                       <div class="form-addition-content">
-                        <label class="label-addition">Languages</label>
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
+                        <label class="label-addition bf-visbility"
+                          >Languages</label
+                        >
+                        <div class="form-group d-flex justify-content-between">
+                          <label class="label-addition cc-label"
+                            >Languages</label
+                          >
+                          <select class="select-country" name="country">
+                            <option
+                              v-for="(country, index) in countries"
+                              :value="country.value"
+                              :key="index"
+                              >{{ country.value }}</option
+                            >
+                          </select>
                         </div>
                         <button class="add-btn" type="button" name="button">
                           <span class="icon-plus ic-plus"></span> Add
@@ -269,7 +321,9 @@
 
                     <div class="form-addition">
                       <div class="form-addition-content">
-                        <label class="label-addition">Level of Proficiency</label>
+                        <label class="label-addition"
+                          >Level of Proficiency</label
+                        >
                         <div class="form-group form-select">
                           <select class="selectbox" name>
                             <option value>test</option>
@@ -282,49 +336,75 @@
 
                 <div class="bg-form-notes mb-4">
                   <div class="small-title">Certification Requirements</div>
-                  <div
-                    class="small-text"
-                  >Instructor must submit the U.S Certified Instructor certificate requirements with application.</div>
+                  <div class="small-text">
+                    Instructor must submit the U.S Certified Instructor
+                    certificate requirements with application.
+                  </div>
                 </div>
 
                 <div class="bg-form-notes mb-5">
                   <div class="small-title">Training Experience</div>
                   <div class="small-text">
-                    When providing training resume please highlight relevant work experience, training and speaking sessions, and other awards or certifications.
+                    When providing training resume please highlight relevant
+                    work experience, training and speaking sessions, and other
+                    awards or certifications.
                     <br />
-                    <br />Provide 3 references for trainings you've delivered in the past year - ideally from 3 different training sessions and/or organizations. Your references will receive a short survey to assess your qualifications and teaching experience.
+                    <br />Provide 3 references for trainings you've delivered in
+                    the past year - ideally from 3 different training sessions
+                    and/or organizations. Your references will receive a short
+                    survey to assess your qualifications and teaching
+                    experience.
                   </div>
                 </div>
 
                 <div class="bg-form-notes mb-5">
                   <div class="small-title">Training Techniques</div>
                   <div class="add-link">
-                    <div
-                      class="small-text"
-                    >Submit a 3-minute video introducing yourself and showcasing your training skills. The first minute of the video should give the audience an idea of who you are and your training style.</div>
+                    <div class="small-text">
+                      Submit a 3-minute video introducing yourself and
+                      showcasing your training skills. The first minute of the
+                      video should give the audience an idea of who you are and
+                      your training style.
+                    </div>
                     <div class="video-link">
                       <span class="icon-url"></span>
-                      <input type="text" v-model="row.video_url" placeholder="Video link here" />
+                      <input
+                        type="text"
+                        v-model="row.video_url"
+                        placeholder="Video link here"
+                      />
                     </div>
                   </div>
                 </div>
 
                 <div class="bg-form-notes mb-5 pb-3">
                   <div class="small-title">Training Strategy</div>
-                  <div
-                    class="small-text"
-                  >Create a case study that will give us an understanding of your training strategy, including planning, implementation, evaluation, and sample learning materials.</div>
+                  <div class="small-text">
+                    Create a case study that will give us an understanding of
+                    your training strategy, including planning, implementation,
+                    evaluation, and sample learning materials.
+                  </div>
                 </div>
 
                 <div class="alert-text-checkbox mb-5">
                   <div class="alert-text mb-2">
-                    I CONFIRM THAT THE INFORMATION GIVEN ABOVE IS TRUE AND CORRECT.
+                    I CONFIRM THAT THE INFORMATION GIVEN ABOVE IS TRUE AND
+                    CORRECT.
                     <br />
-                    <br />I AGREE THAT I AM NOT ALLOWED TO USE AIHC LOGO OR QUALITY MARK ON THE TRAINING CENTER CERTIFICATES WITHOUT AIHC APPROVAL.
-                    <br />Instructor is required to sign this column. Any application for U.S Certified Instructor certificate without trainer’s own signature will be rejected.
+                    <br />I AGREE THAT I AM NOT ALLOWED TO USE AIHC LOGO OR
+                    QUALITY MARK ON THE TRAINING CENTER CERTIFICATES WITHOUT
+                    AIHC APPROVAL. <br />Instructor is required to sign this
+                    column. Any application for U.S Certified Instructor
+                    certificate without trainer’s own signature will be
+                    rejected.
                   </div>
                   <div class="alert-checkbox">
-                    <input id="agreeNote2" type="checkbox" name="Agree" value="1" />
+                    <input
+                      id="agreeNote2"
+                      type="checkbox"
+                      name="Agree"
+                      value="1"
+                    />
                     <label for="agreeNote2">I Agree</label>
                   </div>
                 </div>
@@ -335,12 +415,21 @@
                   @click="apply"
                   style="height: 50px;width: auto"
                 >
-                  <img src="../assets/loader.svg" class="sm-loader" alt v-if="btnLoading" />
+                  <img
+                    src="../assets/loader.svg"
+                    class="sm-loader"
+                    alt
+                    v-if="btnLoading"
+                  />
                   <span v-else>Apply Now</span>
                 </button>
-                <div v-if="errors" class="alert alert-danger mt-2 text-left">{{ errors }}</div>
+                <div v-if="errors" class="alert alert-danger mt-2 text-left">
+                  {{ errors }}
+                </div>
 
-                <div v-if="success" class="alert alert-success mt-2 text-left">{{ success }}</div>
+                <div v-if="success" class="alert alert-success mt-2 text-left">
+                  {{ success }}
+                </div>
               </div>
             </div>
           </form>
@@ -355,20 +444,22 @@
   </div>
 </template>
 
-<style scoped src='../components/common/css/OnlineAppForm.css'>
-</style>
+<style scoped src="../components/common/css/OnlineAppForm.css"></style>
 
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
 import Datepicker from "vuejs-datepicker";
+import VueInput from "../components/VueInput";
 import axios from "axios";
+
 export default {
   name: "OnlineApplication",
   components: {
     Navbar: Navbar,
     Footer: Footer,
     Datepicker: Datepicker,
+    VueInput: VueInput,
   },
   data() {
     return {
@@ -479,21 +570,20 @@ export default {
     if (!localStorage.getItem("access_token")) {
       this.$router.push({ name: "Login" });
     }
-
-    $(function () {
-      $("input#date").daterangepicker(
-        {
-          singleDatePicker: true,
-          showDropdowns: true,
-          minYear: 1901,
-          maxYear: parseInt(moment().format("YYYY"), 10),
-        },
-        function (start, end, label) {
-          var years = moment().diff(start, "years");
-          alert("You are " + years + " years old!");
-        }
-      );
-    });
   },
+  // validations: {
+  //   row: {
+  //     base64Image: { required },
+  //     first_name: { required },
+  //     middle_name: { required },
+  //     last_name: { required },
+  //     full_name: { required },
+  //     nationality: { required },
+  //     residential_address: { required },
+  //     telephone_no: { required },
+  //     email_Address: { required, email },
+  //     video_url: { required },
+  //   },
+  // },
 };
 </script>

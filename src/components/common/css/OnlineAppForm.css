@@ -192,6 +192,9 @@
 .cc-label {
   margin-bottom: 0;
 }
+.bf-visbility {
+  visibility: hidden;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

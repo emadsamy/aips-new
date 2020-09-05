@@ -28,7 +28,11 @@
                   </div>
                 </router-link>
         </div>-->
-        <div class="sidebar-link" v-for="(link, index) in homeSidebar" :key="index">
+        <div
+          class="sidebar-link"
+          v-for="(link, index) in homeSidebar"
+          :key="index"
+        >
           <router-link :to="'/' + link.slug" class="link">
             {{ link.title }}
             <div v-if="link.slug == 'my-certificate'">
@@ -84,7 +88,10 @@
       <!--  <div class="content-multi home-background" 
       :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}">-->
       <!-- home -->
-      <div class="content-multi home-background" :style="{ backgroundImage: `url(` + home + `)` }">
+      <div
+        class="content-multi home-background"
+        :style="{ backgroundImage: `url(` + home + `)` }"
+      >
         <div class="home-widget-explore">
           <div class="title">{{ widget.title }}</div>
           <div class="description mb-4">
@@ -198,7 +205,7 @@
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   .home-widget-explore .description span {
-    font-size: 14.5px;
+    font-size: 13.5px;
   }
 }
 
@@ -217,15 +224,15 @@
     margin: 0 -15px;
   }
   .home-widget-explore {
-    width: 320px;
+    width: 300px;
     left: 15px;
     padding: 23px 30px;
     max-width: calc(100% - 25px);
   }
   .home-widget-explore .title {
-    font-size: 21px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    font-size: 19px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
   }
   .home-widget-explore {
     position: absolute;
