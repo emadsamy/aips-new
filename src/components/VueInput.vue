@@ -2,7 +2,7 @@
   <vue-tel-input v-model="tel"></vue-tel-input>
 </template>
 <script>
-import VueTelInput from "vue-tel-input";
+import { VueTelInput } from "vue-tel-input";
 
 export default {
   components: {
