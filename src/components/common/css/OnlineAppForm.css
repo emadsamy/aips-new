@@ -138,11 +138,8 @@
   padding-bottom: 15px;
 }
 .label-addition {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 600;
-}
-.form-addition {
-  margin-bottom: 30px;
 }
 .add-btn {
   display: flex;
@@ -163,6 +160,7 @@
 .form-addition-multiple {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 .form-addition-multiple > div:first-of-type {
   width: 48%;
@@ -194,6 +192,52 @@
 }
 .bf-visbility {
   visibility: hidden;
+}
+.date-start-end {
+  height: 42px;
+}
+.form-addition-du {
+  width: 48% !important;
+}
+.form-addition-date {
+  width: 100% !important;
+}
+.date-start-end {
+  width: 100% !important;
+  padding-right: 50px;
+  position: relative;
+}
+.ca-date {
+  position: absolute;
+  right: 12px;
+  font-size: 23px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.ca-date:before {
+  color: #999;
+  font-weight: normal;
+}
+.red-border {
+  border: 1px solid #f00 !important;
+}
+.fm-gro {
+  margin-bottom: 30px;
+}
+.form-group-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.form-group-row > div {
+  width: 48%;
+}
+.form-inputs-multiples > div {
+  width: 100%;
+}
+.form-group-row .form-group {
+  margin: 0;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -247,7 +291,6 @@
     width: auto;
     /* max-width: 350px; */
   }
-
   .form-inputs > div,
   .add-link > div {
     width: 100%;
@@ -257,6 +300,15 @@
   }
   .small-text {
     margin-bottom: 15px;
+  }
+  .form-group-row > div {
+    width: 100%;
+  }
+  .form-addition:not(.form-addition-multiple) {
+    margin-bottom: 15px;
+  }
+  .bf-visbility {
+    display: none;
   }
 }
 
@@ -293,6 +345,15 @@
   .online-app-data {
     width: calc(100% - 220px);
   }
+  .form-group-row > div {
+    width: 100%;
+  }
+  .form-addition:not(.form-addition-multiple) {
+    margin-bottom: 15px;
+  }
+  .bf-visbility {
+    display: none;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -321,6 +382,9 @@
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .online-app-details .title {
     font-size: 30px;
+  }
+  .form-group-row > div {
+    width: 49%;
   }
 }
 

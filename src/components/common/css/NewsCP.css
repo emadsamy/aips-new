@@ -85,6 +85,10 @@
   width: 36%;
   padding-top: 50px;
 }
+.certificates-width-view img {
+  height: 265px;
+  width: 100%;
+}
 .certificates-height {
   width: 31%;
 }
@@ -120,6 +124,9 @@
   height: 10px;
   border-radius: 50%;
   background-color: #52bbe2;
+}
+.active-c:before {
+  background-color: #1b1464;
 }
 .cw-article {
   display: flex;

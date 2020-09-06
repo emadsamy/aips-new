@@ -72,16 +72,33 @@
                   </div>
 
                   <div class="about-article-box">
-                    <div class="about-article-box-media mt-5">
+                    <div
+                      class="about-article-box-media mt-5"
+                      style="height: 230px;"
+                    >
                       <div class="overlay">
-                        <button type="button" name="button">
+                        <button
+                          v-show="playing"
+                          @click="pause"
+                          type="button"
+                          name="button"
+                        >
                           <span class="icon-play icon-seek"></span>
+                        </button>
+                        <button
+                          v-show="paused"
+                          @click="play"
+                          type="button"
+                          name="button"
+                        >
+                          <span class="icon-pause icon-seek"></span>
                         </button>
                       </div>
                       <video
                         class="img-fluid"
-                        src=""
-                        :poster="require('../assets/img/about-media.png')"
+                        @canplay="updatePaused"
+                        @playing="updatePaused"
+                        @pause="updatePaused"
                       ></video>
                     </div>
                   </div>
@@ -225,10 +242,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  <div class="about-article-box">
-                    <div class="about-article-box-media mt-5"></div>
                   </div>
                 </div>
               </div>
@@ -399,7 +412,26 @@ export default {
   data() {
     return {
       about: [],
+      videoElement: null,
+      paused: null,
     };
+  },
+  computed: {
+    playing() {
+      return !this.paused;
+    },
+  },
+  methods: {
+    updatePaused(event) {
+      this.videoElement = event.target;
+      this.paused = event.target.paused;
+    },
+    play() {
+      this.videoElement.play();
+    },
+    pause() {
+      this.videoElement.pause();
+    },
   },
   created() {
     // Get Articles In Setorss

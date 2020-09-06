@@ -8,17 +8,27 @@
     <div class="content">
       <div class="container-fluid">
         <div class="program-header main-program-header">
-          <div class="program-header-details" :style="{backgroundColor:`${bgColor} !important`}">
+          <div
+            class="program-header-details"
+            :style="{ backgroundColor: `${bgColor} !important` }"
+          >
             <div class="align-center">
               <div class="title title-line">{{ bgTitle }}</div>
             </div>
           </div>
-          <div class="program-header-view" :style="{backgroundImage:`url(${bgImage})`}"></div>
+          <div
+            class="program-header-view"
+            :style="{ backgroundImage: `url(${bgImage})` }"
+          ></div>
         </div>
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
+              <div
+                class="sidebar-link"
+                v-for="(link, index) in sidebarLinks"
+                :key="index"
+              >
                 <a :href="'#' + link.slug" class="link">{{ link.title }}</a>
               </div>
             </div>
@@ -38,14 +48,18 @@
                 <div class="requirements-view">
                   <div
                     class="requirements-img"
-                    :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
+                    :style="{
+                      backgroundImage: `url(${require('../assets/img/online-app.jpg')})`,
+                    }"
                   ></div>
                   <div class="requirements-details">
                     <div
                       class="req-bullet"
                       v-for="(benefit, index) in benefits"
                       :key="index"
-                    >{{ benefit.title }}</div>
+                    >
+                      {{ benefit.title }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -57,7 +71,9 @@
                     class="req-bullet"
                     v-for="(benefit, index) in beneficiaries"
                     :key="index"
-                  >{{ benefit.title }}</div>
+                  >
+                    {{ benefit.title }}
+                  </div>
                 </div>
               </div>
 
@@ -66,37 +82,46 @@
                   <div class="type">Corporate Membership</div>
                   <div class="title">
                     AIPS Membership
-                    <br />enables you to stand
-                    <br />out at the global level.
+                    <br />enables you to stand <br />out at the global level.
                   </div>
                 </div>
                 <div
                   class="corporate-widget-view"
-                  :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/img/online-app.jpg')})`,
+                  }"
                 ></div>
               </div>
 
               <div class="membership-proof pt-4 mb-100">
-                <div
-                  class="program-title mb-4"
-                >Membership is proof that a candidate has the ability and resources necessary to deliver quality in his or her area of specialization.</div>
+                <div class="program-title mb-4">
+                  Membership is proof that a candidate has the ability and
+                  resources necessary to deliver quality in his or her area of
+                  specialization.
+                </div>
                 <div class="proof-bullets">
                   <div
                     class="req-bullet"
                     v-for="(benefit, index) in proof"
                     :key="index"
-                  >{{ benefit.title }}</div>
+                  >
+                    {{ benefit.title }}
+                  </div>
                 </div>
               </div>
 
               <div class="membership-attainment mb-60">
-                <div class="program-title mb-4">Procedures for membership attainment</div>
+                <div class="program-title mb-4">
+                  Procedures for membership attainment
+                </div>
                 <div class="membership-attainment-steps">
                   <div
                     class="req-bullet"
                     v-for="(step, index) in steps"
                     :key="index"
-                  >{{ step.title }}</div>
+                  >
+                    {{ step.title }}
+                  </div>
                 </div>
               </div>
               <!-- <div class="mb-70" v-for="(row, index) in rows" :key="index">
@@ -105,17 +130,15 @@
             </div>
 
             <div class="became-a">
-              <div class="title mb-3">
-                Become
-                a Member
-                today
-              </div>
-              <router-link to="/online-app-membership" class="read-more">
-                <div>
-                  Apply Now
-                  <span class="icon-back"></span>
-                </div>
-              </router-link>
+              <ApplyEICTWIdget
+                title="Become a Member today"
+                :has_training="true"
+                :link="{
+                  name: 'OnlineApplicationMem',
+                  query: { pTitle: data1.bgTitle },
+                  params: { pTitle: data1.bgTitle },
+                }"
+              />
             </div>
           </div>
         </div>
@@ -129,8 +152,7 @@
   </div>
 </template>
 
-<style scoped src="../components/common/css/Eit.css">
-</style>
+<style scoped src="../components/common/css/Eit.css"></style>
 <style scoped>
 .title-line:after {
   left: 106%;
@@ -281,14 +303,14 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import DownloadCatalog from "../components/DownloadCatalog.vue";
+import ApplyEICTWIdget from "../components/ApplyEICTWIdget.vue";
 import axios from "axios";
 export default {
   name: "Program",
   components: {
     Navbar: Navbar,
     Footer: Footer,
-    DownloadCatalog: DownloadCatalog,
+    ApplyEICTWIdget: ApplyEICTWIdget,
   },
   data() {
     return {
@@ -385,6 +407,7 @@ export default {
       has_faq: false,
       has_training: false,
       sidebarLinks: [],
+      data1: [],
     };
   },
   methods: {
@@ -394,6 +417,7 @@ export default {
         .then((res) => {
           const data = res.data.rows;
           const data1 = res.data.rows[0];
+          this.data1 = data1;
           this.bgImage = data1.image;
           this.bgColor = data1.bgColor;
           this.bgTitle = data1.bgTitle;

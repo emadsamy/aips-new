@@ -10,7 +10,9 @@
         <div class="online-app-header">
           <div class="online-app-details">
             <div class="align-center">
-              <div class="title goldColor">Membership</div>
+              <div class="title goldColor">
+                {{ pTitle || "Membership" }}
+              </div>
               <div class="description-type goldColor">Online Application</div>
             </div>
           </div>
@@ -76,7 +78,7 @@
                 <div class="small-title mb-3">Personal Information</div>
 
                 <div class="form-inputs">
-                  <div class="form-group">
+                  <div class="form-group" :class="{ 'red-border': redBorder }">
                     <input
                       type="text"
                       class="form-control"
@@ -101,7 +103,7 @@
                     </select>
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" :class="{ 'red-border': redBorder }">
                     <input
                       type="text"
                       class="form-control"
@@ -111,7 +113,7 @@
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" :class="{ 'red-border': redBorder }">
                     <input
                       type="text"
                       class="form-control"
@@ -121,7 +123,7 @@
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" :class="{ 'red-border': redBorder }">
                     <input
                       type="text"
                       class="form-control"
@@ -131,7 +133,7 @@
                     />
                   </div>
 
-                  <!-- <div class="form-group">
+                  <div class="form-group">
                     <input
                       type="text"
                       class="form-control"
@@ -139,13 +141,13 @@
                       v-model="row.telephone_no"
                       required
                     />
-                  </div> -->
-
-                  <div class="form-group">
-                    <VueInput></VueInput>
                   </div>
 
-                  <div class="form-group">
+                  <!-- <div class="form-group">
+                    <VueInput></VueInput>
+                  </div> -->
+
+                  <div class="form-group" :class="{ 'red-border': redBorder }">
                     <input
                       type="text"
                       class="form-control"
@@ -155,7 +157,7 @@
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" :class="{ 'red-border': redBorder }">
                     <input
                       type="email"
                       class="form-control"
@@ -211,125 +213,194 @@
                     Academic Qualifications
                   </div>
 
-                  <div class="form-inputs">
-                    <div class="form-addition">
-                      <div class="form-addition-content">
-                        <label class="label-addition"
-                          >Educational and Qualification</label
-                        >
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
-                        </div>
-                        <button class="add-btn" type="button" name="button">
-                          <span class="icon-plus ic-plus"></span> Add
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class="form-addition form-addition-multiple">
-                      <div class="form-addition-content">
-                        <label class="label-addition"
-                          >University / College</label
-                        >
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
-                        </div>
-                      </div>
-
-                      <div class="form-addition-content">
-                        <label class="label-addition">GPA / Grade</label>
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
-                        </div>
-                      </div>
-
-                      <div class="form-addition-content">
-                        <label class="label-addition">Year</label>
-                        <div class="form-group form-select">
-                          <select class="selectbox">
-                            <option
-                              v-for="year in years"
-                              :key="year"
-                              :value="year"
-                              >{{ year }}</option
+                  <div class="form-inputs form-inputs-multiples">
+                    <!-- Qualifications -->
+                    <div class="fm-gro">
+                      <div
+                        class="form-group-row"
+                        v-for="i in quals.key"
+                        :key="i"
+                        :class="i == 0 ? 'hidden' : ''"
+                        :id="'frm_' + i"
+                      >
+                        <div class="form-addition">
+                          <div class="form-addition-content">
+                            <label class="label-addition"
+                              >Educational and Qualification</label
                             >
-                          </select>
+                            <div class="form-group">
+                              <input type="text" class="form-control" value />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-addition form-addition-multiple">
+                          <div class="form-addition-content">
+                            <label class="label-addition"
+                              >University / College</label
+                            >
+                            <div class="form-group">
+                              <input type="text" class="form-control" value />
+                            </div>
+                          </div>
+
+                          <div class="form-addition-content">
+                            <label class="label-addition">GPA / Grade</label>
+                            <div class="form-group">
+                              <input type="text" class="form-control" value />
+                            </div>
+                          </div>
+
+                          <div class="form-addition-content">
+                            <label class="label-addition">Year</label>
+                            <div class="form-group form-select">
+                              <select class="selectbox">
+                                <option
+                                  v-for="year in years"
+                                  :key="year"
+                                  :value="year"
+                                  >{{ year }}</option
+                                >
+                              </select>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      <button
+                        @click="addMoreQuals()"
+                        class="add-btn"
+                        type="button"
+                        name="button"
+                      >
+                        <span class="icon-plus ic-plus"></span> Add
+                      </button>
                     </div>
 
-                    <div class="form-addition">
-                      <div class="form-addition-content">
-                        <label class="label-addition">Courses Attended</label>
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
+                    <!-- Courses -->
+                    <div class="fm-gro">
+                      <div
+                        class="form-group-row"
+                        v-for="i in cours.key"
+                        :key="i"
+                        :class="i == 0 ? 'hidden' : ''"
+                        :id="'frm_' + i"
+                      >
+                        <div class="form-addition">
+                          <div class="form-addition-content">
+                            <label class="label-addition"
+                              >Courses Attended</label
+                            >
+                            <div class="form-group">
+                              <input type="text" class="form-control" value />
+                            </div>
+                          </div>
                         </div>
-                        <button class="add-btn" type="button" name="button">
-                          <span class="icon-plus ic-plus"></span> Add
-                        </button>
-                      </div>
-                    </div>
 
-                    <div class="form-addition form-addition-multiple">
-                      <div class="form-addition-content">
-                        <label class="label-addition"
-                          >Institute / Training center</label
-                        >
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
-                        </div>
-                      </div>
+                        <div class="form-addition form-addition-multiple">
+                          <div class="form-addition-content">
+                            <label class="label-addition"
+                              >Institute / Training center</label
+                            >
+                            <div class="form-group">
+                              <input type="text" class="form-control" value />
+                            </div>
+                          </div>
 
-                      <div class="form-addition-content">
-                        <label class="label-addition">Duration</label>
-                        <div class="form-group">
-                          <input type="text" class="form-control" value />
-                        </div>
-                      </div>
+                          <div class="form-addition-content form-addition-du">
+                            <label class="label-addition">Duration</label>
+                            <div class="form-group">
+                              <input type="text" class="form-control" value />
+                            </div>
+                          </div>
 
-                      <div class="form-addition-content">
-                        <label class="label-addition">Date</label>
-                        <div class="form-group">
-                          <input type="date" id="date" />
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-addition">
-                      <div class="form-addition-content">
-                        <label class="label-addition bf-visbility"
-                          >Languages</label
-                        >
-                        <div class="form-group d-flex justify-content-between">
-                          <label class="label-addition cc-label"
-                            >Languages</label
+                          <div
+                            class="form-addition-content form-addition-date mt-3"
                           >
-                          <select class="select-country" name="country">
-                            <option
-                              v-for="(country, index) in countries"
-                              :value="country.value"
-                              :key="index"
-                              >{{ country.value }}</option
-                            >
-                          </select>
+                            <label class="label-addition">Date</label>
+                            <div class="form-group date-start-end">
+                              <!-- <date-picker
+                            v-model="picker.date"
+                            type="datetime"
+                            :time-picker-options="timePickerOptions"
+                            id="cbx_extra_details_reception_hours_start"
+                            :lang="'en'"
+                            :format="'hh:mm A'"
+                            :placeholder="'Select hours start'"
+                          /> -->
+                              <input type="date" />
+                              <span class="icon-calendar ca-date"></span>
+                            </div>
+                          </div>
                         </div>
-                        <button class="add-btn" type="button" name="button">
-                          <span class="icon-plus ic-plus"></span> Add
-                        </button>
                       </div>
+                      <button
+                        @click="addMoreCours()"
+                        class="add-btn"
+                        type="button"
+                        name="button"
+                      >
+                        <span class="icon-plus ic-plus"></span> Add
+                      </button>
                     </div>
 
-                    <div class="form-addition">
-                      <div class="form-addition-content">
-                        <label class="label-addition"
-                          >Level of Proficiency</label
-                        >
-                        <div class="form-group form-select">
-                          <select class="selectbox" name>
-                            <option value>test</option>
-                          </select>
+                    <!-- Languages -->
+                    <div class="fm-gro">
+                      <div
+                        class="form-group-row"
+                        v-for="i in langsData.key"
+                        :key="i"
+                        :class="i == 0 ? 'hidden' : ''"
+                        :id="'frm_' + i"
+                      >
+                        <div class="form-addition">
+                          <div class="form-addition-content">
+                            <label class="label-addition bf-visbility"
+                              >Languages</label
+                            >
+                            <div
+                              class="form-group d-flex justify-content-between"
+                            >
+                              <label class="label-addition cc-label"
+                                >Languages</label
+                              >
+                              <select class="select-country" name="country">
+                                <option
+                                  v-for="(lang, index) in langs"
+                                  :value="lang"
+                                  :key="index"
+                                  >{{ lang }}</option
+                                >
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="form-addition">
+                          <div class="form-addition-content">
+                            <label class="label-addition"
+                              >Level of Proficiency</label
+                            >
+                            <div class="form-group form-select">
+                              <select class="selectbox" name>
+                                <option
+                                  v-for="(lan, index) in langsLevels"
+                                  :value="lan"
+                                  :key="index"
+                                  >{{ lan }}</option
+                                >
+                              </select>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      <button
+                        @click="addMoreLangs()"
+                        class="add-btn"
+                        type="button"
+                        name="button"
+                      >
+                        <span class="icon-plus ic-plus"></span> Add
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -413,7 +484,8 @@
                   class="btn main-btn-backdrop"
                   type="button"
                   @click="apply"
-                  style="height: 50px;width: auto"
+                  style="padding: 10px 20px; width: auto"
+                  id="applyNow"
                 >
                   <img
                     src="../assets/loader.svg"
@@ -449,17 +521,19 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import Datepicker from "vuejs-datepicker";
-import VueInput from "../components/VueInput";
+import VueInput from "../components/VueInput.vue";
+import DatePicker from "vue2-datepicker";
+import Loop from "../components/Loop.vue";
 import axios from "axios";
 
 export default {
-  name: "OnlineApplication",
+  name: "OnlineApplicationMem",
   components: {
-    Navbar: Navbar,
-    Footer: Footer,
-    Datepicker: Datepicker,
-    VueInput: VueInput,
+    Navbar,
+    Footer,
+    VueInput,
+    DatePicker,
+    Loop,
   },
   data() {
     return {
@@ -481,6 +555,100 @@ export default {
       btnLoading: false,
       country: "United States",
       countries: [],
+      redBorder: false,
+      langs: [
+        "English",
+        "Afrikaans",
+        "Albanian",
+        "Arabic",
+        "Armenian",
+        "Basque",
+        "Bengali",
+        "Bulgarian",
+        "Catalan",
+        "Cambodian",
+        "Croatian",
+        "Czech",
+        "Danish",
+        "Dutch",
+        "English",
+        "Estonian",
+        "Fiji",
+        "Finnish",
+        "French",
+        "Georgian",
+        "German",
+        "Greek",
+        "Gujarati",
+        "Hebrew",
+        "Hindi",
+        "Hungarian",
+        "Icelandic",
+        "Indonesian",
+        "Irish",
+        "Italian",
+        "Japanese",
+        "Javanese",
+        "Korean",
+        "Chinese (Mandarin)",
+        "Latin",
+        "Latvian",
+        "Lithuanian",
+        "Macedonian",
+        "Malay",
+        "Malayalam",
+        "Maltese",
+        "Maori",
+        "Marathi",
+        "Mongolian",
+        "Nepali",
+        "Norwegian",
+        "Persian",
+        "Polish",
+        "Portuguese",
+        "Punjabi",
+        "Quechua",
+        "Romanian",
+        "Russian",
+        "Samoan",
+        "Serbian",
+        "Slovak",
+        "Slovenian",
+        "Spanish",
+        "Swahili",
+        "Swedish",
+        "Tamil",
+        "Tatar",
+        "Telugu",
+        "Thai",
+        "Tibetan",
+        "Tonga",
+        "Turkish",
+        "Ukrainian",
+        "Urdu",
+        "Uzbek",
+        "Vietnamese",
+        "Welsh",
+        "Xhosa",
+      ],
+      pTitle: "",
+      langsLevels: ["Beginner", "Elementary", "Intermediate", "Proficiency"],
+      picker: {
+        type: "date",
+        date: "",
+      },
+      quals: {
+        key: 1,
+        qualifcations: [],
+      },
+      langsData: {
+        key: 1,
+        languages: [],
+      },
+      cours: {
+        key: 1,
+        courses: [],
+      },
     };
   },
   mounted() {},
@@ -563,6 +731,16 @@ export default {
         this.row.base64Image = e.target.result;
       };
     },
+    // items add more
+    addMoreQuals() {
+      this.quals.key++;
+    },
+    addMoreLangs() {
+      this.langsData.key++;
+    },
+    addMoreCours() {
+      this.cours.key++;
+    },
   },
   created() {
     this.fetchCountries();
@@ -570,20 +748,7 @@ export default {
     if (!localStorage.getItem("access_token")) {
       this.$router.push({ name: "Login" });
     }
+    this.pTitle = this.$route.query.pTitle;
   },
-  // validations: {
-  //   row: {
-  //     base64Image: { required },
-  //     first_name: { required },
-  //     middle_name: { required },
-  //     last_name: { required },
-  //     full_name: { required },
-  //     nationality: { required },
-  //     residential_address: { required },
-  //     telephone_no: { required },
-  //     email_Address: { required, email },
-  //     video_url: { required },
-  //   },
-  // },
 };
 </script>

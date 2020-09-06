@@ -11,32 +11,49 @@
           <div class="program-header-details">
             <div class="align-center">
               <div class="title">I Have Experience</div>
-              <div class="description-type mt-3 goldColor">Professional Experience Equivalence</div>
+              <div class="description-type mt-3 goldColor">
+                Professional Experience Equivalence
+              </div>
             </div>
           </div>
           <div
             class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
+            :style="{
+              backgroundImage: `url(${require('../assets/img/online-app.jpg')})`,
+            }"
           ></div>
         </div>
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
               <div class="sidebar-link">
-                <router-link to="/" class="link">What is Accreditation?</router-link>
+                <router-link to="/" class="link"
+                  >What is Accreditation?</router-link
+                >
               </div>
               <div class="sidebar-link">
-                <router-link to="/" class="link active">AIPS Certified Trainer / Instructor Benefits</router-link>
+                <router-link to="/" class="link active"
+                  >AIPS Certified Trainer / Instructor Benefits</router-link
+                >
               </div>
               <div class="sidebar-link">
-                <router-link to="/" class="link">AIPS Certifications</router-link>
+                <router-link to="/" class="link"
+                  >AIPS Certifications</router-link
+                >
               </div>
             </div>
             <div class="program-content">
               <div class="program-title">Overview</div>
-              <div
-                class="description-about"
-              >Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful learning and engagement with instructors, classmates, and course material using many of the tools we’re already using every day to communicate, gather information, and manage our lives.</div>
+              <div class="description-about">
+                Welcome to AIPS’s Graduate Programs, Do you want to expand your
+                knowledge, update your skills and reach the next level in your
+                career? Our graduate’s programs are designed for you. We take a
+                fresh, personal, hands-on approach. AIPS’s graduate programs
+                create opportunities for meaningful learning and engagement with
+                instructors, classmates, and course material using many of the
+                tools we’re already using every day to communicate, gather
+                information, and manage our lives.
+              </div>
 
               <div class="benefits-widget">
                 <div class="benefits-widget-details">
@@ -47,7 +64,9 @@
                 </div>
                 <div
                   class="benefits-widget-view"
-                  :style="{backgroundImage:`url(${require('../assets/img/training.jpg')})`}"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/img/training.jpg')})`,
+                  }"
                 ></div>
               </div>
 
@@ -57,20 +76,24 @@
                     class="benefit-title"
                     v-for="(benefit, index) in benefits"
                     :key="index"
-                  >{{ benefit.title }}</li>
+                  >
+                    {{ benefit.title }}
+                  </li>
                 </ul>
               </div>
 
               <div class="benefits-widget ti-widget">
                 <div class="benefits-widget-details">
                   <div class="title overline">
-                    AIPS Certifications
-                    for Trainers / Instructors and Public Speakers
+                    AIPS Certifications for Trainers / Instructors and Public
+                    Speakers
                   </div>
                 </div>
                 <div
                   class="benefits-widget-view"
-                  :style="{backgroundImage:`url(${require('../assets/img/tie.jpg')})`}"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/img/tie.jpg')})`,
+                  }"
                 ></div>
               </div>
 
@@ -87,25 +110,13 @@
                   <div class="certificate-text">{{ type.text }}</div>
                 </div>
               </div>
-
-              <div class="application-link">
-                <div class="title">Online Application</div>
-                <router-link to="/online-application" class="read-more">
-                  <div>
-                    Apply Now
-                    <span class="icon-back"></span>
-                  </div>
-                </router-link>
-              </div>
             </div>
             <div class="became-a">
-              <div class="title mb-3">Equivalent your experience</div>
-              <router-link to="/online-application" class="read-more">
-                <div>
-                  Apply Now
-                  <span class="icon-back"></span>
-                </div>
-              </router-link>
+              <ApplyEICTWIdget
+                title="Equivalent your experience"
+                link=""
+                :has_training="true"
+              />
             </div>
           </div>
         </div>
@@ -119,8 +130,7 @@
   </div>
 </template>
 
-<style scoped src="../components/common/css/Eit.css">
-</style>
+<style scoped src="../components/common/css/Eit.css"></style>
 <style scoped>
 .description-type {
   font-size: 30px !important;
@@ -133,13 +143,13 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import DownloadCatalog from "../components/DownloadCatalog.vue";
+import ApplyEICTWIdget from "../components/ApplyEICTWIdget.vue";
 export default {
   name: "Program",
   components: {
     Navbar: Navbar,
     Footer: Footer,
-    DownloadCatalog: DownloadCatalog,
+    ApplyEICTWIdget: ApplyEICTWIdget,
   },
   data() {
     return {

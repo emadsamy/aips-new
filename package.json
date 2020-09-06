@@ -16,6 +16,8 @@
     "vue-fragment": "^1.5.1",
     "vue-router": "^4.0.0-0",
     "vue-tel-input": "^4.4.0",
+    "vue2-datepicker": "^3.6.2",
+    "vue2-daterange-picker": "^0.5.1",
     "vuejs-datepicker": "^1.6.2",
     "vuelidate": "^0.7.5",
     "vuex": "^4.0.0-0"

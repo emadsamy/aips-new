@@ -18,7 +18,9 @@
           </div>
           <div
             class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
+            :style="{
+              backgroundImage: `url(${require('../assets/img/online-app.jpg')})`,
+            }"
           ></div>
         </div>
         <div class="program-container">
@@ -28,29 +30,43 @@
                 <a href="#accreditation" class="link active">Overview</a>
               </div>
               <div class="sidebar-link">
-                <a href="#certifiedTrainer" class="link">Equel experiences, skills and experiences</a>
+                <a href="#certifiedTrainer" class="link"
+                  >Equel experiences, skills and experiences</a
+                >
               </div>
               <div class="sidebar-link">
-                <a
-                  href="#certifications"
-                  class="link"
-                >Procedures for obtaining a professional degree:</a>
+                <a href="#certifications" class="link"
+                  >Procedures for obtaining a professional degree:</a
+                >
               </div>
             </div>
             <div id="accreditation" class="program-content">
               <div class="program-title">Overview</div>
-              <div
-                class="description-about"
-              >Welcome to AIPS’s Graduate Programs, Do you want to expand your knowledge, update your skills and reach the next level in your career? Our graduate’s programs are designed for you. We take a fresh, personal, hands-on approach. AIPS’s graduate programs create opportunities for meaningful learning and engagement with instructors, classmates, and course material using many of the tools we’re already using every day to communicate, gather information, and manage our lives.</div>
+              <div class="description-about">
+                Welcome to AIPS’s Graduate Programs, Do you want to expand your
+                knowledge, update your skills and reach the next level in your
+                career? Our graduate’s programs are designed for you. We take a
+                fresh, personal, hands-on approach. AIPS’s graduate programs
+                create opportunities for meaningful learning and engagement with
+                instructors, classmates, and course material using many of the
+                tools we’re already using every day to communicate, gather
+                information, and manage our lives.
+              </div>
 
               <div id="certifiedTrainer" class="benefits-widget mb-60 pt-4">
                 <div class="benefits-widget-details">
-                  <div class="relative-sm-title">Types of professional degrees</div>
-                  <div class="title overline">Equel experiences, skills and experiences</div>
+                  <div class="relative-sm-title">
+                    Types of professional degrees
+                  </div>
+                  <div class="title overline">
+                    Equel experiences, skills and experiences
+                  </div>
                 </div>
                 <div
                   class="benefits-widget-view"
-                  :style="{backgroundImage:`url(${require('../assets/img/training.jpg')})`}"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/img/training.jpg')})`,
+                  }"
                 ></div>
               </div>
 
@@ -62,9 +78,11 @@
                   <div class="widget-img-details">
                     <div class="title">Knowledge With Experience</div>
                     <div class="text">
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
+                      AIPS Accreditation is an assurance of quality in
+                      professional studies in journalism and AIPS Accreditation
+                      is an assurance of quality in professional studies in
+                      journalism and AIPS Accreditation is an assurance of
+                      quality in professional studies in journalism and
                     </div>
                   </div>
                 </div>
@@ -76,9 +94,11 @@
                   <div class="widget-img-details">
                     <div class="title">Knowledge With Experience</div>
                     <div class="text">
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
+                      AIPS Accreditation is an assurance of quality in
+                      professional studies in journalism and AIPS Accreditation
+                      is an assurance of quality in professional studies in
+                      journalism and AIPS Accreditation is an assurance of
+                      quality in professional studies in journalism and
                     </div>
                   </div>
                 </div>
@@ -90,9 +110,11 @@
                   <div class="widget-img-details">
                     <div class="title">Knowledge With Experience</div>
                     <div class="text">
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
+                      AIPS Accreditation is an assurance of quality in
+                      professional studies in journalism and AIPS Accreditation
+                      is an assurance of quality in professional studies in
+                      journalism and AIPS Accreditation is an assurance of
+                      quality in professional studies in journalism and
                     </div>
                   </div>
                 </div>
@@ -104,9 +126,11 @@
                   <div class="widget-img-details">
                     <div class="title">Knowledge With Experience</div>
                     <div class="text">
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
+                      AIPS Accreditation is an assurance of quality in
+                      professional studies in journalism and AIPS Accreditation
+                      is an assurance of quality in professional studies in
+                      journalism and AIPS Accreditation is an assurance of
+                      quality in professional studies in journalism and
                     </div>
                   </div>
                 </div>
@@ -118,9 +142,11 @@
                   <div class="widget-img-details">
                     <div class="title">Knowledge With Experience</div>
                     <div class="text">
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
-                      AIPS Accreditation is an assurance of quality in professional studies in journalism and
+                      AIPS Accreditation is an assurance of quality in
+                      professional studies in journalism and AIPS Accreditation
+                      is an assurance of quality in professional studies in
+                      journalism and AIPS Accreditation is an assurance of
+                      quality in professional studies in journalism and
                     </div>
                   </div>
                 </div>
@@ -137,13 +163,15 @@
               <div id="certifications" class="benefits-widget pt-4 ti-widget">
                 <div class="benefits-widget-details">
                   <div class="title overline">
-                    AIPS Certifications
-                    for Trainers / Instructors and Public Speakers
+                    AIPS Certifications for Trainers / Instructors and Public
+                    Speakers
                   </div>
                 </div>
                 <div
                   class="benefits-widget-view"
-                  :style="{backgroundImage:`url(${require('../assets/img/tie.jpg')})`}"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/img/tie.jpg')})`,
+                  }"
                 ></div>
               </div>
 
@@ -172,13 +200,11 @@
               </div>
             </div>
             <div class="became-a">
-              <div class="title mb-3">equivalent your experience</div>
-              <router-link to="/online-application" class="read-more">
-                <div>
-                  Apply Now
-                  <span class="icon-back"></span>
-                </div>
-              </router-link>
+              <ApplyEICTWIdget
+                title="equivalent your experience"
+                link="/"
+                :has_training="true"
+              />
             </div>
           </div>
         </div>
@@ -192,8 +218,7 @@
   </div>
 </template>
 
-<style scoped src="@/components/common/css/Eit.css">
-</style>
+<style scoped src="@/components/common/css/Eit.css"></style>
 <style scoped>
 .program-header.main-program-header .program-header-details {
   width: 550px;
@@ -223,13 +248,13 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import DownloadCatalog from "../components/DownloadCatalog.vue";
+import ApplyEICTWIdget from "../components/ApplyEICTWIdget.vue";
 export default {
   name: "Program",
   components: {
     Navbar: Navbar,
     Footer: Footer,
-    DownloadCatalog: DownloadCatalog,
+    ApplyEICTWIdget: ApplyEICTWIdget,
   },
   data() {
     return {

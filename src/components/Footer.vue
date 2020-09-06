@@ -9,23 +9,45 @@
         <div>2021 All Rights Reserved © AIPS</div>
       </div>
       <div class="footer-links">
-        <router-link to="/privacy" class="footer-link">Privacy Policy</router-link>
-        <router-link to="/events" class="footer-link">Events & Conferences</router-link>
-        <router-link to="/online-training" class="footer-link">Online Training</router-link>
+        <router-link to="/privacy" class="footer-link"
+          >Privacy Policy</router-link
+        >
+        <router-link to="/events" class="footer-link"
+          >Events & Conferences</router-link
+        >
+        <router-link to="/online-training" class="footer-link"
+          >Online Training</router-link
+        >
         <router-link to="/news" class="footer-link">News</router-link>
       </div>
       <div class="footer-social">
         <div class="text">Follow Us</div>
-        <!-- <a
+        <a
           v-for="(social, index) in rows"
           class="social-icon"
           :href="social.provider_url"
           :key="index"
+          target="_blank"
         >
-          :style="{ backgroundImage: `url(` + home + `)` }" 
-          <i class="fab fa-facebook-f"></i>
-        </a>-->
-        <a class="social-icon" href="#">
+          <i
+            v-if="social.provider.toLowerCase() == 'facebook'"
+            class="fab fa-facebook-f"
+          ></i>
+          <i
+            v-if="social.provider.toLowerCase() == 'youtube'"
+            class="fab fa-youtube"
+          ></i>
+          <i
+            v-if="social.provider.toLowerCase() == 'linkedin'"
+            class="fab fa-linkedin-in"
+          ></i>
+          <i
+            v-if="social.provider.toLowerCase() == 'twitter'"
+            class="fab fa-twitter"
+          ></i>
+        </a>
+
+        <!-- <a class="social-icon" href="#">
           <i class="fab fa-facebook-f"></i>
         </a>
         <a class="social-icon" href="#">
@@ -36,7 +58,7 @@
         </a>
         <a class="social-icon" href="#">
           <i class="fab fa-twitter"></i>
-        </a>
+        </a> -->
       </div>
     </div>
   </footer>

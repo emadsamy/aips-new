@@ -64,11 +64,13 @@ const routes = [
     path: "/online-application",
     name: "OnlineApplication",
     component: OnlineApplication,
+    props: true,
   },
   {
     path: "/online-app-membership",
-    name: "OnlineAppMembership",
+    name: "OnlineApplicationMem",
     component: OnlineAppMembership,
+    props: true,
   },
   {
     path: "/our-certificate",

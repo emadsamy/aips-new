@@ -102,11 +102,6 @@
 .became-a {
   width: 130px;
 }
-.became-a .title {
-  line-height: 1.2;
-  text-transform: uppercase;
-  font-weight: bold;
-}
 .relative-sm-title {
   position: relative;
   top: -50px;

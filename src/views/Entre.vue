@@ -8,7 +8,10 @@
     <div class="content">
       <div class="container-fluid">
         <div class="program-header entrepreneurship-header main-program-header">
-          <div class="program-header-details" :style="'background:'+row.bgColor+'!important'">
+          <div
+            class="program-header-details"
+            :style="'background:' + row.bgColor + '!important'"
+          >
             <div class="align-center">
               <div class="title">{{ row.bgTitle }}</div>
               <div class="description-type goldColor">Programs</div>
@@ -17,7 +20,7 @@
           <!-- imageHeader -->
           <div
             class="program-header-view"
-            :style="{backgroundImage:`url(`+ imageHeader +`) !important`}"
+            :style="{ backgroundImage: `url(` + imageHeader + `) !important` }"
           ></div>
         </div>
         <div class="program-container">
@@ -28,10 +31,13 @@
                 <ul class="list-unstyled bullets-items">
                   <li v-for="(pro, index) in programs" :key="index">
                     <router-link
-                      :to="{name: 'program-detail', 
-                                        params: {slug: sector_slug, pro: pro.slug}}"
+                      :to="{
+                        name: 'program-detail',
+                        params: { slug: sector_slug, pro: pro.slug },
+                      }"
                       class="bullet-link"
-                    >{{ pro.title }}</router-link>
+                      >{{ pro.title }}</router-link
+                    >
                   </li>
                 </ul>
               </div>
@@ -60,7 +66,13 @@
                   <div class="program-entre-application">
                     <div class="apply-border-bottom">
                       <div class="medium-entre-title">Online Application</div>
-                      <router-link to="/online-application" class="read-more mb-4">
+                      <router-link
+                        :to="{
+                          name: 'OnlineApplication',
+                          query: { pTitle: row.title },
+                        }"
+                        class="read-more mb-4"
+                      >
                         <div>
                           Apply Now
                           <span class="icon-back"></span>
