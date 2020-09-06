@@ -11,7 +11,7 @@
         <div v-bind:class="[isActive ? 'active' : '']" class="nav-links">
           <router-link :to="{ name: 'accrediations'}" class="nav-link">Accreditation</router-link>
           <router-link to="/programs" class="nav-link">Programs</router-link>
-          <router-link to="/membership" class="nav-link">Membership</router-link>
+          <router-link :to="{ name: 'memberships'}" class="nav-link">Membership</router-link>
           <router-link to="/about" class="nav-link">About</router-link>
           <router-link to="/contact" class="nav-link">Contact Us</router-link>
           <router-link to="/our-certificate" class="nav-link">Our Certificate</router-link>

@@ -92,11 +92,11 @@ const routes = [
     name: "TrainingCenter",
     component: TrainingCenter,
   },
-  {
-    path: "/membership",
-    name: "Membership",
-    component: Membership,
-  },
+  // {
+  //   path: "/membership",
+  //   name: "Membership",
+  //   component: Membership,
+  // },
   {
     path: "/privacy",
     name: "Privacy",
@@ -200,6 +200,10 @@ const routes = [
   // Accreditations
   { path: '/accreditations', name: 'accrediations', component: require('../views/Accreditations/List.vue').default },
   { path: '/accreditations/:slug', name: 'show-accrediations', component: require('../views/Accreditations/Show.vue').default },
+
+  // Memberships
+  { path: '/memberships', name: 'memberships', component: require('../views/Memberships/List.vue').default },
+  { path: '/memberships/:slug', name: 'show-memberships', component: require('../views/Memberships/Show.vue').default },
 
   // Faq
   { path: "/faqs", name: "faq", component: require('../views/Faq.vue').default },
