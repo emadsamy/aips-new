@@ -101,27 +101,27 @@ const routes = [
     path: "/privacy",
     name: "Privacy",
     component: Privacy,
-  },
-  {
-    path: "/what-is-accreditation",
-    name: "Accreditation",
-    component: Accreditation,
-  },
-  {
-    path: "/why-you-should-choose-our-accreditation",
-    name: "Accreditation2",
-    component: Accreditation2,
-  },
-  {
-    path: "/accreditation-benefits",
-    name: "Accreditation3",
-    component: Accreditation3,
-  },
-  {
-    path: "/accreditation-procedures-for-training-provider--instructors",
-    name: "Accreditation4",
-    component: Accreditation4,
-  },
+  },  
+  // {
+  //   path: "/what-is-accreditation",
+  //   name: "Accreditation",
+  //   component: Accreditation,
+  // },
+  // {
+  //   path: "/why-you-should-choose-our-accreditation",
+  //   name: "Accreditation2",
+  //   component: Accreditation2,
+  // },
+  // {
+  //   path: "/accreditation-benefits",
+  //   name: "Accreditation3",
+  //   component: Accreditation3,
+  // },
+  // {
+  //   path: "/accreditation-procedures-for-training-provider--instructors",
+  //   name: "Accreditation4",
+  //   component: Accreditation4,
+  // },
   {
     path: "/pages/:slug",
     name: "NavbarPage",
@@ -182,16 +182,27 @@ const routes = [
     name: "Register",
     component: Register,
   },
-  {
-    path: "/faq",
-    name: "Faq",
-    component: Faq,
-  },
+  // {
+  //   path: "/faq",
+  //   name: "Faq",
+  //   component: Faq,
+  // },
   {
     path: "/logout",
     name: "Logout",
     component: Logout,
   },
+
+
+
+
+
+  // Accreditations
+  { path: '/accreditations', name: 'accrediations', component: require('../views/Accreditations/List.vue').default },
+  { path: '/accreditations/:slug', name: 'show-accrediations', component: require('../views/Accreditations/Show.vue').default },
+
+  // Faq
+  { path: "/faqs", name: "faq", component: require('../views/Faq.vue').default },
 ];
 
 const router = createRouter({
