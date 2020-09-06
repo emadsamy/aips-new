@@ -19,9 +19,7 @@
             <!-- Left Sidebar -->
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
-                  <a v-if="has_scroll" :href="'#'+nav.slug" class="link"> {{ nav.title }}</a>
-                  <router-link v-if="!has_scroll" 
-                      :to="{ name: 'show-memberships', params: {slug: nav.slug}}" 
+                  <router-link :to="{ name: 'show-accrediations', params: {slug: nav.slug}}" 
                       class="link">
                       {{ nav.title }}
                   </router-link>
@@ -31,25 +29,6 @@
 
             <!-- Content -->
             <div class="program-content">
-              <div v-for="(row, index) in rows" :key="index" :id="row.slug">
-
-                <div v-if="row.title && index != 0" class="program-title">{{ row.title }}<br/></div>
-
-                <div class="corporate-widget mb-50" v-if="row.image && index != 0">
-                  <div class="corporate-widget-details">
-                    <div class="title">
-                      {{ row.bgTitle }}
-                    </div>
-                  </div>
-                  <div
-                    class="corporate-widget-view"
-                    :style="{
-                      backgroundImage: `url(${row.image})`,
-                      'background-size': 'cover',
-                      'background-position': 'center'
-                    }"
-                  ></div>
-                </div>
 
                 <!-- Body 1 -->
                 <div class="acc-widget mb-90" v-if="row.body1" v-html="row.body1"></div>
@@ -109,7 +88,7 @@
                       <div class="row" v-if="con.body_left">
                         <div class="col-lg-6" v-if="con.body_left" 
                               style="">
-                          <div class="acc-box">
+                          <div class="">
                             <div v-html="con.body_left"></div>
                           </div>
                         </div>
@@ -127,7 +106,7 @@
 
                 <p><br/></p>
                 
-              </div>
+              
             </div>
             <!-- End Content -->
 
@@ -376,7 +355,7 @@ import Footer from "../../components/Footer.vue";
 import axios from "axios";
 
 export default {
-  name: "Accreditations",
+  name: "memberships",
   components: {
     Navbar: Navbar,
     Footer: Footer
@@ -403,21 +382,21 @@ export default {
   },
   watch: {
     $route() {
-      this.fetchData();
+      this.fetchRow();
     },
   },
   created() {
-    this.fetchData();
+    this.fetchRow();
   },
   methods: {
 
-    fetchData() {
+    fetchRow() {
       this.pgLoading = true;
       axios.defaults.headers.common = {
         //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
       };
       const options = {
-        url: window.baseURL+'/memberships',
+        url: window.baseURL+'/about/'+this.$route.params.slug,
         method: 'GET',
         data: {},
         params: {},
@@ -427,19 +406,19 @@ export default {
           this.pgLoading = false;
 
           // current row
-          this.bgTitle = res.data.rows[0].bgTitle;
-          this.bgColor = res.data.rows[0].bgColor;
-          this.bgImage = res.data.rows[0].image;
+          this.bgTitle = res.data.row.bgTitle;
+          this.bgColor = res.data.row.bgColor;
+          this.bgImage = res.data.row.image;
 
-          this.has_faq = res.data.rows[0].has_faq;
-          this.has_scroll = res.data.rows[0].has_scroll;
-          this.has_training = res.data.rows[0].has_training;
-          this.has_download = res.data.rows[0].has_download;
-          this.download_name = res.data.rows[0].download_name;
-          this.pdf_file = res.data.rows[0].pdf_file;
+          this.has_faq = res.data.row.has_faq;
+          this.has_scroll = res.data.row.has_scroll;
+          this.has_training = res.data.row.has_training;
+          this.has_download = res.data.row.has_download;
+          this.download_name = res.data.row.download_name;
+          this.pdf_file = res.data.rows.pdf_file;
 
           // content
-          this.rows = res.data.rows;
+          this.row = res.data.row;
           this.navigation = res.data.navigation;
         })
         .catch(err => {

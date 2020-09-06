@@ -33,7 +33,7 @@
             <div class="program-content">
               <div v-for="(row, index) in rows" :key="index" :id="row.slug">
 
-                <div v-if="row.title && index != 0" class="program-title">{{ row.title }}<br/></div>
+                <div v-if="row.title" class="program-title">{{ row.title }}<br/></div>
 
                 <div class="corporate-widget mb-50" v-if="row.image && index != 0">
                   <div class="corporate-widget-details">
@@ -417,7 +417,7 @@ export default {
         //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
       };
       const options = {
-        url: window.baseURL+'/memberships',
+        url: window.baseURL+'/about',
         method: 'GET',
         data: {},
         params: {},
