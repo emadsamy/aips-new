@@ -8,96 +8,82 @@
     <div class="content">
       <div class="container-fluid">
         <div class="certificate-header">
-          <div class="certificate-header-details">
+          <div class="certificate-header-details"
+            :style="{backgroundColor:`${row.bgColor1} !important`}">
             <div class="align-center">
-              <div class="our-text goldColor">Our Certification</div>
-              <div class="title goldColor">Certification</div>
+              <div class="our-text goldColor">{{ row.bgSubTitle }}</div>
+              <div class="title goldColor">{{ row.bgTitle }}</div>
             </div>
           </div>
           <div
             class="certificate-header-view"
             :style="{
-              backgroundImage: `url(${require('../assets/img/certification.jpg')})`,
+              backgroundImage: `url(${row.background1})`,
             }"
           ></div>
         </div>
         <div class="program-container">
           <div class="program-row">
+
+            <!-- Left Sidebar -->
             <div class="program-sidebar">
-              <div class="sidebar-link">
-                <a href="#overview" class="link active">Overview</a>
-              </div>
-              <div class="sidebar-link">
-                <a href="#certificationTypes" class="link"
-                  >Certification Types</a
-                >
-              </div>
-              <div class="sidebar-link">
-                <a href="#certification" class="link">Certification</a>
-              </div>
-              <div class="sidebar-link">
-                <a href="#online_training" class="link">Online Training</a>
-              </div>
+                <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
+                  <a :href="'#'+nav.slug" class="link"> {{ nav.title }}</a>
+                </div>
             </div>
+            <!-- End Left Sidebar -->
+
             <div class="program-content">
+
+
               <div id="overview" class="overview">
-                <div class="program-title">Overview</div>
+                <div class="program-title"></div>
                 <div class="description-about">
-                  Welcome to AIPS’s Graduate Programs, Do you want to expand
-                  your knowledge, update your skills and reach the next level in
-                  your career? Our graduate’s programs are designed for you. We
-                  take a fresh, personal, hands-on approach. AIPS’s graduate
-                  programs create opportunities for meaningful learning and
-                  engagement with instructors, classmates, and course material
-                  using many of the tools we’re already using every day to
-                  communicate, gather information, and manage our lives.
+                  <div v-html="row.body1"></div>
                 </div>
               </div>
 
-              <div id="certificationTypes" class="certification-widget">
-                <div class="certificate-widget-details">
+              <div id="certification_types" class="certification-widget">
+                <div class="certificate-widget-details"
+                  :style="{backgroundColor:`${row.bgColor2} !important`}">
                   <div class="align-center">
-                    <div class="our-text mb-4 goldColor">Our Certification</div>
-                    <div class="title goldColor">Certifications Types</div>
+                    <div class="our-text mb-4 goldColor">{{ row.bgSubTitle2 }}</div>
+                    <div class="title goldColor">{{ row.bgTitle2 }}</div>
                   </div>
                 </div>
                 <div
                   class="certificate-widget-view"
                   :style="{
-                    backgroundImage: `url(${require('../assets/img/online-app.jpg')})`,
+                    backgroundImage: `url(${row.background2})`,
                   }"
                 ></div>
               </div>
 
               <div class="bg-title mb-5">
-                Whether you are an expert or just
-                <br />starting out, AIPS has a suite <br />of proven credentials
-                that are just right <br />for your level of experience.
+                <dir v-html="row.body2"></dir>
               </div>
 
-              <div
-                id="generalCertification"
-                class="pagination-container mb-80 pt-4"
-              >
+              <div id="certification"
+                class="pagination-container mb-80 pt-4">
                 <div class="cf-header paleMainColor">
-                  General Certification Types
+                  {{ row.hint2 }}
                 </div>
                 <div class="cf-body mb-30">
                   <div class="certificates-width">
                     <div class="cf-title paleMainColor">Certificate</div>
                     <button
                       class="cf-link"
-                      v-for="(cert, index) in defCerts"
+                      v-for="(cert, index) in proCertificate"
                       :key="index"
-                      @click="toggleDefCerts(cert.image, cert.id)"
-                      v-bind:class="{ 'active-c': cert.id === defActiveItem }"
+                      @click="toggleProCerts(cert.image, cert.id)"
+                      v-bind:class="{ 'active-c': cert.id === pdActiveItem }"
                     >
                       {{ cert.title }}
                     </button>
                   </div>
                   <div class="certificates-width-view">
                     <img
-                      :src="defCertsView"
+                      :src="verticalCertsView"
                       class="img-fluid"
                       alt="Certificate"
                     />
@@ -105,7 +91,7 @@
                 </div>
                 <div class="cf-footer">
                   <div class="cfc-title">Training Program Duration :</div>
-                  <div class="cfc-count">From 15 To 25 Hours</div>
+                  <div class="cfc-count">{{ row.duration }}</div>
                 </div>
               </div>
 
@@ -156,21 +142,20 @@
                 </div>
               </div>
 
+
+
+              <!-- Programs -->
               <div class="ct-programs">
-                <div class="cf-header mb-5 paleMainColor">
-                  Certified Training Programs
-                </div>
+                <div class="cf-header mb-5 paleMainColor"> {{ row.title3 }} </div>
                 <div class="ct-body">
                   <div class="ct-items">
-                    <div
-                      class="ct-item"
-                      v-for="(certificate, index) in certificates"
-                      :key="index"
-                    >
+                    <div class="ct-item"
+                      v-for="(pro, index) in row.programs"
+                      :key="index">
                       <div class="ct-title paleMainColor">
-                        {{ certificate.title }}
+                        {{ pro.title }}
                       </div>
-                      <div class="ct-type">{{ certificate.type }}</div>
+                      <div class="ct-type">{{ pro.subTitle }}</div>
                     </div>
                   </div>
                   <div class="ct-badge">
@@ -187,27 +172,20 @@
 
               <hr class="mb-80" />
 
-              <div class="cw-article">
+
+              <div id="online-training" class="cw-article">
                 <div class="cw-image">
-                  <img
-                    :src="require('../assets/img/gray-background.png')"
-                    alt
-                  />
+                  <img :src="row.background4" alt />
                 </div>
                 <div class="cw-details">
-                  <div class="title">Certification of Training Material</div>
+                  <div class="title">{{ row.title4 }}</div>
                   <div class="text">
-                    Once the Partner-developed content has been reviewed and
-                    approved, AIPS will consolidate the parts into a Certified
-                    Training Material Package for the Training Provider.
-                    <br />
-                    <br />Once the Partner-developed content has been reviewed
-                    and approved, AIPS will consolidate the parts into a
-                    Certified Training Material Package for the Training
-                    Provider.
+                    <div v-html="row.body4"></div>
                   </div>
                 </div>
               </div>
+
+
             </div>
             <DownloadCatalog />
           </div>
@@ -334,32 +312,24 @@ export default {
             "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
         },
       ],
+
+
+      row: '',
+      navigation: '',
       defActiveItem: null,
       pdActiveItem: null,
     };
   },
+  created() {
+    this.fetchRow();
+  },
   methods: {
     fetchRow() {
       axios
-        .get(window.baseURL + "/memberships")
+        .get(window.baseURL + "/our-certificates")
         .then((res) => {
-          const data = res.data.rows;
-          const data1 = res.data.rows[0];
-          this.data1 = data1;
-          this.bgImage = data1.image;
-          this.bgColor = data1.bgColor;
-          this.bgTitle = data1.bgTitle;
-          this.content = data.content;
-
-          this.body1 = data1.body1;
-          this.title = data.title;
-          this.body2 = data.body2;
-          this.body3 = data.body3;
-          this.body4 = data.body4;
-          this.body5 = data.body5;
-          this.has_faq = data.has_faq;
-          this.has_training = data.has_training;
-          this.sidebarLinks = data;
+          this.row = res.data.rows;
+          this.navigation = res.data.navigation;
           console.log(data);
         })
         .catch((err) => {
@@ -380,8 +350,6 @@ export default {
       this.pdActiveItem = id;
     },
   },
-  created() {
-    this.fetchRow();
-  },
+  
 };
 </script>

@@ -28,7 +28,7 @@
             <div class="program-sidebar program-sidebar-bullet">
               <div class="sidebar-link-bullet">
                 <a href="#" class="link mb-3">{{ row.title }}</a>
-                <ul class="list-unstyled bullets-items">
+                <ul class="list-unstyled" style="margin-left: 30px">
                   <li v-for="(pro, index) in programs" :key="index">
                     <router-link
                       :to="{
