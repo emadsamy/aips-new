@@ -24,8 +24,8 @@
             <div class="program-sidebar">
               <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
                 <router-link
-                  :to="{ name: 'Program', 
-                                params: {slug: link.slug, title: link.title } }"
+                  :to="{ name: 'popular-search-program-detail', 
+                                params: {slug: link.slug} }"
                   class="link"
                 >{{ link.title }}</router-link>
               </div>

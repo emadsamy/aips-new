@@ -19,7 +19,7 @@
             <!-- Left Sidebar -->
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
-                  <router-link :to="{ name: 'show-accrediations', params: {slug: nav.slug}}" 
+                  <router-link :to="{ name: 'popular-search-show', params: {slug: nav.slug}}" 
                       class="link">
                       {{ nav.title }}
                   </router-link>

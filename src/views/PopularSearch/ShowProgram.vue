@@ -32,7 +32,7 @@
                   <li v-for="(pro, index) in programs" :key="index">
                     <router-link
                       :to="{
-                        name: 'certificate-program-detail',
+                        name: 'popular-search-program-detail',
                         params: { slug: sector_slug, pro: pro.slug },
                       }"
                       class="bullet-link"
