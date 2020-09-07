@@ -160,44 +160,56 @@
                               </ul>
               </div>-->
 
-              <div id="certifications" class="benefits-widget pt-4 ti-widget">
-                <div class="benefits-widget-details">
-                  <div class="title overline">
-                    AIPS Certifications for Trainers / Instructors and Public
-                    Speakers
-                  </div>
-                </div>
-                <div
-                  class="benefits-widget-view"
-                  :style="{
-                    backgroundImage: `url(${require('../assets/img/tie.jpg')})`,
-                  }"
-                ></div>
-              </div>
+              <div class="sm-widget-container pb-5 pt-5">
+                <div class="sm-widget-header mb-5 mt-5">
+                    <div class="sm-widget-header-details" :style="{backgroundColor:`${'#370F76'} !important`}">
+                        <div class="title goldColor">
+                            Procedures For obtaining a professional degree
+                        </div>
+                    </div>
+                    <div class="sm-widget-header-view" :style="{ backgroundImage: `url(` + require('../assets/img/online-app.jpg') + `)` }">
 
-              <div class="certificate-types">
-                <div
-                  class="certificate-type"
-                  v-for="(type, index) in certificateTypes"
-                  :key="index"
-                >
-                  <div class="certificate-title">
-                    {{ type.title }}
-                    <sup v-if="type.tm">TM</sup>
-                  </div>
-                  <div class="certificate-text">{{ type.text }}</div>
+                    </div>
+                </div>
+                <div class="sm-widget-bullets">
+                    <div class="sm-wid-bullet bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
+                    <div class="sm-wid-bullet bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
+                    <div class="sm-wid-bullet bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
+                    <div class="sm-wid-bullet bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
                 </div>
               </div>
 
-              <div class="application-link">
-                <div class="title">Online Application</div>
-                <router-link to="/online-application" class="read-more">
-                  <div>
-                    Apply Now
-                    <span class="icon-back"></span>
+              <div class="widget-img-text pt-4 mb-70">
+                <div class="widget-img-k">
+                  <img src="../assets/img/tie.jpg" class="img-fluid tc-img" />
+                </div>
+                <div class="widget-img-details">
+                  <div class="title mb-5">Knowledge With Experience</div>
+                  <div class="text">
+                    <div class="wit-bull bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
+                    <div class="wit-bull bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
+                    <div class="wit-bull bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
+                    <div class="wit-bull bullet">
+                        Procedures For obtaining a professional degree
+                    </div>
                   </div>
-                </router-link>
+                </div>
               </div>
+
             </div>
             <div class="became-a">
               <ApplyEICTWIdget

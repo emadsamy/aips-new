@@ -6,7 +6,7 @@ import store from "./store";
 import JQuery from "jquery";
 import bootstrap from "bootstrap";
 window.baseURL = "https://api.mazadak.net/api/v1";
-window.$ = JQuery;
+window.$ = $;
 import Vuelidate from "vuelidate";
 const app = createApp();
 app.use(Vuelidate);

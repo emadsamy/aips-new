@@ -144,7 +144,7 @@
                   </div>
 
                   <!-- <div class="form-group">
-                    <VueInput></VueInput>
+                    <vue-tel-input v-model="phone"></vue-tel-input>
                   </div> -->
 
                   <div class="form-group" :class="{ 'red-border': redBorder }">
@@ -172,7 +172,7 @@
                   As you want it to appear on your membership certificate
                 </div>
 
-                <!-- <div class="online-form-upload mb-40">
+                <div class="online-form-upload mb-40">
                   <div class="small-title mb-3">Documents</div>
 
                   <div class="form-inputs">
@@ -206,7 +206,7 @@
                       <input type="file" class="form-control" value />
                     </div>
                   </div>
-                </div>-->
+                </div>
 
                 <div class="online-form-addition mb-40">
                   <div class="small-title with-underline mb-4">
@@ -318,19 +318,22 @@
                           >
                             <label class="label-addition">Date</label>
                             <div class="form-group date-start-end">
-                              <!-- <date-picker
-                            v-model="picker.date"
-                            type="datetime"
-                            :time-picker-options="timePickerOptions"
-                            id="cbx_extra_details_reception_hours_start"
-                            :lang="'en'"
-                            :format="'hh:mm A'"
-                            :placeholder="'Select hours start'"
-                          /> -->
-                              <input type="date" />
-                              <span class="icon-calendar ca-date"></span>
+                              <DatePicker :valueFrom="valFrom" :valueTo="valTo"></DatePicker>
                             </div>
                           </div>
+
+                          <!-- <div
+                            class="form-addition-content form-addition-date mt-3"
+                          >
+                            <label class="label-addition">Date</label>
+                            <div class="form-group date-start-end">
+                              <input type="text" placeholder="Choose a" class="form-control start-date" data-toggle="datepicker">
+                              <input type="text" placeholder="Choose a" class="form-control end-date" data-toggle="datepicker">
+                              <DatePicker></DatePicker>
+                              <span class="icon-calendar ca-date"></span>
+                            </div>
+                          </div> -->
+
                         </div>
                       </div>
                       <button
@@ -521,8 +524,9 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import VueInput from "../components/VueInput.vue";
-import DatePicker from "vue2-datepicker";
+// import { VueTelInput } from 'vue-tel-input'
+// import DatePicker from "vue2-datepicker";
+import DatePicker from "../components/DatePicker.vue";
 import Loop from "../components/Loop.vue";
 import axios from "axios";
 
@@ -531,7 +535,7 @@ export default {
   components: {
     Navbar,
     Footer,
-    VueInput,
+    // VueTelInput,
     DatePicker,
     Loop,
   },
@@ -633,10 +637,6 @@ export default {
       ],
       pTitle: "",
       langsLevels: ["Beginner", "Elementary", "Intermediate", "Proficiency"],
-      picker: {
-        type: "date",
-        date: "",
-      },
       quals: {
         key: 1,
         qualifcations: [],
@@ -649,9 +649,12 @@ export default {
         key: 1,
         courses: [],
       },
+      valFrom: '',
+      valTo: '',
     };
   },
-  mounted() {},
+  mounted() {
+  },
   computed: {
     years() {
       const year = new Date().getFullYear();

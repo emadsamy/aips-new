@@ -27,18 +27,13 @@
         <div class="program-container">
           <div class="program-row">
             <div class="program-sidebar">
-              <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
-                <!-- :to="{path: '/programs/sectors/:slug/products', name: 'Program', params: {slug: link.slug } }" -->
-                <a href="javascript:void(0)" class="link active">
-                  {{
-                  link.title
-                  }}
-                </a>
+              <div class="sidebar-link" v-for="(row, index) in navigation" :key="index">
+                <a :href="'#'+row.slug" class="link">{{ row.title }}</a>
               </div>
             </div>
             <div class="program-content">
               <div class="faq-container mb-90 pr-5">
-                <div class="faq-row" v-for="(row, index) in rows" :key="index">
+                <div class="faq-row" v-for="(row, index) in rows" :key="index" :id="row.slug">
                   <div class="program-title mb-30">{{ row.title }}</div>
                   <div class="description" v-html="row.body"></div>
                 </div>
@@ -189,9 +184,7 @@ export default {
   },
   data() {
     return {
-      sidebarLinks: [
-        { title: "Accredition procedures for training providers/instructors" },
-      ],
+      navigation: [],
       articles: [],
       imageHeader: "",
       rows: [],
@@ -203,6 +196,7 @@ export default {
       .get(url)
       .then((res) => {
         var data = res.data.rows;
+        this.navigation = res.data.navigation;
         this.rows = data;
         console.log(data);
       })

@@ -122,11 +122,11 @@ const routes = [
   //   name: "Accreditation4",
   //   component: Accreditation4,
   // },
-  {
-    path: "/pages/:slug",
-    name: "NavbarPage",
-    component: NavbarPage,
-  },
+  // {
+  //   path: "/pages/:slug",
+  //   name: "NavbarPage",
+  //   component: NavbarPage,
+  // },
   {
     path: "/news",
     name: "News",
@@ -208,6 +208,10 @@ const routes = [
   // About
   { path: '/about', name: 'about', component: require('../views/About/List.vue').default },
   { path: '/about/:slug', name: 'show-about', component: require('../views/About/Show.vue').default },
+
+  // Pages
+  { path: '/page', name: 'page', component: require('../views/Pages/List.vue').default },
+  { path: '/page/:slug', name: 'show-page', component: require('../views/Pages/Show.vue').default },
 
   // Faq
   { path: "/faqs", name: "faq", component: require('../views/Faq.vue').default },
