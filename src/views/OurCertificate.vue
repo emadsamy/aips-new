@@ -34,8 +34,6 @@
             <!-- End Left Sidebar -->
 
             <div class="program-content">
-
-
               <div id="overview" class="overview">
                 <div class="program-title"></div>
                 <div class="description-about">
@@ -63,6 +61,7 @@
                 <dir v-html="row.body2"></dir>
               </div>
 
+              <!-- Certificate 1 -->
               <div id="certification"
                 class="pagination-container mb-80 pt-4">
                 <div class="cf-header paleMainColor">
@@ -73,25 +72,27 @@
                     <div class="cf-title paleMainColor">Certificate</div>
                     <button
                       class="cf-link"
-                      v-for="(cert, index) in proCertificate"
+                      v-for="(cert, index) in certificates_1"
                       :key="index"
-                      @click="toggleProCerts(cert.image, cert.id)"
-                      v-bind:class="{ 'active-c': cert.id === pdActiveItem }"
+                      @click="toggleDefCerts(cert.image, cert.pdf, cert.id)"
+                      v-bind:class="{ 'active-c': cert.id === defActiveItem }"
                     >
                       {{ cert.title }}
                     </button>
                   </div>
                   <div class="certificates-width-view">
-                    <img
-                      :src="verticalCertsView"
-                      class="img-fluid"
-                      alt="Certificate"
-                    />
+                    <a :href="defCerPdf">
+                      <img
+                        :src="defCertsView"
+                        class="img-fluid"
+                        alt="Certificate"
+                      />
+                    </a>
                   </div>
                 </div>
                 <div class="cf-footer">
                   <div class="cfc-title">Training Program Duration :</div>
-                  <div class="cfc-count">{{ row.duration }}</div>
+                  <div class="cfc-count">{{ row.duration1 }}</div>
                 </div>
               </div>
 
@@ -104,45 +105,58 @@
                     <div class="cf-title paleMainColor">
                       Professional Certificate
                     </div>
-                    <button
-                      class="cf-link"
-                      v-for="(cert, index) in proCertificate"
-                      :key="index"
-                      @click="toggleProCerts(cert.image, cert.id)"
-                      v-bind:class="{ 'active-c': cert.id === pdActiveItem }"
-                    >
-                      {{ cert.title }}
-                    </button>
+                    <div class="flex-certs">
+                      <div class="certs-body">
+                        <button
+                          class="cf-link"
+                          v-for="(cert, index) in certificates_2"
+                          :key="index"
+                          @click="toggleProCerts(cert.image, cert.pdf, cert.id)"
+                          v-bind:class="{ 'active-c': cert.id === pdActiveItem }"
+                        >
+                          {{ cert.title }}
+                        </button>
+                      </div>
+
+                      <div class="cf-footer">
+                        <div class="cfc-title">Training Program Duration: </div>
+                        <div class="cfc-count">{{ row.duration2 }}</div>
+                      </div>
+                    </div>
                   </div>
                   <div class="certificates-height">
                     <div class="cf-title paleMainColor">
                       Professional Diploma
                     </div>
-                    <button
-                      class="cf-link"
-                      v-for="(cert, index) in proDiploma"
-                      :key="index"
-                      @click="toggleProDipCerts(cert.image, cert.id)"
-                      v-bind:class="{ 'active-c': cert.id === pdActiveItem }"
-                    >
-                      {{ cert.title }}
-                    </button>
+                    <div class="flex-certs">
+                      <div class="certs-body">
+                        <button
+                          class="cf-link"
+                          v-for="(cert, index) in certificates_3"
+                          :key="index"
+                          @click="toggleProDipCerts(cert.image, cert.pdf, cert.id)"
+                          v-bind:class="{ 'active-c': cert.id === pdActiveItem }"
+                        >
+                          {{ cert.title }}
+                        </button>
+                      </div>
+                      <div class="cf-footer">
+                        <div class="cfc-title">Training Program Duration: </div>
+                        <div class="cfc-count">{{ row.duration3 }}</div>
+                      </div>
+                    </div>
                   </div>
                   <div class="certificates-height-view">
-                    <img
-                      :src="verticalCertsView"
-                      class="img-fluid"
-                      alt="Certificate"
-                    />
+                    <a :href="proCerPdf">
+                      <img
+                        :src="verticalCertsView"
+                        class="img-fluid"
+                        alt="Certificate"
+                      />
+                    </a>
                   </div>
                 </div>
-                <div class="cf-footer">
-                  <div class="cfc-title">Training Program Duration</div>
-                  <div class="cfc-count">From 15 To 25 Hours</div>
-                </div>
               </div>
-
-
 
               <!-- Programs -->
               <div class="ct-programs">
@@ -172,7 +186,6 @@
 
               <hr class="mb-80" />
 
-
               <div id="online-training" class="cw-article">
                 <div class="cw-image">
                   <img :src="row.background4" alt />
@@ -184,7 +197,6 @@
                   </div>
                 </div>
               </div>
-
 
             </div>
             <DownloadCatalog />
@@ -216,108 +228,18 @@ export default {
   },
   data() {
     return {
-      certificates: [
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-        { title: "PCPM", type: "Certified Trainer in Project Management" },
-      ],
       rows: [],
-      defCerts: [
-        {
-          id: 1,
-          title: "Certificate of Skills",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 4,
-          title: "Certificate of Workshop",
-          image:
-            "https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
-        },
-        {
-          id: 3,
-          title: "Certificate of Attendance",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 5,
-          title: "Certificate of Completion",
-          image:
-            "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg",
-        },
-        {
-          id: 2,
-          title: "Certificate of Training",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-      ],
       defCertsView: require("../assets/img/Certificate-of-Achievement.png"),
-      proCertificate: [
-        {
-          id: 1,
-          title: "Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 2,
-          title: "Advanced Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 3,
-          title: "Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 4,
-          title: "Advanced Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 5,
-          title: "Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 6,
-          title: "Advanced Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-      ],
       verticalCertsView: require("../assets/img/Certificate-of-Achievement.png"),
-      proDiploma: [
-        {
-          id: 7,
-          title: "Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-        {
-          id: 8,
-          title: "Advanced Professional Certificate",
-          image:
-            "https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg",
-        },
-      ],
-
-
       row: '',
       navigation: '',
       defActiveItem: null,
       pdActiveItem: null,
+      certificates_1: [],
+      defCerPdf: null,
+      certificates_2: [],
+      proCerPdf: "",
+      certificates_3: [],
     };
   },
   created() {
@@ -328,28 +250,35 @@ export default {
       axios
         .get(window.baseURL + "/our-certificates")
         .then((res) => {
+          const data = res.data.rows;
           this.row = res.data.rows;
           this.navigation = res.data.navigation;
+          this.certificates_1 = data.certificates_1;
+          this.certificates_2 = data.certificates_2;
+          this.certificates_3 = data.certificates_3;
           console.log(data);
+          console.log(data.certificates_1);
         })
         .catch((err) => {
           console.log(err);
         });
     },
-    toggleDefCerts(data, id) {
+    toggleDefCerts(data, defCerPdf, id) {
       this.defCertsView = data;
+      this.defCerPdf = defCerPdf;
       this.defActiveItem = id;
-      console.log(this.defActiveItem);
     },
-    toggleProCerts(data, id) {
+    toggleProCerts(data, proCerPdf, id) {
       this.verticalCertsView = data;
+      this.proCerPdf = proCerPdf;
       this.pdActiveItem = id;
     },
-    toggleProDipCerts(data, id) {
+    toggleProDipCerts(data, proCerPdf, id) {
       this.verticalCertsView = data;
+      this.proCerPdf = proCerPdf;
       this.pdActiveItem = id;
     },
   },
-  
+
 };
 </script>

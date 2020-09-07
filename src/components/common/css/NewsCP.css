@@ -77,6 +77,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  min-height: 350px;
 }
 .certificates-width {
   width: 58%;
@@ -86,7 +87,7 @@
   padding-top: 50px;
 }
 .certificates-width-view img {
-  height: 265px;
+  height: auto;
   width: 100%;
 }
 .certificates-height {
@@ -109,10 +110,12 @@
   font-weight: 500;
   font-size: 20px;
   margin-bottom: 35px;
+  width: 100%;
   color: #696969;
   padding-left: 30px;
   position: relative;
   line-height: 1;
+  text-align: left;
 }
 .cf-link:before {
   content: "";
@@ -224,7 +227,15 @@
   height: 6px;
   background-color: #d0d877;
 }
-
+.flex-certs {
+  min-height: 280px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.flex-certs .cf-footer {
+  width: 100%
+}
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   .ct-items {
@@ -374,6 +385,14 @@
   }
   .certificates-height {
     width: 48%;
+  }
+  .certificates-height-view {
+    order: -1;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .certificates-height-view img {
+    width: 100%
   }
 }
 
