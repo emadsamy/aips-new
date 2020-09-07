@@ -229,8 +229,8 @@ input[type="file"] {
 }
 
 .container-fluid {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 
 .overlay {
@@ -774,7 +774,7 @@ small {
 .sidebar-link .link {
   border-bottom: 1px solid #00000016;
   display: block;
-  font-size: 18px !important;
+  font-size: 16px !important;
   padding-top: 17px;
   padding-bottom: 17px;
   font-size: 17px;

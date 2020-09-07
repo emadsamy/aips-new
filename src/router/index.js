@@ -36,15 +36,15 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
+  // {
+  //   path: "/about",
+  //   name: "About",
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () =>
+  //     import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  // },
   {
     path: "/programs",
     name: "Programs",
@@ -92,36 +92,36 @@ const routes = [
     name: "TrainingCenter",
     component: TrainingCenter,
   },
-  {
-    path: "/membership",
-    name: "Membership",
-    component: Membership,
-  },
+  // {
+  //   path: "/membership",
+  //   name: "Membership",
+  //   component: Membership,
+  // },
   {
     path: "/privacy",
     name: "Privacy",
     component: Privacy,
-  },
-  {
-    path: "/what-is-accreditation",
-    name: "Accreditation",
-    component: Accreditation,
-  },
-  {
-    path: "/why-you-should-choose-our-accreditation",
-    name: "Accreditation2",
-    component: Accreditation2,
-  },
-  {
-    path: "/accreditation-benefits",
-    name: "Accreditation3",
-    component: Accreditation3,
-  },
-  {
-    path: "/accreditation-procedures-for-training-provider--instructors",
-    name: "Accreditation4",
-    component: Accreditation4,
-  },
+  },  
+  // {
+  //   path: "/what-is-accreditation",
+  //   name: "Accreditation",
+  //   component: Accreditation,
+  // },
+  // {
+  //   path: "/why-you-should-choose-our-accreditation",
+  //   name: "Accreditation2",
+  //   component: Accreditation2,
+  // },
+  // {
+  //   path: "/accreditation-benefits",
+  //   name: "Accreditation3",
+  //   component: Accreditation3,
+  // },
+  // {
+  //   path: "/accreditation-procedures-for-training-provider--instructors",
+  //   name: "Accreditation4",
+  //   component: Accreditation4,
+  // },
   {
     path: "/pages/:slug",
     name: "NavbarPage",
@@ -182,16 +182,35 @@ const routes = [
     name: "Register",
     component: Register,
   },
-  {
-    path: "/faq",
-    name: "Faq",
-    component: Faq,
-  },
+  // {
+  //   path: "/faq",
+  //   name: "Faq",
+  //   component: Faq,
+  // },
   {
     path: "/logout",
     name: "Logout",
     component: Logout,
   },
+
+
+
+
+
+  // Accreditations
+  { path: '/accreditations', name: 'accrediations', component: require('../views/Accreditations/List.vue').default },
+  { path: '/accreditations/:slug', name: 'show-accrediations', component: require('../views/Accreditations/Show.vue').default },
+
+  // Memberships
+  { path: '/memberships', name: 'memberships', component: require('../views/Memberships/List.vue').default },
+  { path: '/memberships/:slug', name: 'show-memberships', component: require('../views/Memberships/Show.vue').default },
+
+  // About
+  { path: '/about', name: 'about', component: require('../views/About/List.vue').default },
+  { path: '/about/:slug', name: 'show-about', component: require('../views/About/Show.vue').default },
+
+  // Faq
+  { path: "/faqs", name: "faq", component: require('../views/Faq.vue').default },
 ];
 
 const router = createRouter({

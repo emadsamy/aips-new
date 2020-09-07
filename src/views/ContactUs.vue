@@ -18,42 +18,20 @@
         <div class="contactus-container">
           <div class="container">
             <div class="row">
+
+              
               <div class="col-lg-8 col-md-8">
                 <div class="contact-form">
-                  <div class="program-title" v-html="body.body"></div>
-                  <!-- <div class="description-type mb-40">
-                    To learn more about AIPS’s accreditation, certification and services, or for queries regarding
-                    <br />partnership - please contact us using the form below or call us on +1 (407) 543 7098.
-                  </div>
-
-                  <div class="title paleMainColor">Careers</div>
-                  <div class="description-type">
-                    For job opportunities please visit our Careers page.
-                    <br />career@aips.us
-                  </div>-->
+                  <div class="program-title" v-html="body1"></div>
                 </div>
               </div>
 
               <div class="col-lg-4 col-md-4">
-                <div class="contact-address">
-                  <div class="contact-title">United States of America</div>
-                  <div class="contact-text">
-                    Address : 1308 S. Semoran Blvd
-                    <br />Orlando, Florida. 32807, USA.
-                    <br />Phone: +1 (407) 730 2572
-                    <br />Mobile: +1 (407) 543 7098
-                    <br />E-Mail: info@aips.us
-                    <br />
-                    <br />
-                    <router-link class="directions" to="/inProgress">
-                      <div class="d-flex align-items-center">
-                        Get Directions
-                        <span class="icon-back"></span>
-                      </div>
-                    </router-link>
-                  </div>
-                </div>
+                <div v-html="body2"></div>
               </div>
+
+
+
 
               <div class="col-lg-5 col-md-7">
                 <div class="form-content">
@@ -234,7 +212,8 @@ export default {
       bgImage: "",
       bgColor: "",
       bgTitle: "",
-      body1: "",
+      body1: '',
+      body2: '',
     };
   },
   methods: {
@@ -255,7 +234,6 @@ export default {
       axios(options)
         .then((res) => {
           this.btnLoading = false;
-          console.log(res);
           this.errors = false;
           this.success = "Success.";
         })
@@ -271,10 +249,11 @@ export default {
     axios
       .get(window.baseURL + "/contacts")
       .then((res) => {
-        const data = res.data.row;
-        console.log(data);
-        this.body = data;
-        this.bgImage = data.image;
+        const data = 
+        //this.body = res.data.row;
+        this.bgImage = res.data.row.image;
+        this.body1 = res.data.row.body1;
+        this.body2 = res.data.row.body2;
       })
       .catch((err) => {
         this.btnLoading = false;

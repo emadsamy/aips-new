@@ -31,7 +31,7 @@
               <div v-if="searchOutput" class="search-output">
                 <div class="search-output-content">
                   <div v-for="(item, index) in filteredItems" :key="index">
-                    <router-link to="/test" class="search-link-dropdown">{{item.name}}</router-link>
+                    <router-link @click="reloadPage()" :to="{name: 'Program', params: {slug: item.slug } }" class="search-link-dropdown">{{item.title}}</router-link>
                   </div>
                 </div>
               </div>
@@ -135,6 +135,8 @@
   padding: 5px 0;
   border-radius: 0 0 6px 6px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  max-height: 290px;
+  overflow-y: auto;
 }
 .search-link-dropdown {
   padding: 8px 15px;
@@ -315,11 +317,7 @@ export default {
       search: "",
       searchOutput: false,
       noResults: false,
-      items: [
-        { name: "Accreditation", type: "development" },
-        { name: "Programs", type: "serie" },
-        { name: "Test", type: "actor" },
-      ],
+      sectors: [],
     };
   },
   methods: {
@@ -330,13 +328,35 @@ export default {
         this.searchOutput = false;
       }
     },
+    reloadPage() {
+      this.$router.reload();
+    },
+    fetchSectors: function () {
+      // Search
+      axios
+        .get(window.baseURL + "/programs")
+        .then((res) => {
+          const data = res.data.rows[1].sectors;
+          this.sectors = data;
+          console.log(data);
+          console.log(sectors);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   },
   computed: {
     filteredItems() {
       this.searchOutput = true;
-      return this.items.filter((item) => {
-        return item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+      return this.sectors.filter((item) => {
+        return item.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
       });
+    },
+  },
+  watch: {
+    $route() {
+      this.fetchSectors();
     },
   },
   created() {
@@ -352,16 +372,7 @@ export default {
         console.log(err);
       });
 
-    // Search
-    axios
-      .get(window.baseURL + "/popularSearch/search")
-      .then((res) => {
-        var data = res;
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    this.fetchSectors();
   },
 };
 </script>
