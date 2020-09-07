@@ -33,7 +33,7 @@
           v-for="(link, index) in homeSidebar"
           :key="index"
         >
-          <router-link :to="'/' + link.slug" class="link">
+          <router-link :to="{name: 'popular-search-show', params:{slug: link.slug}}" class="link">
             {{ link.title }}
             <div v-if="link.slug == 'my-certificate'">
               <small>You can view and print your certificate</small>

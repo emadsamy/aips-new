@@ -13,16 +13,19 @@
                         <div class="profile-header">
                             <div class="user-head d-flex align-items-center">
                                 <div class="avatar">
-                                    <Avatar />
+                                    <Avatar :title="data.first_name" :src="preview ? preview : data.avatar" />
+                                    <div class="loading-overlay"  v-if="btnLoading">
+                                        <img src="../assets/loader.svg" class="sm-loader" alt />
+                                    </div>
                                     <div class="upload-avatar-profile">
                                         <span class="icon-camera change-avatar">
-                                            <input type="file" name="" value="" />
+                                            <input name="avatar" type="file" accept="image/*" @change="onImageChange" />
                                         </span>
                                     </div>
                                 </div>
                                 <div class="username">
                                     <div class="fullname text-capitalize">
-                                        {{ firstName }} {{ lastName }}
+                                        {{ data.first_name }} {{ data.last_name }}
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +37,7 @@
                                 Welcome,
                             </div>
                             <div class="user-name text-capitalize">
-                                {{ firstName }}
+                                {{ data.first_name }}
                             </div>
                         </div>
                     </div>
@@ -65,9 +68,14 @@
                                     My Profile
                                 </div>
                                 <button @click="switchProfileBtn()" class="profile-edit-action d-flex justify-content-between align-items-center">
-                                    <span class="edit-text" v-if="switchProfileSetting">Save</span>
-                                    <span class="edit-text" v-else>Edit</span>
-                                    <span class="icon-edit icon"></span>
+                                    <div @click="updateUserData()" class="d-flex align-items-center" v-if="switchProfileSetting">
+                                        <span class="edit-text">Save</span>
+                                        <span class="icon-edit icon"></span>
+                                    </div>
+                                    <div class="d-flex align-items-center" v-else>
+                                        <span class="edit-text">Edit</span>
+                                        <span class="icon-edit icon"></span>
+                                    </div>
                                 </button>
                             </div>
                             <div class="profile-form tab-content">
@@ -75,57 +83,75 @@
                                 <div id="myInfo" class="profile-data tab-pane active">
                                     <form v-if="!switchProfileSetting" action="index.html" method="post">
                                         <div class="form-group d-flex align-items-center">
-                                            <label for="name" class="d-flex justify-content-between">Name<span>:</span></label>
+                                            <label for="name" class="d-flex justify-content-between">First Name<span>:</span></label>
                                             <div class="user-data text-capitalize">
-                                                {{ firstName }} {{ lastName }}
+                                                {{ data.first_name }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="name" class="d-flex justify-content-between">Last Name<span>:</span></label>
+                                            <div class="user-data text-capitalize">
+                                                {{ data.last_name }}
                                             </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="phone" class="d-flex justify-content-between">Tel<span>:</span></label>
                                             <div class="user-data user-data-number">
-                                                +96 66 55 44 11 22
+                                                {{ data.mobile }}
                                             </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="company" class="d-flex justify-content-between">Company <span>:</span></label>
                                             <div class="user-data">
-                                                24 Print
+                                                {{ data.company }}
                                             </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="job" class="d-flex justify-content-between">Country <span>:</span></label>
                                             <div class="user-data">
-                                                {{ country }}
+                                                {{ data.country }}
                                             </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="website" class="d-flex justify-content-between">Website <span>:</span></label>
                                             <div class="user-data">
-                                                Kaizens.com
+                                                {{ data.website }}
                                             </div>
                                         </div>
                                     </form>
 
                                     <form v-if="switchProfileSetting" action="index.html" method="post">
                                         <div class="form-group d-flex align-items-center">
-                                            <label for="name" class="d-flex justify-content-between">Name<span>:</span></label>
-                                            <input type="text" id="name" />
+                                            <label for="name" class="d-flex justify-content-between">First Name<span>:</span></label>
+                                            <input v-model="first_name" type="text" id="first_name" />
+                                        </div>
+                                        <div class="form-group d-flex align-items-center">
+                                            <label for="name" class="d-flex justify-content-between">Last Name<span>:</span></label>
+                                            <input v-model="last_name" type="text" id="last_name" />
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="phone" class="d-flex justify-content-between">Tel<span>:</span></label>
-                                            <input type="text" id="phone" />
+                                            <input v-model="mobile" type="text" id="mobile" />
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="company" class="d-flex justify-content-between">Company <span>:</span></label>
-                                            <input type="text" id="company" />
+                                            <input v-model="company" type="text" id="company" />
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="job" class="d-flex justify-content-between">Country<span>:</span></label>
-                                            <input type="text" id="job" />
+                                            <!-- <input v-model="country" type="text" id="country" /> -->
+                                            <div class="choose-country">
+                                              <select v-model="country" class="select-country" name="country">
+                                                <option
+                                                  v-for="(country, index) in countries"
+                                                  :value="country.value"
+                                                >{{ country.value }}</option>
+                                              </select>
+                                            </div>
                                         </div>
                                         <div class="form-group d-flex align-items-center">
                                             <label for="website" class="d-flex justify-content-between">Website<span>:</span></label>
-                                            <input type="text" id="website" />
+                                            <input v-model="website" type="text" id="website" />
                                         </div>
                                     </form>
                                 </div>
@@ -172,6 +198,7 @@
 import Navbar from '../components/Navbar.vue';
 import Footer from '../components/Footer.vue';
 import Avatar from '../components/Avatar.vue';
+import axios from 'axios';
 
 export default {
   name: 'Profile',
@@ -182,9 +209,19 @@ export default {
   },
   data() {
     return {
-      firstName: '',
-      lastName: '',
-      country: '',
+      data: [],
+      access_token: '',
+      first_name: "",
+      last_name: "",
+      mobile: "",
+      company: "",
+      country: "",
+      website: "",
+      avatar: "",
+      avatar: "",
+      base64Image: "",
+      preview: "",
+      btnLoading: false,
       certificates: [
         {
           title: 'Professional Certificate in Human Resources',
@@ -205,21 +242,24 @@ export default {
       switchProfileSetting: false
     }
   },
-  methods: {
-    switchProfileBtn: function () {
-      this.switchProfileSetting = !this.switchProfileSetting;
-    }
-  },
   created() {
-    this.firstName = localStorage.getItem('user_name');
-    this.lastName = localStorage.getItem('last_name');
-    this.country = localStorage.getItem('country');
+    // this.firstName = localStorage.getItem('user_name');
+    // this.lastName = localStorage.getItem('last_name');
+    // this.country = localStorage.getItem('country');
+    this.accessToken = localStorage.getItem('access_token');
+    // fetch user Data
+    this.fetchUserData();
+
+    // fetch countries
+    this.fetchCountries();
+
     // Check Auth
     if (!localStorage.getItem('access_token')) {
       this.$router.push({ name: 'Login' });
     }
   },
   mounted() {
+
     $(function(){
         var hash = window.location.hash;
         hash && $('.profile-links a[href="' + hash + '"]').tab('show');
@@ -237,6 +277,133 @@ export default {
             $('html,body').scrollTop(scrollmem);
         });
     });
-  }
+  },
+  methods: {
+    switchProfileBtn: function () {
+      this.switchProfileSetting = !this.switchProfileSetting;
+    },
+    fetchUserData() {
+      const options = {
+          url: window.baseURL + "/myProfile",
+          method: 'GET',
+          headers: {
+            'Authorization': 'Bearer ' + this.accessToken
+          }
+      };
+      axios(options)
+        .then((res) => {
+          const data = res.data.row;
+          this.first_name = data.first_name;
+          this.last_name = data.last_name;
+          this.mobile = data.mobile;
+          this.company = data.company;
+          this.country = data.country;
+          this.website = data.website;
+          this.avatar = data.avatar;
+          this.data = data;
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    updateUserData() {
+      const options = {
+          url: window.baseURL + "/myProfile",
+          method: 'POST',
+          data: {
+            first_name: this.first_name,
+            last_name: this.last_name,
+            mobile: this.mobile,
+            company: this.company,
+            country: this.country,
+            website: this.website,
+          },
+          headers: {
+            'Authorization': 'Bearer ' + this.accessToken
+          }
+      };
+      axios(options)
+        .then((res) => {
+          const data = res.data.row;
+          console.log(data);
+          this.fetchUserData();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+
+    onImageChange(e) {
+      this.btnLoading = true;
+      const file = e.target.files[0];
+      this.preview = URL.createObjectURL(file);
+      this.createBase64Image(file);
+    },
+    createBase64Image(fileObject) {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileObject);
+      reader.onload = (e) => {
+        this.base64Image = e.target.result;
+        this.apply();
+      };
+    },
+
+    apply() {
+      this.btnLoading = true;
+      // this.apply();
+      axios.defaults.headers.common = {
+        "X-Requested-With": "XMLHttpRequest", // security to prevent CSRF attacks
+      };
+
+      const options = {
+        url: window.baseURL + "/myProfile",
+        method: "POST",
+        data: {
+          avatar: this.base64Image,
+        },
+        headers: {
+          'Authorization': 'Bearer ' + this.accessToken
+        }
+      }
+
+      axios(options)
+        .then((res) => {
+          this.btnLoading = false;
+          this.errors = false;
+          this.success = "Application Completed Successfully.";
+          console.log("uploaded");
+          console.log(res);
+          this.fetchUserData();
+        })
+        .catch((err) => {
+          this.btnLoading = false;
+          this.success = false;
+          this.errors = err.response ? err.response.data.message : "" + err;
+        })
+        .finally(() => {});
+    },
+
+    fetchCountries() {
+      this.countryLoading = true;
+      axios.defaults.headers.common = {
+        "X-Requested-With": "XMLHttpRequest", // security to prevent CSRF attacks
+      };
+      const options = {
+        url: window.baseURL + "/countries",
+        method: "GET",
+        data: {},
+        params: {},
+      };
+      axios(options)
+        .then((res) => {
+          this.countryLoading = false;
+          this.countries = res.data.rows.countries;
+        })
+        .catch(() => {})
+        .finally(() => {});
+    },
+  },
+  
 }
 </script>

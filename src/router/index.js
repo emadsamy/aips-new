@@ -77,21 +77,21 @@ const routes = [
     name: "ourCertificate",
     component: OurCertificate,
   },
-  {
-    path: "/i-am-instructor",
-    name: "Instructor",
-    component: Instructor,
-  },
-  {
-    path: "/i-have-experience",
-    name: "Experience",
-    component: Experience,
-  },
-  {
-    path: "/training-center",
-    name: "TrainingCenter",
-    component: TrainingCenter,
-  },
+  // {
+  //   path: "/i-am-instructor",
+  //   name: "Instructor",
+  //   component: Instructor,
+  // },
+  // {
+  //   path: "/i-have-experience",
+  //   name: "Experience",
+  //   component: Experience,
+  // },
+  // {
+  //   path: "/training-center",
+  //   name: "TrainingCenter",
+  //   component: TrainingCenter,
+  // },
   // {
   //   path: "/membership",
   //   name: "Membership",
@@ -212,6 +212,15 @@ const routes = [
   // Pages
   { path: '/page', name: 'page', component: require('../views/Pages/List.vue').default },
   { path: '/page/:slug', name: 'show-page', component: require('../views/Pages/Show.vue').default },
+
+  { path: '/our-certificate/programs/:slug', name: 'certificate-program-detail', component: require('../views/Certificate/ShowProgram.vue').default },
+  
+
+  // Memberships
+  { path: '/popular-search/:slug', name: 'popular-search-show', component: require('../views/PopularSearch/Show.vue').default },
+  { path: '/popular-search/in/programs', name: 'popular-search-programs', component: require('../views/PopularSearch/Programs.vue').default },
+  { path: '/popular-search/in/programs/:slug', name: 'popular-search-program-detail', component: require('../views/PopularSearch/ShowProgram.vue').default },
+
 
   // Faq
   { path: "/faqs", name: "faq", component: require('../views/Faq.vue').default },

@@ -1,19 +1,20 @@
 <template>
-  <img :src="avatar" class="img-fluid" :alt="title" />
+  <img :src="src ? src : avatar" class="img-fluid" :alt="title ? title : userName" />
 </template>
 
 <script>
 export default {
   name: 'Avatar',
+  props: ['src', 'userName'],
   data() {
     return {
       avatar: '',
-      title: ''
+      userName: ''
     }
   },
   created() {
     this.avatar = localStorage.getItem('user_image');
-    this.title = localStorage.getItem('user_name');
+    this.userName = localStorage.getItem('user_name');
   }
 }
 </script>
@@ -22,5 +23,6 @@ export default {
 img {
   width: 35px;
   border-radius: 50%;
+  object-fit: cover;
 }
 </style>

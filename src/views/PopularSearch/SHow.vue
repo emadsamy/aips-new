@@ -29,7 +29,7 @@
 
             <!-- Content -->
             <div class="program-content">
-
+              <div>
                 <!-- Body 1 -->
                 <div class="acc-widget mb-90" v-if="row.body1" v-html="row.body1"></div>
                 <!-- End body 1 -->
@@ -56,6 +56,7 @@
                 </div>
                 <!-- End Body 5 -->
 
+                <p><br/></p>
                 <div v-for="(con, idx) in row.content"
                     :key="idx">
 
@@ -64,19 +65,20 @@
                         v-if="con.background"
                         style="border-bottom: 1px solid #707070" 
                         :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
-                        <div class="wa-view col-lg-6" v-if="con.background" style="padding: 0">
+                        <div class="wa-view col-lg-6" v-if="con.background">
                             <img :src="con.background" class="img-fluid" alt="" />
                         </div>
                         <div class="wa-text col-lg-6" v-if="con.body"
-                            style="padding-left:45px">
+                            style="padding:30px;margin-top: -20px">
                             <div v-html="con.body"></div>
                         </div>
                     </div>
                     <!-- End Destign 1 -->
 
                     <!-- Destin 2 -->
-                    <div class="widget-imgs-bullets">
-                      <div class="widget-moving-accred mb-90" v-if="con.image"
+                    <div class="widget-imgs-bullets mb-40"
+                      v-if="con.image">
+                      <div class="widget-moving-accred mb-90"
                         :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
                         <div class="wm-view">
                           <img :src="con.image" alt="" />
@@ -87,8 +89,8 @@
                       </div>
                       <div class="row" v-if="con.body_left">
                         <div class="col-lg-6" v-if="con.body_left" 
-                              style="">
-                          <div class="">
+                              style="padding:30px;margin-top: -20px">
+                          <div class="acc-box">
                             <div v-html="con.body_left"></div>
                           </div>
                         </div>
@@ -101,19 +103,26 @@
                       </div>
                     </div>
                     <!-- End Design 2 -->
-
+                  
                 </div>
 
-                <p><br/></p>
+                  <!-- Design 3 -->
+                  <div class="widgets-steps" v-if="row.content[0].body && !row.content[0].background">
+                      <div v-for="(con, index) in row.content" :key="index" class="widget-step">
+                          <div class="steps-counter">{{ index + 1 }}</div>
+                          <div class="steps-details" v-html="con.body"></div>
+                      </div>
+                  </div>
+                  <!--- End Desgin 3 -->
                 
-              
+              </div>
             </div>
             <!-- End Content -->
 
             <!-- Right SideBar -->
             <div class="accrediation-became">
 
-              <!-- FAQ -->
+            <!-- FAQ -->
              <p>
              <div class="accred-faq" v-if="has_faq">
                 <router-link :to="{ name: 'faq' }" class="faq-link d-flex mb-30">
@@ -123,7 +132,6 @@
                     </div>
                 </router-link>
             </div>
-            </p>
 
             <!-- Member -->
             <p>
@@ -167,9 +175,10 @@
             </div>
             </p>
 
-            
+             
+            </p>
 
-            </div>
+          </div>
             <!-- End Right Sidebar -->
 
           </div>
@@ -182,154 +191,66 @@
   </div>
 </template>
 
+<style scoped src="../../components/common/css/Accreditation.css">
+</style>
 
-<style scoped src="../../components/common/css/Eit.css"></style>
-<style scoped src="../../components/common/css/Accreditation.css"></style>
 <style scoped>
-.title-line:after {
-  left: 106%;
+.main-program-header .program-header-details {
+  width: 500px !important;
 }
-.req-bullet {
-  font-size: 16px;
-  color: #585858;
+.main-program-header .program-header-view {
+  width: calc(100% - 500px) !important;
+}
+.widget-accreditation:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.wa-bullet {
+  padding-left: 30px;
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 30px;
+  color: #777;
+  margin-bottom: 20px;
 }
-.req-bullet:after {
+.wa-bullet:before {
   content: "";
   position: absolute;
-  top: 9px;
-  left: 0;
+  left: 7px;
+  top: 10px;
+  border: 1px solid #1b1464;
   border-radius: 50%;
-  border: 1px solid #4f17a8;
   width: 8px;
   height: 8px;
 }
-.requirements-view {
-  display: flex;
-  justify-content: space-between;
+
+ul { list-style: circle !important; display: block !important; }
+ul li { margin-bottom: 20px !important; width: 100% }
+ul.list-unstyled { list-style: circle !important; display: block !important; }
+ul.list-unstyled li { margin-bottom: 20px !important; width: 100% }
+
+.widget-imgs-bullets:nth-of-type(even) .widget-moving-accred {
+  flex-direction: row-reverse;
 }
-.requirements-view > div {
-  width: 48%;
+.widget-imgs-bullets:nth-of-type(even) .widget-moving-accred img {
+  transform: translateX(-40px);
 }
-.requirements-details {
-  padding: 30px 0;
+
+
+
+div.program-header-details {
+  width: 640px !important;
+  background-color: #3b3b3b !important;
 }
-.program-title {
-  font-weight: 600;
-  font-size: 23px;
-  color: #2b0962;
+div.program-header-details .title {
+  color: #e0ea79;
 }
-.beneficiaries-list {
-  display: flex;
-  justify-content: space-between;
-}
-.beneficiaries-list > div {
-  width: 48%;
-}
-.corporate-widget {
-  display: flex;
-  justify-content: space-between;
-}
-.corporate-widget > div {
-  width: 50%;
-}
-.corporate-widget-details {
-  background-color: #0101a3;
-  padding: 70px 50px;
-}
-.corporate-widget-details .type,
-.corporate-widget-details .title {
-  color: #d9e362;
-}
-.type {
-  font-size: 20px;
-  position: relative;
-  margin-bottom: 40px;
-}
-.type:after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: 0;
-  width: 50px;
-  background-color: #d9e362;
-  height: 4px;
-}
-.corporate-widget-details .title {
-  font-weight: bold;
-  font-size: 40px;
-  font-size: 37px;
+.title-jumbo {
+  color: #3b3b3b !important;
   line-height: 1;
+  padding-left: 25px;
+  border-left: 5px solid #d0d877;
 }
-.proof-bullets {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.proof-bullets > div {
-  width: 48%;
-}
-.membership-attainment-steps {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.membership-attainment-steps > div {
-  width: 48%;
-  color: #6e6d76;
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-.program-header.main-program-header .program-header-view {
-  width: calc(100% - 330px);
-}
-@media (max-width: 575.98px) {
-}
+.hidden { display: none !important }
 
-@media (max-width: 767.98px) {
-  .became-a,
-  .requirements-widget,
-  .beneficiaries-widget,
-  .corporate-widget,
-  .membership-proof,
-  .membership-attainment {
-    display: none !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .corporate-widget {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-  }
-  .corporate-widget > div {
-    width: 100%;
-    /* height: 300px; */
-  }
-  .corporate-widget-view {
-    display: none;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .program-header-details {
-    width: 330px !important;
-  }
-  .program-header.main-program-header .title:after {
-    height: 10px;
-  }
-  .corporate-widget > div {
-    width: 100%;
-  }
-  .corporate-widget-view {
-    display: none;
-  }
-}
 
 .bg-title {
   font-weight: bold;
@@ -355,7 +276,7 @@ import Footer from "../../components/Footer.vue";
 import axios from "axios";
 
 export default {
-  name: "memberships",
+  name: "Accreditations",
   components: {
     Navbar: Navbar,
     Footer: Footer
@@ -415,7 +336,7 @@ export default {
           this.has_training = res.data.row.has_training;
           this.has_download = res.data.row.has_download;
           this.download_name = res.data.row.download_name;
-          this.pdf_file = res.data.rows.pdf_file;
+          this.pdf_file = res.data.row.pdf_file;
 
           // content
           this.row = res.data.row;
