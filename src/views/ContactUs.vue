@@ -216,7 +216,36 @@ export default {
       body2: '',
     };
   },
+  watch: {
+    $route() {
+      this.fetchRow();
+    },
+  },
+  created() {
+    this.fetchRow();
+  },
+
   methods: {
+
+    fetchRow(){
+      axios
+      .get(window.baseURL + "/contacts")
+      .then((res) => {
+        const data = 
+        //this.body = res.data.row;
+        this.bgImage = res.data.row.image;
+        this.body1 = res.data.row.body1;
+        this.body2 = res.data.row.body2;
+      })
+      .catch((err) => {
+        this.btnLoading = false;
+        this.success = false;
+        this.errors = err.response ? err.response.data.message : "" + err;
+      })
+      .finally(() => {});
+    },
+
+
     contactUsForm() {
       this.btnLoading = true;
       axios.defaults.headers.common = {
@@ -244,23 +273,7 @@ export default {
         })
         .finally(() => {});
     },
-  },
-  created() {
-    axios
-      .get(window.baseURL + "/contacts")
-      .then((res) => {
-        const data = 
-        //this.body = res.data.row;
-        this.bgImage = res.data.row.image;
-        this.body1 = res.data.row.body1;
-        this.body2 = res.data.row.body2;
-      })
-      .catch((err) => {
-        this.btnLoading = false;
-        this.success = false;
-        this.errors = err.response ? err.response.data.message : "" + err;
-      })
-      .finally(() => {});
+    
   },
 };
 </script>

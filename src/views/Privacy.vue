@@ -27,8 +27,8 @@
                 v-for="(row, index) in rows"
                 :key="index"
               >
-                <div class="program-title">{{ row.title }}</div>
-                <div class="description-about">{{ row.body }}</div>
+                <div class="program-title" v-html="row.title"></div>
+                <div class="description-about" v-html="row.body"></div>
               </div>
             </div>
           </div>

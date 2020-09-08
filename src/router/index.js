@@ -79,21 +79,21 @@ const routes = [
   },
 
   /* Show */
-  {
-    path: "/i-am-instructor",
-    name: "Instructor",
-    component: Instructor,
-  },
-  {
-    path: "/i-have-experience",
-    name: "Experience",
-    component: Experience,
-  },
-  {
-    path: "/training-center",
-    name: "TrainingCenter",
-    component: TrainingCenter,
-  },
+  // {
+  //   path: "/i-am-instructor",
+  //   name: "Instructor",
+  //   component: Instructor,
+  // },
+  // {
+  //   path: "/i-have-experience",
+  //   name: "Experience",
+  //   component: Experience,
+  // },
+  // {
+  //   path: "/training-center",
+  //   name: "TrainingCenter",
+  //   component: TrainingCenter,
+  // },
   // {
   //   path: "/membership",
   //   name: "Membership",
@@ -131,26 +131,26 @@ const routes = [
   //   name: "NavbarPage",
   //   component: NavbarPage,
   // },
-  {
-    path: "/news",
-    name: "News",
-    component: News,
-  },
+  // {
+  //   path: "/news",
+  //   name: "News",
+  //   component: News,
+  // },
   {
     path: "/my-certificate",
     name: "MainCertificate",
     component: MainCertificate,
   },
-  {
-    path: "/main-certificate-achievement",
-    name: "CertificateAchievement",
-    component: CertificateAchievement,
-  },
-  {
-    path: "/corporate-training",
-    name: "Corporate",
-    component: Corporate,
-  },
+  // {
+  //   path: "/main-certificate-achievement",
+  //   name: "CertificateAchievement",
+  //   component: CertificateAchievement,
+  // },
+  // {
+  //   path: "/corporate-training",
+  //   name: "Corporate",
+  //   component: Corporate,
+  // },
   {
     path: "/contact",
     name: "ContactUs",

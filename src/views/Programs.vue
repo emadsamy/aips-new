@@ -276,7 +276,25 @@ export default {
       imageHeader: "",
     };
   },
+  watch: {
+    $route() {
+      this.fetchRow();
+    },
+  },
   created() {
+    this.fetchRow();
+    
+
+    // Check Auth
+    // if (!localStorage.getItem("access_token")) {
+    //   this.$router.push({ name: "Login" });
+    // }
+  },
+
+  methods: {
+
+
+    fetchRow(){
     axios
       .get(window.baseURL + "/programs")
       .then((res) => {
@@ -301,11 +319,9 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+    },
 
-    // Check Auth
-    // if (!localStorage.getItem("access_token")) {
-    //   this.$router.push({ name: "Login" });
-    // }
+
   },
 };
 </script>
