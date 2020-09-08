@@ -304,8 +304,29 @@ export default {
       authenticated: false,
     };
   },
+  watch: {
+    $route() {
+      this.fetchRow();
+      this.fetchSearch();
+    },
+  },
   created() {
+
+     // Check Auth
+    if (!localStorage.getItem("access_token")) {
+      this.authenticated = false;
+      // this.$router.push({ name: 'Login' });
+    } else {
+      this.authenticated = true;
+    }
+    
+      this.fetchRow();
+      this.fetchSearch();
+  },
+  methods: {
+
     // Get Articles In Setors
+    fetchRow(){
     axios
       .get(window.baseURL + "/home")
       .then((res) => {
@@ -318,8 +339,10 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+    },
 
     // Get Links
+    fetchSearch(){
     axios
       .get(window.baseURL + "/popularSearch")
       .then((res) => {
@@ -330,14 +353,10 @@ export default {
       .catch((err) => {
         console.log(err);
       });
+    },
 
-    // Check Auth
-    if (!localStorage.getItem("access_token")) {
-      this.authenticated = false;
-      // this.$router.push({ name: 'Login' });
-    } else {
-      this.authenticated = true;
-    }
+   
+
   },
 };
 </script>

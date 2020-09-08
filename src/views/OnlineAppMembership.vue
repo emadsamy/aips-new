@@ -195,15 +195,15 @@
                   </div>
                 </div>
 
+
+                <!-- Academic Qualifications  -->
                 <div class="online-form-addition mb-40">
                   <div class="small-title with-underline mb-4">Academic Qualifications</div>
-
                   <div class="form-inputs form-inputs-multiples">
-                    <!-- Qualifications -->
                     <div class="fm-gro">
                       <div
                         class="form-group-row"
-                        v-for="i in quals.key"
+                        v-for="i in row.qualifications_key"
                         :key="i"
                         :class="i == 0 ? 'hidden' : ''"
                         :id="'frm_' + i"
@@ -215,7 +215,7 @@
                               <input
                                 type="text"
                                 class="form-control"
-                                v-model="quals.educational[i]"
+                                v-model="row.qualifications_name[i]"
                               />
                             </div>
                           </div>
@@ -225,21 +225,23 @@
                           <div class="form-addition-content">
                             <label class="label-addition">University / College</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" v-model="quals.univeristy[i]" />
+                              <input type="text" class="form-control"
+                                  v-model="row.qualifications_univeristy[i]" />
                             </div>
                           </div>
 
                           <div class="form-addition-content">
                             <label class="label-addition">GPA / Grade</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" v-model="quals.grade[i]" />
+                              <input type="text" class="form-control"
+                                v-model="row.qualifications_grade[i]" />
                             </div>
                           </div>
 
                           <div class="form-addition-content">
                             <label class="label-addition">Year</label>
                             <div class="form-group form-select">
-                              <select class="selectbox" v-model="quals.year[i]">
+                              <select class="selectbox" v-model="row.qualifications_year[i]">
                                 <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
                               </select>
                             </div>
@@ -251,11 +253,14 @@
                       </button>
                     </div>
 
+
+
+
                     <!-- Courses -->
                     <div class="fm-gro">
                       <div
                         class="form-group-row"
-                        v-for="i in cours.key"
+                        v-for="i in row.courses_key"
                         :key="i"
                         :class="i == 0 ? 'hidden' : ''"
                         :id="'frm_' + i"
@@ -264,7 +269,7 @@
                           <div class="form-addition-content">
                             <label class="label-addition">Courses Attended</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" v-model="cours.program[i]" />
+                              <input type="text" class="form-control" v-model="row.courses_name[i]" />
                             </div>
                           </div>
                         </div>
@@ -273,14 +278,14 @@
                           <div class="form-addition-content">
                             <label class="label-addition">Institute / Training center</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" v-model="cours.institute[i]" />
+                              <input type="text" class="form-control" v-model="row.courses_institue[i]" />
                             </div>
                           </div>
 
                           <div class="form-addition-content form-addition-du">
                             <label class="label-addition">Duration</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" v-model="cours.duration[i]" />
+                              <input type="text" class="form-control" v-model="row.courses_duration[i]" />
                             </div>
                           </div>
 
@@ -288,7 +293,7 @@
                               <div class="date-from-to">
                                 <label class="label-addition">Date From</label>
                                 <div class="form-group date-start-end">
-                                  <input type="date" name="" v-model="cours.date_from[i]">
+                                  <input type="date" name="" v-model="row.courses_dateFrom[i]">
                                   <span class="icon-calendar ca-date"></span>
                                 </div>
                               </div>
@@ -296,7 +301,7 @@
                               <div class="date-from-to">
                                 <label class="label-addition">Date To</label>
                                 <div class="form-group date-start-end">
-                                  <input type="date" name="" v-model="cours.date_to[i]">
+                                  <input type="date" name="" v-model="row.courses_dateTo[i]">
                                   <span class="icon-calendar ca-date"></span>
                                 </div>
                               </div>
@@ -324,7 +329,7 @@
                     <div class="fm-gro">
                       <div
                         class="form-group-row"
-                        v-for="i in langsData.key"
+                        v-for="i in row.languages_key"
                         :key="i"
                         :class="i == 0 ? 'hidden' : ''"
                         :id="'frm_' + i"
@@ -336,8 +341,7 @@
                               <select
                                 class="select-country select-lang"
                                 name="country"
-                                :value="row.nationality"
-                                v-model="langsData.language[i]"
+                                v-model="row.languages_name[i]"
                               >
                                 <option
                                   v-for="(lang, index) in langs"
@@ -353,7 +357,7 @@
                           <div class="form-addition-content">
                             <label class="label-addition">Level of Proficiency</label>
                             <div class="form-group form-select">
-                              <select class="selectbox" v-model="langsData.level[i]">
+                              <select class="selectbox" v-model="row.languages_level[i]">
                                 <option
                                   v-for="(lan, index) in langsLevels"
                                   :value="lan"
@@ -474,7 +478,7 @@ import Footer from "../components/Footer.vue";
 // import { VueTelInput } from 'vue-tel-input'
 // import DatePicker from "vue2-datepicker";
 import DatePicker from "../components/DatePicker.vue";
-import Loop from "../components/Loop.vue";
+// import Loop from "../components/Loop.vue";
 import axios from "axios";
 
 export default {
@@ -484,7 +488,7 @@ export default {
     Footer,
     // VueTelInput,
     DatePicker,
-    Loop,
+    // Loop,
   },
   data() {
     return {
@@ -589,7 +593,32 @@ export default {
       ],
       pTitle: "",
       langsLevels: ["Beginner", "Elementary", "Intermediate", "Proficiency"],
+      row: {
+        // qualifications
+        qualifications: [],
+        qualifications_key: 1,
+        qualifications_name: [],
+        qualifications_univeristy: [],
+        qualifications_grade: [],
+        qualifications_year: [],
+
+        // courses
+        courses: [],
+        courses_key: 1,
+        courses_name: [],
+        courses_institue: [],
+        courses_duration: [],
+        courses_dateFrom: [],
+        courses_dateTo: [],
+
+        // languages
+        languages: [],
+        languages_key: 1,
+        languages_name: [],
+        languages_level: [],
+      },
       quals: {
+        data: [],
         key: 1,
         educational: [],
         univeristy: [],
@@ -687,29 +716,29 @@ export default {
         "X-Requested-With": "XMLHttpRequest", // security to prevent CSRF attacks
       };
 
-      for (let i = 1; i < this.quals.length; i++) {
-        this.quals.qualficas[i] = {
-          "educational": this.quals.educational[i],
-          "univeristy": this.quals.univeristy[i],
-          "grade": this.quals.grade[i],
-          "year": this.quals.year[i],
+      for (let i = 1; i < this.row.qualifications_name.length; i++) {
+        this.row.qualifications[i] = {
+          "educational": this.row.qualifications_name[i],
+          "univeristy": this.row.qualifications_univeristy[i],
+          "grade": this.row.qualifications_grade[i],
+          "year": this.row.qualifications_year[i]
         };
       }
 
-      for (let i = 1; i < this.cours.length; i++) {
-        this.cours.courses[i] = {
-          "program": this.cours.program[i],
-          "institute": this.cours.institute[i],
-          "duration": this.cours.duration[i],
-          "date_from": this.cours.date_from[i],
-          "date_to": this.cours.date_to[i],
+      for (let i = 1; i < this.row.courses_name.length; i++) {
+        this.row.courses[i] = {
+          "program": this.row.courses_name[i],
+          "institute": this.row.courses_institue[i],
+          "duration": this.row.courses_duration[i],
+          "date_from": this.row.courses_dateFrom[i],
+          "date_to": this.row.courses_dateTo[i]
         };
       }
 
-      for (let i = 1; i < this.langsData.length; i++) {
-        this.langsData.langs[i] = {
-          "language": this.langsData.language[i],
-          "level": this.langsData.level[i],
+      for (let i = 1; i < this.row.languages_name.length; i++) {
+        this.row.languages[i] = {
+          "language": this.row.languages_name[i],
+          "level": this.row.languages_level[i]
         };
       }
 
@@ -737,9 +766,11 @@ export default {
           telephone_no: this.row.telephone_no,
           email_Address: this.row.email_address,
           video_url: this.row.video_url,
-          qualifcations: this.quals,
-          languages: this.langsData,
-          courses: this.cours,
+
+          //
+          qualifcations: this.row.qualifications,
+          languages: this.row.languages,
+          courses: this.row.courses,
         },
       };
       axios(options)
@@ -885,13 +916,13 @@ export default {
 
     // items add more
     addMoreQuals() {
-      this.quals.key++;
+      this.row.qualifications_key++;
     },
     addMoreLangs() {
-      this.langsData.key++;
+      this.row.languages_key++;
     },
     addMoreCours() {
-      this.cours.key++;
+      this.row.courses_key++;
     },
   },
   created() {

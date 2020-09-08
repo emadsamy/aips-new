@@ -355,7 +355,7 @@ import Footer from "../../components/Footer.vue";
 import axios from "axios";
 
 export default {
-  name: "memberships",
+  name: "Pages",
   components: {
     Navbar: Navbar,
     Footer: Footer
@@ -391,10 +391,11 @@ export default {
   methods: {
 
     fetchRow() {
+
       this.pgLoading = true;
-      axios.defaults.headers.common = {
-        //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
-      };
+      // axios.defaults.headers.common = {
+      //   //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
+      // };
       const options = {
         url: window.baseURL+'/pages/'+this.$route.params.slug,
         method: 'GET',
@@ -415,7 +416,7 @@ export default {
           this.has_training = res.data.row.has_training;
           this.has_download = res.data.row.has_download;
           this.download_name = res.data.row.download_name;
-          this.pdf_file = res.data.rows.pdf_file;
+          this.pdf_file = res.data.row.pdf;
 
           // content
           this.row = res.data.row;
@@ -423,6 +424,7 @@ export default {
         })
         .catch(err => {
             this.pgLoading = false;
+            console.log('err' + err);
             //
         })
         .finally(() => {})

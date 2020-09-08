@@ -1,4 +1,4 @@
-# aips_vue
+# aips-vuejs
 
 ## Project setup
 ```

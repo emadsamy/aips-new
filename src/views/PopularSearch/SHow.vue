@@ -313,9 +313,9 @@ export default {
 
     fetchRow() {
       this.pgLoading = true;
-      axios.defaults.headers.common = {
-        //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
-      };
+      // axios.defaults.headers.common = {
+      //   //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
+      // };
       const options = {
         url: window.baseURL+'/popularSearch/'+this.$route.params.slug,
         method: 'GET',

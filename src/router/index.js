@@ -1,5 +1,6 @@
-import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 import Programs from "../views/Programs.vue";
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
@@ -30,21 +31,22 @@ import Profile from "../views/Profile.vue";
 import Logout from "../views/Logout.vue";
 import NavbarPage from "../views/NavbarPage.vue";
 
-const routes = [
+Vue.use(VueRouter)
+
+  const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    name: 'Home',
+    component: Home
   },
   // {
-  //   path: "/about",
-  //   name: "About",
+  //   path: '/about',
+  //   name: 'About',
   //   // route level code-splitting
   //   // this generates a separate chunk (about.[hash].js) for this route
   //   // which is lazy-loaded when the route is visited.
-  //   component: () =>
-  //     import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  // },
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  // }
   {
     path: "/programs",
     name: "Programs",
@@ -79,21 +81,21 @@ const routes = [
   },
 
   /* Show */
-  {
-    path: "/i-am-instructor",
-    name: "Instructor",
-    component: Instructor,
-  },
-  {
-    path: "/i-have-experience",
-    name: "Experience",
-    component: Experience,
-  },
-  {
-    path: "/training-center",
-    name: "TrainingCenter",
-    component: TrainingCenter,
-  },
+  // {
+  //   path: "/i-am-instructor",
+  //   name: "Instructor",
+  //   component: Instructor,
+  // },
+  // {
+  //   path: "/i-have-experience",
+  //   name: "Experience",
+  //   component: Experience,
+  // },
+  // {
+  //   path: "/training-center",
+  //   name: "TrainingCenter",
+  //   component: TrainingCenter,
+  // },
   // {
   //   path: "/membership",
   //   name: "Membership",
@@ -131,26 +133,26 @@ const routes = [
   //   name: "NavbarPage",
   //   component: NavbarPage,
   // },
-  {
-    path: "/news",
-    name: "News",
-    component: News,
-  },
+  // {
+  //   path: "/news",
+  //   name: "News",
+  //   component: News,
+  // },
   {
     path: "/my-certificate",
     name: "MainCertificate",
     component: MainCertificate,
   },
-  {
-    path: "/main-certificate-achievement",
-    name: "CertificateAchievement",
-    component: CertificateAchievement,
-  },
-  {
-    path: "/corporate-training",
-    name: "Corporate",
-    component: Corporate,
-  },
+  // {
+  //   path: "/main-certificate-achievement",
+  //   name: "CertificateAchievement",
+  //   component: CertificateAchievement,
+  // },
+  // {
+  //   path: "/corporate-training",
+  //   name: "Corporate",
+  //   component: Corporate,
+  // },
   {
     path: "/contact",
     name: "ContactUs",
@@ -235,11 +237,6 @@ const routes = [
 
   // Pages
   {
-    path: "/page",
-    name: "page",
-    component: require("../views/Pages/List.vue").default,
-  },
-  {
     path: "/page/:slug",
     name: "show-page",
     component: require("../views/Pages/Show.vue").default,
@@ -274,12 +271,12 @@ const routes = [
     name: "faq",
     component: require("../views/Faq.vue").default,
   },
-];
+]
 
-const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  base: "/", // defeind baseUrl
-  routes,
-});
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+})
 
-export default router;
+export default router

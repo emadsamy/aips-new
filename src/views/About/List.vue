@@ -415,9 +415,6 @@ export default {
 
     fetchData() {
       this.pgLoading = true;
-      axios.defaults.headers.common = {
-        //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
-      };
       const options = {
         url: window.baseURL+'/about',
         method: 'GET',
