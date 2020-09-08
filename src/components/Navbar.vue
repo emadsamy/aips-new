@@ -14,7 +14,7 @@
           <router-link :to="{ name: 'memberships'}" class="nav-link">Membership</router-link>
           <router-link to="/about" class="nav-link">About</router-link>
           <router-link to="/contact" class="nav-link">Contact Us</router-link>
-          <router-link to="/our-certificate" class="nav-link">Our Certificate</router-link>
+          <router-link to="/our-certificate" class="nav-link">Certifications</router-link>
           <router-link
             v-for="(nav, index) in navbar"
             :to="{ name: 'page', params: { slug: nav.slug }}"

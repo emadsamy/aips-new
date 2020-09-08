@@ -205,13 +205,12 @@
 }
 .date-start-end {
   width: 100% !important;
-  padding-right: 50px;
   position: relative;
 }
 .ca-date {
   position: absolute;
-  right: 12px;
-  font-size: 23px;
+  right: 15px;
+  font-size: 20px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -255,6 +254,24 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+.form-addition-date {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.form-addition-date > div {
+  width: 48%;
+}
+.form-addition-date input {
+  width: 100%;
+  position: relative;
+  z-index: 30;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0
 }
 
 /* Extra small devices (portrait phones, less than 576px) */

@@ -170,7 +170,7 @@
                     </div>
 
                     <div class="form-group form-group-upload">
-                      <span class="text">passport size phonts!</span>
+                      <span class="text">Passport size photo!</span>
                       <span class="icon-upload ic-upload"></span>
                       <input type="file" name="passport_size_file" class="form-control" @change="onPassportSizeChange" />
                     </div>
@@ -285,11 +285,21 @@
                           </div>
 
                           <div class="form-addition-content form-addition-date mt-3">
-                            <label class="label-addition">Date</label>
-                            <div class="form-group date-start-end">
-                              <input type="date" name="" v-model="cours.date[i]">
-                              <!-- <DatePicker></DatePicker> -->
-                            </div>
+                              <div class="date-from-to">
+                                <label class="label-addition">Date From</label>
+                                <div class="form-group date-start-end">
+                                  <input type="date" name="" v-model="cours.date_from[i]">
+                                  <span class="icon-calendar ca-date"></span>
+                                </div>
+                              </div>
+
+                              <div class="date-from-to">
+                                <label class="label-addition">Date To</label>
+                                <div class="form-group date-start-end">
+                                  <input type="date" name="" v-model="cours.date_to[i]">
+                                  <span class="icon-calendar ca-date"></span>
+                                </div>
+                              </div>
                           </div>
 
                           <!-- <div
@@ -596,7 +606,8 @@ export default {
         program: [],
         institute: [],
         duration: [],
-        date: [],
+        date_from: [],
+        date_to: [],
       },
       firstName: false,
       middleName: false,
@@ -678,10 +689,10 @@ export default {
 
       for (let i = 1; i < this.quals.length; i++) {
         this.quals.qualficas[i] = {
-          "educational": this.cours.educational[i],
-          "univeristy": this.cours.univeristy[i],
-          "grade": this.cours.grade[i],
-          "year": this.cours.year[i],
+          "educational": this.quals.educational[i],
+          "univeristy": this.quals.univeristy[i],
+          "grade": this.quals.grade[i],
+          "year": this.quals.year[i],
         };
       }
 
@@ -690,7 +701,8 @@ export default {
           "program": this.cours.program[i],
           "institute": this.cours.institute[i],
           "duration": this.cours.duration[i],
-          "date": this.cours.date[i],
+          "date_from": this.cours.date_from[i],
+          "date_to": this.cours.date_to[i],
         };
       }
 
@@ -725,8 +737,9 @@ export default {
           telephone_no: this.row.telephone_no,
           email_Address: this.row.email_address,
           video_url: this.row.video_url,
-          languages: this.langsData.langs,
-          courses: this.cours.courses,
+          qualifcations: this.quals,
+          languages: this.langsData,
+          courses: this.cours,
         },
       };
       axios(options)

@@ -167,12 +167,13 @@
                       v-for="(pro, index) in row.programs"
                       :key="index">
                       <div class="ct-title paleMainColor">
-                        <router-link :to="{name: 'certificate-program-detail', 
-                              params:{ slug: pro.slug }}" >
-                            {{ pro.title }}
-                        </router-link>
+                        {{ pro.title }}
                       </div>
-                      <div class="ct-type">{{ pro.subTitle }}</div>
+                      <div class="ct-type mb-4">{{ pro.subTitle }}</div>
+                      <router-link class="read-more" :to="{name: 'certificate-program-detail',
+                            params:{ slug: pro.slug }}" >
+                            <div class="d-flex align-items-center">Read More <span class="icon-back"></span></div>
+                      </router-link>
                     </div>
                   </div>
                   <div class="ct-badge">

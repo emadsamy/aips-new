@@ -77,26 +77,30 @@ const routes = [
     name: "ourCertificate",
     component: OurCertificate,
   },
-  // {
-  //   path: "/i-am-instructor",
-  //   name: "Instructor",
-  //   component: Instructor,
-  // },
-  // {
-  //   path: "/i-have-experience",
-  //   name: "Experience",
-  //   component: Experience,
-  // },
-  // {
-  //   path: "/training-center",
-  //   name: "TrainingCenter",
-  //   component: TrainingCenter,
-  // },
+
+  /* Show */
+  {
+    path: "/i-am-instructor",
+    name: "Instructor",
+    component: Instructor,
+  },
+  {
+    path: "/i-have-experience",
+    name: "Experience",
+    component: Experience,
+  },
+  {
+    path: "/training-center",
+    name: "TrainingCenter",
+    component: TrainingCenter,
+  },
   // {
   //   path: "/membership",
   //   name: "Membership",
   //   component: Membership,
   // },
+  /* Show */
+
   {
     path: "/privacy",
     name: "Privacy",

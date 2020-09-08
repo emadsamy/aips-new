@@ -20,8 +20,8 @@
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
                   <a v-if="has_scroll" :href="'#'+nav.slug" class="link"> {{ nav.title }}</a>
-                  <router-link v-if="!has_scroll" 
-                      :to="{ name: 'show-memberships', params: {slug: nav.slug}}" 
+                  <router-link v-if="!has_scroll"
+                      :to="{ name: 'show-memberships', params: {slug: nav.slug}}"
                       class="link">
                       {{ nav.title }}
                   </router-link>
@@ -83,7 +83,7 @@
                     <!-- Design 1 -->
                     <div class="row col-lg-12 widget-accreditation justify-content-between"
                         v-if="con.background"
-                        style="border-bottom: 1px solid #707070" 
+                        style="border-bottom: 1px solid #707070"
                         :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
                         <div class="wa-view col-lg-6" v-if="con.background" style="padding: 0">
                             <img :src="con.background" class="img-fluid" alt="" />
@@ -107,14 +107,13 @@
                         </div>
                       </div>
                       <div class="row" v-if="con.body_left">
-                        <div class="col-lg-6" v-if="con.body_left" 
+                        <div class="col-lg-6" v-if="con.body_left"
                               style="">
                           <div class="acc-box">
                             <div v-html="con.body_left"></div>
                           </div>
                         </div>
-                        <div class="col-lg-6" v-if="con.body_right" 
-                              style="padding:30px;margin-top: -20px">
+                        <div class="col-lg-6" v-if="con.body_right">
                           <div class="acc-box">
                             <div v-html="con.body_right"></div>
                           </div>
@@ -126,7 +125,7 @@
                 </div>
 
                 <p><br/></p>
-                
+
               </div>
             </div>
             <!-- End Content -->
@@ -174,21 +173,21 @@
             <p>
             <div class="program-download" v-if="has_download">
               <div class="download-catalog">
-                  <img :src="require('../../assets/img/home.png')" 
-                      alt="Download Catalog" 
+                  <img :src="require('../../assets/img/home.png')"
+                      alt="Download Catalog"
                       class="img-fluid" />
                   <div class="title">
                       {{ download_name }}
                   </div>
-                  <a v-if="pdf_file" 
-                      :href="pdf_file" 
-                      target="_blank" 
+                  <a v-if="pdf_file"
+                      :href="pdf_file"
+                      target="_blank"
                       download class="download-btn">Download</a>
               </div>
             </div>
             </p>
 
-            
+
 
             </div>
             <!-- End Right Sidebar -->
@@ -302,6 +301,9 @@
   color: #6e6d76;
   font-size: 17px;
   margin-bottom: 20px;
+}
+iframe {
+  width: 100%;
 }
 .program-header.main-program-header .program-header-view {
   width: calc(100% - 330px);
