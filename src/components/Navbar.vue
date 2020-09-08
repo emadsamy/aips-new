@@ -15,18 +15,20 @@
           <router-link to="/about" class="nav-link">About</router-link>
           <router-link to="/contact" class="nav-link">Contact Us</router-link>
           <router-link to="/our-certificate" class="nav-link">Certifications</router-link>
-          <router-link
-            v-for="(nav, index) in navbar"
-            :to="{ name: 'page', params: { slug: nav.slug }}"
-            class="nav-link"
-            :key="index"
-          >{{ nav.title }}</router-link>
-          <router-link
+          <div v-for="(nav, index) in navbar">
+            <router-link
+              v-if="nav.has_header"
+              :to="{ name: 'show-page', params: { slug: nav.slug }}"
+              class="nav-link"
+              :key="index"
+            >{{ nav.title }}</router-link>
+          </div>
+          <!-- <router-link
             v-for="(link, index) in links"
             :key="index"
             :to="'/' + link.slug"
             class="nav-link hiddenBgSize"
-          >{{ link.title }}</router-link>
+          >{{ link.title }}</router-link> -->
           <div class="hiddenBgSize">
             <Footer :footerNavbar="true" />
           </div>

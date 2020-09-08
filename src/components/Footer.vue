@@ -18,7 +18,15 @@
         <router-link to="/online-training" class="footer-link"
           >Online Training</router-link
         >
-        <router-link to="/news" class="footer-link">News</router-link>
+        <div v-for="(nav, index) in navbar">
+            <router-link
+              v-if="nav.has_footer"
+              :to="{ name: 'show-page', params: { slug: nav.slug }}"
+              class="nav-link"
+              :key="index"
+            >{{ nav.title }}</router-link>
+        </div>
+        <!-- <router-link to="/news" class="footer-link">News</router-link> -->
       </div>
       <div class="footer-social">
         <div class="text">Follow Us</div>

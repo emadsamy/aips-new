@@ -415,7 +415,7 @@ export default {
           this.has_training = res.data.row.has_training;
           this.has_download = res.data.row.has_download;
           this.download_name = res.data.row.download_name;
-          this.pdf_file = res.data.rows.pdf_file;
+          this.pdf_file = res.data.row.pdf_file;
 
           // content
           this.row = res.data.row;

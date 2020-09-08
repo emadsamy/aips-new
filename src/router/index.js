@@ -235,11 +235,6 @@ const routes = [
 
   // Pages
   {
-    path: "/page",
-    name: "page",
-    component: require("../views/Pages/List.vue").default,
-  },
-  {
     path: "/page/:slug",
     name: "show-page",
     component: require("../views/Pages/Show.vue").default,
