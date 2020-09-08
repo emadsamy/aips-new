@@ -14,7 +14,7 @@
           <router-link :to="{ name: 'memberships'}" class="nav-link">Membership</router-link>
           <router-link to="/about" class="nav-link">About</router-link>
           <router-link to="/contact" class="nav-link">Contact Us</router-link>
-          <router-link to="/our-certificate" class="nav-link">Certifications</router-link>
+          <router-link to="/our-certificate" class="nav-link">Certification</router-link>
           <div v-for="(nav, index) in navbar">
             <router-link
               v-if="nav.has_header"

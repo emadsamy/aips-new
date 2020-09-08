@@ -123,13 +123,14 @@
                   </div>
 
                   <div class="form-group" :class="{ 'red-border': telValidation }">
-                    <input
+                    <!-- <input
                       type="text"
                       class="form-control"
                       placeholder="Telephone No"
                       v-model="row.telephone_no"
                       required
-                    />
+                    /> -->
+                    <vue-tel-input v-model="row.telephone_no"></vue-tel-input>
                   </div>
 
                   <!-- <div class="form-group">
@@ -475,10 +476,9 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-// import { VueTelInput } from 'vue-tel-input'
-// import DatePicker from "vue2-datepicker";
+import { VueTelInput } from 'vue-tel-input'
 import DatePicker from "../components/DatePicker.vue";
-// import Loop from "../components/Loop.vue";
+
 import axios from "axios";
 
 export default {
@@ -486,7 +486,7 @@ export default {
   components: {
     Navbar,
     Footer,
-    // VueTelInput,
+    VueTelInput,
     DatePicker,
     // Loop,
   },

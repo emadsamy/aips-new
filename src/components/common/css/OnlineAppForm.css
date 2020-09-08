@@ -273,6 +273,20 @@ input[type="date"]::-webkit-inner-spin-button,
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0
 }
+.vue-tel-input {
+  border: none;
+}
+.vue-tel-input div {
+  padding: 0 !important;
+  margin: -7px
+}
+.vti__dropdown {
+  padding: 0
+}
+.vue-tel-input:focus-within {
+  box-shadow: none;
+  border: none
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

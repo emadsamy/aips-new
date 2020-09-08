@@ -13,6 +13,9 @@ html {
 .goldColor {
   color: #d0d877 !important;
 }
+.vue-tel-input > div {
+  padding: 3px;
+}
 
 /* Colors */
 /* Global */
