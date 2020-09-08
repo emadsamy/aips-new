@@ -33,6 +33,10 @@
                   <div v-for="(item, index) in filteredItems" :key="index">
                     <router-link @click="reloadPage()" :to="{name: 'Program', params: {slug: item.slug } }" class="search-link-dropdown">{{item.title}}</router-link>
                   </div>
+
+                  <div v-for="(page, index) in pages" :key="index">
+                    <router-link @click="reloadPage()" :to="{name: 'Program', params: {slug: page.pageSlug } }" class="search-link-dropdown">{{page.pageName}}</router-link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -318,6 +322,7 @@ export default {
       searchOutput: false,
       noResults: false,
       sectors: [],
+      pages: [],
     };
   },
   methods: {
@@ -340,6 +345,19 @@ export default {
           this.sectors = data;
           console.log(data);
           console.log(sectors);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    fetchPages: function () {
+      // Search
+      axios
+        .get(window.baseURL + "/search")
+        .then((res) => {
+          const data = res.data.rows;
+          this.pages = data;
+          console.log(data);
         })
         .catch((err) => {
           console.log(err);
@@ -373,6 +391,7 @@ export default {
       });
 
     this.fetchSectors();
+    this.fetchPages();
   },
 };
 </script>

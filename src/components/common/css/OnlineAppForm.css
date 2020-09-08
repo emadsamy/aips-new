@@ -178,7 +178,8 @@
   width: 100%;
   border: none;
 }
-.select-country {
+.select-country,
+.selectbox {
   border: none;
   min-width: 20%;
   padding-bottom: 0;
@@ -238,6 +239,22 @@
 }
 .form-group-row .form-group {
   margin: 0;
+}
+.select-lang {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background: transparent;
+}
+.form-addition-content .form-group {
+  position: relative;
+}
+.choose-lang-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */

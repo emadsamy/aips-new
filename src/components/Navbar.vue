@@ -80,6 +80,12 @@
 <style lang="scss" scoped>
 .showDropdown {
   position: relative;
+  height: 33px;
+  width: 33px;
+}
+.showDropdown img {
+  width: 100%;
+  height: 100%;
 }
 .showDropdown:after {
   content: "";

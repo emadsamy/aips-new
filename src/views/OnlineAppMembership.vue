@@ -10,9 +10,7 @@
         <div class="online-app-header">
           <div class="online-app-details">
             <div class="align-center">
-              <div class="title goldColor">
-                {{ pTitle || "Membership" }}
-              </div>
+              <div class="title goldColor">{{ pTitle || "Membership" }}</div>
               <div class="description-type goldColor">Online Application</div>
             </div>
           </div>
@@ -40,7 +38,7 @@
                   alt
                 />
                 <div class="upload-avatar">
-                  <input type="file" name="avatar" @change="onImageChange" />
+                  <input type="file" name="image" @change="onImageChange" />
                   <span class="icon-drag"></span>
                   <div class="upload-text">Upload your photo</div>
                 </div>
@@ -54,12 +52,7 @@
                     only.
                   </div>
                   <div class="alert-checkbox">
-                    <input
-                      id="agreeNote"
-                      type="checkbox"
-                      name="Agree"
-                      value="1"
-                    />
+                    <input id="agreeNote" type="checkbox" name="Agree" value="1" />
                     <label for="agreeNote">I Agree</label>
                   </div>
                 </div>
@@ -68,7 +61,8 @@
                   Tips for completing this form:
                   <br />
                   <br />1- Hand-write your information cleary in blue or black
-                  ink onto a printed form and submit it by postal mail. <br />2-
+                  ink onto a printed form and submit it by postal mail.
+                  <br />2-
                   Type your information into the PDF. If you have PDF-editing
                   software like Adobe© Acrobat© or Foxit© Reader, you can save
                   your data. Otherwise, you will only be able to type your
@@ -78,7 +72,7 @@
                 <div class="small-title mb-3">Personal Information</div>
 
                 <div class="form-inputs">
-                  <div class="form-group" :class="{ 'red-border': redBorder }">
+                  <div class="form-group" :class="{ 'red-border': firstName }">
                     <input
                       type="text"
                       class="form-control"
@@ -89,21 +83,16 @@
 
                   <div class="form-group d-flex justify-content-between">
                     <label class="cc-label">Country</label>
-                    <select
-                      v-model="row.nationality"
-                      class="select-country"
-                      name="country"
-                    >
+                    <select v-model="row.nationality" class="select-country" name="country">
                       <option
                         v-for="(country, index) in countries"
                         :value="country.value"
                         :key="index"
-                        >{{ country.value }}</option
-                      >
+                      >{{ country.value }}</option>
                     </select>
                   </div>
 
-                  <div class="form-group" :class="{ 'red-border': redBorder }">
+                  <div class="form-group" :class="{ 'red-border': middleName }">
                     <input
                       type="text"
                       class="form-control"
@@ -113,7 +102,7 @@
                     />
                   </div>
 
-                  <div class="form-group" :class="{ 'red-border': redBorder }">
+                  <div class="form-group" :class="{ 'red-border': addressValidation }">
                     <input
                       type="text"
                       class="form-control"
@@ -123,7 +112,7 @@
                     />
                   </div>
 
-                  <div class="form-group" :class="{ 'red-border': redBorder }">
+                  <div class="form-group" :class="{ 'red-border': lastName }">
                     <input
                       type="text"
                       class="form-control"
@@ -133,7 +122,7 @@
                     />
                   </div>
 
-                  <div class="form-group">
+                  <div class="form-group" :class="{ 'red-border': telValidation }">
                     <input
                       type="text"
                       class="form-control"
@@ -145,9 +134,9 @@
 
                   <!-- <div class="form-group">
                     <vue-tel-input v-model="phone"></vue-tel-input>
-                  </div> -->
+                  </div>-->
 
-                  <div class="form-group" :class="{ 'red-border': redBorder }">
+                  <div class="form-group" :class="{ 'red-border': fullName }">
                     <input
                       type="text"
                       class="form-control"
@@ -157,7 +146,7 @@
                     />
                   </div>
 
-                  <div class="form-group" :class="{ 'red-border': redBorder }">
+                  <div class="form-group" :class="{ 'red-border': emailValidation }">
                     <input
                       type="email"
                       class="form-control"
@@ -168,9 +157,7 @@
                   </div>
                 </div>
 
-                <div class="form-note mb-5">
-                  As you want it to appear on your membership certificate
-                </div>
+                <div class="form-note mb-5">As you want it to appear on your membership certificate</div>
 
                 <div class="online-form-upload mb-40">
                   <div class="small-title mb-3">Documents</div>
@@ -179,39 +166,37 @@
                     <div class="form-group form-group-upload">
                       <span class="text">ID or passport</span>
                       <span class="icon-upload ic-upload"></span>
-                      <input type="file" class="form-control" value />
+                      <input type="file" name="passport_file" class="form-control" @change="onPassportChange" />
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">passport size phonts!</span>
                       <span class="icon-upload ic-upload"></span>
-                      <input type="file" class="form-control" value />
+                      <input type="file" name="passport_size_file" class="form-control" @change="onPassportSizeChange" />
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Current occupation (documented)</span>
                       <span class="icon-upload ic-upload"></span>
-                      <input type="file" class="form-control" value />
+                      <input type="file" name="occupation_file" class="form-control" @change="onOccupationChange" />
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Detailed resume</span>
                       <span class="icon-upload ic-upload"></span>
-                      <input type="file" class="form-control" value />
+                      <input type="file" name="detailed_resume" class="form-control"  @change="onDetailedChange" />
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Proof of prior work experience (via HR letters)</span>
                       <span class="icon-upload ic-upload"></span>
-                      <input type="file" class="form-control" value />
+                      <input type="file" name="hr_letter_file" class="form-control" @change="onHrLetteredChange" />
                     </div>
                   </div>
                 </div>
 
                 <div class="online-form-addition mb-40">
-                  <div class="small-title with-underline mb-4">
-                    Academic Qualifications
-                  </div>
+                  <div class="small-title with-underline mb-4">Academic Qualifications</div>
 
                   <div class="form-inputs form-inputs-multiples">
                     <!-- Qualifications -->
@@ -225,53 +210,43 @@
                       >
                         <div class="form-addition">
                           <div class="form-addition-content">
-                            <label class="label-addition"
-                              >Educational and Qualification</label
-                            >
+                            <label class="label-addition">Educational and Qualification</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" value />
+                              <input
+                                type="text"
+                                class="form-control"
+                                v-model="quals.educational[i]"
+                              />
                             </div>
                           </div>
                         </div>
 
                         <div class="form-addition form-addition-multiple">
                           <div class="form-addition-content">
-                            <label class="label-addition"
-                              >University / College</label
-                            >
+                            <label class="label-addition">University / College</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" value />
+                              <input type="text" class="form-control" v-model="quals.univeristy[i]" />
                             </div>
                           </div>
 
                           <div class="form-addition-content">
                             <label class="label-addition">GPA / Grade</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" value />
+                              <input type="text" class="form-control" v-model="quals.grade[i]" />
                             </div>
                           </div>
 
                           <div class="form-addition-content">
                             <label class="label-addition">Year</label>
                             <div class="form-group form-select">
-                              <select class="selectbox">
-                                <option
-                                  v-for="year in years"
-                                  :key="year"
-                                  :value="year"
-                                  >{{ year }}</option
-                                >
+                              <select class="selectbox" v-model="quals.year[i]">
+                                <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
                               </select>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <button
-                        @click="addMoreQuals()"
-                        class="add-btn"
-                        type="button"
-                        name="button"
-                      >
+                      <button @click="addMoreQuals()" class="add-btn" type="button" name="button">
                         <span class="icon-plus ic-plus"></span> Add
                       </button>
                     </div>
@@ -287,38 +262,33 @@
                       >
                         <div class="form-addition">
                           <div class="form-addition-content">
-                            <label class="label-addition"
-                              >Courses Attended</label
-                            >
+                            <label class="label-addition">Courses Attended</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" value />
+                              <input type="text" class="form-control" v-model="cours.program[i]" />
                             </div>
                           </div>
                         </div>
 
                         <div class="form-addition form-addition-multiple">
                           <div class="form-addition-content">
-                            <label class="label-addition"
-                              >Institute / Training center</label
-                            >
+                            <label class="label-addition">Institute / Training center</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" value />
+                              <input type="text" class="form-control" v-model="cours.institute[i]" />
                             </div>
                           </div>
 
                           <div class="form-addition-content form-addition-du">
                             <label class="label-addition">Duration</label>
                             <div class="form-group">
-                              <input type="text" class="form-control" value />
+                              <input type="text" class="form-control" v-model="cours.duration[i]" />
                             </div>
                           </div>
 
-                          <div
-                            class="form-addition-content form-addition-date mt-3"
-                          >
+                          <div class="form-addition-content form-addition-date mt-3">
                             <label class="label-addition">Date</label>
                             <div class="form-group date-start-end">
-                              <DatePicker :valueFrom="valFrom" :valueTo="valTo"></DatePicker>
+                              <input type="date" name="" v-model="cours.date[i]">
+                              <!-- <DatePicker></DatePicker> -->
                             </div>
                           </div>
 
@@ -332,16 +302,10 @@
                               <DatePicker></DatePicker>
                               <span class="icon-calendar ca-date"></span>
                             </div>
-                          </div> -->
-
+                          </div>-->
                         </div>
                       </div>
-                      <button
-                        @click="addMoreCours()"
-                        class="add-btn"
-                        type="button"
-                        name="button"
-                      >
+                      <button @click="addMoreCours()" class="add-btn" type="button" name="button">
                         <span class="icon-plus ic-plus"></span> Add
                       </button>
                     </div>
@@ -357,22 +321,19 @@
                       >
                         <div class="form-addition">
                           <div class="form-addition-content">
-                            <label class="label-addition bf-visbility"
-                              >Languages</label
-                            >
-                            <div
-                              class="form-group d-flex justify-content-between"
-                            >
-                              <label class="label-addition cc-label"
-                                >Languages</label
+                            <label class="label-addition">Languages</label>
+                            <div class="form-group d-flex justify-content-between">
+                              <select
+                                class="select-country select-lang"
+                                name="country"
+                                :value="row.nationality"
+                                v-model="langsData.language[i]"
                               >
-                              <select class="select-country" name="country">
                                 <option
                                   v-for="(lang, index) in langs"
                                   :value="lang"
                                   :key="index"
-                                  >{{ lang }}</option
-                                >
+                                >{{ lang }}</option>
                               </select>
                             </div>
                           </div>
@@ -380,28 +341,20 @@
 
                         <div class="form-addition">
                           <div class="form-addition-content">
-                            <label class="label-addition"
-                              >Level of Proficiency</label
-                            >
+                            <label class="label-addition">Level of Proficiency</label>
                             <div class="form-group form-select">
-                              <select class="selectbox" name>
+                              <select class="selectbox" v-model="langsData.level[i]">
                                 <option
                                   v-for="(lan, index) in langsLevels"
                                   :value="lan"
                                   :key="index"
-                                  >{{ lan }}</option
-                                >
+                                >{{ lan }}</option>
                               </select>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <button
-                        @click="addMoreLangs()"
-                        class="add-btn"
-                        type="button"
-                        name="button"
-                      >
+                      <button @click="addMoreLangs()" class="add-btn" type="button" name="button">
                         <span class="icon-plus ic-plus"></span> Add
                       </button>
                     </div>
@@ -442,11 +395,7 @@
                     </div>
                     <div class="video-link">
                       <span class="icon-url"></span>
-                      <input
-                        type="text"
-                        v-model="row.video_url"
-                        placeholder="Video link here"
-                      />
+                      <input type="text" v-model="row.video_url" placeholder="Video link here" />
                     </div>
                   </div>
                 </div>
@@ -467,18 +416,14 @@
                     <br />
                     <br />I AGREE THAT I AM NOT ALLOWED TO USE AIHC LOGO OR
                     QUALITY MARK ON THE TRAINING CENTER CERTIFICATES WITHOUT
-                    AIHC APPROVAL. <br />Instructor is required to sign this
+                    AIHC APPROVAL.
+                    <br />Instructor is required to sign this
                     column. Any application for U.S Certified Instructor
                     certificate without trainer’s own signature will be
                     rejected.
                   </div>
                   <div class="alert-checkbox">
-                    <input
-                      id="agreeNote2"
-                      type="checkbox"
-                      name="Agree"
-                      value="1"
-                    />
+                    <input id="agreeNote2" type="checkbox" name="Agree" value="1" />
                     <label for="agreeNote2">I Agree</label>
                   </div>
                 </div>
@@ -489,22 +434,14 @@
                   @click="apply"
                   style="padding: 10px 20px; width: auto"
                   id="applyNow"
+                  :disabled="btnLoading"
                 >
-                  <img
-                    src="../assets/loader.svg"
-                    class="sm-loader"
-                    alt
-                    v-if="btnLoading"
-                  />
+                  <img src="../assets/loader.svg" class="sm-loader" alt v-if="btnLoading" />
                   <span v-else>Apply Now</span>
                 </button>
-                <div v-if="errors" class="alert alert-danger mt-2 text-left">
-                  {{ errors }}
-                </div>
+                <div v-if="errors" class="alert alert-danger mt-2 text-left">{{ errors }}</div>
 
-                <div v-if="success" class="alert alert-success mt-2 text-left">
-                  {{ success }}
-                </div>
+                <div v-if="success" class="alert alert-success mt-2 text-left">{{ success }}</div>
               </div>
             </div>
           </form>
@@ -544,6 +481,11 @@ export default {
       row: {
         preview: "",
         base64Image: "",
+        passport_file: "",
+        passport_size_file: "",
+        occupation_file: "",
+        detailed_resume: "",
+        hr_letter_file: "",
         first_name: "",
         middle_name: "",
         last_name: "",
@@ -639,22 +581,35 @@ export default {
       langsLevels: ["Beginner", "Elementary", "Intermediate", "Proficiency"],
       quals: {
         key: 1,
-        qualifcations: [],
+        educational: [],
+        univeristy: [],
+        grade: [],
+        year: [],
       },
       langsData: {
         key: 1,
-        languages: [],
+        language: [],
+        level: [],
       },
       cours: {
         key: 1,
-        courses: [],
+        program: [],
+        institute: [],
+        duration: [],
+        date: [],
       },
-      valFrom: '',
-      valTo: '',
+      firstName: false,
+      middleName: false,
+      lastName: false,
+      rAddress: false,
+      tel: false,
+      fullName: false,
+      emailValidation: false,
+      telValidation: false,
+      addressValidation: false,
     };
   },
-  mounted() {
-  },
+  mounted() {},
   computed: {
     years() {
       const year = new Date().getFullYear();
@@ -665,16 +620,102 @@ export default {
     },
   },
   methods: {
-    apply() {
+    apply(even) {
+
+      if (this.row.first_name == '') {
+        this.firstName = true;
+        even.preventDefault();
+      } else {
+        this.firstName = false;
+      }
+
+      if (this.row.middle_name == '') {
+        this.middleName = true;
+        even.preventDefault();
+      } else {
+        this.middleName = false;
+      }
+
+      if (this.row.last_name == '') {
+        this.lastName = true;
+        even.preventDefault();
+      } else {
+        this.lastName = false;
+      }
+
+      if (this.row.full_name == '') {
+        this.fullName = true;
+        even.preventDefault();
+      } else {
+        this.fullName = false;
+      }
+
+      if (this.row.email_address == '') {
+        this.emailValidation = true;
+        even.preventDefault();
+      } else {
+        this.emailValidation = false;
+      }
+
+      if (this.row.telephone_no == '') {
+        this.telValidation = true;
+        even.preventDefault();
+      } else {
+        this.telValidation = false;
+      }
+
+      if (this.row.residential_address == '') {
+        this.addressValidation = true;
+        even.preventDefault();
+      } else {
+        this.addressValidation = false;
+      }
+
       this.btnLoading = true;
       axios.defaults.headers.common = {
         "X-Requested-With": "XMLHttpRequest", // security to prevent CSRF attacks
       };
+
+      for (let i = 1; i < this.quals.length; i++) {
+        this.quals.qualficas[i] = {
+          "educational": this.cours.educational[i],
+          "univeristy": this.cours.univeristy[i],
+          "grade": this.cours.grade[i],
+          "year": this.cours.year[i],
+        };
+      }
+
+      for (let i = 1; i < this.cours.length; i++) {
+        this.cours.courses[i] = {
+          "program": this.cours.program[i],
+          "institute": this.cours.institute[i],
+          "duration": this.cours.duration[i],
+          "date": this.cours.date[i],
+        };
+      }
+
+      for (let i = 1; i < this.langsData.length; i++) {
+        this.langsData.langs[i] = {
+          "language": this.langsData.language[i],
+          "level": this.langsData.level[i],
+        };
+      }
+
+      console.log(this.langsData);
+      console.log(this.cours);
+      console.log(this.quals);
+
       const options = {
         url: window.baseURL + "/members-applications",
         method: "POST",
         data: {
-          base64Image: this.row.base64Image,
+          image: this.row.base64Image,
+          passport_file: this.row.passport_file,
+          passport_size_file: this.row.passport_size_file,
+          occupation_file: this.row.occupation_file,
+          detailed_resume: this.row.detailed_resume,
+          hr_letter_file: this.row.hr_letter_file,
+
           first_name: this.row.first_name,
           middle_name: this.row.middle_name,
           last_name: this.row.last_name,
@@ -684,13 +725,33 @@ export default {
           telephone_no: this.row.telephone_no,
           email_Address: this.row.email_address,
           video_url: this.row.video_url,
+          languages: this.langsData.langs,
+          courses: this.cours.courses,
         },
       };
       axios(options)
-        .then(() => {
+        .then((res) => {
           this.btnLoading = false;
           this.errors = false;
           this.success = "Application Completed Successfully.";
+          this.row.base64Image = "";
+          this.row.passport_file = "";
+          this.row.passport_size_file = "";
+          this.row.occupation_file = "";
+          this.row.detailed_resume = "";
+          this.row.hr_letter_file = "";
+          this.row.first_name = "";
+          this.row.middle_name = "";
+          this.row.last_name = "";
+          this.row.full_name = "";
+          this.row.nationality = "";
+          this.row.residential_address = "";
+          this.row.telephone_no = "";
+          this.row.email_Address = "";
+          this.row.video_url = "";
+          this.row.languages = "";
+          this.row.courses = "";
+          console.log(res);
         })
         .catch((err) => {
           this.btnLoading = false;
@@ -721,7 +782,7 @@ export default {
         .finally(() => {});
     },
 
-    // Upload Featured image
+    // Upload Avatar image
     onImageChange(e) {
       const file = e.target.files[0];
       this.row.preview = URL.createObjectURL(file);
@@ -734,6 +795,81 @@ export default {
         this.row.base64Image = e.target.result;
       };
     },
+
+    // Upload Passport image
+    onPassportChange(e) {
+      const file = e.target.files[0];
+      // this.row.preview = URL.createObjectURL(file);
+      this.createBase64Passport(file);
+    },
+    createBase64Passport(fileObject) {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileObject);
+      reader.onload = (e) => {
+        this.row.passport_file = e.target.result;
+      };
+    },
+
+    // Upload Passport Size image
+    onPassportSizeChange(e) {
+      const file = e.target.files[0];
+      // this.row.preview = URL.createObjectURL(file);
+      this.createBase64PassportSize(file);
+    },
+    createBase64PassportSize(fileObject) {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileObject);
+      reader.onload = (e) => {
+        this.row.passport_size_file = e.target.result;
+      };
+    },
+
+    // Upload Occupation File image
+    onOccupationChange(e) {
+      const file = e.target.files[0];
+      // this.row.preview = URL.createObjectURL(file);
+      this.createBase64Occupation(file);
+    },
+    createBase64Occupation(fileObject) {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileObject);
+      reader.onload = (e) => {
+        this.row.occupation_file = e.target.result;
+      };
+    },
+
+    // Upload Detailed Resume image
+    onDetailedChange(e) {
+      const file = e.target.files[0];
+      // this.row.preview = URL.createObjectURL(file);
+      this.createBase64Detailed(file);
+    },
+    createBase64Detailed(fileObject) {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileObject);
+      reader.onload = (e) => {
+        this.row.detailed_resume = e.target.result;
+      };
+    },
+
+    // Upload Hr Letter File image
+    onHrLetteredChange(e) {
+      const file = e.target.files[0];
+      // this.row.preview = URL.createObjectURL(file);
+      this.createBase64HrLetter(file);
+    },
+    createBase64HrLetter(fileObject) {
+      const reader = new FileReader();
+      reader.readAsDataURL(fileObject);
+      reader.onload = (e) => {
+        this.row.hr_letter_file = e.target.result;
+      };
+    },
+
+
+
+
+
     // items add more
     addMoreQuals() {
       this.quals.key++;

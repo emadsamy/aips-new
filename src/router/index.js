@@ -101,7 +101,7 @@ const routes = [
     path: "/privacy",
     name: "Privacy",
     component: Privacy,
-  },  
+  },
   // {
   //   path: "/what-is-accreditation",
   //   name: "Accreditation",
@@ -193,37 +193,83 @@ const routes = [
     component: Logout,
   },
 
-
-
-
-
   // Accreditations
-  { path: '/accreditations', name: 'accrediations', component: require('../views/Accreditations/List.vue').default },
-  { path: '/accreditations/:slug', name: 'show-accrediations', component: require('../views/Accreditations/Show.vue').default },
+  {
+    path: "/accreditations",
+    name: "accrediations",
+    component: require("../views/Accreditations/List.vue").default,
+  },
+  {
+    path: "/accreditations/:slug",
+    name: "show-accrediations",
+    component: require("../views/Accreditations/Show.vue").default,
+  },
 
   // Memberships
-  { path: '/memberships', name: 'memberships', component: require('../views/Memberships/List.vue').default },
-  { path: '/memberships/:slug', name: 'show-memberships', component: require('../views/Memberships/Show.vue').default },
+  {
+    path: "/memberships",
+    name: "memberships",
+    component: require("../views/Memberships/List.vue").default,
+  },
+  {
+    path: "/memberships/:slug",
+    name: "show-memberships",
+    component: require("../views/Memberships/Show.vue").default,
+  },
 
   // About
-  { path: '/about', name: 'about', component: require('../views/About/List.vue').default },
-  { path: '/about/:slug', name: 'show-about', component: require('../views/About/Show.vue').default },
+  {
+    path: "/about",
+    name: "about",
+    component: require("../views/About/List.vue").default,
+  },
+  {
+    path: "/about/:slug",
+    name: "show-about",
+    component: require("../views/About/Show.vue").default,
+  },
 
   // Pages
-  { path: '/page', name: 'page', component: require('../views/Pages/List.vue').default },
-  { path: '/page/:slug', name: 'show-page', component: require('../views/Pages/Show.vue').default },
+  {
+    path: "/page",
+    name: "page",
+    component: require("../views/Pages/List.vue").default,
+  },
+  {
+    path: "/page/:slug",
+    name: "show-page",
+    component: require("../views/Pages/Show.vue").default,
+  },
 
-  { path: '/our-certificate/programs/:slug', name: 'certificate-program-detail', component: require('../views/Certificate/ShowProgram.vue').default },
-  
+  {
+    path: "/our-certificate/programs/:slug",
+    name: "certificate-program-detail",
+    component: require("../views/Certificate/ShowProgram.vue").default,
+  },
 
   // Memberships
-  { path: '/popular-search/:slug', name: 'popular-search-show', component: require('../views/PopularSearch/Show.vue').default },
-  { path: '/popular-search/in/programs', name: 'popular-search-programs', component: require('../views/PopularSearch/Programs.vue').default },
-  { path: '/popular-search/in/programs/:slug', name: 'popular-search-program-detail', component: require('../views/PopularSearch/ShowProgram.vue').default },
-
+  {
+    path: "/popular-search/:slug",
+    name: "popular-search-show",
+    component: require("../views/PopularSearch/Show.vue").default,
+  },
+  {
+    path: "/popular-search/in/programs",
+    name: "popular-search-programs",
+    component: require("../views/PopularSearch/Programs.vue").default,
+  },
+  {
+    path: "/popular-search/in/programs/:slug",
+    name: "popular-search-program-detail",
+    component: require("../views/PopularSearch/ShowProgram.vue").default,
+  },
 
   // Faq
-  { path: "/faqs", name: "faq", component: require('../views/Faq.vue').default },
+  {
+    path: "/faqs",
+    name: "faq",
+    component: require("../views/Faq.vue").default,
+  },
 ];
 
 const router = createRouter({
