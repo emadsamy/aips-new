@@ -1,0 +1,120 @@
+.auth-content {
+  width: 440px !important;
+}
+.auth-content .title {
+    font-size: 37px;
+    font-weight: bold;
+    color: #4F17A8;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.auth-box {
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 40px 38px;
+}
+.dont-have-text {
+  text-align: left;
+  padding-top: 15px;
+  color: #707070;
+}
+.dont-have-text a {
+    color: #4F17A8;
+    font-weight: 600;
+}
+.auth-big-logo {
+  position: absolute;
+  padding-top: 20px; }
+
+.select-country {
+  border: none;
+  min-width: 20%;
+  padding-bottom: 0;
+  color: #8D8D8D;
+  font-size: 15px;
+  font-weight: 600;
+  position: relative;
+  top: 4px
+}
+.main-btn-backdrop {
+  padding: 10px;
+  font-weight: bold
+}
+.input-group {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #A8A8A8;
+  position: relative;
+}
+.input-group .cc-label {
+  position: relative;
+  top: 5px;
+  font-size: 16px;
+  color: #777;
+  margin: 0
+}
+.form-control::placeholder {
+  color: #8D8D8D;
+}
+.navbar-auth-sm {
+  display: none;
+}
+.center-vertically {
+  padding: 30px 0;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .center-vertically {
+    padding: 50px 0;
+  }
+  .center-vertically:before {
+    content: none
+  }
+  .auth-content {
+    padding: 0 15px;
+    width: 100% !important;
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 767.98px) {
+  .navbar-auth-sm {
+    display: block;
+  }
+  .auth-big-logo {
+    display: none;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-auth-sm {
+    display: block;
+  }
+  .auth-big-logo {
+    display: none;
+  }
+  .center-vertically {
+    height: calc(100% - 71px);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .center-vertically {
+    height: 100%;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
