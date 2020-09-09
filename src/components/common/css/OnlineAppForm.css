@@ -340,6 +340,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .online-app-flex {
     display: block !important;
   }
+
   .removeBtn {
     width: 23px;
     height: 23px;

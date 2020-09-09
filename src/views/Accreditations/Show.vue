@@ -137,7 +137,9 @@
             <p>
             <div class="became-a" v-if="has_member">
                 <div class="title mb-3">Become a Certified Trainer</div>
+
                 <router-link :to="{ name: 'TrainingApplication' }" class="read-more">
+
                   <div>
                     Apply Now <span class="icon-back"></span>
                   </div>
@@ -149,6 +151,7 @@
             <p>
             <div class="training" v-if="has_training">
               <div class="bg-title mb-3">Become An Accredited Training Center</div>
+
               <router-link :to="{ name: 'TrainingApplication' }" class="read-more">
                   <div>
                       Apply Now <span class="icon-back"></span>
@@ -161,12 +164,14 @@
             <p>
             <div class="program-download" v-if="has_download">
               <div class="download-catalog">
+
                   <img :src="require('../../assets/img/home.png')"
                       alt="Download Catalog"
                       class="img-fluid" />
                   <div class="title">
                       {{ download_name }}
                   </div>
+
                   <a v-if="pdf_file"
                       :href="pdf_file"
                       target="_blank"

@@ -19,7 +19,7 @@
             <!-- Left Sidebar -->
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
-                  <router-link :to="{ name: 'show-accrediations', params: {slug: nav.slug}}"
+                  <router-link :to="{ name: 'show-accrediations', params: {slug: nav.slug}}" 
                       class="link">
                       {{ nav.title }}
                   </router-link>
@@ -64,7 +64,7 @@
                     <!-- Design 1 -->
                     <div class="row col-lg-12 widget-accreditation justify-content-between"
                         v-if="con.background"
-                        style="border-bottom: 1px solid #707070"
+                        style="border-bottom: 1px solid #707070" 
                         :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
                         <div class="wa-view col-lg-6" v-if="con.background">
                             <img :src="con.background" class="img-fluid" alt="" />
@@ -89,13 +89,13 @@
                         </div>
                       </div>
                       <div class="row" v-if="con.body_left">
-                        <div class="col-lg-6" v-if="con.body_left"
+                        <div class="col-lg-6" v-if="con.body_left" 
                               style="padding:30px;margin-top: -20px">
                           <div class="acc-box">
                             <div v-html="con.body_left"></div>
                           </div>
                         </div>
-                        <div class="col-lg-6" v-if="con.body_right"
+                        <div class="col-lg-6" v-if="con.body_right" 
                               style="padding:30px;margin-top: -20px">
                           <div class="acc-box">
                             <div v-html="con.body_right"></div>
@@ -106,7 +106,7 @@
                     <!-- End Design 2 -->
 
                 </div>
-
+                
               </div>
             </div>
             <!-- End Content -->
@@ -167,7 +167,6 @@
               </div>
             </div>
             </p>
-
 
 
             </div>
