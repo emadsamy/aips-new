@@ -7,7 +7,10 @@ import Register from "../views/Register.vue";
 import Program from "../views/Program.vue";
 import Entre from "../views/Entre.vue";
 import OnlineApplication from "../views/OnlineApplication.vue";
-import OnlineAppMembership from "../views/OnlineAppMembership.vue";
+import MembershipApplication from "../views/MembershipApplication.vue";
+import InstructorApplication from "../views/InstructorApplication.vue";
+import TrainingApplication from "../views/TrainingApplication.vue";
+import ExperienceApplication from "../views/ExperienceApplication.vue";
 import OurCertificate from "../views/OurCertificate.vue";
 import Instructor from "../views/Instructor.vue";
 import Experience from "../views/Experience.vue";
@@ -69,9 +72,27 @@ Vue.use(VueRouter)
     props: true,
   },
   {
-    path: "/online-app-membership",
-    name: "OnlineApplicationMem",
-    component: OnlineAppMembership,
+    path: "/membership-application",
+    name: "MembershipApplication",
+    component: MembershipApplication,
+    props: true,
+  },
+  {
+    path: "/training-application",
+    name: "TrainingApplication",
+    component: TrainingApplication,
+    props: true,
+  },
+  {
+    path: "/instructor-application",
+    name: "InstructorApplication",
+    component: InstructorApplication,
+    props: true,
+  },
+  {
+    path: "/experience-application",
+    name: "ExperienceApplication",
+    component: ExperienceApplication,
     props: true,
   },
   {

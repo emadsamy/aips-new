@@ -238,7 +238,7 @@
   top: 36px;
   padding: 0;
   width: 28px;
-  height: 28;
+  height: 28px;
   font-size: 25px;
   background: #DDD;
   font-weight: normal;
@@ -303,6 +303,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   box-shadow: none;
   border: none
 }
+.fm-gro {
+  position: relative;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
@@ -336,6 +339,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
   .online-app-flex {
     display: block !important;
+  }
+  .removeBtn {
+    width: 23px;
+    height: 23px;
+    font-size: 23px;
+    left: auto;
+    top: 0px;
+    right: 0;
   }
 }
 

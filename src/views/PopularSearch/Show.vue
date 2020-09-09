@@ -19,7 +19,7 @@
             <!-- Left Sidebar -->
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
-                  <router-link :to="{ name: 'popular-search-show', params: {slug: nav.slug}}" 
+                  <router-link :to="{ name: 'popular-search-show', params: {slug: nav.slug}}"
                       class="link">
                       {{ nav.title }}
                   </router-link>
@@ -63,7 +63,7 @@
                     <!-- Design 1 -->
                     <div class="row col-lg-12 widget-accreditation justify-content-between"
                         v-if="con.background"
-                        style="border-bottom: 1px solid #707070" 
+                        style="border-bottom: 1px solid #707070"
                         :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
                         <div class="wa-view col-lg-6" v-if="con.background">
                             <img :src="con.background" class="img-fluid" alt="" />
@@ -88,13 +88,13 @@
                         </div>
                       </div>
                       <div class="row" v-if="con.body_left">
-                        <div class="col-lg-6" v-if="con.body_left" 
+                        <div class="col-lg-6" v-if="con.body_left"
                               style="padding:30px;margin-top: -20px">
                           <div class="acc-box">
                             <div v-html="con.body_left"></div>
                           </div>
                         </div>
-                        <div class="col-lg-6" v-if="con.body_right" 
+                        <div class="col-lg-6" v-if="con.body_right"
                               style="padding:30px;margin-top: -20px">
                           <div class="acc-box">
                             <div v-html="con.body_right"></div>
@@ -103,8 +103,23 @@
                       </div>
                     </div>
                     <!-- End Design 2 -->
-                  
                 </div>
+
+                <!-- Sectors -->
+                <div class="certificate-types">
+                  <div
+                    class="certificate-type"
+                    v-for="(sector, index) in sectors"
+                    :key="index"
+                  >
+                    <div class="certificate-title">
+                      {{ sector.title }}
+                      <sup v-if="sector.title">TM</sup>
+                    </div>
+                    <div class="certificate-text">{{ sector.subTitle }}</div>
+                  </div>
+                </div>
+                <!-- Sectors -->
 
                   <!-- Design 3 -->
                   <div class="widgets-steps" v-if="row.content[0].body && !row.content[0].background">
@@ -114,7 +129,7 @@
                       </div>
                   </div>
                   <!--- End Desgin 3 -->
-                
+
               </div>
             </div>
             <!-- End Content -->
@@ -137,7 +152,7 @@
             <p>
             <div class="became-a" v-if="has_member">
                 <div class="title mb-3">Become a Certified Trainer</div>
-                <router-link :to="{ name: 'OnlineApplicationMem' }" class="read-more">
+                <router-link :to="{ name: row.slug === 'i-am-an-instructor' ? 'InstructorApplication' : 'ExperienceApplication' }" class="read-more">
                   <div>
                     Apply Now <span class="icon-back"></span>
                   </div>
@@ -149,7 +164,7 @@
             <p>
             <div class="training" v-if="has_training">
               <div class="bg-title mb-3">Become An Accredited Training Center</div>
-              <router-link :to="{ name: 'OnlineApplicationMem' }" class="read-more">
+              <router-link :to="{ name: row.slug === 'i-am-an-instructor' ? 'InstructorApplication' : 'ExperienceApplication' }" class="read-more">
                   <div>
                       Apply Now <span class="icon-back"></span>
                   </div>
@@ -161,21 +176,21 @@
             <p>
             <div class="program-download" v-if="has_download">
               <div class="download-catalog">
-                  <img :src="require('../../assets/img/home.png')" 
-                      alt="Download Catalog" 
+                  <img :src="require('../../assets/img/home.png')"
+                      alt="Download Catalog"
                       class="img-fluid" />
                   <div class="title">
                       {{ download_name }}
                   </div>
-                  <a v-if="pdf_file" 
-                      :href="pdf_file" 
-                      target="_blank" 
+                  <a v-if="pdf_file"
+                      :href="pdf_file"
+                      target="_blank"
                       download class="download-btn">Download</a>
               </div>
             </div>
             </p>
 
-             
+
             </p>
 
           </div>
@@ -234,8 +249,6 @@ ul.list-unstyled li { margin-bottom: 20px !important; width: 100% }
   transform: translateX(-40px);
 }
 
-
-
 div.program-header-details {
   width: 640px !important;
   background-color: #3b3b3b !important;
@@ -268,6 +281,54 @@ div.program-header-details .title {
   font-size: 33px;
   color: #1b1464;
 }
+
+.certificate-types {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.certificate-type {
+  border: 1px solid #c7c7c7;
+  padding: 23px 26px;
+  width: calc(33.3% - 17px);
+  margin-bottom: 34px;
+}
+.certificate-text {
+  color: #666;
+  font-size: 17px;
+}
+.certificate-title {
+  font-size: 30px;
+  font-weight: normal;
+  color: #1b1464;
+}
+.certificate-title sup {
+  font-size: 15px;
+}
+@media (max-width: 575.98px) {
+  .certificate-type {
+    width: 100%;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .certificate-type {
+    width: 48%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .certificate-type {
+    width: 48%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .certificate-type {
+    width: 48%;
+  }
+}
 </style>
 
 <script>
@@ -298,6 +359,7 @@ export default {
 
       rows: [],
       navigation: [],
+      sectors: [],
       pgLoading: false,
     };
   },
@@ -325,6 +387,7 @@ export default {
       axios(options)
         .then(res => {
           this.pgLoading = false;
+          const data = res.data.row;
 
           // current row
           this.bgTitle = res.data.row.bgTitle;
@@ -341,6 +404,8 @@ export default {
           // content
           this.row = res.data.row;
           this.navigation = res.data.navigation;
+          this.sectors = data.sectors;
+          console.log(data);
         })
         .catch(err => {
             this.pgLoading = false;

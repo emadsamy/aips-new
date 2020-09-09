@@ -516,7 +516,7 @@ import DatePicker from "../components/DatePicker.vue";
 import axios from "axios";
 
 export default {
-  name: "OnlineApplicationMem",
+  name: "ExperienceApplications",
   components: {
     Navbar,
     Footer,
@@ -784,7 +784,7 @@ export default {
       console.log(this.row.qualifications);
 
       const options = {
-        url: window.baseURL + "/members-applications",
+        url: window.baseURL + "/experience-applications",
         method: "POST",
         data: {
           image: this.row.base64Image,

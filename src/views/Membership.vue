@@ -134,7 +134,7 @@
                 title="Become a Member today"
                 :has_training="true"
                 :link="{
-                  name: 'OnlineApplicationMem',
+                  name: 'MembershipApplication',
                   query: { pTitle: data1.bgTitle },
                   params: { pTitle: data1.bgTitle },
                 }"
