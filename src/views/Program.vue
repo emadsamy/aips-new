@@ -24,7 +24,7 @@
             <div class="program-sidebar">
               <div class="sidebar-link" v-for="(link, index) in sidebarLinks" :key="index">
                 <router-link
-                  :to="{ name: 'Program', 
+                  :to="{ name: 'Program',
                                 params: {slug: link.slug, title: link.title } }"
                   class="link"
                 >{{ link.title }}</router-link>
@@ -63,7 +63,7 @@
                   <div class="description">{{ program.subtitle }}</div>
                   <div class="text" v-html="program.short_body"></div>
                   <router-link
-                    :to="{name: 'program-detail', 
+                    :to="{name: 'program-detail',
                                         params: {slug: sector_slug, pro: program.slug}}"
                     class="read-more"
                   >
@@ -75,7 +75,7 @@
                 </div>
               </div>
             </div>
-            <DownloadCatalog />
+            <DownloadCatalog :image="row[1].image" :title="row[1].download_name" :link="row[1].pdf" />
           </div>
         </div>
       </div>
@@ -145,7 +145,7 @@ export default {
       articles: [],
       imageHeader: "",
       pageBody: "",
-
+      row: [],
       sector_slug: this.$route.params.slug,
     };
   },
@@ -162,7 +162,9 @@ export default {
       axios
         .get(window.baseURL + "/programs")
         .then((res) => {
-          var data = res.data.rows;
+          const data = res.data.rows;
+          this.row = data;
+          console.log(data);
           for (var i = 0; i < data.length; i++) {
             if (data[i].sectors != "") {
               this.sidebarLinks = data[i].sectors;

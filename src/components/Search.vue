@@ -31,11 +31,13 @@
               <div v-if="searchOutput" class="search-output">
                 <div class="search-output-content">
                   <div v-for="(item, index) in filteredItems" :key="index">
-                    <router-link @click="reloadPage()" :to="{name: 'Program', params: {slug: item.slug } }" class="search-link-dropdown">{{item.title}}</router-link>
+                    <a :href="$router.resolve({name: 'Program', params: {slug: item.slug } }).href" class="search-link-dropdown">{{item.title}}</a>
                   </div>
 
-                  <div v-for="(page, index) in pages" :key="index">
-                    <router-link @click="reloadPage()" :to="{name: 'Program', params: {slug: page.pageSlug } }" class="search-link-dropdown">{{page.pageName}}</router-link>
+                  <div v-for="(page, index) in pages" :key="index + 2">
+                    <a :href="$router.resolve({name: 'popular-search-show', params: {slug: page.pageSlug }}).href" class="search-link-dropdown">
+                      {{page.title}}
+                    </a>
                   </div>
                 </div>
               </div>
@@ -46,7 +48,7 @@
               </div>
 
               <div class="search-link" v-for="(search, index) in links" :key="index">
-                <router-link :to="'/' + search.slug" class="link">
+                <router-link :to="{name: 'popular-search-show', params:{slug: search.slug}}" class="link">
                   {{ search.title }}
                   <small v-if="search.title == 'Membership'">Become a Member</small>
                   <small v-else-if="search.title == 'My Certificate'">Verify your certificate</small>
@@ -334,7 +336,9 @@ export default {
       }
     },
     reloadPage() {
-      this.$router.reload();
+      // this.$router.reload();
+      // location.reload();
+      this.$router.go(this.$router.currentRoute);
     },
     fetchSectors: function () {
       // Search
@@ -362,6 +366,18 @@ export default {
         .catch((err) => {
           console.log(err);
         });
+    },
+    fetchPopularSearchs: function () {
+      axios
+        .get(window.baseURL + "/popularSearch")
+        .then((res) => {
+          var data = res;
+          console.log(data);
+          this.links = res.data.rows;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   },
   computed: {
@@ -378,20 +394,9 @@ export default {
     },
   },
   created() {
-    // Get Linkss
-    axios
-      .get(window.baseURL + "/popularSearch")
-      .then((res) => {
-        var data = res;
-        console.log(data);
-        this.links = res.data.rows;
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-
     this.fetchSectors();
     this.fetchPages();
+    this.fetchPopularSearchs();
   },
 };
 </script>

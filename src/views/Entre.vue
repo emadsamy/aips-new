@@ -180,7 +180,7 @@ export default {
       axios
         .get(url)
         .then((res) => {
-          var data = res.data.row;
+          const data = res.data.row;
           this.row = res.data.row;
           this.programs = res.data.related;
           this.pageTitle = data.title;

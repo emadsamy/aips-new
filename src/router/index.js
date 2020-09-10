@@ -276,7 +276,7 @@ Vue.use(VueRouter)
     component: require("../views/PopularSearch/Show.vue").default,
   },
   {
-    path: "/popular-search/in/programs",
+    path: "/popular-search/in/:slug/programs",
     name: "popular-search-programs",
     component: require("../views/PopularSearch/Programs.vue").default,
   },

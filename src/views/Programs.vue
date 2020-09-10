@@ -67,7 +67,7 @@
                       <div class="program-sector-card-title">{{ sector.title }}</div>
                       <div>
                         <router-link
-                          :to="{name: 'Program', 
+                          :to="{name: 'Program',
                                               params: {slug: sector.slug } }"
                           class="read-more"
                         >
@@ -140,7 +140,7 @@
                 </div>
               </div>
             </div>
-            <DownloadCatalog />
+            <DownloadCatalog :image="row[1].image" :title="row[1].download_name" :link="row[1].pdf" />
           </div>
         </div>
       </div>
@@ -274,6 +274,7 @@ export default {
       overview: "",
       sidebarLinks: [],
       imageHeader: "",
+      row: []
     };
   },
   watch: {
@@ -283,7 +284,7 @@ export default {
   },
   created() {
     this.fetchRow();
-    
+
 
     // Check Auth
     // if (!localStorage.getItem("access_token")) {
@@ -298,10 +299,10 @@ export default {
     axios
       .get(window.baseURL + "/programs")
       .then((res) => {
-        console.log(res.data.rows);
-        // console.log(res.data.rows[0]);
+
+        const data = res.data.rows;
+        this.row = data;
         this.sidebarLinks = res.data.rows;
-        var data = res.data.rows;
         this.imageHeader = data[0].image;
         console.log(data[0].image);
 
@@ -314,7 +315,7 @@ export default {
 
         // Get Overview Body
         this.overview = res.data.rows[0];
-        console.log(this.overview);
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);

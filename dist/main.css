@@ -1191,7 +1191,9 @@ small {
     font-size: 16px !important;
   }
   .became-a {
-    display: none;
+    /* display: none; */
+    text-align: center;
+    width: 100% !important;
   }
   .program-header .title-line:after {
     content: none;

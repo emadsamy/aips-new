@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <router-view/>
+    <Cookies />
+    <Spinner />
   </div>
 </template>
 
@@ -13,3 +15,15 @@
   height: 100%;
 }
 </style>
+
+<script>
+import Cookies from '@/components/Cookies.vue';
+import Spinner from '@/components/Spinner.vue';
+export default {
+  name: "App",
+  components: {
+    Cookies,
+    Spinner,
+  }
+}
+</script>

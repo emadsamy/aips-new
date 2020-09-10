@@ -63,7 +63,9 @@
               </div>-->
             </div>
 
-            <DownloadCatalog />
+            <div class="became-a">
+                <ApplyEICTWIdget :has_training="true" title="Become A Member Today" link="/membership-application" />
+            </div>
           </div>
         </div>
       </div>
@@ -143,6 +145,9 @@
   background-size: cover;
   background-position: center;
 }
+.became-a {
+  width: 130px;
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
@@ -209,14 +214,14 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
-import DownloadCatalog from "../components/DownloadCatalog.vue";
+import ApplyEICTWIdget from "../components/ApplyEICTWIdget.vue";
 import axios from "axios";
 export default {
   name: "OnlineTraining",
   components: {
     Navbar: Navbar,
     Footer: Footer,
-    DownloadCatalog: DownloadCatalog,
+    ApplyEICTWIdget: ApplyEICTWIdget,
   },
   data() {
     return {
@@ -238,7 +243,7 @@ export default {
           this.data0 = data0;
           this.data1 = data1;
           this.data2 = data2;
-          // console.log(data1);
+          // console.log(rows);
         })
         .catch((err) => {
           console.log(err);

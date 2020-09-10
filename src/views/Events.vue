@@ -8,17 +8,16 @@
     <div class="content">
       <div class="container-fluid">
         <div class="program-header main-program-header">
-          <div class="program-header-details">
+          <div class="program-header-details" :style="{backgroundColor:`${row.bgColor} !important`}">
             <div class="align-center">
               <div class="title">
-                Aips Events
-                <br />& Conferences
+                {{ row.bgTitle }}
               </div>
             </div>
           </div>
           <div
             class="program-header-view"
-            :style="{backgroundImage:`url(${require('../assets/img/online-app.jpg')})`}"
+            :style="{backgroundImage:`url(${row.image})`}"
           ></div>
         </div>
         <div class="program-container">
@@ -26,7 +25,7 @@
             <div class="events-container">
               <div class="events-row mb-70">
                 <div class="row">
-                  <div
+                  <!-- <div
                     class="col-lg-4 col-sm-6"
                     v-for="(eventbox, index) in eventsBox"
                     :key="index"
@@ -35,23 +34,36 @@
                       <div class="event-title-bg paleMainColor mb-3">{{ eventbox.title }}</div>
                       <div class="description-about text-lowercase">{{ eventbox.text }}</div>
                     </div>
+                  </div> -->
+
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="events-box" v-html="row.body1"></div>
                   </div>
+
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="events-box" v-html="row.body2"></div>
+                  </div>
+
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="events-box" v-html="row.body3"></div>
+                  </div>
+
                 </div>
               </div>
 
               <div
                 class="events-background mb-70"
-                :style="{backgroundImage:`url(${require('../assets/img/we-do.jpg')})`}"
+                :style="{backgroundImage:`url(${row.background})`}"
               >
-                <div class="event-title">
+                <!-- <div class="event-title">
                   What value
                   <br />can we add for
                   <br />you?
-                </div>
+                </div> -->
               </div>
 
               <div class="events-types">
-                <div class="row">
+                <!-- <div class="row">
                   <div
                     class="col-lg-6 col-sm-6"
                     v-for="(eventbox, index) in eventsBox"
@@ -62,7 +74,44 @@
                       <div class="description-about text-lowercase">{{ eventbox.text }}</div>
                     </div>
                   </div>
+                </div> -->
+
+                <div class="row">
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body4"></div>
+                  </div>
+
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body5"></div>
+                  </div>
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body6"></div>
+                  </div>
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body7"></div>
+                  </div>
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body8"></div>
+                  </div>
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body9"></div>
+                  </div>
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body10"></div>
+                  </div>
+                  <div
+                    class="col-lg-6 col-sm-6">
+                    <div class="events-box" v-html="row.body11"></div>
+                  </div>
                 </div>
+
               </div>
             </div>
           </div>
@@ -177,6 +226,7 @@
 <script>
 import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
+import axios from 'axios';
 export default {
   name: "Events",
   components: {
@@ -185,6 +235,7 @@ export default {
   },
   data() {
     return {
+      row: [],
       eventsBox: [
         {
           title: "Conferences Organization",
@@ -214,5 +265,22 @@ export default {
       ],
     };
   },
+  methods: {
+    fetchRow() {
+      axios
+        .get(window.baseURL + "/events")
+        .then((res) => {
+          const data = res.data.row;
+          this.row = data;
+          console.log(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  created() {
+    this.fetchRow();
+  }
 };
 </script>

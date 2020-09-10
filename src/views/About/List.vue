@@ -19,12 +19,27 @@
             <!-- Left Sidebar -->
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
-                  <a v-if="has_scroll" :href="'#'+nav.slug" class="link"> {{ nav.title }}</a>
-                  <router-link v-if="!has_scroll"
+                  <a :href="'#'+nav.slug" class="link"> {{ nav.title }}</a>
+                  <!-- <router-link v-if="!has_scroll"
                       :to="{ name: 'show-memberships', params: {slug: nav.slug}}"
                       class="link">
                       {{ nav.title }}
-                  </router-link>
+                  </router-link> -->
+                </div>
+                <div class="sidebar-link">
+                  <a :href="'#'+rows[0].title2_1.toLowerCase().replace(' ', '-')" class="link"> {{ rows[0].title2_1 }}</a>
+                </div>
+                <div class="sidebar-link">
+                  <a :href="'#'+rows[0].title3_2.toLowerCase().replace(' ', '-')" class="link"> {{ rows[0].title3_1 }}</a>
+                </div>
+                <div class="sidebar-link">
+                  <a :href="'#'+rows[0].title3_2.toLowerCase().replace(' ', '-')" class="link"> {{ rows[0].title3_2 }}</a>
+                </div>
+                <div class="sidebar-link">
+                  <a :href="'#'+rows[0].title4_1.toLowerCase().replace(' ', '-')" class="link"> {{ rows[0].title4_1 }}</a>
+                </div>
+                <div class="sidebar-link">
+                  <a :href="'#'+rows[0].title5_1.toLowerCase().replace(' ', '-')" class="link"> {{ rows[0].title5_1 }}</a>
                 </div>
             </div>
             <!-- End Left Sidebar -->
@@ -32,7 +47,7 @@
             <!-- Content -->
             <div class="program-content">
 
-              <div class="overview mb-70">
+              <div id="overview" class="overview mb-70">
                 <div class="program-title about-title">
                   Overview
                 </div>
@@ -40,7 +55,7 @@
               </div>
 
               <div class="program-articles-rows">
-                <div id="purpose" class="program-about-article">
+                <div :id="rows[0].title2_1.toLowerCase().replace(' ', '-')" class="program-about-article">
                   <div class="about-article-box">
                     <div class="program-about-article-title">
                       Our Purpose
@@ -82,7 +97,7 @@
                   </div>
                 </div>
 
-                <div class="program-about-article">
+                <div class="program-about-article" :id="rows[0].title3_2.toLowerCase().replace(' ', '-')">
                   <div class="about-article-box">
                     <div class="program-about-article-title">
                       Mission
@@ -98,7 +113,7 @@
                   </div>
                 </div>
 
-                <div id="value" class="program-about-article">
+                <div :id="rows[0].title4_1.toLowerCase().replace(' ', '-')" class="program-about-article">
                   <div class="about-article-box">
                     <div class="program-about-article-title">
                       Value
@@ -111,7 +126,7 @@
                   </div>
                 </div>
 
-                <div id="whatWeDo" class="program-about-article">
+                <div :id="rows[0].title5_1.toLowerCase().replace(' ', '-')" class="program-about-article">
                   <div class="aab">
                     <div class="program-about-article-title mb-5">
                       {{ rows[0].title5_1 }}
@@ -135,7 +150,7 @@
                         </div>
                         <div class="view">
                           <img
-                            :src="require('../../assets/img/we-do.jpg')"
+                            :src="rows[0].image5_2"
                             class="img-fluid"
                             alt=""
                           />
@@ -157,11 +172,11 @@
                           </router-link>
                         </div>
                         <div class="view">
-                          <img
+                          <!-- <img
                             :src="require('../../assets/img/we-do.jpg')"
                             class="img-fluid"
                             alt=""
-                          />
+                          /> -->
                         </div>
                       </div>
 
@@ -177,7 +192,7 @@
                             prospective candidates that they are in expert
                             hands.
                           </div> -->
-                          <router-link to="/accreditation" class="read-more">
+                          <router-link to="/accreditations" class="read-more">
                             <div>Read More <span class="icon-back"></span></div>
                           </router-link>
                         </div>
@@ -347,7 +362,8 @@
                       target="_blank"
                       download class="download-btn">Download</a>
               </div> -->
-              <DownloadCatalog :title="download_name" :link="pdf_file" />
+              <DownloadCatalog :image="rows[0].image5_2" :title="rows[0].download_name" :link="rows[0].pdf_file" />
+              <!-- <DownloadCatalog :image="row[1].image" :title="row[1].download_name" :link="row[1].pdf" /> -->
             </div>
             </p>
 
@@ -580,7 +596,7 @@ export default {
           this.pdf_file = res.data.rows[0].pdf_file;
 
           // content
-          this.rows = res.data.rows;
+          this.rows = data;
           this.navigation = res.data.navigation;
           console.log(data);
         })

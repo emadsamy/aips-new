@@ -1,0 +1,15 @@
+<!-- Sectors -->
+<div class="certificate-types">
+  <div
+    class="certificate-type"
+    v-for="(sector, index) in sectors"
+    :key="index"
+  >
+    <div class="certificate-title">
+      {{ sector.title }}
+      <sup v-if="sector.title">TM</sup>
+    </div>
+    <div class="certificate-text">{{ sector.subTitle }}</div>
+  </div>
+</div>
+<!-- Sectors -->
