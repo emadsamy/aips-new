@@ -55,11 +55,9 @@
                 class="events-background mb-70"
                 :style="{backgroundImage:`url(${row.background})`}"
               >
-                <!-- <div class="event-title">
-                  What value
-                  <br />can we add for
-                  <br />you?
-                </div> -->
+                <div class="event-title">
+                  {{ row.bgHint }}
+                </div>
               </div>
 
               <div class="events-types">

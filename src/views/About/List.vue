@@ -67,7 +67,6 @@
                   <div class="about-article-box">
                     <div
                       class="about-article-box-media mt-5"
-                      style="height: 230px;"
                     >
                       <!-- <div class="overlay">
                         <button
@@ -482,7 +481,7 @@
 iframe {
   width: 100%;
   max-width: 100%;
-  height: 240px;
+  height: 300px;
 }
 
 /* Extra small devices (portrait phones, less than 576px) */

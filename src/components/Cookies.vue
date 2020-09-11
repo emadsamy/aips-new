@@ -1,9 +1,9 @@
 <template>
-  <div class="cookies-notice">
+  <div v-if="cookie" class="cookies-notice">
       <div class="cookies-container container">
           <p>We use cookies to enhance the user experience and improve the quality of our site. Accept cookies to hide this message.<br /> Read our privacy policy <router-link to="/privacy" class="paleMainColor">here</router-link>.</p>
           <div class="accept-cookie">
-              <button class="read-more" name="button">
+              <button @click="setCookie()" class="read-more" name="button">
                 <div>
                   Accept
                 </div>
@@ -19,11 +19,13 @@ export default {
   name: 'Cookies',
   data() {
     return {
-
+      cookie: true
     }
   },
   methods: {
-
+    setCookie() {
+      this.cookie = false;
+    }
   },
   created() {
 

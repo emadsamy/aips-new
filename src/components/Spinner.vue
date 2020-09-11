@@ -1,6 +1,6 @@
 <template>
-  <div v-if="loader" class="loader">
-      Loader..........
+  <div v-if="show" class="loader">
+      <img src="../assets/loader.svg" alt="">
   </div>
 </template>
 
@@ -10,31 +10,38 @@ export default {
   name: 'Loader',
   data() {
     return {
-      loader: true
+      show: true
     }
   },
   methods: {
-    test() {
-      this.loader = false;
+    toggleLoader() {
+      setTimeout(() => {
+          this.show = false;
+      }, 500);
     }
   },
-  mounted: {
-
-  },
-  created() {
-    this.test();
+  mounted() {
+    this.toggleLoader();
   }
 }
 </script>
 
 <style scoped>
 .loader {
-  width: 100px;
-  height: 100px;
-  background-color: #080;
+  width: 100%;
+  height: 100%;
+  background-color: #00000020;
   position: fixed;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader img {
+  width: 150px;
+  height: 150px;
 }
 </style>

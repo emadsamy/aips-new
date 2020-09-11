@@ -40,6 +40,12 @@
             </div>
           </router-link>
         </div>
+        <div class="sidebar-link">
+          <router-link :to="{name: 'MainCertificate'}" class="link">
+            My Certificate<br />
+            <small>You can view and print your certificate</small>
+          </router-link>
+        </div>
       </div>
       <div class="sidebar-bottom">
         <div class="footer-copyright">
@@ -85,7 +91,7 @@
       <!-- Navbar -->
 
       <!-- Content -->
-      <!--  <div class="content-multi home-background" 
+      <!--  <div class="content-multi home-background"
       :style="{backgroundImage:`url(${require('../assets/img/home.jpg')})`}">-->
       <!-- home -->
       <div
@@ -319,7 +325,7 @@ export default {
     } else {
       this.authenticated = true;
     }
-    
+
       this.fetchRow();
       this.fetchSearch();
   },
@@ -355,7 +361,7 @@ export default {
       });
     },
 
-   
+
 
   },
 };

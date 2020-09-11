@@ -2,7 +2,7 @@
   <div id="app">
     <router-view/>
     <Cookies />
-    <Spinner />
+    <!-- <Spinner /> -->
   </div>
 </template>
 

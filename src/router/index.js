@@ -164,11 +164,11 @@ Vue.use(VueRouter)
     name: "MainCertificate",
     component: MainCertificate,
   },
-  // {
-  //   path: "/main-certificate-achievement",
-  //   name: "CertificateAchievement",
-  //   component: CertificateAchievement,
-  // },
+  {
+    path: "/main-certificate-achievement",
+    name: "CertificateAchievement",
+    component: CertificateAchievement,
+  },
   // {
   //   path: "/corporate-training",
   //   name: "Corporate",

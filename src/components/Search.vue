@@ -361,7 +361,8 @@ export default {
         .then((res) => {
           const data = res.data.rows;
           this.pages = data;
-          console.log(data);
+          console.log("search");
+          console.log("search ", data);
         })
         .catch((err) => {
           console.log(err);

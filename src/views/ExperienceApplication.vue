@@ -171,30 +171,75 @@
                       <span class="text">ID or passport</span>
                       <span class="icon-upload ic-upload"></span>
                       <input type="file" name="passport_file" class="form-control" @change="onPassportChange" />
+                      <div v-if="passportPreview" class="file-uploaded">
+                          <div class="text">
+                              File Uploaded
+                          </div>
+                          <div class="view">
+                              <img :src="passportPreview ? passportPreview : ''" :alt="passportPreview" />
+                          </div>
+                      </div>
+                      <div class="absolute-div" v-else></div>
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Passport size photo!</span>
                       <span class="icon-upload ic-upload"></span>
                       <input type="file" name="passport_size_file" class="form-control" @change="onPassportSizeChange" />
+                      <div v-if="passportSPPreview" class="file-uploaded">
+                          <div class="text">
+                              File Uploaded
+                          </div>
+                          <div class="view">
+                              <img :src="passportSPPreview ? passportSPPreview : ''" :alt="passportSPPreview" />
+                          </div>
+                      </div>
+                      <div class="absolute-div" v-else></div>
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Current occupation (documented)</span>
                       <span class="icon-upload ic-upload"></span>
                       <input type="file" name="occupation_file" class="form-control" @change="onOccupationChange" />
+                      <div v-if="passportCOpreview" class="file-uploaded">
+                          <div class="text">
+                              File Uploaded
+                          </div>
+                          <div class="view">
+                              <img :src="passportCOpreview ? passportCOpreview : ''" :alt="passportCOpreview" />
+                          </div>
+                      </div>
+                      <div class="absolute-div" v-else></div>
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Detailed resume</span>
                       <span class="icon-upload ic-upload"></span>
                       <input type="file" name="detailed_resume" class="form-control"  @change="onDetailedChange" />
+                      <div v-if="passportDRPreview" class="file-uploaded">
+                          <div class="text">
+                              File Uploaded
+                          </div>
+                          <div class="view">
+                              <img :src="passportDRPreview ? passportDRPreview : ''" :alt="passportDRPreview" />
+                          </div>
+                      </div>
+                      <div class="absolute-div" v-else></div>
                     </div>
 
                     <div class="form-group form-group-upload">
                       <span class="text">Proof of prior work experience (via HR letters)</span>
                       <span class="icon-upload ic-upload"></span>
                       <input type="file" name="hr_letter_file" class="form-control" @change="onHrLetteredChange" />
+                      <div v-if="passportPPWPreview" class="file-uploaded">
+                          <div class="text">
+                              File Uploaded
+                          </div>
+                          <div class="view">
+                              <img :src="passportPPWPreview ? passportPPWPreview : ''" :alt="passportPPWPreview" />
+                          </div>
+                      </div>
+                      <div class="absolute-div" v-else></div>
                     </div>
                   </div>
                 </div>
@@ -516,7 +561,7 @@ import DatePicker from "../components/DatePicker.vue";
 import axios from "axios";
 
 export default {
-  name: "ExperienceApplications",
+  name: "ExperienceApplication",
   components: {
     Navbar,
     Footer,
@@ -681,8 +726,12 @@ export default {
       emailValidation: false,
       telValidation: false,
       addressValidation: false,
-
-      applicationData: []
+      applicationData: [],
+      passportPreview: '',
+      passportSPPreview: '',
+      passportCOpreview: '',
+      passportDRPreview: '',
+      passportPPWPreview: '',
     };
   },
   mounted() {},
@@ -784,7 +833,7 @@ export default {
       console.log(this.row.qualifications);
 
       const options = {
-        url: window.baseURL + "/experience-applications",
+        url: window.baseURL + "/members-applications",
         method: "POST",
         data: {
           image: this.row.base64Image,
@@ -865,7 +914,7 @@ export default {
 
     // fetchCountries
     fetchApplicationData() {
-      const url = window.baseURL + "/members-applications";
+      const url = window.baseURL + "/experience-applications";
       axios.get(url)
         .then((res) => {
           // this.countryLoading = false;
@@ -893,8 +942,9 @@ export default {
 
     // Upload Passport image
     onPassportChange(e) {
+      this.passportPreview = '';
       const file = e.target.files[0];
-      // this.row.preview = URL.createObjectURL(file);
+      this.passportPreview = URL.createObjectURL(file);
       this.createBase64Passport(file);
     },
     createBase64Passport(fileObject) {
@@ -907,8 +957,9 @@ export default {
 
     // Upload Passport Size image
     onPassportSizeChange(e) {
+      this.passportSPPreview = '';
       const file = e.target.files[0];
-      // this.row.preview = URL.createObjectURL(file);
+      this.passportSPPreview = URL.createObjectURL(file);
       this.createBase64PassportSize(file);
     },
     createBase64PassportSize(fileObject) {
@@ -921,8 +972,9 @@ export default {
 
     // Upload Occupation File image
     onOccupationChange(e) {
+      this.passportCOpreview = '';
       const file = e.target.files[0];
-      // this.row.preview = URL.createObjectURL(file);
+      this.passportCOpreview = URL.createObjectURL(file);
       this.createBase64Occupation(file);
     },
     createBase64Occupation(fileObject) {
@@ -935,8 +987,9 @@ export default {
 
     // Upload Detailed Resume image
     onDetailedChange(e) {
+      this.passportDRPreview = '';
       const file = e.target.files[0];
-      // this.row.preview = URL.createObjectURL(file);
+      this.passportDRPreview = URL.createObjectURL(file);
       this.createBase64Detailed(file);
     },
     createBase64Detailed(fileObject) {
@@ -949,8 +1002,9 @@ export default {
 
     // Upload Hr Letter File image
     onHrLetteredChange(e) {
+      this.passportPPWPreview = '';
       const file = e.target.files[0];
-      // this.row.preview = URL.createObjectURL(file);
+      this.passportPPWPreview = URL.createObjectURL(file);
       this.createBase64HrLetter(file);
     },
     createBase64HrLetter(fileObject) {

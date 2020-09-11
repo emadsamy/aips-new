@@ -306,6 +306,29 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .fm-gro {
   position: relative;
 }
+.file-uploaded {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  height: calc(100% + 2px);
+  width: calc(100% + 2px);
+  background-color: #1dd1a1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 13px;
+  color: #fff;
+  font-weight: 600
+}
+.view img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+.absolute-div {
+  position: absolute;
+  opacity: 0
+}
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {

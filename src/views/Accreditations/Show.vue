@@ -107,7 +107,7 @@
                 </div>
 
                   <!-- Design 3 -->
-                  <div class="widgets-steps" v-if="row.content[0].body && !row.content[0].background">
+                  <div class="widgets-steps" v-if="row.content[0].body && row.id != 2">
                       <div v-for="(con, index) in row.content" :key="index" class="widget-step">
                           <div class="steps-counter">{{ index + 1 }}</div>
                           <div class="steps-details" v-html="con.body"></div>

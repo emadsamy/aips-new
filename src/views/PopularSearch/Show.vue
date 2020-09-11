@@ -19,9 +19,7 @@
             <!-- Left Sidebar -->
             <div class="program-sidebar">
                 <div class="sidebar-link" v-for="(nav, index) in navigation" :key="index">
-                  <a v-if="has_scroll" :href="'#'+nav.slug" class="link"> {{ nav.title }}</a>
-                  <router-link v-if="!has_scroll"
-                      :to="{ name: 'show-memberships', params: {slug: nav.slug}}"
+                  <router-link :to="{ name: 'popular-search-show', params: {slug: nav.slug}}"
                       class="link">
                       {{ nav.title }}
                   </router-link>
@@ -31,26 +29,7 @@
 
             <!-- Content -->
             <div class="program-content">
-              <div v-for="(row, index) in rows" :key="index" :id="row.slug">
-
-                <div v-if="row.title && index != 0" class="program-title">{{ row.title }}<br/></div>
-
-                <div class="corporate-widget mb-50" v-if="row.image && index != 0">
-                  <div class="corporate-widget-details">
-                    <div class="title">
-                      {{ row.bgTitle }}
-                    </div>
-                  </div>
-                  <div
-                    class="corporate-widget-view"
-                    :style="{
-                      backgroundImage: `url(${row.image})`,
-                      'background-size': 'cover',
-                      'background-position': 'center'
-                    }"
-                  ></div>
-                </div>
-
+              <div>
                 <!-- Body 1 -->
                 <div class="acc-widget mb-90" v-if="row.body1" v-html="row.body1"></div>
                 <!-- End body 1 -->
@@ -77,6 +56,7 @@
                 </div>
                 <!-- End Body 5 -->
 
+                <p><br/></p>
                 <div v-for="(con, idx) in row.content"
                     :key="idx">
 
@@ -85,30 +65,31 @@
                         v-if="con.background"
                         style="border-bottom: 1px solid #707070"
                         :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
-                        <div class="wa-view col-lg-6" v-if="con.background" style="padding: 0">
+                        <div class="wa-view col-lg-6" v-if="con.background">
                             <img :src="con.background" class="img-fluid" alt="" />
                         </div>
                         <div class="wa-text col-lg-6" v-if="con.body"
-                            style="padding-left:45px">
+                            style="padding:30px;margin-top: -20px">
                             <div v-html="con.body"></div>
                         </div>
                     </div>
                     <!-- End Destign 1 -->
 
                     <!-- Destin 2 -->
-                    <div class="widget-imgs-bullets">
-                      <div class="widget-moving-accred mb-90" v-if="con.image"
-                        :style="(con.image_dir == 'right') ? 'flex-direction: row-reverse' : ''">
+                    <div class="widget-imgs-bullets mb-40"
+                      v-if="con.image">
+                      <div class="widget-moving-accred mb-90"
+                        :style="(con.image_dir == 'left') ? 'flex-direction: row-reverse' : ''">
                         <div class="wm-view">
                           <img :src="con.image" alt="" />
                         </div>
-                        <div class="wm-details" :style="{backgroundColor:`${con.background} !important`}">
+                        <div class="wm-details" :style="{backgroundColor:`${con.color} !important`}">
                           <div class="title">{{ con.label }}</div>
                         </div>
                       </div>
                       <div class="row" v-if="con.body_left">
                         <div class="col-lg-6" v-if="con.body_left"
-                              style="">
+                              style="padding:30px;margin-top: -20px">
                           <div class="acc-box">
                             <div v-html="con.body_left"></div>
                           </div>
@@ -123,10 +104,33 @@
                     </div>
                     <!-- End Design 2 -->
 
-
                 </div>
 
-                <p><br/></p>
+                <!-- Sectors -->
+                <div v-if="row.slug == 'i-am-an-instructor'" class="certificate-types">
+                  <router-link
+                    class="certificate-type"
+                    v-for="(sector, index) in sectors"
+                    :key="index"
+                    :to="{name: 'Programs'}"
+                  >
+                    <div class="certificate-title">
+                      {{ sector.title }}
+                      <sup v-if="sector.title">TM</sup>
+                    </div>
+                    <div class="certificate-text">{{ sector.subTitle }}</div>
+                  </router-link>
+                </div>
+                <!-- Sectors -->
+
+                  <!-- Design 3 -->
+                  <div class="widgets-steps" v-if="row.content[0].body && !row.content[0].background">
+                      <div v-for="(con, index) in row.content" :key="index" class="widget-step">
+                          <div class="steps-counter">{{ index + 1 }}</div>
+                          <div class="steps-details" v-html="con.body"></div>
+                      </div>
+                  </div>
+                  <!--- End Desgin 3 -->
 
               </div>
             </div>
@@ -134,61 +138,59 @@
 
             <!-- Right SideBar -->
             <div class="accrediation-became">
-
               <!-- FAQ -->
-             <p>
-             <div class="accred-faq" v-if="has_faq">
-                <router-link :to="{ name: 'faq' }" class="faq-link d-flex mb-30">
-                    <div class="faq-bold d-flex align-items-center">FAQ</div>
-                    <div class="faq-small d-flex align-items-center">
-                        Frequently Asked<br />Questions
+               <p>
+               <div class="accred-faq" v-if="has_faq">
+                  <router-link :to="{ name: 'faq' }" class="faq-link d-flex mb-30">
+                      <div class="faq-bold d-flex align-items-center">FAQ</div>
+                      <div class="faq-small d-flex align-items-center">
+                          Frequently Asked<br />Questions
+                      </div>
+                  </router-link>
+              </div>
+
+              <!-- Member -->
+              <p>
+              <div class="became-a" v-if="has_member">
+                  <div class="title mb-3">Become a Certified Trainer</div>
+                  <router-link :to="{ name: row.slug == 'i-am-an-instructor' ? 'InstructorApplication' : 'ExperienceApplication' }" class="read-more">
+                    <div>
+                      Apply Now <span class="icon-back"></span>
+                    </div>
+                  </router-link>
+              </div>
+              </p>
+
+              <!-- Training -->
+              <p>
+              <div class="training" v-if="has_training">
+                <div class="bg-title mb-3">Become An Accredited Training Center</div>
+                <router-link :to="{ name: row.slug == 'i-am-an-instructor' ? 'InstructorApplication' : 'ExperienceApplication' }" class="read-more">
+                    <div>
+                        Apply Now <span class="icon-back"></span>
                     </div>
                 </router-link>
-            </div>
-            </p>
-
-            <!-- Member -->
-            <p>
-            <div class="became-a" v-if="has_member">
-                <div class="title mb-3">Become a Certified Trainer</div>
-                <router-link :to="{ name: 'OnlineApplicationMem' }" class="read-more">
-                  <div>
-                    Apply Now <span class="icon-back"></span>
-                  </div>
-                </router-link>
-            </div>
-            </p>
-
-            <!-- Training -->
-            <p>
-            <div class="training" v-if="has_training">
-              <div class="bg-title mb-3">Become An Accredited Training Center</div>
-              <router-link :to="{ name: 'MembershipApplication' }" class="read-more">
-                  <div>
-                      Apply Now <span class="icon-back"></span>
-                  </div>
-              </router-link>
-            </div>
-            </p>
-
-            <!-- Download -->
-            <p>
-            <div class="program-download" v-if="has_download">
-              <div class="download-catalog">
-                  <img :src="require('../../assets/img/home.png')"
-                      alt="Download Catalog"
-                      class="img-fluid" />
-                  <div class="title">
-                      {{ download_name }}
-                  </div>
-                  <a v-if="pdf_file"
-                      :href="pdf_file"
-                      target="_blank"
-                      download class="download-btn">Download</a>
               </div>
-            </div>
-            </p>
+              </p>
 
+              <!-- Download -->
+              <p>
+              <div class="program-download" v-if="has_download">
+                <div class="download-catalog">
+                    <img :src="require('../../assets/img/home.png')"
+                        alt="Download Catalog"
+                        class="img-fluid" />
+                    <div class="title">
+                        {{ download_name }}
+                    </div>
+                    <a v-if="pdf_file"
+                        :href="pdf_file"
+                        target="_blank"
+                        download class="download-btn">Download</a>
+                </div>
+              </div>
+              </p>
+              </p>
 
             </div>
             <!-- End Right Sidebar -->
@@ -203,155 +205,63 @@
   </div>
 </template>
 
+<style scoped src="../../components/common/css/Accreditation.css">
+</style>
 
-<style scoped src="../../components/common/css/Eit.css"></style>
-<style scoped src="../../components/common/css/Accreditation.css"></style>
 <style scoped>
-.title-line:after {
-  left: 106%;
+.main-program-header .program-header-details {
+  width: 500px !important;
 }
-.req-bullet {
-  font-size: 16px;
-  color: #585858;
+.main-program-header .program-header-view {
+  width: calc(100% - 500px) !important;
+}
+.widget-accreditation:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.wa-bullet {
+  padding-left: 30px;
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 30px;
+  color: #777;
+  margin-bottom: 20px;
 }
-.req-bullet:after {
+.wa-bullet:before {
   content: "";
   position: absolute;
-  top: 9px;
-  left: 0;
+  left: 7px;
+  top: 10px;
+  border: 1px solid #1b1464;
   border-radius: 50%;
-  border: 1px solid #4f17a8;
   width: 8px;
   height: 8px;
 }
-.requirements-view {
-  display: flex;
-  justify-content: space-between;
+
+ul { list-style: circle !important; display: block !important; }
+ul li { margin-bottom: 20px !important; width: 100% }
+ul.list-unstyled { list-style: circle !important; display: block !important; }
+ul.list-unstyled li { margin-bottom: 20px !important; width: 100% }
+
+.widget-imgs-bullets:nth-of-type(even) .widget-moving-accred {
+  flex-direction: row-reverse;
 }
-.requirements-view > div {
-  width: 48%;
+.widget-imgs-bullets:nth-of-type(even) .widget-moving-accred img {
+  transform: translateX(-40px);
 }
-.requirements-details {
-  padding: 30px 0;
+
+div.program-header-details {
+  width: 640px !important;
+  background-color: #3b3b3b !important;
 }
-.program-title {
-  font-weight: 600;
-  font-size: 23px;
-  color: #2b0962;
+div.program-header-details .title {
+  color: #e0ea79;
 }
-.beneficiaries-list {
-  display: flex;
-  justify-content: space-between;
-}
-.beneficiaries-list > div {
-  width: 48%;
-}
-.corporate-widget {
-  display: flex;
-  justify-content: space-between;
-}
-.corporate-widget > div {
-  width: 50%;
-}
-.corporate-widget-details {
-  background-color: #0101a3;
-  padding: 70px 50px;
-}
-.corporate-widget-details .type,
-.corporate-widget-details .title {
-  color: #d9e362;
-}
-.type {
-  font-size: 20px;
-  position: relative;
-  margin-bottom: 40px;
-}
-.type:after {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: 0;
-  width: 50px;
-  background-color: #d9e362;
-  height: 4px;
-}
-.corporate-widget-details .title {
-  font-weight: bold;
-  font-size: 40px;
-  font-size: 37px;
+.title-jumbo {
+  color: #3b3b3b !important;
   line-height: 1;
+  padding-left: 25px;
+  border-left: 5px solid #d0d877;
 }
-.proof-bullets {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.proof-bullets > div {
-  width: 48%;
-}
-.membership-attainment-steps {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-.membership-attainment-steps > div {
-  width: 48%;
-  color: #6e6d76;
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-.program-header.main-program-header .program-header-view {
-  width: calc(100% - 330px);
-}
-@media (max-width: 575.98px) {
-}
-
-@media (max-width: 767.98px) {
-  .became-a,
-  .requirements-widget,
-  .beneficiaries-widget,
-  .corporate-widget,
-  .membership-proof,
-  .membership-attainment {
-    display: none !important;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .corporate-widget {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-  }
-  .corporate-widget > div {
-    width: 100%;
-    /* height: 300px; */
-  }
-  .corporate-widget-view {
-    display: none;
-  }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .program-header-details {
-    width: 330px !important;
-  }
-  .program-header.main-program-header .title:after {
-    height: 10px;
-  }
-  .corporate-widget > div {
-    width: 100%;
-  }
-  .corporate-widget-view {
-    display: none;
-  }
-}
-
+.hidden { display: none !important }
 .bg-title {
   font-weight: bold;
   font-size: 20px;
@@ -368,6 +278,35 @@
   font-size: 33px;
   color: #1b1464;
 }
+
+.certificate-types {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.certificate-type {
+  border: 1px solid #c7c7c7;
+  padding: 23px 26px;
+  width: calc(33.3% - 17px);
+  margin-bottom: 34px;
+}
+.certificate-title {
+  font-size: 30px;
+  font-weight: normal;
+  color: #1b1464;
+  font-weight: 600;
+}
+.certificate-title sup {
+  font-size: 15px;
+}
+.wm-details {
+  transform: none;
+}
+.wm-view img {
+  width: 100%;
+  height: 100%;
+}
 </style>
 
 <script>
@@ -376,7 +315,7 @@ import Footer from "../../components/Footer.vue";
 import axios from "axios";
 
 export default {
-  name: "PopularSearch",
+  name: "Accreditations",
   components: {
     Navbar: Navbar,
     Footer: Footer
@@ -399,25 +338,26 @@ export default {
       rows: [],
       navigation: [],
       pgLoading: false,
+      sectors: []
     };
   },
   watch: {
     $route() {
-      this.fetchData();
+      this.fetchRow();
     },
   },
   created() {
-    this.fetchData();
+    this.fetchRow();
   },
   methods: {
 
-    fetchData() {
+    fetchRow() {
       this.pgLoading = true;
       axios.defaults.headers.common = {
         //'X-Requested-With': 'XMLHttpRequest', // security to prevent CSRF attacks
       };
       const options = {
-        url: window.baseURL+'/popularSearch',
+        url: window.baseURL+'/popularSearch/'+this.$route.params.slug,
         method: 'GET',
         data: {},
         params: {},
@@ -426,21 +366,28 @@ export default {
         .then(res => {
           this.pgLoading = false;
 
-          // current row
-          this.bgTitle = res.data.rows[0].bgTitle;
-          this.bgColor = res.data.rows[0].bgColor;
-          this.bgImage = res.data.rows[0].image;
+          const data = res.data.row;
+          this.sectors = data.sectors;
 
-          this.has_faq = res.data.rows[0].has_faq;
-          this.has_scroll = res.data.rows[0].has_scroll;
-          this.has_training = res.data.rows[0].has_training;
-          this.has_download = res.data.rows[0].has_download;
-          this.download_name = res.data.rows[0].download_name;
-          this.pdf_file = res.data.rows[0].pdf_file;
+          console.log(data);
+
+          // current row
+          this.bgTitle = res.data.row.bgTitle;
+          this.bgColor = res.data.row.bgColor;
+          this.bgImage = res.data.row.image;
+
+          this.has_faq = res.data.row.has_faq;
+          this.has_scroll = res.data.row.has_scroll;
+          this.has_training = res.data.row.has_training;
+          this.has_download = res.data.row.has_download;
+          this.download_name = res.data.row.download_name;
+          this.pdf_file = res.data.row.pdf_file;
 
           // content
-          this.rows = res.data.rows;
+          this.row = res.data.row;
           this.navigation = res.data.navigation;
+
+          console.log(res.data.row);
         })
         .catch(err => {
             this.pgLoading = false;
